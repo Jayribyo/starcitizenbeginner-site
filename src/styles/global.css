@@ -86,4 +86,8 @@ footer{
   margin-top: 26px;
   color: var(--muted);
   font-size: 13px;
+
+}
+@media (max-width: 720px) {
+  .container { padding-left: 16px; padding-right: 16px; }
 }
