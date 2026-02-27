@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ReferralCTA from "../components/ReferralCTA.astro";
+
+const paths = { en:"/", de:"/de/", es:"/es/", fr:"/fr/", ru:"/ru/", zh:"/zh/" };
+
+const t = {
+  title: "Star Citizen Beginner Guide | Quick Start + Referral Bonus",
+  desc: "A beginner-friendly Star Citizen quick start guide with key steps, points of interest, and how to claim the referral bonus.",
+  heroKicker: "New pilot friendly",
+  heroH1: "Start smart in the Verse.",
+  heroLead: "A clean, beginner-first guide that helps you get in-game fast — with a clear explanation of the referral bonus (no spam, just steps).",
+  qsTitle: "Quick Start (5 minutes)",
+  qs1: "Create your RSI account (use the referral code during signup).",
+  qs2: "Pick a starter pack you can actually fly and upgrade later.",
+  qs3: "Install, launch, and do your first simple contract to learn navigation and landing.",
+  poiTitle: "Points of Interest (beginner picks)",
+  poiLead: "A few locations that are easy to understand and useful early on:",
+  poi: ["Area18 (ArcCorp) – easy hub for shopping & transit", "New Babbage (microTech) – clean layout, great for learning", "Lorville (Hurston) – classic industrial city hub", "Orison (Crusader) – beautiful, but can be heavy on FPS"],
+  faqTitle: "FAQ (referral code)",
+  faq1q: "Does using a referral code cost me anything?",
+  faq1a: "No. It’s a normal signup. You just receive the referral bonus when you create the account with a code/link.",
+  faq2q: "Where do I enter the code?",
+  faq2a: "During account creation on the RSI website. If you use the referral link, it’s applied automatically.",
+  disclaimer: "Unofficial community guide. Not affiliated with Cloud Imperium Games or Roberts Space Industries."
+};
+---
+<BaseLayout
+  lang="en"
+  title={t.title}
+  description={t.desc}
+  canonicalPath="/"
+  brand="Star Citizen Beginner"
+  paths={paths}
+>
+  <main class="container">
+    <div class="grid">
+      <section class="card">
+        <div class="kicker">{t.heroKicker}</div>
+        <h1 class="h1">{t.heroH1}</h1>
+        <p class="lead">{t.heroLead}</p>
+
+        <div class="badge">Referral Code: <strong style="color:#fff;">STAR-FSRJ-5N7Z</strong></div>
+
+        <hr class="sep" />
+
+        <div id="quickstart">
+          <h2 style="margin:0 0 10px;">{t.qsTitle}</h2>
+          <ol style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
+            <li>{t.qs1}</li>
+            <li>{t.qs2}</li>
+            <li>{t.qs3}</li>
+          </ol>
+        </div>
+
+        <hr class="sep" />
+
+        <h2 style="margin:0 0 10px;">{t.poiTitle}</h2>
+        <p class="lead" style="margin-top:0;">{t.poiLead}</p>
+        <ul style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
+          {t.poi.map(x => <li>{x}</li>)}
+        </ul>
+
+        <footer>
+          <p style="margin:16px 0 0;">{t.disclaimer}</p>
+        </footer>
+      </section>
+
+      <aside>
+        <ReferralCTA
+          title="Claim the signup bonus"
+          blurb="If you’re creating a new account, using a referral code/link gives you the bonus. This page explains it clearly — and keeps the focus on helping beginners."
+          ctaPrimary="Create account (referral applied)"
+          ctaSecondary="Read quick start"
+        />
+
+        <div style="height:14px;"></div>
+
+        <div class="card">
+          <div class="kicker">What’s next</div>
+          <h2 style="margin:10px 0 8px; font-size: 20px;">Starter packs & performance</h2>
+          <p style="margin:0; color: rgba(255,255,255,.78);">
+            Next we’ll add a clean starter pack comparison, and a performance/settings guide (huge SEO traffic magnet).
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <div style="height:18px;"></div>
+
+    <section class="card">
+      <h2 style="margin:0 0 10px;">{t.faqTitle}</h2>
+
+      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
+        <summary style="cursor:pointer; font-weight:800;">{t.faq1q}</summary>
+        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq1a}</p>
+      </details>
+
+      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
+        <summary style="cursor:pointer; font-weight:800;">{t.faq2q}</summary>
+        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq2a}</p>
+      </details>
+    </section>
+  </main>
+</BaseLayout>
