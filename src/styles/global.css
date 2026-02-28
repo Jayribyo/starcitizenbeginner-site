@@ -24,9 +24,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* IMPORTANT:
-   Do NOT set width:100% globally on img (breaks logo in nav).
-*/
+/* IMPORTANT: no global img width:100% (keeps nav logo sane) */
 img {
   max-width: 100%;
   display: block;
@@ -106,6 +104,11 @@ a {
   font-size: 16px;
 }
 
+/* ✅ Fix #2 (part 1): Better wrapping for headings in cards */
+.section .card h2 {
+  text-wrap: balance;
+}
+
 /* ========== Topbar ========== */
 .topbar {
   position: sticky;
@@ -132,7 +135,6 @@ a {
   letter-spacing: 0.3px;
 }
 
-/* This prevents logo blow-up */
 .brand img {
   width: 64px;
   height: 64px;
@@ -243,7 +245,7 @@ a {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* ========== Tiles (perfect squares again) ========== */
+/* ========== Tiles (squares) ========== */
 .tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -258,8 +260,6 @@ a {
   background: rgba(255, 255, 255, 0.03);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   transition: transform 0.18s ease, border-color 0.18s ease;
-
-  /* ✅ Square tiles */
   aspect-ratio: 1 / 1;
 }
 
@@ -268,7 +268,6 @@ a {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Fill tile area */
 .tile img {
   width: 100%;
   height: 100%;
@@ -276,6 +275,7 @@ a {
   filter: saturate(1.05);
 }
 
+/* ✅ Fix #1: lighten the overlay so tiles are readable again */
 .tile__content {
   position: absolute;
   inset: 0;
@@ -284,8 +284,8 @@ a {
   justify-content: flex-end;
   padding: 14px;
   background:
-    radial-gradient(600px 220px at 35% 70%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.80) 72%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.72));
+    radial-gradient(600px 220px at 35% 70%, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.60) 72%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.52));
 }
 
 .tile__pill {
@@ -296,9 +296,9 @@ a {
   font-size: 11px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.30);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.90);
   margin-bottom: 8px;
 }
 
@@ -311,12 +311,12 @@ a {
 .tile__desc {
   margin: 6px 0 0;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.55;
   max-width: 52ch;
 }
 
-/* ========== Two-column sections (symmetric image weight) ========== */
+/* ========== Two-column sections ========== */
 .section__grid {
   display: grid;
   grid-template-columns: 60% 40%;
@@ -324,7 +324,6 @@ a {
   align-items: stretch;
 }
 
-/* alternating layout: image first but still narrow */
 .section--secondary .section__grid {
   grid-template-columns: 40% 60%;
 }
@@ -352,11 +351,9 @@ a {
 }
 
 /* ========== Responsive ========== */
-@media (max-width: 980px) {
-  .tiles {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
+/* ✅ Fix #2 (part 2): stack sections EARLIER so the heading doesn't get forced into ugly wraps */
+@media (max-width: 1060px) {
   .section__grid {
     grid-template-columns: 1fr;
   }
@@ -365,9 +362,21 @@ a {
     height: 300px;
   }
 
-  /* Premium: avoid image-image stacks on narrow screens */
+  /* keep the premium mobile behavior: avoid image-image stacks */
   .section--secondary .section__img {
     display: none;
+  }
+
+  /* slightly smaller headings when columns tighten */
+  .section .card h2 {
+    font-size: 22px !important;
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 980px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -380,7 +389,6 @@ a {
     height: 240px;
   }
 
-  /* keep topbar compact on small screens */
   .brand img {
     width: 52px;
     height: 52px;
