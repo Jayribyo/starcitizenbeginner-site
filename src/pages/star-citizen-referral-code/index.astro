@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+---
+
+<BaseLayout
+  lang="en"
+  title="Star Citizen Referral Code (SCB) | Get 5,000 UEC Bonus"
+  description="Use a Star Citizen referral code during account creation to start with bonus UEC. Step-by-step instructions, FAQ, and a copy-paste code."
+  canonicalPath="/star-citizen-referral-code/"
+>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="SCB Home">
+        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
+        <span>Star Citizen Beginner</span>
+      </a>
+
+      <div class="lang" aria-label="Language switch (placeholder)">
+        <span style="opacity:.7;">Lang:</span>
+        <a class="active" href="/star-citizen-referral-code/">EN</a>
+        <a href="/de/">DE</a>
+        <a href="/es/">ES</a>
+        <a href="/fr/">FR</a>
+        <a href="/ru/">RU</a>
+        <a href="/zh/">中文</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Star Citizen Referral Code</div>
+        <h1 class="h1" style="margin-top:10px;">Get your 5,000 UEC bonus (in under a minute).</h1>
+        <p class="lead" style="max-width: 820px;">
+          If you’re creating a new RSI account, adding a referral code is the easiest win:
+          you start with bonus UEC (in-game credits) at no extra cost.
+        </p>
+
+        <div class="card pad" style="margin-top:14px; border-radius: 14px;">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+            <div>
+              <div style="opacity:.75; font-size: 13px;">Copy & paste this during account creation:</div>
+              <div style="font-size: 22px; letter-spacing: .12em; font-weight: 900; margin-top: 6px;">
+                {referralCode}
+              </div>
+            </div>
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+              Create Account (Referral active)
+            </a>
+          </div>
+        </div>
+
+        <p style="margin: 12px 0 0; color: var(--muted2); line-height: 1.6;">
+          Note: The referral code must be added during account creation. If you use the link above, it’s applied automatically.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__grid">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> How to use it</div>
+          <h2 style="margin:12px 0 10px; font-size:24px; letter-spacing:-.3px;">Step-by-step (new account)</h2>
+
+          <ol style="margin:0; padding-left:18px; color: var(--muted); line-height:1.75;">
+            <li>Open the RSI enlist page (or click the button above).</li>
+            <li>Create your account as usual.</li>
+            <li>If you’re not using the referral link, paste the code <b style="color:rgba(255,255,255,.9);">{referralCode}</b> into the referral field.</li>
+            <li>Finish registration. Your bonus UEC is associated with your account.</li>
+          </ol>
+
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            After you have an account, you can proceed to choosing a starter pack.
+            If you’re brand new, SCB’s hub gives you a clean “what to do first” flow.
+          </p>
+
+          <div class="btnrow" style="margin-top: 14px;">
+            <a class="btn secondary" href="/">Go to SCB Hub</a>
+            <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> Why it matters</div>
+          <h2 style="margin:12px 0 10px; font-size:24px; letter-spacing:-.3px;">It’s a free head start.</h2>
+
+          <ul style="margin:0; padding-left:18px; color: var(--muted); line-height:1.75;">
+            <li><b style="color:rgba(255,255,255,.9);">Bonus UEC:</b> helps you buy early gear, med pens, ammo, and basic ship components.</li>
+            <li><b style="color:rgba(255,255,255,.9);">No downside:</b> you’re registering normally—just with the referral field filled in.</li>
+            <li><b style="color:rgba(255,255,255,.9);">Best timing:</b> only works at account creation, so it’s worth doing once, correctly.</li>
+          </ul>
+
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            Some promotional events add extra perks; the baseline is still a simple, free bonus for new accounts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> FAQ</div>
+        <h2 style="margin:12px 0 10px; font-size:24px; letter-spacing:-.3px;">Common questions</h2>
+
+        <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
+          <summary style="cursor:pointer; font-weight:800;">Does using a referral code cost anything?</summary>
+          <p style="margin:8px 0 0; color: rgba(255,255,255,.78); line-height:1.6;">
+            No. It’s the same registration—your account just starts with the bonus attached.
+          </p>
+        </details>
+
+        <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
+          <summary style="cursor:pointer; font-weight:800;">Can I add the referral code after creating my account?</summary>
+          <p style="margin:8px 0 0; color: rgba(255,255,255,.78); line-height:1.6;">
+            In practice, you should assume <b>no</b>. Use it during account creation (or use the referral link) to avoid missing the bonus.
+          </p>
+        </details>
+
+        <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
+          <summary style="cursor:pointer; font-weight:800;">Where do I see the bonus?</summary>
+          <p style="margin:8px 0 0; color: rgba(255,255,255,.78); line-height:1.6;">
+            The bonus is tied to your account. Exact timing/visibility can vary by account state and current promotions, but using the code at signup is the key step.
+          </p>
+        </details>
+
+        <div class="btnrow" style="margin-top: 16px;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Referral active)</a>
+          <a class="btn secondary" href="/first-2-hours/">First 2 Hours Guide</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;">
+          <div>
+            <b>SCB</b> — Unofficial community guide.
+          </div>
+          <div>
+            Referral: <a href={referralLink} target="_blank" rel="noopener noreferrer">{referralCode}</a>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          This site is not endorsed by or affiliated with Cloud Imperium or Roberts Space Industries.
+          Star Citizen® and related marks are trademarks of their respective owners.
+        </div>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>
