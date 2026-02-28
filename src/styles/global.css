@@ -345,9 +345,8 @@ a {
     grid-template-columns: 1fr;
   }
 
-  /* Premium fix:
-     As soon as sections become 1-column, hide the secondary section image
-     to avoid "image then image" stacking on narrow screens. */
+  /* Premium fix: when sections stack to 1 column, hide the SECOND section image
+     to avoid back-to-back large images on narrow screens. */
   .section--secondary .section__img {
     display: none;
   }
