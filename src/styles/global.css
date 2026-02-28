@@ -314,7 +314,9 @@ a {
   align-items: stretch;
 }
 
+/* NEW: make section images consistent in height on desktop */
 .section__img {
+  height: 340px; /* standard panel height */
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.10);
@@ -345,6 +347,11 @@ a {
     grid-template-columns: 1fr;
   }
 
+  /* slightly smaller image panel on tablet */
+  .section__img {
+    height: 300px;
+  }
+
   /* Premium fix: when sections stack to 1 column, hide the SECOND section image
      to avoid back-to-back large images on narrow screens. */
   .section--secondary .section__img {
@@ -355,5 +362,10 @@ a {
 @media (max-width: 560px) {
   .tiles {
     grid-template-columns: 1fr;
+  }
+
+  /* keep first section image compact on phones */
+  .section__img {
+    height: 240px;
   }
 }
