@@ -340,19 +340,21 @@ a {
   .tiles {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .section__grid {
     grid-template-columns: 1fr;
   }
+
+  /* Premium fix:
+     As soon as sections become 1-column, hide the secondary section image
+     to avoid "image then image" stacking on narrow screens. */
+  .section--secondary .section__img {
+    display: none;
+  }
 }
 
-/* Premium mobile solution:
-   Hide the secondary section image so you don't get "image > image" stacks on phones. */
 @media (max-width: 560px) {
   .tiles {
     grid-template-columns: 1fr;
-  }
-
-  .section--secondary .section__img {
-    display: none;
   }
 }
