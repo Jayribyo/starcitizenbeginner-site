@@ -1,59 +1,34 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-
 const {
-  lang,
-  title,
-  description,
-  canonicalPath,
-  brand = "Star Citizen Beginner",
-  paths
+  lang = "en",
+  title = "Star Citizen Beginner (SCB)",
+  description = "",
+  canonicalPath = "/",
+  ogImage = "/assets/img/home/scb-home-hero.webp",
 } = Astro.props;
 
-const site = Astro.site?.toString()?.replace(/\/$/, "") || "https://starcitizenbeginner-site.pages.dev";
-const canonical = `${site}${canonicalPath}`;
-
-const hreflangs = [
-  { lang: "en", href: `${site}/` },
-  { lang: "de", href: `${site}/de/` },
-  { lang: "es", href: `${site}/es/` },
-  { lang: "fr", href: `${site}/fr/` },
-  { lang: "ru", href: `${site}/ru/` },
-  { lang: "zh", href: `${site}/zh/` },
-  { lang: "x-default", href: `${site}/` }
-];
+const canonical = `https://YOUR_DOMAIN${canonicalPath}`;
 ---
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    {hreflangs.map(h => <link rel="alternate" hrefLang={h.lang} href={h.href} />)}
-
+    <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
 
-    <meta name="theme-color" content="#0b1020" />
+    <title>{title}</title>
 
-    <script type="application/ld+json" is:inline>
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": brand,
-        "url": site,
-        "inLanguage": lang
-      })}
-    </script>
+    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
-    <Header brand={brand} lang={lang} paths={paths} />
     <slot />
   </body>
 </html>
