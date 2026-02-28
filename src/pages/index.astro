@@ -1,437 +1,243 @@
-/* src/styles/global.css */
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-/* ========== Reset / Base ========== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralPage = "/star-citizen-referral-code/";
 
-html,
-body {
-  height: 100%;
-}
+const tiles = [
+  {
+    href: referralPage,
+    img: "/assets/img/home/tiles/scb-tile-referral-bonus.webp",
+    title: "Referral Bonus",
+    desc: "Use a referral code during account creation and start with extra in-game credits.",
+    pill: "Bonus",
+  },
+  {
+    href: "/beginner-tips/",
+    img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
+    title: "Beginner Tips",
+    desc: "The non-obvious stuff that saves you hours: first goals, common traps, smart priorities.",
+    pill: "Start here",
+  },
+  {
+    href: "/first-2-hours/",
+    img: "/assets/img/home/tiles/scb-tile-first-2-hours.webp",
+    title: "First 2 Hours",
+    desc: "A simple script: spawn → gear → first contract → money loop → confidence.",
+    pill: "Checklist",
+  },
+  {
+    href: "/starter-pack/",
+    img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
+    title: "Starter Pack",
+    desc: "Which starter makes sense, when to upgrade, and whether Squadron 42 is worth it.",
+    pill: "Buy smart",
+  },
+  {
+    href: "/make-money-fast/",
+    img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
+    title: "Make Money Fast",
+    desc: "Early aUEC routes: contracts, loot, mining gems, trading basics—fast and safe.",
+    pill: "aUEC",
+  },
+  {
+    href: "/performance-settings/",
+    img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
+    title: "Performance & Settings",
+    desc: "Best-practice settings and quick wins to make SC feel smoother (without placebo).",
+    pill: "FPS wins",
+  },
+];
+---
 
-body {
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
-  background: radial-gradient(1200px 600px at 15% 10%, rgba(52, 120, 255, 0.12), transparent 60%),
-    radial-gradient(900px 500px at 85% 20%, rgba(255, 140, 0, 0.10), transparent 55%),
-    linear-gradient(180deg, #070a12, #070a12);
-  color: rgba(255, 255, 255, 0.92);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<BaseLayout
+  lang="en"
+  title="Star Citizen Beginner Guide (SCB) | Start the Smart Way"
+  description="A clean, practical Star Citizen beginner guide: claim your referral bonus, then follow step-by-step guides for your first 2 hours, starter packs, performance, and early aUEC."
+  canonicalPath="/"
+>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="SCB Home">
+        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
+        <span>Star Citizen Beginner</span>
+      </a>
 
-/* keep nav logo sane */
-img {
-  max-width: 100%;
-  display: block;
-}
+      <div class="lang" aria-label="Language switch (placeholder)">
+        <span style="opacity:.7;">Lang:</span>
+        <a class="active" href="/">EN</a>
+        <a href="/de/">DE</a>
+        <a href="/es/">ES</a>
+        <a href="/fr/">FR</a>
+        <a href="/ru/">RU</a>
+        <a href="/zh/">中文</a>
+      </div>
+    </div>
+  </header>
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  <main class="container">
+    <!-- HERO (de-cluttered, SEO-safe) -->
+    <section class="hero">
+      <img
+        class="hero__img"
+        src="/assets/img/home/scb-home-hero.webp"
+        alt="Star Citizen ship flying through space"
+        loading="eager"
+      />
+      <div class="hero__overlay"></div>
 
-:root {
-  --bg: #070a12;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel2: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.10);
-  --muted: rgba(255, 255, 255, 0.70);
-  --muted2: rgba(255, 255, 255, 0.58);
+      <div class="hero__content">
+        <div class="container" style="width:100%;">
+          <div style="max-width: 720px; padding: 26px 0;">
+            <div class="kicker">
+              <span class="dot"></span>
+              Smart Entry Guide for New Pilots
+            </div>
 
-  --accent: #ff9a2f;
-  --accent2: #3aa0ff;
+            <h1 class="h1">Star Citizen Beginner Guide: Start the smart way.</h1>
 
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
-  --radius: 18px;
-}
+            <p class="lead">
+              A clean starter path — plus six practical guides for your first hours, starter pack, FPS, and early aUEC.
+            </p>
 
-/* ========== Layout Helpers ========== */
-.container {
-  width: min(1100px, calc(100% - 32px));
-  margin: 0 auto;
-}
+            <div class="btnrow">
+              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+                Get 5,000 UEC Bonus
+              </a>
+              <a class="btn secondary" href="#hub">Explore Guides</a>
+            </div>
 
-.section {
-  margin: 22px 0;
-}
+            <div class="heroMeta">
+              <span><b>Star Citizen referral code:</b> {referralCode}</span>
+              <span class="heroMeta__sep">•</span>
+              <span class="heroMeta__note">Use it during account creation.</span>
+              <span class="heroMeta__sep">•</span>
+              <a class="heroMeta__link" href={referralPage}>How the referral bonus works</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.04));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(8px);
-}
+    <!-- HUB / TILES -->
+    <section id="hub" class="section" style="margin-top: 18px;">
+      <div class="card pad" style="margin-bottom:14px;">
+        <div class="kicker"><span class="dot"></span> Star Citizen Beginner Guides</div>
+        <h2 class="section__title" style="margin:12px 0 6px;">Start here. Then go deeper.</h2>
+        <p style="margin:0; color: var(--muted); line-height:1.6;">
+          Six focused guides. No fluff. Built for real in-game decisions.
+        </p>
+      </div>
 
-.pad {
-  padding: 18px;
-}
+      <div class="tiles">
+        {tiles.map((t) => (
+          <a class="tile" href={t.href} aria-label={t.title}>
+            <img src={t.img} alt={t.title} loading="lazy" />
+            <div class="tile__content">
+              <div class="tile__pill"><b>SCB</b> • {t.pill}</div>
+              <h3 class="tile__title">{t.title}</h3>
+              <p class="tile__desc">{t.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
 
-.kicker {
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
-}
+    <!-- WHAT IS -->
+    <section class="section">
+      <div class="section__grid">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
+          <h2 class="section__title">A living sci-fi universe you actually inhabit.</h2>
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--accent));
-  box-shadow: 0 0 18px rgba(255, 154, 47, 0.35);
-}
+          <p style="margin:0; color: var(--muted); line-height:1.6;">
+            Star Citizen is a Persistent Universe (PU) that blends space flight, FPS gameplay, and an economy sandbox.
+            You can fly ships, do contracts, move cargo, explore planets and stations, and team up for emergent co-op moments.
+          </p>
 
-.h1 {
-  margin: 10px 0 10px;
-  font-size: clamp(30px, 3.2vw, 44px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            It’s not a theme-park MMO where everything is on rails—most of the “wow” comes from unscripted situations:
+            a messy landing, a rescue beacon turning into a firefight, a profitable cargo run that goes sideways.
+          </p>
 
-.lead {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 16px;
-}
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            It’s also actively developed. That means features evolve, balance changes, and occasional rough patches.
+            SCB is built to help you start with the least friction: what to do first, what to ignore, and how to build momentum.
+          </p>
+        </div>
 
-/* Compact SEO-friendly hero meta line */
-.heroMeta {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  align-items: center;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.66);
-}
+        <div class="section__img">
+          <img
+            src="/assets/img/home/scb-home-what-is-star-citizen.webp"
+            alt="Star Citizen universe visual"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
 
-.heroMeta b {
-  color: rgba(255, 255, 255, 0.86);
-}
+    <!-- IS IT FOR YOU -->
+    <section class="section section--secondary">
+      <div class="section__grid">
+        <div class="section__img">
+          <img
+            src="/assets/img/home/scb-home-pros-cons.webp"
+            alt="Star Citizen experience visual"
+            loading="lazy"
+          />
+        </div>
 
-.heroMeta__sep {
-  opacity: 0.45;
-}
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> Is it for you?</div>
+          <h2 class="section__title">High highs. Real depth.</h2>
 
-.heroMeta__link {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  opacity: 0.9;
-}
+          <p style="margin:0; color: var(--muted); line-height:1.6;">
+            Star Citizen rewards curiosity, systems thinking, and immersion. It’s a universe where you learn by doing —
+            flying, trading, exploring, and figuring out efficient routes.
+          </p>
 
-.heroMeta__link:hover {
-  opacity: 1;
-}
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            Development is ongoing, which means features evolve and the experience keeps expanding. If you enjoy games that
+            grow over time and reward patience and mastery, you’ll likely feel at home.
+          </p>
 
-/* Headings inside sections */
-.section__title {
-  margin: 12px 0 10px;
-  font-size: clamp(20px, 2.2vw, 24px);
-  line-height: 1.15;
-  letter-spacing: -0.3px;
-  text-wrap: balance;
-}
+          <ul style="margin:12px 0 0; padding-left:18px; color: var(--muted); line-height:1.65;">
+            <li>
+              <b style="color:rgba(255,255,255,.9);">You’ll love it if:</b>
+              you enjoy exploration, flight, co-op problem-solving, and building your own path.
+            </li>
+            <li>
+              <b style="color:rgba(255,255,255,.9);">Good to know:</b>
+              performance and complexity improve with experience — your first hours matter.
+            </li>
+          </ul>
 
-/* ========== Topbar ========== */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: rgba(7, 10, 18, 0.75);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-}
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            The practical tip: treat your first sessions like a guided onboarding. Follow a clean starter path, and the
+            universe opens up quickly.
+          </p>
+        </div>
+      </div>
+    </section>
 
-.topbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 16px 0;
-}
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;">
+          <div>
+            <b>SCB</b> — Unofficial community guide.
+          </div>
+          <div>
+            Referral: <a href={referralLink} target="_blank" rel="noopener noreferrer">{referralCode}</a>
+          </div>
+        </div>
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-}
-
-.brand img {
-  width: 64px;
-  height: 64px;
-  flex: 0 0 auto;
-}
-
-.brand span {
-  font-size: 22px;
-  font-weight: 900;
-  opacity: 1;
-  white-space: nowrap;
-}
-
-.lang {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.lang a {
-  opacity: 0.75;
-}
-
-.lang a.active {
-  opacity: 1;
-  font-weight: 800;
-}
-
-/* ========== Hero ========== */
-.hero {
-  position: relative;
-  margin-top: 18px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: var(--shadow);
-}
-
-.hero__img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  filter: saturate(1.08) brightness(1.06);
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(900px 420px at 25% 45%, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.52) 65%),
-    linear-gradient(90deg, rgba(7, 10, 18, 0.62), rgba(7, 10, 18, 0.06));
-}
-
-.hero__content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-}
-
-/* ========== Buttons ========== */
-.btnrow {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 40px;
-  padding: 0 14px;
-  border-radius: 12px;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.16);
-}
-
-.btn.primary {
-  background: linear-gradient(180deg, rgba(255, 154, 47, 0.95), rgba(255, 154, 47, 0.78));
-  border-color: rgba(255, 154, 47, 0.45);
-  color: rgba(0, 0, 0, 0.92);
-}
-
-.btn.primary:hover {
-  background: linear-gradient(180deg, rgba(255, 170, 70, 1), rgba(255, 154, 47, 0.86));
-}
-
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* ========== Tiles (squares) ========== */
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.tile {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-  transition: transform 0.18s ease, border-color 0.18s ease;
-  aspect-ratio: 1 / 1;
-}
-
-.tile:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-/* Slight grade (not washed, not too dark) */
-.tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(1.06) brightness(1.03) contrast(1.06);
-}
-
-/* Best-practice overlay: gentle vignette + strong bottom fade */
-.tile__content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 14px;
-  background:
-    radial-gradient(120% 85% at 50% 30%, rgba(0,0,0,0.28), rgba(0,0,0,0.00) 60%),
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.10) 0%,
-      rgba(0, 0, 0, 0.08) 55%,
-      rgba(0, 0, 0, 0.30) 74%,
-      rgba(0, 0, 0, 0.68) 100%
-    );
-}
-
-.tile__pill {
-  align-self: flex-start;
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 11px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.34);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 8px;
-}
-
-.tile__title {
-  margin: 0;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
-}
-
-.tile__desc {
-  margin: 6px 0 0;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.86);
-  line-height: 1.55;
-  max-width: 52ch;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
-}
-
-/* ========== Two-column sections ========== */
-.section__grid {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  gap: 14px;
-  align-items: stretch;
-}
-
-.section--secondary .section__grid {
-  grid-template-columns: 40% 60%;
-}
-
-.section__img {
-  height: 340px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-.section__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ========== Footer ========== */
-.footer {
-  margin: 26px 0 18px;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-/* ========== Responsive ========== */
-@media (max-width: 1120px) {
-  .section__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section--secondary .section__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section__img {
-    height: 300px;
-  }
-
-  .section--secondary .section__img {
-    display: none;
-  }
-}
-
-@media (max-width: 980px) {
-  .tiles {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 560px) {
-  .tiles {
-    grid-template-columns: 1fr;
-  }
-
-  .section__img {
-    height: 240px;
-  }
-
-  .brand img {
-    width: 52px;
-    height: 52px;
-  }
-
-  .brand span {
-    font-size: 18px;
-  }
-}
+        <div style="margin-top:10px;">
+          This site is not endorsed by or affiliated with Cloud Imperium or Roberts Space Industries.
+          Star Citizen® and related marks are trademarks of their respective owners.
+        </div>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>
