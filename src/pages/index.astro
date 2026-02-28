@@ -89,37 +89,29 @@ const tiles = [
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
-        <!-- Premium tweak: slightly more compact vertical rhythm -->
         <div style="max-width:720px; padding: 26px 0;">
-          <!-- KICKER REMOVED ON PURPOSE (per your request) -->
+          <h1 class="h1">Star Citizen Beginner Guide: Start the smart way.</h1>
 
-          <h1 class="h1">
-            Star Citizen Beginner Guide: Start the smart way.
-          </h1>
-
-          <p class="lead">
-            The clean path for new pilots.
-          </p>
+          <p class="lead">The clean path for new pilots.</p>
 
           <div class="btnrow">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
               Get 5,000 UEC Bonus
             </a>
-            <a class="btn secondary" href="#guides">
-              Explore Guides
-            </a>
+            <a class="btn secondary" href="#guides">Explore Guides</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== REFERRAL INFO BAR ===================== -->
-    <section class="refBar">
+    <!-- ===================== REFERRAL INFO BAR (GOLDEN EMPHASIS) ===================== -->
+    <section class="refBar refBar--gold" aria-label="Referral bonus info">
       <div class="refBar__inner">
         <span>
-          ⭐ Use referral code <b>{referralCode}</b> and start with 5,000 bonus UEC.
+          <span class="refBar__star" aria-hidden="true">★</span>
+          Use referral code <b>{referralCode}</b> and start with <b>5,000 bonus UEC</b>.
         </span>
-        <a href={referralPage}>How it works →</a>
+        <a class="refBar__link" href={referralPage}>How it works →</a>
       </div>
     </section>
 
@@ -154,14 +146,28 @@ const tiles = [
           <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
           <h2 class="section__title">A living sci-fi universe.</h2>
 
-          <p style="margin:0; color: var(--muted); line-height:1.6;">
-            Star Citizen combines space simulation, FPS gameplay and a dynamic economy. You fly ships, trade cargo,
-            complete contracts and explore planets with real players.
+          <p style="margin:0; color: var(--muted); line-height:1.7;">
+            Star Citizen is a large-scale space simulation that blends space flight, FPS combat and a fully player-driven
+            economy into one persistent online universe. Unlike traditional MMOs, there are no fixed classes or predefined
+            paths — you choose your role, your ship and your pace.
           </p>
 
-          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
-            It’s complex, ambitious and constantly evolving — which makes your first hours critical. This guide helps you
-            avoid mistakes and build momentum early.
+          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
+            You can pilot ships across entire planetary systems, trade cargo between stations, mine resources, run delivery
+            contracts, bounty hunt criminals or join multi-crew operations. Every activity connects to a shared economy
+            where supply, demand and risk directly affect your earnings.
+          </p>
+
+          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
+            What makes Star Citizen unique is its persistence. The universe continues evolving through active development,
+            frequent updates and system expansions. Features improve, mechanics deepen and new gameplay loops are introduced
+            over time — which makes understanding the fundamentals especially important for beginners.
+          </p>
+
+          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
+            It is not a fast arcade space shooter. It rewards preparation, knowledge and efficiency. If you start with a
+            clear plan, your first hours become structured instead of overwhelming — and that’s exactly what this guide is
+            built for.
           </p>
         </div>
 
@@ -190,19 +196,38 @@ const tiles = [
           <div class="kicker"><span class="dot"></span> Is it for you?</div>
           <h2 class="section__title">High highs. Real depth.</h2>
 
-          <p style="margin:0; color: var(--muted); line-height:1.6;">
-            Star Citizen rewards patience, planning and systems thinking. If you enjoy mastering complex mechanics and
-            building your own path, you’ll likely feel at home.
+          <p style="margin:0; color: var(--muted); line-height:1.7;">
+            Star Citizen rewards patience, planning and systems thinking. It is designed for players who enjoy learning
+            mechanics, understanding ships, optimizing routes and gradually mastering complex systems rather than rushing
+            through scripted content.
           </p>
 
-          <ul style="margin:12px 0 0; padding-left:18px; color: var(--muted); line-height:1.6;">
+          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
+            If you like sandbox games where your decisions shape your experience — whether that’s focusing on exploration,
+            trading, combat or cooperative gameplay — you’ll likely feel at home. There is no single “correct” way to play,
+            but there are smarter ways to start.
+          </p>
+
+          <ul style="margin:16px 0 0; padding-left:18px; color: var(--muted); line-height:1.7;">
             <li>
-              <b style="color:#fff;">You’ll love it if:</b> you enjoy exploration and cooperative gameplay.
+              <b style="color:#fff;">You’ll enjoy it if:</b> you prefer freedom over hand-holding, long-term progression
+              over instant rewards, and immersive environments over fast arcade loops.
             </li>
             <li>
-              <b style="color:#fff;">Good to know:</b> performance improves with experience and optimized settings.
+              <b style="color:#fff;">Be aware:</b> the game is still in active development. Bugs, balance changes and
+              performance fluctuations are part of the experience.
+            </li>
+            <li>
+              <b style="color:#fff;">Good to know:</b> optimized settings and a structured early-game plan dramatically
+              improve your first impression.
             </li>
           </ul>
+
+          <p style="margin:16px 0 0; color: var(--muted); line-height:1.7;">
+            If you approach Star Citizen with realistic expectations and a structured entry path, the experience can feel
+            uniquely immersive and rewarding. If you expect a polished, linear campaign with instant clarity, it may feel
+            overwhelming at first.
+          </p>
         </div>
       </div>
     </section>
@@ -212,7 +237,6 @@ const tiles = [
       <div class="container">
         <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;">
           <div><b>SCB</b> — Unofficial Star Citizen guide.</div>
-          <div>Referral: {referralCode}</div>
         </div>
         <div style="margin-top:10px;">
           Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® is a registered trademark of
@@ -220,5 +244,38 @@ const tiles = [
         </div>
       </div>
     </footer>
+
+    <!-- ===================== PAGE-LOCAL STYLES (only for the golden referral bar) ===================== -->
+    <style>
+      /* Keeps changes scoped to this page and avoids global side effects */
+      .refBar--gold .refBar__inner{
+        border: 1px solid rgba(216, 168, 74, .32);
+        background:
+          linear-gradient(180deg, rgba(216,168,74,.16), rgba(216,168,74,.06));
+        box-shadow:
+          0 10px 28px rgba(0,0,0,.35),
+          0 0 0 1px rgba(216,168,74,.12) inset,
+          0 0 30px rgba(216,168,74,.10);
+      }
+
+      .refBar--gold .refBar__star{
+        color: rgba(216, 168, 74, .95);
+        margin-right: 8px;
+        filter: drop-shadow(0 0 10px rgba(216,168,74,.28));
+      }
+
+      .refBar--gold b{
+        color: rgba(255, 224, 160, .95);
+      }
+
+      .refBar--gold .refBar__link{
+        color: rgba(255, 224, 160, .92);
+        border-bottom: 1px solid rgba(255, 224, 160, .35);
+      }
+      .refBar--gold .refBar__link:hover{
+        color: rgba(255, 238, 195, 1);
+        border-bottom-color: rgba(255, 238, 195, .7);
+      }
+    </style>
   </main>
 </BaseLayout>
