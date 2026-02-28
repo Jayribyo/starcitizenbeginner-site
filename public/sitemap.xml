@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
-  <url>
-    <loc>https://YOUR_DOMAIN/</loc>
-  </url>
-
-  <url>
-    <loc>https://YOUR_DOMAIN/beginner-tips/</loc>
-  </url>
-  <url>
-    <loc>https://YOUR_DOMAIN/first-2-hours/</loc>
-  </url>
-  <url>
-    <loc>https://YOUR_DOMAIN/starter-pack/</loc>
-  </url>
-  <url>
-    <loc>https://YOUR_DOMAIN/performance-settings/</loc>
-  </url>
-  <url>
-    <loc>https://YOUR_DOMAIN/make-money-fast/</loc>
-  </url>
-  <url>
-    <loc>https://YOUR_DOMAIN/controls/</loc>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://starcitizenbeginner-site.pages.dev/</loc></url>
+  <url><loc>https://starcitizenbeginner-site.pages.dev/beginner-tips/</loc></url>
+  <url><loc>https://starcitizenbeginner-site.pages.dev/first-2-hours/</loc></url>
+  <url><loc>https://starcitizenbeginner-site.pages.dev/starter-pack/</loc></url>
+  <url><loc>https://starcitizenbeginner-site.pages.dev/performance-settings/</loc></url>
+  <url><loc>https://starcitizenbeginner-site.pages.dev/make-money-fast/</loc></url>
+  <url><loc>https://starcitizenbeginner-site.pages.dev/controls/</loc></url>
 </urlset>
