@@ -272,15 +272,15 @@ a {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* ✅ Dial back brightness so it doesn't look ungraded */
+/* Slight grade (not washed, not too dark) */
 .tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.07) brightness(1.07) contrast(1.05);
+  filter: saturate(1.06) brightness(1.03) contrast(1.06);
 }
 
-/* ✅ Professional overlay: subtle overall vignette + stronger bottom for text */
+/* ✅ Best-practice overlay: gentle vignette + strong bottom fade */
 .tile__content {
   position: absolute;
   inset: 0;
@@ -288,16 +288,14 @@ a {
   flex-direction: column;
   justify-content: flex-end;
   padding: 14px;
-
-  /* overall gentle vignette + bottom gradient */
   background:
-    radial-gradient(120% 85% at 50% 35%, rgba(0,0,0,0.18), rgba(0,0,0,0.00) 55%),
+    radial-gradient(120% 85% at 50% 30%, rgba(0,0,0,0.28), rgba(0,0,0,0.00) 60%),
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.06) 0%,
-      rgba(0, 0, 0, 0.04) 55%,
-      rgba(0, 0, 0, 0.22) 74%,
-      rgba(0, 0, 0, 0.56) 100%
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.08) 55%,
+      rgba(0, 0, 0, 0.30) 74%,
+      rgba(0, 0, 0, 0.68) 100%
     );
 }
 
@@ -309,7 +307,7 @@ a {
   font-size: 11px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.30);
+  background: rgba(0, 0, 0, 0.34);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.92);
   margin-bottom: 8px;
@@ -367,10 +365,17 @@ a {
 
 /* ========== Responsive ========== */
 
-/* Stack the two-column sections earlier to avoid skinny text columns */
-@media (max-width: 1240px) {
+/* ✅ IMPORTANT FIX:
+   override the MORE SPECIFIC ".section--secondary .section__grid" on small screens,
+   otherwise it stays 40/60 and the card becomes a narrow column (your current bug).
+*/
+@media (max-width: 1120px) {
   .section__grid {
     grid-template-columns: 1fr;
+  }
+
+  .section--secondary .section__grid {
+    grid-template-columns: 1fr; /* <- fixes the “High highs…” narrow column */
   }
 
   .section__img {
@@ -380,15 +385,6 @@ a {
   /* avoid image-image stacks on narrow screens */
   .section--secondary .section__img {
     display: none;
-  }
-}
-
-/* ✅ Force nicer wrapping of section titles on small screens */
-@media (max-width: 640px) {
-  .section__title {
-    font-size: 20px;
-    line-height: 1.12;
-    max-width: 22ch;   /* <- makes “High highs. Real depth.” wrap cleanly */
   }
 }
 
