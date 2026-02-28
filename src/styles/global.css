@@ -345,8 +345,14 @@ a {
   }
 }
 
+/* Premium mobile solution:
+   Hide the secondary section image so you don't get "image > image" stacks on phones. */
 @media (max-width: 560px) {
   .tiles {
     grid-template-columns: 1fr;
+  }
+
+  .section--secondary .section__img {
+    display: none;
   }
 }
