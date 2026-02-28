@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 const {
   lang = "en",
   title = "Star Citizen Beginner (SCB)",
@@ -7,8 +9,10 @@ const {
   ogImage = "/assets/img/home/scb-home-hero.webp",
 } = Astro.props;
 
+// TODO: ersetzen mit echter Domain (z.B. https://starcitizenbeginner.com)
 const canonical = `https://YOUR_DOMAIN${canonicalPath}`;
 ---
+
 <!doctype html>
 <html lang={lang}>
   <head>
@@ -25,8 +29,6 @@ const canonical = `https://YOUR_DOMAIN${canonicalPath}`;
     <meta property="og:image" content={ogImage} />
 
     <title>{title}</title>
-
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <slot />
