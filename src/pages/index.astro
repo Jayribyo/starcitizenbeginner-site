@@ -1,237 +1,223 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ReferralCTA from "../components/ReferralCTA.astro";
 
-const paths = { en:"/", de:"/de/", es:"/es/", fr:"/fr/", ru:"/ru/", zh:"/zh/" };
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 
-const t = {
-  title: "Star Citizen Beginner Guide | Quick Start + Referral Bonus",
-  desc: "A beginner-friendly Star Citizen quick start guide with key steps, points of interest, and how to claim the referral bonus.",
-  heroKicker: "New pilot friendly",
-  heroH1: "Start smart in the Verse.",
-  heroLead: "A clean, beginner-first guide that helps you get in-game fast — with a clear explanation of the referral bonus (no spam, just steps).",
-  qsTitle: "Quick Start (5 minutes)",
-  qs1: "Create your RSI account (use the referral code during signup).",
-  qs2: "Pick a starter pack you can actually fly and upgrade later.",
-  qs3: "Install, launch, and do your first simple contract to learn navigation and landing.",
-  poiTitle: "Points of Interest (beginner picks)",
-  poiLead: "A few locations that are easy to understand and useful early on:",
-  poi: ["Area18 (ArcCorp) – easy hub for shopping & transit", "New Babbage (microTech) – clean layout, great for learning", "Lorville (Hurston) – classic industrial city hub", "Orison (Crusader) – beautiful, but can be heavy on FPS"],
-  faqTitle: "FAQ (referral code)",
-  faq1q: "Does using a referral code cost me anything?",
-  faq1a: "No. It’s a normal signup. You just receive the referral bonus when you create the account with a code/link.",
-  faq2q: "Where do I enter the code?",
-  faq2a: "During account creation on the RSI website. If you use the referral link, it’s applied automatically.",
-  disclaimer: "Unofficial community guide. Not affiliated with Cloud Imperium Games or Roberts Space Industries."
-};
+const tiles = [
+  {
+    href: "/beginner-tips/",
+    img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
+    title: "Beginner Tips",
+    desc: "The non-obvious stuff that saves you hours: first goals, common traps, smart priorities.",
+    pill: "Start here",
+  },
+  {
+    href: "/first-2-hours/",
+    img: "/assets/img/home/tiles/scb-tile-first-2-hours.webp",
+    title: "First 2 Hours",
+    desc: "A simple script: spawn → gear → first contract → money loop → confidence.",
+    pill: "Checklist",
+  },
+  {
+    href: "/starter-pack/",
+    img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
+    title: "Starter Pack",
+    desc: "Which starter makes sense, when to upgrade, and whether Squadron 42 is worth it.",
+    pill: "Buy smart",
+  },
+  {
+    href: "/performance-settings/",
+    img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
+    title: "Performance & Settings",
+    desc: "Best-practice settings and quick wins to make SC feel smoother (without placebo).",
+    pill: "FPS wins",
+  },
+  {
+    href: "/make-money-fast/",
+    img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
+    title: "Make Money Fast",
+    desc: "Early aUEC routes: contracts, loot, mining gems, trading basics—fast and safe.",
+    pill: "aUEC",
+  },
+  {
+    href: "/controls/",
+    img: "/assets/img/home/tiles/scb-tile-controls.webp",
+    title: "Controls",
+    desc: "A clean keybind baseline for FPS + ship. Practical, minimal, and easy to learn.",
+    pill: "Keybinds",
+  },
+];
 ---
 <BaseLayout
   lang="en"
-  title={t.title}
-  description={t.desc}
+  title="Star Citizen Beginner (SCB) | Smart Entry Guide for New Pilots"
+  description="A premium beginner hub for Star Citizen: understand the game, decide if it’s for you, then follow clear guides for your first hours, packs, settings, money, and controls."
   canonicalPath="/"
-  brand="Star Citizen Beginner"
-  paths={paths}
 >
-  <main class="container">
-<!-- HERO -->
-<section style="
-  position:relative;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.14);
-  background:#0b1020;
-  margin: 18px 0 22px 0;
-">
-  <!-- Background image -->
-  <img
-    src="/assets/img/hero-scb-verse.webp"
-    alt="Space scene for Star Citizen beginners"
-    loading="eager"
-    style="
-      width:100%;
-      height:520px;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-    "
-  />
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="SCB Home">
+        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
+        <span>Star Citizen Beginner</span>
+      </a>
 
-  <!-- Dark overlay for readability -->
-  <div style="
-    position:absolute;
-    inset:0;
-    background: linear-gradient(90deg, rgba(7,10,18,.78) 0%, rgba(7,10,18,.55) 45%, rgba(7,10,18,.20) 100%),
-                linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%);
-  "></div>
-
-  <!-- Content overlay -->
-  <div style="
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-  ">
-    <div class="container" style="width:100%;">
-      <div style="
-        max-width: 720px;
-        padding: 26px 0;
-      ">
-        <div style="
-          display:inline-flex;
-          align-items:center;
-          gap:10px;
-          padding:8px 12px;
-          border-radius:999px;
-          border:1px solid rgba(255,255,255,.16);
-          background: rgba(0,0,0,.25);
-          color: rgba(255,255,255,.88);
-          font-weight:700;
-          font-size: 13px;
-          letter-spacing:.2px;
-        ">
-          <span style="display:inline-block; width:10px; height:10px; border-radius:999px; background: rgba(43,108,255,.95);"></span>
-          SCB • Beginner Guide • Stanton Quickstart
-        </div>
-
-        <h1 style="
-          margin: 14px 0 10px 0;
-          font-size: clamp(30px, 4.3vw, 54px);
-          line-height: 1.05;
-          letter-spacing: -0.6px;
-          font-weight: 900;
-          color: rgba(255,255,255,.96);
-        ">
-          Start Star Citizen the smart way.
-        </h1>
-
-        <p style="
-          margin: 0 0 16px 0;
-          font-size: clamp(15px, 1.7vw, 18px);
-          line-height: 1.55;
-          color: rgba(255,255,255,.78);
-          max-width: 58ch;
-        ">
-          A fast, no-fluff beginner guide: best starting location, essential keybinds, first missions, and the quickest path to your first credits.
-        </p>
-
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;">
-          <a
-            class="cta"
-            href="https://www.robertsspaceindustries.com/enlist?referral=STAR-FSRJ-5N7Z"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="
-              display:inline-flex;
-              align-items:center;
-              justify-content:center;
-              padding: 12px 16px;
-              border-radius: 12px;
-              font-weight: 900;
-              text-decoration:none;
-              background: rgba(43,108,255,1);
-              color: white;
-              border: 1px solid rgba(255,255,255,.10);
-              box-shadow: 0 10px 30px rgba(0,0,0,.35);
-            "
-          >
-            Create Account & Start with 5000 UEC Bonus
-          </a>
-
-          <a
-            href="#guide"
-            style="
-              display:inline-flex;
-              align-items:center;
-              justify-content:center;
-              padding: 12px 16px;
-              border-radius: 12px;
-              font-weight: 800;
-              text-decoration:none;
-              color: rgba(255,255,255,.90);
-              background: rgba(0,0,0,.28);
-              border: 1px solid rgba(255,255,255,.16);
-            "
-          >
-            Explore the Guide
-          </a>
-        </div>
-
-        <div style="margin-top: 12px; color: rgba(255,255,255,.65); font-size: 13px;">
-          Referral code: <strong style="color: rgba(255,255,255,.86);">STAR-FSRJ-5N7Z</strong> • Not affiliated with CIG/RSI
-        </div>
+      <div class="lang" aria-label="Language switch (placeholder)">
+        <span style="opacity:.7;">Lang:</span>
+        <a class="active" href="/">EN</a>
+        <a href="/de/">DE</a>
+        <a href="/es/">ES</a>
+        <a href="/fr/">FR</a>
+        <a href="/ru/">RU</a>
+        <a href="/zh/">中文</a>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- Anchor target for "Explore the Guide" -->
-<div id="guide"></div>
-    <div class="grid">
-      <section class="card">
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <img class="hero__img" src="/assets/img/home/scb-home-hero.webp" alt="Epic Star Citizen scene" loading="eager" />
+      <div class="hero__overlay"></div>
 
-        <div class="badge">Referral Code: <strong style="color:#fff;">STAR-FSRJ-5N7Z</strong></div>
+      <div class="hero__content">
+        <div class="container" style="width:100%;">
+          <div style="max-width:720px; padding: 26px 0;">
+            <div class="kicker">
+              <span class="dot"></span>
+              Smart Entry Guide for New Pilots
+            </div>
 
-        <hr class="sep" />
+            <h1 class="h1">Start Star Citizen the smart way.</h1>
 
-        <div id="quickstart">
-          <h2 style="margin:0 0 10px;">{t.qsTitle}</h2>
-          <ol style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
-            <li>{t.qs1}</li>
-            <li>{t.qs2}</li>
-            <li>{t.qs3}</li>
-          </ol>
+            <p class="lead">
+              Star Citizen can feel overwhelming—until you follow a clean path.
+              SCB gives you the “what matters first” flow, then deep guides when you’re ready.
+            </p>
+
+            <div class="btnrow">
+              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+                Create Account & Get 5000 UEC Bonus
+              </a>
+              <a class="btn secondary" href="#tiles">Explore Guides</a>
+            </div>
+
+            <div style="margin-top:10px; color: rgba(255,255,255,.62); font-size: 13px;">
+              Referral code: <b>{referralCode}</b>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <hr class="sep" />
-
-        <h2 style="margin:0 0 10px;">{t.poiTitle}</h2>
-        <p class="lead" style="margin-top:0;">{t.poiLead}</p>
-        <ul style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
-          {t.poi.map(x => <li>{x}</li>)}
-        </ul>
-
-        <footer>
-          <p style="margin:16px 0 0;">{t.disclaimer}</p>
-        </footer>
-      </section>
-
-      <aside>
-        <ReferralCTA
-          title="Claim the signup bonus"
-          blurb="If you’re creating a new account, using a referral code/link gives you the bonus. This page explains it clearly — and keeps the focus on helping beginners."
-          ctaPrimary="Create account (referral applied)"
-          ctaSecondary="Read quick start"
-        />
-
-        <div style="height:14px;"></div>
-
-        <div class="card">
-          <div class="kicker">What’s next</div>
-          <h2 style="margin:10px 0 8px; font-size: 20px;">Starter packs & performance</h2>
-          <p style="margin:0; color: rgba(255,255,255,.78);">
-            Next we’ll add a clean starter pack comparison, and a performance/settings guide (huge SEO traffic magnet).
+    <!-- WHAT IS -->
+    <section class="section">
+      <div class="section__grid">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
+          <h2 style="margin:12px 0 10px; font-size:24px; letter-spacing:-.3px;">A living sci-fi universe (with real stakes).</h2>
+          <p style="margin:0; color: var(--muted); line-height:1.6;">
+            It’s part space sim, part FPS, part sandbox MMO—where you fly, fight, explore, trade, and improvise.
+            The best moments feel cinematic because they’re unscripted.
+          </p>
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            This hub helps you decide if the game fits you—and if yes, start strong with minimal frustration.
           </p>
         </div>
-      </aside>
-    </div>
 
-    <div style="height:18px;"></div>
-
-    <section class="card">
-      <h2 style="margin:0 0 10px;">{t.faqTitle}</h2>
-
-      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer; font-weight:800;">{t.faq1q}</summary>
-        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq1a}</p>
-      </details>
-
-      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer; font-weight:800;">{t.faq2q}</summary>
-        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq2a}</p>
-      </details>
+        <div class="section__img">
+          <img src="/assets/img/home/scb-home-what-is-star-citizen.webp" alt="What is Star Citizen visual" loading="lazy" />
+        </div>
+      </div>
     </section>
+
+    <!-- PROS / CONS -->
+    <section class="section">
+      <div class="section__grid">
+        <div class="section__img">
+          <img src="/assets/img/home/scb-home-pros-cons.webp" alt="Pros and cons visual" loading="lazy" />
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> Is it for you?</div>
+          <h2 style="margin:12px 0 10px; font-size:24px; letter-spacing:-.3px;">High highs. Some rough edges.</h2>
+
+          <ul style="margin:0; padding-left:18px; color: var(--muted); line-height:1.65;">
+            <li><b style="color:rgba(255,255,255,.9);">Pros:</b> unmatched immersion, ship fantasy, emergent moments, co-op stories.</li>
+            <li><b style="color:rgba(255,255,255,.9);">Cons:</b> learning curve, performance varies, occasional bugs—patience helps.</li>
+          </ul>
+
+          <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
+            If you like exploration, problem-solving, and “make your own story” gameplay,
+            Star Citizen can be addictive—in the good way.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TILES -->
+    <section id="tiles" class="section">
+      <div class="card pad" style="margin-bottom:14px;">
+        <div class="kicker"><span class="dot"></span> Your SCB Hub</div>
+        <h2 style="margin:12px 0 6px; font-size:24px; letter-spacing:-.3px;">Pick a guide and go.</h2>
+        <p style="margin:0; color: var(--muted); line-height:1.6;">
+          Six focused pages. No fluff. Each one is built to be actionable in-game.
+        </p>
+      </div>
+
+      <div class="tiles">
+        {tiles.map(t => (
+          <a class="tile" href={t.href} aria-label={t.title}>
+            <img src={t.img} alt={t.title} loading="lazy" />
+            <div class="tile__content">
+              <div class="tile__pill"><b>SCB</b> • {t.pill}</div>
+              <h3 class="tile__title">{t.title}</h3>
+              <p class="tile__desc">{t.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section">
+      <div class="card pad" style="margin-bottom:14px;">
+        <div class="kicker"><span class="dot"></span> Beginner video</div>
+        <h2 style="margin:12px 0 6px; font-size:24px; letter-spacing:-.3px;">Watch first. Then play.</h2>
+        <p style="margin:0; color: var(--muted); line-height:1.6;">
+          Current recommended beginner overview:
+        </p>
+      </div>
+
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/6BVZks1DgA4"
+          title="Star Citizen Beginner Video"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;">
+          <div>
+            <b>SCB</b> — Unofficial community guide.
+          </div>
+          <div>
+            Referral: <a href={referralLink} target="_blank" rel="noopener noreferrer">{referralCode}</a>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          This site is not endorsed by or affiliated with Cloud Imperium or Roberts Space Industries.
+          Star Citizen® and related marks are trademarks of their respective owners.
+        </div>
+      </div>
+    </footer>
   </main>
-
 </BaseLayout>
-
