@@ -104,7 +104,7 @@ a {
   font-size: 16px;
 }
 
-/* Better wrapping for section headings (prevents ugly skinny wraps) */
+/* Headings inside sections */
 .section__title {
   margin: 12px 0 10px;
   font-size: clamp(20px, 2.2vw, 24px);
@@ -183,18 +183,16 @@ a {
   box-shadow: var(--shadow);
 }
 
-/* brighter hero image so it matches tiles presence */
 .hero__img {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  filter: saturate(1.08) brightness(1.08);
+  filter: saturate(1.08) brightness(1.06);
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  /* Lighter overlay so the hero image stays present */
   background:
     radial-gradient(900px 420px at 25% 45%, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.52) 65%),
     linear-gradient(90deg, rgba(7, 10, 18, 0.62), rgba(7, 10, 18, 0.06));
@@ -274,15 +272,15 @@ a {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Make artwork visibly present */
+/* ✅ Dial back brightness so it doesn't look ungraded */
 .tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.08) brightness(1.16) contrast(1.06);
+  filter: saturate(1.07) brightness(1.07) contrast(1.05);
 }
 
-/* Tile overlay tuned: readable text, but most of the image stays bright */
+/* ✅ Professional overlay: subtle overall vignette + stronger bottom for text */
 .tile__content {
   position: absolute;
   inset: 0;
@@ -290,13 +288,16 @@ a {
   flex-direction: column;
   justify-content: flex-end;
   padding: 14px;
+
+  /* overall gentle vignette + bottom gradient */
   background:
+    radial-gradient(120% 85% at 50% 35%, rgba(0,0,0,0.18), rgba(0,0,0,0.00) 55%),
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.00) 0%,
-      rgba(0, 0, 0, 0.00) 48%,
-      rgba(0, 0, 0, 0.18) 70%,
-      rgba(0, 0, 0, 0.42) 100%
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(0, 0, 0, 0.04) 55%,
+      rgba(0, 0, 0, 0.22) 74%,
+      rgba(0, 0, 0, 0.56) 100%
     );
 }
 
@@ -308,7 +309,7 @@ a {
   font-size: 11px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.26);
+  background: rgba(0, 0, 0, 0.30);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.92);
   margin-bottom: 8px;
@@ -318,7 +319,7 @@ a {
   margin: 0;
   font-size: 18px;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
 }
 
 .tile__desc {
@@ -327,7 +328,7 @@ a {
   color: rgba(255, 255, 255, 0.86);
   line-height: 1.55;
   max-width: 52ch;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 /* ========== Two-column sections ========== */
@@ -379,6 +380,15 @@ a {
   /* avoid image-image stacks on narrow screens */
   .section--secondary .section__img {
     display: none;
+  }
+}
+
+/* ✅ Force nicer wrapping of section titles on small screens */
+@media (max-width: 640px) {
+  .section__title {
+    font-size: 20px;
+    line-height: 1.12;
+    max-width: 22ch;   /* <- makes “High highs. Real depth.” wrap cleanly */
   }
 }
 
