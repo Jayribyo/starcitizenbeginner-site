@@ -57,7 +57,6 @@ const tiles = [
   description="The ultimate Star Citizen beginner guide. Use a referral code for 5,000 UEC and follow step-by-step guides for your first hours, starter ships, FPS optimization and early aUEC."
   canonicalPath="/"
 >
-
   <!-- ===================== HEADER ===================== -->
   <header class="topbar">
     <div class="container topbar__inner">
@@ -79,7 +78,6 @@ const tiles = [
   </header>
 
   <main class="container">
-
     <!-- ===================== HERO ===================== -->
     <section class="hero">
       <img
@@ -91,11 +89,9 @@ const tiles = [
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
-        <div style="max-width:720px; padding: 32px 0;">
-          <div class="kicker">
-            <span class="dot"></span>
-            Smart Entry Guide
-          </div>
+        <!-- Premium tweak: slightly more compact vertical rhythm -->
+        <div style="max-width:720px; padding: 26px 0;">
+          <!-- KICKER REMOVED ON PURPOSE (per your request) -->
 
           <h1 class="h1">
             Star Citizen Beginner Guide: Start the smart way.
@@ -159,13 +155,13 @@ const tiles = [
           <h2 class="section__title">A living sci-fi universe.</h2>
 
           <p style="margin:0; color: var(--muted); line-height:1.6;">
-            Star Citizen combines space simulation, FPS gameplay and a dynamic economy.
-            You fly ships, trade cargo, complete contracts and explore planets with real players.
+            Star Citizen combines space simulation, FPS gameplay and a dynamic economy. You fly ships, trade cargo,
+            complete contracts and explore planets with real players.
           </p>
 
           <p style="margin:12px 0 0; color: var(--muted); line-height:1.6;">
-            It’s complex, ambitious and constantly evolving — which makes your first hours critical.
-            This guide helps you avoid mistakes and build momentum early.
+            It’s complex, ambitious and constantly evolving — which makes your first hours critical. This guide helps you
+            avoid mistakes and build momentum early.
           </p>
         </div>
 
@@ -195,14 +191,17 @@ const tiles = [
           <h2 class="section__title">High highs. Real depth.</h2>
 
           <p style="margin:0; color: var(--muted); line-height:1.6;">
-            Star Citizen rewards patience, planning and systems thinking.
-            If you enjoy mastering complex mechanics and building your own path,
-            you’ll likely feel at home.
+            Star Citizen rewards patience, planning and systems thinking. If you enjoy mastering complex mechanics and
+            building your own path, you’ll likely feel at home.
           </p>
 
           <ul style="margin:12px 0 0; padding-left:18px; color: var(--muted); line-height:1.6;">
-            <li><b style="color:#fff;">You’ll love it if:</b> you enjoy exploration and cooperative gameplay.</li>
-            <li><b style="color:#fff;">Good to know:</b> performance improves with experience and optimized settings.</li>
+            <li>
+              <b style="color:#fff;">You’ll love it if:</b> you enjoy exploration and cooperative gameplay.
+            </li>
+            <li>
+              <b style="color:#fff;">Good to know:</b> performance improves with experience and optimized settings.
+            </li>
           </ul>
         </div>
       </div>
@@ -216,11 +215,10 @@ const tiles = [
           <div>Referral: {referralCode}</div>
         </div>
         <div style="margin-top:10px;">
-          Not affiliated with Cloud Imperium Games or Roberts Space Industries.
-          Star Citizen® is a registered trademark of its respective owner.
+          Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® is a registered trademark of
+          its respective owner.
         </div>
       </div>
     </footer>
-
   </main>
 </BaseLayout>
