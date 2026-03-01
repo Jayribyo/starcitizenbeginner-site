@@ -16,8 +16,7 @@ body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
-  background:
-    radial-gradient(1200px 600px at 15% 10%, rgba(52, 120, 255, 0.12), transparent 60%),
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(52, 120, 255, 0.12), transparent 60%),
     radial-gradient(900px 500px at 85% 15%, rgba(255, 160, 40, 0.10), transparent 60%),
     #06080f;
   color: rgba(255, 255, 255, 0.88);
@@ -27,7 +26,6 @@ body {
 img {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 a {
@@ -167,7 +165,7 @@ li {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ========== Legacy Topbar (if still used anywhere) ========== */
+/* ========== Topbar (legacy - keep for safety) ========== */
 .topbar {
   padding: 14px 0;
   position: relative;
@@ -199,6 +197,194 @@ li {
   line-height: 1;
 }
 
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.lang a {
+  opacity: 0.72;
+}
+
+.lang a.active {
+  opacity: 1;
+}
+
+/* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
+.siteHeader{
+  position: sticky;
+  top: 0;
+  z-index: 100; /* IMPORTANT: above hero/overlays */
+  background: rgba(7,10,18,.52);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.siteHeader__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.topNav{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Idle: muted */
+.topNav__link{
+  font-weight: 850;
+  font-size: 13px;
+  color: rgba(255,255,255,.70);
+  opacity: .92;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition: background .15s ease, border-color .15s ease, color .15s ease, opacity .15s ease;
+}
+
+.topNav__link:hover,
+.topNav__link:focus-visible{
+  color: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.08);
+}
+
+.topNav__link.is-active{
+  color: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.topNav__pill{
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+  color: rgba(255,255,255,.75);
+}
+
+.topNav__chev{
+  font-size: 12px;
+  opacity: .75;
+  transform: translateY(-1px);
+}
+
+/* Dropdown wrapper */
+.topNav__dd{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hover bridge prevents menu from collapsing when moving mouse down */
+.topNav__dd::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 10px;            /* bridge height */
+  background: transparent; /* invisible */
+}
+
+/* Button triggers should look like links */
+.topNav__trigger{
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Menu hidden by default */
+.topNav__menu{
+  position:absolute;
+  left:0;
+  top: calc(100% + 10px);  /* sits under bridge */
+  min-width: 240px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(10,14,24,.92);
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+  display:none;
+  z-index: 80;             /* above hero */
+}
+
+/* Right aligned */
+.topNav__menu--right{
+  left: auto;
+  right: 0;
+}
+
+/* Hover/focus opens; leaving closes automatically */
+.topNav__dd:hover > .topNav__menu,
+.topNav__dd:focus-within > .topNav__menu{
+  display:block;
+}
+
+.topNav__item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  font-weight: 850;
+  font-size: 13px;
+  color: rgba(255,255,255,.82);
+}
+
+.topNav__item:hover{
+  color: rgba(255,255,255,.96);
+  background: rgba(255,255,255,.06);
+}
+
+.topNav__langCode{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: .06em;
+  opacity: .85;
+  width: 34px;
+}
+
+@media (max-width: 860px){
+  .siteHeader__inner{
+    align-items:flex-start;
+    flex-direction: column;
+  }
+  .topNav{
+    width: 100%;
+  }
+  .topNav__menu{
+    position: static;
+    margin-top: 8px;
+    display:block; /* Mobile: show stacked */
+  }
+  .topNav__menu--right{
+    right: auto;
+  }
+  .topNav__dd::after{
+    display: none; /* no bridge needed on stacked mobile */
+  }
+}
+
 /* ========== Hero ========== */
 .hero {
   position: relative;
@@ -219,8 +405,7 @@ li {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.10), rgba(0,0,0,.62) 68%),
+  background: radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.10), rgba(0,0,0,.62) 68%),
     linear-gradient(90deg, rgba(7,10,18,.78), rgba(7,10,18,.08));
 }
 
@@ -264,6 +449,7 @@ li {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  display: block;
 }
 
 .tile__meta {
@@ -295,7 +481,11 @@ li {
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* ========== Referral offer banner (Unified / 1:1 across pages) ========== */
+/* ========== Premium referral offer banner ========== */
+.refBar {
+  margin-top: 14px;
+}
+
 .refOffer {
   display: flex;
   align-items: center;
@@ -326,23 +516,17 @@ li {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .refOffer__headline {
-  font-weight: 900;
+  font-weight: 850;
   color: rgba(255,255,255,.92);
-  line-height: 1.25;
-}
-
-.refOffer__headline b {
-  color: rgba(255, 224, 160, .96);
 }
 
 .refOffer__meta {
   font-size: 13px;
   color: rgba(255,255,255,.72);
-  line-height: 1.5;
 }
 
 .refOffer__code {
@@ -355,7 +539,7 @@ li {
   border: 1px solid rgba(216,168,74,.28);
   color: rgba(255, 236, 195, .96);
   white-space: nowrap;
-  margin: 0 6px;
+  margin-left: 8px;
 }
 
 .refOffer__actions {
@@ -367,7 +551,7 @@ li {
 
 .refOffer__link {
   color: rgba(255, 224, 160, .92);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 13px;
   border-bottom: 1px solid rgba(255, 224, 160, .35);
   padding-bottom: 2px;
@@ -388,65 +572,6 @@ li {
     width: 100%;
     justify-content: flex-start;
   }
-}
-
-/* ========== "On this page" (global) ========== */
-.toc {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  margin-top: 10px;
-  font-weight: 900;
-  font-size: 13px;
-  opacity: 0.92;
-}
-
-.toc a {
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  padding: 8px 10px;
-  border-radius: 12px;
-}
-
-.toc a:hover {
-  background: rgba(255,255,255,.07);
-}
-
-/* ========== Back to top (global) ========== */
-.backToTop {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 1000;
-  font-size: 18px;
-  line-height: 1;
-  color: rgba(255,255,255,.78);
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 16px 40px rgba(0,0,0,.55);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity .16s ease, transform .16s ease, background .16s ease, border-color .16s ease;
-  z-index: 120;
-}
-
-.backToTop.is-visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.backToTop:hover {
-  color: rgba(255,255,255,.92);
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.16);
 }
 
 /* ========== Footer ========== */

@@ -30,46 +30,7 @@ const canonical = `https://YOUR_DOMAIN${canonicalPath}`;
 
     <title>{title}</title>
   </head>
-
   <body>
-    <!-- Anchor target for "back to top" -->
-    <div id="top"></div>
-
     <slot />
-
-    <!-- Back to top (global) -->
-    <a class="backToTop" href="#top" aria-label="Back to top" title="Back to top">
-      ↑
-    </a>
-
-    <script>
-      // Show button only when the top navigation/header is no longer visible.
-      // Works for both .siteHeader (new) and .topbar (legacy).
-      (() => {
-        const btn = document.querySelector(".backToTop");
-        if (!btn) return;
-
-        const header = document.querySelector(".siteHeader") || document.querySelector(".topbar");
-        if (!header) {
-          // fallback: show after some scroll
-          const onScrollFallback = () => {
-            btn.classList.toggle("is-visible", window.scrollY > 500);
-          };
-          window.addEventListener("scroll", onScrollFallback, { passive: true });
-          onScrollFallback();
-          return;
-        }
-
-        const io = new IntersectionObserver(
-          (entries) => {
-            const visible = entries[0]?.isIntersecting;
-            btn.classList.toggle("is-visible", !visible);
-          },
-          { threshold: 0.05 }
-        );
-
-        io.observe(header);
-      })();
-    </script>
   </body>
 </html>
