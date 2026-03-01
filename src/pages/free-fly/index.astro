@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -64,24 +65,7 @@ const faqJsonLd = {
   canonicalPath="/free-fly/"
   ogImage={heroImg}
 >
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="/" aria-label="SCB Home">
-        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
-        <span>Star Citizen Beginner</span>
-      </a>
-
-      <div class="lang" aria-label="Language switch (placeholder)">
-        <span style="opacity:.7;">Lang:</span>
-        <a class="active" href="/free-fly/">EN</a>
-        <a href="/de/">DE</a>
-        <a href="/es/">ES</a>
-        <a href="/fr/">FR</a>
-        <a href="/ru/">RU</a>
-        <a href="/zh/">中文</a>
-      </div>
-    </div>
-  </header>
+  <SiteHeader active="free-fly" />
 
   <main class="container">
 
@@ -105,7 +89,6 @@ const faqJsonLd = {
             Check if Free Fly is live, join in minutes, and follow a simple first-hour plan that gets you into space and into your first contract.
           </p>
 
-          <!-- Keep Hero clean: 1 primary + 1 utility -->
           <div class="btnrow">
             <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">
               Check Free Fly status (official)
@@ -121,7 +104,7 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- Referral banner: keep exactly (consistency with referral page) -->
+    <!-- Referral banner (consistent with referral page) -->
     <section class="section" aria-label="Referral bonus callout">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
@@ -222,12 +205,11 @@ const faqJsonLd = {
         <ol class="steps">
           <li><b>Check if it’s live:</b> open <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer">the official Free Fly page</a>.</li>
           <li><b>Create your RSI account</b> (or sign in if you already have one).</li>
-          <li><b>Apply the referral code STAR-FSRJ-5N7Z during signup</b> to activate the enlistment bonus.</li>
+          <li><b>Apply the referral code during signup</b> to activate the enlistment bonus.</li>
           <li><b>Install the RSI Launcher</b> and download the current build.</li>
           <li><b>Launch</b>, pick a starting location, and run your first simple contract.</li>
         </ol>
 
-        <!-- CTA reduction: keep 2 only -->
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Official Free Fly page</a>
           <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
@@ -332,7 +314,7 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- SECONDARY IMAGE -->
+    <!-- IMAGE -->
     <section class="section">
       <figure class="imgFrame imgFrame--compact">
         <img
@@ -429,7 +411,6 @@ const faqJsonLd = {
           </table>
         </div>
 
-        <!-- CTA reduction: keep only 1 here -->
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Check official status</a>
         </div>
@@ -451,7 +432,6 @@ const faqJsonLd = {
           <li><b>If you want to continue:</b> choose a starter pack based on your preferred role.</li>
         </ol>
 
-        <!-- Keep this as the primary conversion moment lower on the page -->
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
           <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
@@ -485,6 +465,15 @@ const faqJsonLd = {
       </div>
     </section>
 
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+        <div class="footer__legal">
+          Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® and related marks are trademarks of their respective owners.
+        </div>
+      </div>
+    </footer>
+
   </main>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
@@ -508,70 +497,6 @@ const faqJsonLd = {
       padding:8px 10px; border-radius:12px;
     }
     .toc a:hover{ background: rgba(255,255,255,.07); }
-
-    /* Referral banner styles – keep identical pattern */
-    .refOffer{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(216,168,74,.34);
-      background: linear-gradient(180deg, rgba(216,168,74,.16), rgba(216,168,74,.06));
-      box-shadow: 0 16px 44px rgba(0,0,0,.45), 0 0 0 1px rgba(216,168,74,.10) inset;
-    }
-    .refOffer__badge{
-      font-size: 11px;
-      letter-spacing: .14em;
-      font-weight: 900;
-      padding: 9px 11px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      color: rgba(255, 236, 195, .96);
-      background: rgba(216,168,74,.18);
-      border: 1px solid rgba(216,168,74,.35);
-      box-shadow: 0 0 22px rgba(216,168,74,.16);
-      flex: 0 0 auto;
-    }
-    .refOffer__main{ min-width:0; }
-    .refOffer__title{ font-weight: 750; line-height: 1.25; color: rgba(255,255,255,.95); }
-    .refOffer__title b { color: rgba(255, 224, 160, .96); }
-    .refOffer__sub{ margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.5; }
-    .refOffer__code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-      letter-spacing: .08em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.22);
-      border: 1px solid rgba(216,168,74,.28);
-      color: rgba(255, 236, 195, .96);
-      white-space: nowrap;
-    }
-    .refOffer__actions{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap: 8px;
-      flex: 0 0 auto;
-    }
-    .refOffer__link{
-      color: rgba(255, 224, 160, .92);
-      font-weight: 700;
-      font-size: 13px;
-      border-bottom: 1px solid rgba(255, 224, 160, .35);
-      padding-bottom: 2px;
-      white-space: nowrap;
-    }
-    .refOffer__link:hover{
-      color: rgba(255, 238, 195, 1);
-      border-bottom-color: rgba(255, 238, 195, .75);
-    }
-    @media (max-width: 720px){
-      .refOffer{ flex-direction: column; align-items:flex-start; }
-      .refOffer__actions{ width:100%; align-items:flex-start; }
-    }
 
     /* Tables */
     .tableWrap{
@@ -610,7 +535,7 @@ const faqJsonLd = {
     .steps{
       margin: 12px 0 0;
       padding-left: 18px;
-      color: var(--muted);
+      color: rgba(255,255,255,.78);
       line-height: 1.75;
     }
     .miniNote{
@@ -638,7 +563,7 @@ const faqJsonLd = {
       .grid2{ grid-template-columns: 1fr 1fr; }
     }
     .h3{ font-size: 15px; margin: 8px 0 6px; }
-    .bullets{ margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.75; }
+    .bullets{ margin: 0; padding-left: 18px; color: rgba(255,255,255,.78); line-height: 1.75; }
     .bullets li{ margin: 6px 0; }
 
     .imgFrame{
@@ -666,7 +591,7 @@ const faqJsonLd = {
       .imgFrame--compact img{ height: 300px; }
     }
 
-    /* FAQ accordion (consistent style) */
+    /* FAQ accordion */
     .faq{ margin-top: 10px; }
     .faq__item{
       border-top: 1px solid rgba(255,255,255,.12);
@@ -693,6 +618,22 @@ const faqJsonLd = {
       margin-top: 8px;
       color: rgba(255,255,255,.78);
       line-height: 1.65;
+    }
+
+    /* Referral banner layout helpers (page-local, but matches style) */
+    .refOffer__main{ min-width:0; }
+    .refOffer__title{ font-weight: 750; line-height: 1.25; color: rgba(255,255,255,.95); }
+    .refOffer__title b { color: rgba(255, 224, 160, .96); }
+    .refOffer__sub{ margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.5; }
+    .refOffer__actions{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+    @media (max-width: 720px){
+      .refOffer__actions{ width:100%; align-items:flex-start; }
     }
   </style>
 </BaseLayout>
