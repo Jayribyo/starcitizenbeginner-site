@@ -6,6 +6,95 @@ const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${r
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
+
+// FAQ content is also used to generate FAQPage JSON-LD for SEO.
+const faqItems = [
+  {
+    q: "What is a Star Citizen referral code?",
+    a: "A referral code is part of Star Citizen’s official recruit / referral program. New accounts can enter a code during account creation to receive an enlistment bonus and link the account to a recruiter.",
+  },
+  {
+    q: "What bonus do you get from a referral code?",
+    a: "Most of the time, new accounts get an enlistment bonus credited in UEC after the account becomes active. The advertised amount can change during promotions — this page is built around the commonly advertised 50,000 UEC bonus.",
+  },
+  {
+    q: "When do you receive the bonus UEC?",
+    a: "The bonus is usually credited after your account becomes ‘active’ (i.e., after a game package purchase / activation step is completed). It’s not always instant; allow some time after activation.",
+  },
+  {
+    q: "Can I add a referral code after creating my account?",
+    a: "Often yes — but only within a limited window. A common rule is: enter it during signup, or within about 24 hours after account creation. After that, it typically can’t be applied.",
+  },
+  {
+    q: "Is the referral code required to play?",
+    a: "No. It’s optional. Using one is simply a ‘free upside’ for new accounts because it can add extra starting credits and helps you begin with less friction.",
+  },
+  {
+    q: "Does a referral code cost anything?",
+    a: "No. Entering a code is free. The only ‘cost’ is that you must enter it on a brand‑new account within the allowed time window.",
+  },
+  {
+    q: "Where do I enter the referral code?",
+    a: "During RSI account creation, look for the field labeled ‘Referral Code (optional)’. Paste the code there before you complete signup.",
+  },
+  {
+    q: "Is it better to use a prefilled signup link or type the code manually?",
+    a: "A prefilled link reduces typos and ensures the code is applied at the right moment in the signup flow. If you type it manually, double‑check the formatting before submitting.",
+  },
+  {
+    q: "What are the most common mistakes?",
+    a: "The big ones: signing up first and forgetting the code, missing the time window, typing the code wrong, or assuming you can switch codes later. Treat it as a one‑time setup step.",
+  },
+  {
+    q: "Can I change the referral code later?",
+    a: "Usually no. Referral attribution is typically locked once the account is created (or once the limited window closes). Pick a code and commit during signup.",
+  },
+  {
+    q: "Do bonuses stack if I use multiple codes?",
+    a: "No — you can generally only apply one referral code per account.",
+  },
+  {
+    q: "Does the referral code affect my starter pack price or content?",
+    a: "No. A referral code doesn’t change the starter pack you buy. It simply adds an enlistment bonus and sets referral attribution.",
+  },
+  {
+    q: "Does it work during Free Fly?",
+    a: "Free Fly periods can be confusing because you can test without buying a starter package. The safe approach: enter the referral code at account creation anyway, then activate the account when you’re ready.",
+  },
+  {
+    q: "How do I confirm the referral code was applied?",
+    a: "During signup you should see a confirmation (often ‘Referral code successfully applied’). After the account is created, your account/referral status may show who referred you.",
+  },
+  {
+    q: "What if I don’t see the referral code field?",
+    a: "Make sure you’re on the RSI account creation flow (not just logging in). If you’re already signed in, log out and start the create‑account process again. Some browsers/extensions can hide form elements — try a clean browser session.",
+  },
+  {
+    q: "What can I do with 50,000 UEC early on?",
+    a: "Think of it as an early‑game buffer: you can buy basic gear, stock medical supplies/ammo, cover transport costs, rent small ships for testing, and absorb ‘learning mistakes’ without going broke.",
+  },
+  {
+    q: "How does the recruit reward ladder work?",
+    a: "After your account is active, you get your own referral code. When new players sign up using your code and become active, you progress on the recruit ladder. Rewards vary and can change over time, but the structure is generally: more active recruits → more rewards.",
+  },
+  {
+    q: "Can I use my own referral code on a new account?",
+    a: "Referral programs are intended for recruiting new players. Creating extra accounts just to refer yourself can violate program expectations and is not a recommended path.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a
+    }
+  }))
+};
 ---
 
 <BaseLayout
@@ -60,6 +149,7 @@ const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.
             <a class="btn secondary" href="#faq">FAQ</a>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -217,6 +307,27 @@ const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.
           </table>
         </div>
 
+        <div class="grid-2" style="margin-top:14px;">
+          <div class="card soft pad" style="background: rgba(0,0,0,.18);">
+            <h3 class="h3" style="margin:0 0 10px;">Concrete early buys (ideas)</h3>
+            <ul class="bullets" style="margin:0;">
+              <li><b>Basic armor + medpens + ammo</b> so you can run a few FPS missions without constantly re-buying.</li>
+              <li><b>Multitool + tractor beam + small utility items</b> that make early looting / hauling smoother.</li>
+              <li><b>Ship service costs</b> (repairs, refuel, re-arm) so one messy landing doesn’t end the session.</li>
+              <li><b>Starter upgrades</b> like basic components / consumables (where applicable) to reduce friction.</li>
+              <li><b>A small buffer</b> for experimentation: try a contract, fail, and still keep going.</li>
+            </ul>
+          </div>
+
+          <div class="card soft pad" style="background: rgba(0,0,0,.18);">
+            <h3 class="h3" style="margin:0 0 10px;">Reality check</h3>
+            <p class="muted" style="margin:0;">
+              Prices, availability, and balance can change over time. The point of the enlistment bonus isn’t to “buy a big ship” —
+              it’s to make your <b>first hours</b> smoother: fewer hard stops, fewer “I’m broke again” resets, and faster learning.
+            </p>
+          </div>
+        </div>
+
         <p class="lead" style="margin-top:12px; max-width: 980px;">
           The practical value is flexibility: you can try a few loops (delivery, basic contracts, FPS missions) without feeling punished for experimentation.
         </p>
@@ -317,35 +428,12 @@ const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.
         <h2 class="section__title">Star Citizen referral code – frequently asked questions</h2>
 
         <div class="faq">
-          <details class="faq__item">
-            <summary class="faq__q">Can I add a referral code later?</summary>
-            <div class="faq__a">Yes — within <b>24 hours</b> after creating your account. After that, you can’t apply a code.</div>
-          </details>
-
-          <details class="faq__item">
-            <summary class="faq__q">Do all referral codes give the same bonus?</summary>
-            <div class="faq__a">Valid referral codes provide the same enlistment bonus. The difference is which account receives the recruit credit.</div>
-          </details>
-
-          <details class="faq__item">
-            <summary class="faq__q">Does using a referral code cost anything?</summary>
-            <div class="faq__a">No. It doesn’t change the price of a starter package and doesn’t require a subscription.</div>
-          </details>
-
-          <details class="faq__item">
-            <summary class="faq__q">When do I receive the bonus?</summary>
-            <div class="faq__a">Apply the code during signup (or within the 24-hour window). Your account becomes fully active once you have a starter package.</div>
-          </details>
-
-          <details class="faq__item">
-            <summary class="faq__q">Can I change the referral code later?</summary>
-            <div class="faq__a">Generally no. Treat it as a one-time setup step during onboarding.</div>
-          </details>
-
-          <details class="faq__item">
-            <summary class="faq__q">Is the referral program official?</summary>
-            <div class="faq__a">Yes. This page is an unofficial guide explaining how to use the official system correctly.</div>
-          </details>
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
         </div>
 
         <div class="btnrow" style="margin-top: 16px;">
