@@ -41,7 +41,7 @@ const faqJsonLd = {
   <SiteHeader active="referral" />
 
   <main class="container">
-    <!-- HERO (reduced, no redundant 50,000 repetition) -->
+    <!-- HERO -->
     <section class="hero refHero">
       <img
         class="hero__img refHero__img"
@@ -68,16 +68,16 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- Referral offer banner -->
-    <section class="section" aria-label="Referral bonus offer">
+    <!-- Referral bar (now 1:1 with Free Fly) -->
+    <section class="section" aria-label="Referral bonus">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
 
-        <div class="refOffer__main">
-          <div class="refOffer__title">
+        <div class="refOffer__text">
+          <div class="refOffer__headline">
             Use referral code <span class="refOffer__code">{referralCode}</span> to start with <b>50,000 UEC</b>.
           </div>
-          <div class="refOffer__sub">
+          <div class="refOffer__meta">
             Enter during signup — or within <b>24 hours</b> after account creation if you forgot.
           </div>
         </div>
@@ -154,6 +154,7 @@ const faqJsonLd = {
             The goal is simple: smoother onboarding for new players, and long-term recruit rewards for the inviter. Once your account is active, you get your own referral code.
           </p>
 
+          <!-- Image restored (as before) -->
           <div class="card pad" style="background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.10); margin-top: 12px;">
             <img src={signupFieldImg} alt="Referral code field during RSI account creation showing a successfully applied code" loading="lazy" />
           </div>
@@ -212,45 +213,6 @@ const faqJsonLd = {
           50,000 UEC won’t buy a new ship — but it removes early friction. It helps you gear up, stay mission ready, and recover from beginner mistakes without turning your first sessions into a grind.
         </p>
 
-        <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
-          <table style="width:100%; border-collapse: collapse; min-width: 820px;">
-            <thead>
-              <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Category</th>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Examples</th>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Why it matters</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Mission readiness</th>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Armor, med pens, ammo, basic tools</td>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Lets you attempt early content faster</td>
-              </tr>
-              <tr>
-                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Ship operations</th>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Refuel, rearm, small repairs</td>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Keeps you from getting stranded early</td>
-              </tr>
-              <tr>
-                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Utility tools</th>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Multi-tool, attachments, basic navigation essentials</td>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Unlocks smoother gameplay loops</td>
-              </tr>
-              <tr>
-                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Mistake buffer</th>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Respawns, replacing gear, buying essentials “twice”</td>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Reduces frustration; helps you build momentum</td>
-              </tr>
-              <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">Testing / rentals</th>
-                <td style="padding: 12px;">Short rentals to compare roles</td>
-                <td style="padding: 12px;">Helps you choose smarter later</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
         <div class="card pad" style="margin-top:14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
           <b>Reality check:</b> Prices, availability, and balance can change over time. The point of the bonus is not “to buy a ship” — it’s to make your first hours smoother: fewer hard stops, fewer “I’m broke again” resets, and faster learning.
         </div>
@@ -274,7 +236,7 @@ const faqJsonLd = {
           <li>Enter <b>{referralCode}</b> and save.</li>
         </ol>
 
-        <div class="miniNote" style="margin-top:14px;">
+        <div class="card pad" style="margin-top:14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
           <b>Recommendation:</b> Use the code at signup. It’s the cleanest path and avoids edge cases.
         </div>
       </div>
@@ -290,35 +252,6 @@ const faqJsonLd = {
           After your account is active, you get your own referral code. When friends sign up using it and become active, your recruit progress advances and unlocks rewards over time.
           The ladder changes occasionally, but the structure is stable: more active recruits → more rewards.
         </p>
-
-        <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
-          <table style="width:100%; border-collapse: collapse; min-width: 820px;">
-            <thead>
-              <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Tier</th>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Reward theme</th>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">What to expect</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Entry</th>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Cosmetics / small items</td>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Starter collectibles and momentum-based goodies</td>
-              </tr>
-              <tr>
-                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Mid</th>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Exclusive collectibles</td>
-                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">More rare items; improves the signal for long-term support</td>
-              </tr>
-              <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">High</th>
-                <td style="padding: 12px;">Major rewards</td>
-                <td style="padding: 12px;">Long-term progression; not a fast path, but meaningful over time</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
         <div class="btnrow" style="margin-top: 14px;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Use {referralCode}</a>
@@ -377,7 +310,6 @@ const faqJsonLd = {
   </main>
 
   <style>
-    /* Referral hero */
     .refHero__overlay{
       background:
         radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
@@ -385,19 +317,7 @@ const faqJsonLd = {
     }
     .refHero__content{ padding: 22px; }
 
-    /* On this page (match free-fly look) */
-    .toc{
-      display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
-      font-weight:800; font-size:13px; opacity:.92;
-    }
-    .toc a{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px; border-radius:12px;
-    }
-    .toc a:hover{ background: rgba(255,255,255,.07); }
-
-    /* FAQ accordion (consistent) */
+    /* FAQ accordion */
     .faq{ margin-top: 10px; }
     .faq__item{
       border-top: 1px solid rgba(255,255,255,.12);
