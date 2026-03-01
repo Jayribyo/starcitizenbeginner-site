@@ -60,7 +60,7 @@ const faqJsonLd = {
 <BaseLayout
   lang="en"
   title="Star Citizen Free Fly – How to Join, What to Do First, Ships & Bonus Guide"
-  description={`The most practical Star Citizen Free Fly guide: how to check if it’s active, how to join step-by-step, what to do in your first hour, what ships to try, and how to start with the ${referralBonusUEC} UEC referral bonus.`}
+  description={`A practical Star Citizen Free Fly guide: check if it’s active, join step-by-step, follow a first-hour plan, try the right ship roles, and start with the ${referralBonusUEC} UEC referral bonus.`}
   canonicalPath="/free-fly/"
   ogImage={heroImg}
 >
@@ -100,28 +100,28 @@ const faqJsonLd = {
         <div class="freeFlyHero__content">
           <div class="kicker"><span class="dot"></span> Free Fly Guide</div>
           <h1 class="h1">Star Citizen Free Fly: Start the smart way</h1>
-          <p class="lead" style="max-width: 900px;">
-            Free Fly is the cleanest way to try Star Citizen without buying anything.
-            Use this page to get in fast, test the right things, and avoid common beginner dead-ends.
+
+          <p class="lead" style="max-width: 920px;">
+            Check if Free Fly is live, join in minutes, and follow a simple first-hour plan that gets you into space and into your first contract.
           </p>
 
-          <!-- Hero CTA: only Free Fly status + quickstart (referral lives in banner below hero) -->
+          <!-- Keep Hero clean: 1 primary + 1 utility -->
           <div class="btnrow">
             <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">
               Check Free Fly status (official)
             </a>
-            <a class="btn secondary" href="#quick-start">Quick start checklist</a>
+            <a class="btn secondary" href="#quick-start">First-hour plan</a>
             <a class="btn secondary" href="#faq">FAQ</a>
           </div>
 
           <p class="miniLead">
-            Not sure if it’s active? The official page is always the source of truth.
+            Tip: If you’re creating a new account, activate the referral bonus before you finish signup (banner below).
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Referral banner directly under hero (identical pattern to referral landing page) -->
+    <!-- Referral banner: keep exactly (consistency with referral page) -->
     <section class="section" aria-label="Referral bonus callout">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
@@ -222,16 +222,20 @@ const faqJsonLd = {
         <ol class="steps">
           <li><b>Check if it’s live:</b> open <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer">the official Free Fly page</a>.</li>
           <li><b>Create your RSI account</b> (or sign in if you already have one).</li>
-          <li><b>Apply the referral code during signup</b> to activate the enlistment bonus.</li>
+          <li><b>Apply the referral code STAR-FSRJ-5N7Z during signup</b> to activate the enlistment bonus.</li>
           <li><b>Install the RSI Launcher</b> and download the current build.</li>
           <li><b>Launch</b>, pick a starting location, and run your first simple contract.</li>
         </ol>
 
+        <!-- CTA reduction: keep 2 only -->
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Official Free Fly page</a>
           <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
-          <a class="btn secondary" href="/performance-settings/">Performance & FPS</a>
         </div>
+
+        <p class="miniLead" style="margin-top:10px;">
+          If performance feels rough, use the <a href="/performance-settings/">Performance & FPS guide</a> after you’ve completed the first-hour loop.
+        </p>
       </div>
     </section>
 
@@ -328,7 +332,7 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- SECONDARY IMAGE (smaller; no scroll monster) -->
+    <!-- SECONDARY IMAGE -->
     <section class="section">
       <figure class="imgFrame imgFrame--compact">
         <img
@@ -382,7 +386,7 @@ const faqJsonLd = {
         </div>
 
         <div class="miniNote">
-          If performance is borderline, use our <a href="/performance-settings/">Performance & FPS guide</a> before deciding.
+          If performance is borderline, complete the first-hour plan first, then use our <a href="/performance-settings/">Performance & FPS guide</a>.
         </div>
       </div>
     </section>
@@ -425,14 +429,14 @@ const faqJsonLd = {
           </table>
         </div>
 
+        <!-- CTA reduction: keep only 1 here -->
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Check official status</a>
-          <a class="btn secondary" href="#how-to-join">How to join</a>
         </div>
       </div>
     </section>
 
-    <!-- NEXT STEPS (funnel + value) -->
+    <!-- NEXT STEPS -->
     <section id="next" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Next</div>
@@ -447,15 +451,19 @@ const faqJsonLd = {
           <li><b>If you want to continue:</b> choose a starter pack based on your preferred role.</li>
         </ol>
 
+        <!-- Keep this as the primary conversion moment lower on the page -->
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
           <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
-          <a class="btn secondary" href="/beginner-tips/">Beginner Tips</a>
         </div>
+
+        <p class="miniLead" style="margin-top:10px;">
+          Need a broader orientation? Use <a href="/beginner-tips/">Beginner Tips</a> after you’ve done your first contract loop.
+        </p>
       </div>
     </section>
 
-    <!-- FAQ (use referral page accordion style) -->
+    <!-- FAQ -->
     <section id="faq" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> FAQ</div>
@@ -479,11 +487,9 @@ const faqJsonLd = {
 
   </main>
 
-  <!-- FAQ JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
 
   <style>
-    /* HERO readability */
     .freeFlyHero__overlay{
       background:
         radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
@@ -492,7 +498,6 @@ const faqJsonLd = {
     .freeFlyHero__content{ padding: 22px; }
     .miniLead{ margin-top: 10px; opacity:.84; font-size: 13px; max-width: 820px; }
 
-    /* TOC pills */
     .toc{
       display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
       font-weight:800; font-size:13px; opacity:.92;
@@ -504,7 +509,7 @@ const faqJsonLd = {
     }
     .toc a:hover{ background: rgba(255,255,255,.07); }
 
-    /* Referral banner styles (copied from referral landing page for consistency) */
+    /* Referral banner styles – keep identical pattern */
     .refOffer{
       display:flex;
       align-items:center;
@@ -568,7 +573,7 @@ const faqJsonLd = {
       .refOffer__actions{ width:100%; align-items:flex-start; }
     }
 
-    /* Table system (match referral page style) */
+    /* Tables */
     .tableWrap{
       overflow:auto;
       border-radius: 14px;
@@ -602,7 +607,6 @@ const faqJsonLd = {
       background: rgba(255,255,255,.03);
     }
 
-    /* Steps + helper blocks */
     .steps{
       margin: 12px 0 0;
       padding-left: 18px;
@@ -624,7 +628,6 @@ const faqJsonLd = {
       color: rgba(255,255,255,.72);
     }
 
-    /* Grid */
     .grid2{
       display:grid;
       grid-template-columns: 1fr;
@@ -638,7 +641,6 @@ const faqJsonLd = {
     .bullets{ margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.75; }
     .bullets li{ margin: 6px 0; }
 
-    /* Image frame + compact sizing */
     .imgFrame{
       border-radius: 14px;
       overflow:hidden;
@@ -664,7 +666,7 @@ const faqJsonLd = {
       .imgFrame--compact img{ height: 300px; }
     }
 
-    /* FAQ accordion (match referral page) */
+    /* FAQ accordion (consistent style) */
     .faq{ margin-top: 10px; }
     .faq__item{
       border-top: 1px solid rgba(255,255,255,.12);
