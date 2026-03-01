@@ -1,263 +1,476 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const pageTitle = "Star Citizen Free Fly 2025: How It Works, Schedule, Ships & Full Guide";
-const pageDescription = "Complete guide to Star Citizen Free Fly events. Learn how to join, what ships you can fly, schedule expectations, referral bonus strategy, and whether Free Fly is worth it.";
-const canonicalPath = "/free-fly/";
+const referralBonusUEC = "50,000";
+const flyFreeUrl = "https://robertsspaceindustries.com/en/flyfree";
+
+const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
+const crewImg = "/assets/img/free-fly/star-citizen-free-fly-crew.webp";
+
+// FAQ (also used for JSON-LD)
+const faqItems = [
+  {
+    q: "What is Star Citizen Free Fly?",
+    a: "Free Fly is an official limited-time event where you can play Star Citizen without buying a game package. You create an RSI account, download the launcher, and get temporary access during the event window.",
+  },
+  {
+    q: "How do I check if Free Fly is active right now?",
+    a: "Use the official RSI Free Fly page. If a Free Fly is live, you’ll see the active event and access instructions there.",
+  },
+  {
+    q: "Do I need to buy a starter pack during Free Fly?",
+    a: "No. Free Fly lets you play without purchase during the event. If you want to continue playing after it ends, you’ll need a starter pack.",
+  },
+  {
+    q: "Can I keep my account and progress after Free Fly?",
+    a: "Your RSI account stays. Progress typically persists, but ongoing access requires a starter pack after the event. As with any live development game, wipes can happen over time.",
+  },
+  {
+    q: "Can I use a referral code during Free Fly?",
+    a: "Yes. Free Fly is one of the best times to do it because new players are creating accounts. Enter the referral code during signup to activate the enlistment bonus (commonly advertised as 50,000 UEC).",
+  },
+  {
+    q: "Can I add a referral code after creating my account?",
+    a: "Often there is a limited window to add it after signup, but the safest approach is: apply it during account creation so you don’t miss the window.",
+  },
+  {
+    q: "How long do Free Fly events last?",
+    a: "Most Free Fly events run roughly 5–10 days, depending on the promotion. The exact duration is listed on the official Free Fly page when active.",
+  },
+  {
+    q: "What ships are available during Free Fly?",
+    a: "You usually get access to a curated rotating selection, often tied to expos. The lineup changes by event, but the goal is to let you sample different roles (combat, cargo, multi-crew).",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} canonicalPath={canonicalPath}>
+<BaseLayout
+  lang="en"
+  title="Star Citizen Free Fly – How It Works, How to Join, Ships & Best Setup"
+  description="The definitive Star Citizen Free Fly guide: how to check if it’s active, how to join step-by-step, what ships you can fly, what to test, common pitfalls, and how to start with the 50,000 UEC referral bonus."
+  canonicalPath="/free-fly/"
+  ogImage={heroImg}
+>
+  <!-- Topbar (consistent with referral page) -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="SCB Home">
+        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
+        <span>Star Citizen Beginner</span>
+      </a>
 
-<section class="container">
+      <div class="lang" aria-label="Language switch (placeholder)">
+        <span style="opacity:.7;">Lang:</span>
+        <a class="active" href="/free-fly/">EN</a>
+        <a href="/de/">DE</a>
+        <a href="/es/">ES</a>
+        <a href="/fr/">FR</a>
+        <a href="/ru/">RU</a>
+        <a href="/zh/">中文</a>
+      </div>
+    </div>
+  </header>
 
-<header class="hero">
-<h1>Star Citizen Free Fly: Complete 2025 Guide</h1>
-<p class="lead">
-Play Star Citizen for free during official Free Fly events.  
-This guide explains how it works, when it happens, what ships you can access — and how to start correctly.
-</p>
-<div class="btnrow">
-<a href="https://robertsspaceindustries.com/" class="btn primary">Check if Free Fly is active</a>
-<a href="/star-citizen-referral-code/" class="btn">Start with 5,000 UEC bonus</a>
-</div>
-</header>
+  <main class="container">
 
-<figure class="image-block">
-<img src="/assets/img/free-fly/star-citizen-free-fly-hero.webp"
-alt="Star Citizen Free Fly event with multiple ships in hangar"
-width="1600" height="900" loading="lazy">
-</figure>
+    <!-- HERO (use your global hero pattern; fixes “zerschossen”) -->
+    <section class="hero freeFlyHero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Star Citizen Free Fly expo hall with many ships and players"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero__overlay freeFlyHero__overlay"></div>
 
-<!-- QUICK SUMMARY -->
-<section class="card pad">
-<h2>What is a Star Citizen Free Fly event?</h2>
-<p>
-A Free Fly event is an official limited-time period where anyone can play Star Citizen without purchasing a game package.  
-Players create an RSI account, download the launcher, and receive temporary access to selected ships and locations.
-</p>
+      <div class="hero__content">
+        <div class="freeFlyHero__content">
+          <div class="kicker"><span class="dot"></span> Free Fly Guide</div>
+          <h1 class="h1">Star Citizen Free Fly: The Complete Guide</h1>
+          <p class="lead" style="max-width: 860px;">
+            Learn how Free Fly works, how to join (step-by-step), what to test, and how to avoid common beginner pitfalls.
+            Updated for recurring 2025 event patterns — without the hype.
+          </p>
 
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Free Fly Access</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Game Purchase Required</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Access Duration</td>
-<td>Limited event period</td>
-</tr>
-<tr>
-<td>Ships Available</td>
-<td>Curated rotating selection</td>
-</tr>
-<tr>
-<td>Progress Saved</td>
-<td>Account progress persists</td>
-</tr>
-<tr>
-<td>Referral Bonus Eligible</td>
-<td>Yes (during account creation)</td>
-</tr>
-</tbody>
-</table>
+          <div class="btnrow">
+            <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">
+              Check Free Fly status (official)
+            </a>
+            <a class="btn secondary" href="#quick-start">Quick start checklist</a>
+            <a class="btn secondary" href="#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- QUICK NAV (keeps structure clean, improves UX & SEO scanning) -->
+    <section class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> On this page</div>
+        <div class="toc">
+          <a href="#what-is">What Free Fly is</a>
+          <a href="#quick-start">Quick start checklist</a>
+          <a href="#ships">Ships & roles</a>
+          <a href="#what-to-test">What to test</a>
+          <a href="#timing">When it happens</a>
+          <a href="#referral">Referral bonus</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </section>
 
-<!-- HOW TO JOIN -->
-<section class="card pad">
-<h2>How to join Star Citizen Free Fly (Step-by-Step)</h2>
+    <!-- WHAT IT IS -->
+    <section id="what-is" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> What it is</div>
+        <h2 class="section__title">What is Star Citizen Free Fly?</h2>
+        <p class="lead" style="margin-top:0;">
+          Free Fly is an official trial window where you can play Star Citizen without buying a starter pack.
+          You create an RSI account, download the launcher, and get access for the event duration.
+        </p>
 
-<ol>
-<li>Create a new RSI account during an active Free Fly.</li>
-<li>Enter a referral code before finishing registration (cannot be added later).</li>
-<li>Download and install the RSI Launcher.</li>
-<li>Install the current game build.</li>
-<li>Launch the game and choose a starting location.</li>
-</ol>
+        <table class="scTable" role="table" aria-label="Free Fly overview table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Free Fly</th>
+              <th>After Free Fly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cost to try</td>
+              <td>Free</td>
+              <td>Starter pack required</td>
+            </tr>
+            <tr>
+              <td>Account</td>
+              <td>RSI account (create once)</td>
+              <td>Same account continues</td>
+            </tr>
+            <tr>
+              <td>Ships</td>
+              <td>Curated rotating selection</td>
+              <td>Depends on your package / rentals / purchases</td>
+            </tr>
+            <tr>
+              <td>Best use-case</td>
+              <td>Test performance + gameplay loops</td>
+              <td>Commit to a starter path</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Why entering a referral code matters</h3>
-<p>
-Free Fly is the ideal moment to activate a referral code because it must be entered at account creation.  
-It does not increase the price of the game and simply activates the available new-player bonus.
-</p>
+        <div class="miniNote">
+          <b>Best practice:</b> Don’t treat Free Fly as “launch day quality”.
+          Treat it as a high-traffic trial window — great for testing the game, sometimes rough on servers.
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- QUICK START -->
+    <section id="quick-start" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Quick start</div>
+        <h2 class="section__title">Free Fly quick start checklist (10 minutes)</h2>
 
-<!-- SHIPS SECTION -->
-<section class="card pad">
-<h2>What ships can you fly during Free Fly?</h2>
+        <ol class="steps">
+          <li><b>Check if Free Fly is live:</b> open the official page <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer">robertsspaceindustries.com/en/flyfree</a>.</li>
+          <li><b>Create your RSI account</b> (if you don’t have one yet).</li>
+          <li><b>Apply a referral code during signup</b> to activate the enlistment bonus (commonly advertised as <b>{referralBonusUEC} UEC</b>).</li>
+          <li><b>Install the RSI Launcher</b> and download the current build.</li>
+          <li><b>Pick a sensible start location</b> (avoid “hard mode” first spawns if you just want a smooth first hour).</li>
+          <li><b>Test 1–2 gameplay loops</b> + 2–3 ships. Don’t try everything in one sitting.</li>
+        </ol>
 
-<p>
-Each event offers a rotating selection of ships across multiple roles.
-</p>
+        <div class="btnrow">
+          <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Official Free Fly page</a>
+          <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
+          <a class="btn secondary" href="/performance-settings/">Performance & FPS</a>
+        </div>
+      </div>
+    </section>
 
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Example Ships</th>
-<th>What You Can Test</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Combat</td>
-<td>Light & medium fighters</td>
-<td>Dogfighting, bounty missions</td>
-</tr>
-<tr>
-<td>Cargo</td>
-<td>Freighters</td>
-<td>Trading routes, hauling contracts</td>
-</tr>
-<tr>
-<td>Exploration</td>
-<td>Multi-role ships</td>
-<td>Planetary travel, long-range travel</td>
-</tr>
-<tr>
-<td>Multi-crew</td>
-<td>Larger vessels</td>
-<td>Team gameplay & turret roles</td>
-</tr>
-</tbody>
-</table>
+    <!-- SHIPS & ROLES -->
+    <section id="ships" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Ships</div>
+        <h2 class="section__title">What ships can you fly during Free Fly?</h2>
+        <p class="lead" style="margin-top:0;">
+          The lineup changes per event, but it usually covers multiple roles. Use Free Fly to compare roles — not to min-max.
+        </p>
 
-<p>
-Free Fly events often coincide with major in-game expos where dozens of ships become temporarily available.
-</p>
+        <table class="scTable" role="table" aria-label="Ship roles during Free Fly">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>What to try</th>
+              <th>Beginner signal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Combat</td>
+              <td>Basic bounty mission + flight feel</td>
+              <td>Can you land, fight, return safely?</td>
+            </tr>
+            <tr>
+              <td>Cargo / hauling</td>
+              <td>Delivery contracts + simple hauling</td>
+              <td>Does the loop feel relaxing or tedious?</td>
+            </tr>
+            <tr>
+              <td>Multi-crew</td>
+              <td>Turret / co-pilot / ship interior</td>
+              <td>Do you enjoy teamwork + roles?</td>
+            </tr>
+            <tr>
+              <td>General / starter-friendly</td>
+              <td>One “do-everything” ship</td>
+              <td>Can this be your first buy?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-</section>
+    <!-- SECONDARY IMAGE (contrast from hero) -->
+    <section class="section">
+      <figure class="freeFlyFigure">
+        <img
+          class="freeFlyFigure__img"
+          src={crewImg}
+          alt="A small crew boarding a ship for a mission during Free Fly"
+          loading="lazy"
+          width="1600"
+          height="900"
+        />
+      </figure>
+    </section>
 
-<figure class="image-block">
-<img src="/assets/img/free-fly/star-citizen-free-fly-crew.webp"
-alt="Star Citizen crew boarding a spaceship during Free Fly"
-width="1600" height="900" loading="lazy">
-</figure>
+    <!-- WHAT TO TEST -->
+    <section id="what-to-test" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> What to test</div>
+        <h2 class="section__title">What you should test during Free Fly (in order)</h2>
 
-<!-- SCHEDULE -->
-<section class="card pad">
-<h2>When are Star Citizen Free Fly events?</h2>
+        <div class="grid2">
+          <div>
+            <h3 class="h3">1) Performance baseline</h3>
+            <ul class="bullets">
+              <li>Do you get stable FPS in your starting city?</li>
+              <li>Do stutters disappear after shader compilation?</li>
+              <li>Is your experience “playable enough” for long sessions?</li>
+            </ul>
+            <div class="miniNote">Tip: Use our <a href="/performance-settings/">Performance & FPS guide</a> before concluding “it runs badly”.</div>
+          </div>
 
-<p>
-Free Fly events typically occur multiple times per year, often aligned with major showcases.
-</p>
+          <div>
+            <h3 class="h3">2) A simple contract loop</h3>
+            <ul class="bullets">
+              <li>Delivery contracts (low pressure)</li>
+              <li>One bounty mission (basic combat feel)</li>
+              <li>One space station round trip (navigation + landing)</li>
+            </ul>
+            <div class="miniNote">Goal: prove you can reliably start → do something → return.</div>
+          </div>
 
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>Typical Timeframe</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Invictus Launch Week</td>
-<td>May</td>
-<td>Military ship focus</td>
-</tr>
-<tr>
-<td>Intergalactic Aerospace Expo (IAE)</td>
-<td>November</td>
-<td>Largest ship variety</td>
-</tr>
-<tr>
-<td>Patch Milestones</td>
-<td>Variable</td>
-<td>Smaller promotional Free Fly</td>
-</tr>
-</tbody>
-</table>
+          <div>
+            <h3 class="h3">3) Ship diversity (3 ships max)</h3>
+            <ul class="bullets">
+              <li>A small ship (responsiveness)</li>
+              <li>A mid ship (daily driver feel)</li>
+              <li>A larger ship (interiors + scale)</li>
+            </ul>
+          </div>
 
-<p>
-There is no fixed calendar, but historically at least 3–4 Free Fly events happen annually.
-</p>
+          <div>
+            <h3 class="h3">4) Social reality check</h3>
+            <ul class="bullets">
+              <li>Try a public chat question</li>
+              <li>Join one group activity</li>
+              <li>See if multi-crew appeals to you</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- TIMING -->
+    <section id="timing" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Timing</div>
+        <h2 class="section__title">When does Free Fly happen?</h2>
+        <p class="lead" style="margin-top:0;">
+          There’s no fixed calendar, but Free Fly commonly aligns with major showcases and promotions.
+        </p>
 
-<!-- IS IT WORTH IT -->
-<section class="card pad">
-<h2>Is Star Citizen Free Fly worth trying?</h2>
+        <table class="scTable" role="table" aria-label="Typical Free Fly windows">
+          <thead>
+            <tr>
+              <th>Window</th>
+              <th>Typical month</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Invictus-style showcase</td>
+              <td>May (often)</td>
+              <td>Military focus, strong ship trial rotation</td>
+            </tr>
+            <tr>
+              <td>IAE-style expo</td>
+              <td>November (often)</td>
+              <td>Biggest variety; great “try before buy” period</td>
+            </tr>
+            <tr>
+              <td>Patch / promo Free Fly</td>
+              <td>Variable</td>
+              <td>Smaller event, but still ideal for new accounts</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Advantages</h3>
-<ul>
-<li>No financial commitment</li>
-<li>Test performance on your hardware</li>
-<li>Access multiple ship roles</li>
-<li>Evaluate gameplay loops before buying</li>
-</ul>
+        <div class="btnrow">
+          <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Check official status</a>
+        </div>
+      </div>
+    </section>
 
-<h3>Considerations</h3>
-<ul>
-<li>Server load may be higher during events</li>
-<li>Performance varies by system</li>
-<li>Access ends when the event ends</li>
-</ul>
+    <!-- REFERRAL (allowed to use gold accent; it IS referral-related) -->
+    <section id="referral" class="section" aria-label="Referral bonus during Free Fly">
+      <div class="refOffer">
+        <div class="refOffer__badge" aria-hidden="true">BONUS</div>
 
-<p>
-Free Fly is ideal for players who want a realistic preview before purchasing a starter package.
-</p>
+        <div class="refOffer__main">
+          <div class="refOffer__title">
+            Creating a new account during Free Fly? Start with <b>{referralBonusUEC} UEC</b> bonus.
+          </div>
+          <div class="refOffer__sub">
+            Best practice: apply the referral code during signup so you don’t miss the window.
+          </div>
+        </div>
 
-</section>
+        <div class="refOffer__actions">
+          <a class="btn primary" href="/star-citizen-referral-code/">
+            Get referral code + steps
+          </a>
+          <a class="refOffer__link" href="#quick-start">Back to checklist ↑</a>
+        </div>
+      </div>
+    </section>
 
-<!-- FAQ -->
-<section class="card pad">
-<h2>Frequently Asked Questions</h2>
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> FAQ</div>
+        <h2 class="section__title">Common questions</h2>
 
-<details>
-<summary>Do I need to buy the game during Free Fly?</summary>
-<p>No. Access is granted temporarily without purchase.</p>
-</details>
+        <div class="faq">
+          {faqItems.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
 
-<details>
-<summary>Can I keep my progress after Free Fly?</summary>
-<p>Your account persists. Continued play requires purchasing a starter package.</p>
-</details>
+        <div class="btnrow">
+          <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
+          <a class="btn secondary" href="/beginner-tips/">Beginner Tips</a>
+          <a class="btn secondary" href="/performance-settings/">Performance & FPS</a>
+        </div>
+      </div>
+    </section>
 
-<details>
-<summary>Can I add a referral code later?</summary>
-<p>No. Referral codes must be entered during account creation.</p>
-</details>
+  </main>
 
-<details>
-<summary>How long do Free Fly events last?</summary>
-<p>Typically between 5–10 days depending on the event.</p>
-</details>
+  <!-- FAQ JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
 
-</section>
+  <!-- Page-scoped styles: tables + small layout helpers (no global rewrite) -->
+  <style>
+    .freeFlyHero__overlay{
+      /* Slightly stronger left gradient to keep H1 readable on busy hero */
+      background:
+        radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,0.10), rgba(0,0,0,0.58) 65%),
+        linear-gradient(90deg, rgba(7,10,18,0.70), rgba(7,10,18,0.10));
+    }
+    .freeFlyHero__content{ padding: 22px 22px 22px 22px; }
+    .toc{
+      display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
+      font-weight:700; font-size:13px; opacity:.9;
+    }
+    .toc a{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px; border-radius:12px;
+    }
+    .toc a:hover{ background: rgba(255,255,255,.07); }
 
-</section>
+    .scTable{
+      width:100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 14px;
+      overflow:hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+    .scTable th, .scTable td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .scTable th{
+      text-align:left;
+      font-weight: 900;
+      background: rgba(255,255,255,0.04);
+    }
+    .scTable tr:last-child td{ border-bottom: 0; }
 
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "Do I need to buy Star Citizen during Free Fly?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "No. Free Fly events allow temporary access without purchasing a starter package."
-}
-},
-{
-"@type": "Question",
-"name": "Can I add a referral code after account creation?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "No. Referral codes must be entered during account creation."
-}
-}
-]
-}
-</script>
+    .freeFlyFigure{
+      margin:0;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+    .freeFlyFigure__img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit: cover;
+      filter: saturate(1.06) brightness(1.02);
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (min-width: 860px){
+      .grid2{ grid-template-columns: 1fr 1fr; }
+    }
+    .h3{ font-size: 15px; margin: 8px 0 6px; }
+    .bullets{ margin: 0; padding-left: 18px; opacity: .92; }
+    .bullets li{ margin: 6px 0; }
+  </style>
 
 </BaseLayout>
