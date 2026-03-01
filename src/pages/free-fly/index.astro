@@ -1,12 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+
 const flyFreeUrl = "https://robertsspaceindustries.com/en/flyfree";
 
 const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
 const crewImg = "/assets/img/free-fly/star-citizen-free-fly-crew.webp";
 
+// FAQ content also used for JSON-LD
 const faqItems = [
   {
     q: "What is Star Citizen Free Fly?",
@@ -14,31 +18,31 @@ const faqItems = [
   },
   {
     q: "How do I check if Free Fly is active right now?",
-    a: "Use the official RSI Free Fly page. If a Free Fly is live, you’ll see the active event and access instructions there.",
+    a: "Use the official RSI Free Fly page. If a Free Fly is live, the event and access steps will be shown there.",
   },
   {
     q: "Do I need to buy a starter pack during Free Fly?",
-    a: "No. Free Fly lets you play without purchase during the event. If you want to continue playing after it ends, you’ll need a starter pack.",
+    a: "No. Free Fly lets you play without purchase during the event. If you want to continue after it ends, you’ll need a starter pack.",
   },
   {
     q: "Can I keep my account and progress after Free Fly?",
-    a: "Your RSI account stays. Access after the event requires a starter pack. Like any live development game, long-term progression can change over time.",
+    a: "Your RSI account stays. Access after the event requires a starter pack. As with any live development game, long-term progression can change over time.",
   },
   {
-    q: "Can I use a referral code during Free Fly?",
-    a: `Yes. Enter the referral code during signup to activate the enlistment bonus (commonly advertised as ${referralBonusUEC} UEC).`,
+    q: "Should I use a referral code during Free Fly?",
+    a: `Yes. If you’re creating a new account, apply a referral code during signup to activate the enlistment bonus (commonly advertised as ${referralBonusUEC} UEC). It doesn’t change pricing and it’s easiest to do at registration.`,
   },
   {
     q: "Can I add a referral code after creating my account?",
-    a: "Sometimes there’s a limited window, but the safest approach is to apply it during account creation so you don’t miss it.",
+    a: "Often there’s a limited window (commonly referenced as ~24 hours). The safest approach is to apply it during account creation so you don’t miss it.",
   },
   {
     q: "How long do Free Fly events last?",
-    a: "Most Free Fly events run roughly 5–10 days depending on the promotion. The exact duration is shown on the official Free Fly page when active.",
+    a: "Most Free Fly events run roughly 5–10 days depending on the promotion. The exact duration is listed on the official Free Fly page when active.",
   },
   {
     q: "What ships are available during Free Fly?",
-    a: "It changes per event. You typically get a curated rotating selection to try different roles (combat, cargo, multi-crew).",
+    a: "It changes per event. You typically get a curated rotating selection so you can try different roles (combat, cargo, multi-crew).",
   },
 ];
 
@@ -97,60 +101,61 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Free Fly Guide</div>
           <h1 class="h1">Star Citizen Free Fly: Start the smart way</h1>
           <p class="lead" style="max-width: 900px;">
-            Free Fly is the easiest way to try Star Citizen without buying anything.
+            Free Fly is the cleanest way to try Star Citizen without buying anything.
             Use this page to get in fast, test the right things, and avoid common beginner dead-ends.
           </p>
 
-          <!-- CTA order: Free Fly status + Referral bonus (prominent but not spammy) -->
+          <!-- Hero CTA: only Free Fly status + quickstart (referral lives in banner below hero) -->
           <div class="btnrow">
             <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">
               Check Free Fly status (official)
             </a>
-            <a class="btn primary" href="/star-citizen-referral-code/">
-              Start with {referralBonusUEC} UEC bonus
-            </a>
             <a class="btn secondary" href="#quick-start">Quick start checklist</a>
+            <a class="btn secondary" href="#faq">FAQ</a>
           </div>
 
           <p class="miniLead">
-            Creating a new account? Apply the referral during signup so the bonus is active from the start.
+            Not sure if it’s active? The official page is always the source of truth.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Premium benefit strip (like homepage logic; subtle but visible) -->
-    <section class="section">
+    <!-- Referral banner directly under hero (identical pattern to referral landing page) -->
+    <section class="section" aria-label="Referral bonus callout">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
 
         <div class="refOffer__main">
           <div class="refOffer__title">
-            New account during Free Fly: activate the enlistment bonus (<b>{referralBonusUEC} UEC</b>).
+            Use referral code <span class="refOffer__code">{referralCode}</span> to start with <b>{referralBonusUEC} UEC</b>.
           </div>
           <div class="refOffer__sub">
-            It takes under a minute and doesn’t change pricing — it simply applies the official referral bonus at signup.
+            Best practice: enter during signup — or within <b>24 hours</b> after account creation if you forgot.
           </div>
         </div>
 
         <div class="refOffer__actions">
-          <a class="btn primary" href="/star-citizen-referral-code/">Get the code + steps</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+            Create Account (Code prefilled)
+          </a>
           <a class="refOffer__link" href="#how-to-join">How it works ↓</a>
         </div>
       </div>
     </section>
 
-    <!-- TOC -->
+    <!-- ON THIS PAGE -->
     <section class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> On this page</div>
         <div class="toc">
           <a href="#what-is">What Free Fly is</a>
           <a href="#how-to-join">How to join</a>
-          <a href="#quick-start">First hour checklist</a>
+          <a href="#quick-start">First hour plan</a>
           <a href="#ships">Ships & roles</a>
           <a href="#what-to-test">What to test</a>
           <a href="#timing">When it happens</a>
+          <a href="#next">Next steps</a>
           <a href="#faq">FAQ</a>
         </div>
       </div>
@@ -167,42 +172,43 @@ const faqJsonLd = {
           You create an RSI account, install the launcher, and get access for the event duration.
         </p>
 
-        <table class="scTable" role="table" aria-label="Free Fly overview table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Free Fly</th>
-              <th>After Free Fly</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cost to try</td>
-              <td>Free</td>
-              <td>Starter pack required</td>
-            </tr>
-            <tr>
-              <td>Account</td>
-              <td>RSI account (create once)</td>
-              <td>Same account continues</td>
-            </tr>
-            <tr>
-              <td>Ships</td>
-              <td>Curated rotating selection</td>
-              <td>Depends on your package / rentals / purchases</td>
-            </tr>
-            <tr>
-              <td>Best use-case</td>
-              <td>Find your playstyle + test performance</td>
-              <td>Pick a starter path and build routine</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tableWrap">
+          <table class="table" aria-label="Free Fly overview">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Free Fly</th>
+                <th>After Free Fly</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Cost to try</th>
+                <td>Free</td>
+                <td>Starter pack required</td>
+              </tr>
+              <tr>
+                <th>Account</th>
+                <td>RSI account (create once)</td>
+                <td>Same account continues</td>
+              </tr>
+              <tr>
+                <th>Ships</th>
+                <td>Curated rotating selection</td>
+                <td>Depends on your package / rentals / purchases</td>
+              </tr>
+              <tr>
+                <th>Best use-case</th>
+                <td>Find your playstyle + test performance</td>
+                <td>Pick a starter path and build routine</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <!-- Replace the “server” line with beginner-first, actionable guidance -->
         <div class="miniNote">
           <b>Beginner tip:</b> Don’t try to “see everything” on day one.
-          Aim for a clean first loop: spawn → reach your ship → take one simple contract → return safely.
+          Aim for one clean loop: spawn → reach your ship → do a simple contract → return safely.
         </div>
       </div>
     </section>
@@ -214,70 +220,65 @@ const faqJsonLd = {
         <h2 class="section__title">How to join Free Fly (step-by-step)</h2>
 
         <ol class="steps">
-          <li><b>Open the official page:</b> <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer">robertsspaceindustries.com/en/flyfree</a></li>
+          <li><b>Check if it’s live:</b> open <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer">the official Free Fly page</a>.</li>
           <li><b>Create your RSI account</b> (or sign in if you already have one).</li>
-          <li><b>Apply a referral code during signup</b> to activate the enlistment bonus (<b>{referralBonusUEC} UEC</b>).</li>
+          <li><b>Apply the referral code during signup</b> to activate the enlistment bonus.</li>
           <li><b>Install the RSI Launcher</b> and download the current build.</li>
           <li><b>Launch</b>, pick a starting location, and run your first simple contract.</li>
         </ol>
 
-        <div class="btnrow">
+        <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Official Free Fly page</a>
-          <a class="btn secondary" href="/star-citizen-referral-code/">Referral code (bonus active)</a>
+          <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
+          <a class="btn secondary" href="/performance-settings/">Performance & FPS</a>
         </div>
       </div>
     </section>
 
-    <!-- FIRST HOUR CHECKLIST (stronger beginner utility than generic “best practice”) -->
+    <!-- FIRST HOUR PLAN -->
     <section id="quick-start" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> First hour</div>
-        <h2 class="section__title">Your first 60 minutes (a simple, reliable plan)</h2>
+        <h2 class="section__title">Your first 60 minutes (simple, reliable plan)</h2>
 
         <div class="grid2">
           <div>
-            <h3 class="h3">Step 1: Get to space once</h3>
+            <h3 class="h3">1) Get to space once</h3>
             <ul class="bullets">
-              <li>Spawn → find the transit → reach the spaceport</li>
-              <li>Claim your ship → take off → exit atmosphere</li>
+              <li>Spawn → transit → spaceport</li>
+              <li>Claim ship → take off → leave atmosphere</li>
             </ul>
-            <div class="miniNote">Goal: prove you can consistently get airborne.</div>
+            <div class="miniHint">Goal: prove you can consistently get airborne.</div>
           </div>
 
           <div>
-            <h3 class="h3">Step 2: Do one low-risk contract</h3>
+            <h3 class="h3">2) Do one low-risk contract</h3>
             <ul class="bullets">
-              <li>Pick a delivery / courier style contract</li>
-              <li>Avoid “high threat” tasks for your first hour</li>
+              <li>Choose a courier / delivery task</li>
+              <li>Avoid “high threat” missions early</li>
             </ul>
-            <div class="miniNote">Goal: learn how contracts + navigation + landing connect.</div>
+            <div class="miniHint">Goal: learn contracts + navigation + landing.</div>
           </div>
 
           <div>
-            <h3 class="h3">Step 3: Test 2 ships (not 10)</h3>
+            <h3 class="h3">3) Test two ship styles</h3>
             <ul class="bullets">
-              <li>One smaller ship for handling</li>
+              <li>One small ship for handling</li>
               <li>One larger ship for interiors + scale</li>
             </ul>
-            <div class="miniNote">Goal: quickly feel what you enjoy.</div>
+            <div class="miniHint">Goal: discover your playstyle fast.</div>
           </div>
 
           <div>
-            <h3 class="h3">Step 4: Decide your next step</h3>
+            <h3 class="h3">4) Decide your next step</h3>
             <ul class="bullets">
-              <li>If you liked it → read the Starter Pack Guide</li>
-              <li>If performance is rough → apply basic FPS settings</li>
+              <li>If you liked it → pick a starter pack path</li>
+              <li>If performance is rough → apply FPS basics</li>
             </ul>
-            <div class="miniNote">
-              Next links: <a href="/starter-pack/">Starter Pack Guide</a> · <a href="/performance-settings/">Performance & FPS</a>
+            <div class="miniHint">
+              Next links: <a href="/starter-pack/">Starter Pack</a> · <a href="/performance-settings/">Performance</a>
             </div>
           </div>
-        </div>
-
-        <div class="btnrow">
-          <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
-          <a class="btn secondary" href="/performance-settings/">Performance & FPS</a>
-          <a class="btn secondary" href="/beginner-tips/">Beginner Tips</a>
         </div>
       </div>
     </section>
@@ -291,45 +292,46 @@ const faqJsonLd = {
           The lineup changes per event. Use Free Fly to compare roles — combat vs cargo vs multi-crew — and find what feels fun.
         </p>
 
-        <table class="scTable" role="table" aria-label="Ship roles during Free Fly">
-          <thead>
-            <tr>
-              <th>Role</th>
-              <th>What to try</th>
-              <th>Beginner signal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Combat</td>
-              <td>One basic bounty mission</td>
-              <td>Do you enjoy pressure and piloting skill?</td>
-            </tr>
-            <tr>
-              <td>Cargo / hauling</td>
-              <td>Deliveries + simple hauling</td>
-              <td>Do you enjoy calm, routine gameplay?</td>
-            </tr>
-            <tr>
-              <td>Multi-crew</td>
-              <td>Turret / ship interior roles</td>
-              <td>Do you enjoy teamwork and roles?</td>
-            </tr>
-            <tr>
-              <td>Daily driver</td>
-              <td>One versatile ship</td>
-              <td>Could this be your first purchase?</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tableWrap">
+          <table class="table" aria-label="Ship roles during Free Fly">
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>What to try</th>
+                <th>Beginner signal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Combat</th>
+                <td>One basic bounty mission</td>
+                <td>Do you enjoy pressure and piloting skill?</td>
+              </tr>
+              <tr>
+                <th>Cargo / hauling</th>
+                <td>Deliveries + simple hauling</td>
+                <td>Do you enjoy calm, routine gameplay?</td>
+              </tr>
+              <tr>
+                <th>Multi-crew</th>
+                <td>Turret / ship interior roles</td>
+                <td>Do you enjoy teamwork and roles?</td>
+              </tr>
+              <tr>
+                <th>Daily driver</th>
+                <td>One versatile ship</td>
+                <td>Could this be your first purchase?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- Smaller secondary image: capped height to avoid scroll monster -->
+    <!-- SECONDARY IMAGE (smaller; no scroll monster) -->
     <section class="section">
-      <figure class="freeFlyFigure freeFlyFigure--compact">
+      <figure class="imgFrame imgFrame--compact">
         <img
-          class="freeFlyFigure__img"
           src={crewImg}
           alt="A small crew boarding a ship for a mission during Free Fly"
           loading="lazy"
@@ -343,42 +345,44 @@ const faqJsonLd = {
     <section id="what-to-test" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What to test</div>
-        <h2 class="section__title">What to test during Free Fly (the efficient way)</h2>
+        <h2 class="section__title">What to test during Free Fly (efficient order)</h2>
 
-        <table class="scTable" role="table" aria-label="What to test during Free Fly">
-          <thead>
-            <tr>
-              <th>Priority</th>
-              <th>Test</th>
-              <th>Why it matters</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Baseline performance in your starting city</td>
-              <td>Decides whether the game is playable for you right now</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>One reliable contract loop</td>
-              <td>Shows how navigation + missions + landing work together</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Two ship styles (small + larger)</td>
-              <td>Quickly reveals your preferred playstyle</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Multi-crew moment (optional)</td>
-              <td>Determines if social/team roles are your thing</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tableWrap">
+          <table class="table" aria-label="What to test during Free Fly">
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Test</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Baseline performance in your starting city</td>
+                <td>Decides whether the game feels playable for you right now</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>One reliable contract loop</td>
+                <td>Shows how missions + navigation + landing connect</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>Two ship styles (small + larger)</td>
+                <td>Reveals your preferred playstyle quickly</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>Multi-crew moment (optional)</td>
+                <td>Determines if team roles are your thing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="miniNote">
-          If performance is borderline, use our <a href="/performance-settings/">Performance & FPS guide</a> before you decide.
+          If performance is borderline, use our <a href="/performance-settings/">Performance & FPS guide</a> before deciding.
         </div>
       </div>
     </section>
@@ -392,80 +396,106 @@ const faqJsonLd = {
           There’s no fixed calendar, but Free Fly commonly aligns with major showcases and promotions.
         </p>
 
-        <table class="scTable" role="table" aria-label="Typical Free Fly windows">
-          <thead>
-            <tr>
-              <th>Window</th>
-              <th>Typical month</th>
-              <th>What it’s like</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Invictus-style showcase</td>
-              <td>May (often)</td>
-              <td>Strong ship trial rotation, military focus</td>
-            </tr>
-            <tr>
-              <td>IAE-style expo</td>
-              <td>November (often)</td>
-              <td>Largest variety; best “try before buy” period</td>
-            </tr>
-            <tr>
-              <td>Patch / promo Free Fly</td>
-              <td>Variable</td>
-              <td>Shorter event; still perfect for new accounts</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tableWrap">
+          <table class="table" aria-label="Typical Free Fly windows">
+            <thead>
+              <tr>
+                <th>Window</th>
+                <th>Typical month</th>
+                <th>What it’s like</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Invictus-style showcase</th>
+                <td>May (often)</td>
+                <td>Strong ship rotation, military focus</td>
+              </tr>
+              <tr>
+                <th>IAE-style expo</th>
+                <td>November (often)</td>
+                <td>Largest variety; best “try before buy” period</td>
+              </tr>
+              <tr>
+                <th>Patch / promo Free Fly</th>
+                <td>Variable</td>
+                <td>Shorter event; still perfect for new accounts</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <div class="btnrow">
+        <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Check official status</a>
-          <a class="btn secondary" href="/star-citizen-referral-code/">Start with {referralBonusUEC} UEC</a>
+          <a class="btn secondary" href="#how-to-join">How to join</a>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
+    <!-- NEXT STEPS (funnel + value) -->
+    <section id="next" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> FAQ</div>
-        <h2 class="section__title">Common questions</h2>
+        <div class="kicker"><span class="dot"></span> Next</div>
+        <h2 class="section__title">Recommended next steps</h2>
+        <p class="lead" style="margin-top:0;">
+          Once you’ve confirmed Free Fly access, follow this order to keep things simple and avoid wasting time.
+        </p>
 
-        <div class="faq">
-          {faqItems.map((item) => (
-            <details>
-              <summary>{item.q}</summary>
-              <p>{item.a}</p>
-            </details>
-          ))}
-        </div>
+        <ol class="steps">
+          <li><b>Create your account with the referral bonus active</b> (fast, one-time setup).</li>
+          <li><b>Run the first-hour plan</b> (one clean contract loop).</li>
+          <li><b>If you want to continue:</b> choose a starter pack based on your preferred role.</li>
+        </ol>
 
-        <div class="btnrow">
-          <a class="btn primary" href="/star-citizen-referral-code/">Referral code + steps</a>
+        <div class="btnrow" style="margin-top: 16px;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
           <a class="btn secondary" href="/starter-pack/">Starter Pack Guide</a>
           <a class="btn secondary" href="/beginner-tips/">Beginner Tips</a>
         </div>
       </div>
     </section>
 
+    <!-- FAQ (use referral page accordion style) -->
+    <section id="faq" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> FAQ</div>
+        <h2 class="section__title">Star Citizen Free Fly – frequently asked questions</h2>
+
+        <div class="faq">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+
+        <div class="btnrow" style="margin-top: 16px;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
+          <a class="btn secondary" href="#how-to-join">Back to steps</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FAQ JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
 
   <style>
-    /* Improve readability on the busy hero background */
+    /* HERO readability */
     .freeFlyHero__overlay{
       background:
-        radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,0.10), rgba(0,0,0,0.62) 66%),
-        linear-gradient(90deg, rgba(7,10,18,0.74), rgba(7,10,18,0.12));
+        radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
+        linear-gradient(90deg, rgba(7,10,18,.70), rgba(7,10,18,.10));
     }
     .freeFlyHero__content{ padding: 22px; }
-    .miniLead{ margin-top: 10px; opacity:.86; font-size: 13px; max-width: 820px; }
+    .miniLead{ margin-top: 10px; opacity:.84; font-size: 13px; max-width: 820px; }
 
+    /* TOC pills */
     .toc{
       display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
-      font-weight:800; font-size:13px; opacity:.9;
+      font-weight:800; font-size:13px; opacity:.92;
     }
     .toc a{
       border:1px solid rgba(255,255,255,.10);
@@ -474,33 +504,127 @@ const faqJsonLd = {
     }
     .toc a:hover{ background: rgba(255,255,255,.07); }
 
-    .scTable{
-      width:100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      margin-top: 14px;
-      overflow:hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
+    /* Referral banner styles (copied from referral landing page for consistency) */
+    .refOffer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(216,168,74,.34);
+      background: linear-gradient(180deg, rgba(216,168,74,.16), rgba(216,168,74,.06));
+      box-shadow: 0 16px 44px rgba(0,0,0,.45), 0 0 0 1px rgba(216,168,74,.10) inset;
     }
-    .scTable th, .scTable td{
-      padding: 12px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      vertical-align: top;
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .scTable th{
-      text-align:left;
+    .refOffer__badge{
+      font-size: 11px;
+      letter-spacing: .14em;
       font-weight: 900;
-      background: rgba(255,255,255,0.04);
+      padding: 9px 11px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      color: rgba(255, 236, 195, .96);
+      background: rgba(216,168,74,.18);
+      border: 1px solid rgba(216,168,74,.35);
+      box-shadow: 0 0 22px rgba(216,168,74,.16);
+      flex: 0 0 auto;
     }
-    .scTable tr:last-child td{ border-bottom: 0; }
+    .refOffer__main{ min-width:0; }
+    .refOffer__title{ font-weight: 750; line-height: 1.25; color: rgba(255,255,255,.95); }
+    .refOffer__title b { color: rgba(255, 224, 160, .96); }
+    .refOffer__sub{ margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.5; }
+    .refOffer__code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: .08em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(216,168,74,.28);
+      color: rgba(255, 236, 195, .96);
+      white-space: nowrap;
+    }
+    .refOffer__actions{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+    .refOffer__link{
+      color: rgba(255, 224, 160, .92);
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(255, 224, 160, .35);
+      padding-bottom: 2px;
+      white-space: nowrap;
+    }
+    .refOffer__link:hover{
+      color: rgba(255, 238, 195, 1);
+      border-bottom-color: rgba(255, 238, 195, .75);
+    }
+    @media (max-width: 720px){
+      .refOffer{ flex-direction: column; align-items:flex-start; }
+      .refOffer__actions{ width:100%; align-items:flex-start; }
+    }
 
-    .steps{ margin: 10px 0 0; padding-left: 18px; }
-    .steps li{ margin: 8px 0; }
+    /* Table system (match referral page style) */
+    .tableWrap{
+      overflow:auto;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      margin-top: 12px;
+    }
+    .table{
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+    .table th, .table td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      text-align: left;
+      vertical-align: top;
+      color: rgba(255,255,255,.84);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .table thead th{
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      font-weight: 900;
+    }
+    .table tbody th{
+      width: 220px;
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      background: rgba(255,255,255,.03);
+    }
 
+    /* Steps + helper blocks */
+    .steps{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .miniNote{
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(216,168,74,.12);
+      border: 1px solid rgba(216,168,74,.22);
+      color: rgba(255,255,255,.84);
+      line-height: 1.55;
+    }
+    .miniHint{
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,.72);
+    }
+
+    /* Grid */
     .grid2{
       display:grid;
       grid-template-columns: 1fr;
@@ -511,36 +635,62 @@ const faqJsonLd = {
       .grid2{ grid-template-columns: 1fr 1fr; }
     }
     .h3{ font-size: 15px; margin: 8px 0 6px; }
-    .bullets{ margin: 0; padding-left: 18px; opacity: .92; }
+    .bullets{ margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.75; }
     .bullets li{ margin: 6px 0; }
 
-    /* Secondary image should not dominate scroll */
-    .freeFlyFigure{
-      margin:0;
-      border-radius: var(--radius);
+    /* Image frame + compact sizing */
+    .imgFrame{
+      border-radius: 14px;
       overflow:hidden;
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 16px 44px rgba(0,0,0,.35);
     }
-    .freeFlyFigure__img{
+    .imgFrame img{
       width:100%;
       height:auto;
       display:block;
       object-fit: cover;
       object-position: 50% 55%;
-      filter: saturate(1.05) brightness(1.02);
     }
-    .freeFlyFigure--compact{
-      max-height: 440px;
+    .imgFrame--compact{
+      max-height: 420px;
     }
-    .freeFlyFigure--compact .freeFlyFigure__img{
-      height: 440px;
+    .imgFrame--compact img{
+      height: 420px;
     }
     @media (max-width: 680px){
-      .freeFlyFigure--compact{ max-height: 320px; }
-      .freeFlyFigure--compact .freeFlyFigure__img{ height: 320px; }
+      .imgFrame--compact{ max-height: 300px; }
+      .imgFrame--compact img{ height: 300px; }
+    }
+
+    /* FAQ accordion (match referral page) */
+    .faq{ margin-top: 10px; }
+    .faq__item{
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 10px 0;
+    }
+    .faq__q{
+      cursor: pointer;
+      font-weight: 900;
+      list-style: none;
+      position: relative;
+      padding-right: 26px;
+    }
+    .faq__q::-webkit-details-marker{ display:none; }
+    .faq__q::after{
+      content: "+";
+      position:absolute;
+      right: 0;
+      top: 0;
+      color: rgba(255,255,255,.78);
+      font-weight: 900;
+    }
+    details[open] > .faq__q::after{ content: "–"; }
+    .faq__a{
+      margin-top: 8px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
     }
   </style>
-
 </BaseLayout>
