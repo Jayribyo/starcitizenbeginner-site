@@ -594,3 +594,45 @@ li {
   line-height: 1.55;
   opacity: 0.85;
 }
+
+/* ========== Back to top (global) ========== */
+.backToTop{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 1000;
+  font-size: 18px;
+  line-height: 1;
+
+  color: rgba(255,255,255,.80);
+  background: rgba(0,0,0,.42);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 46px rgba(0,0,0,.55);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .16s ease, transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease;
+
+  z-index: 120; /* above content */
+}
+
+.backToTop.is-visible{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.backToTop:hover{
+  color: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.18);
+}
