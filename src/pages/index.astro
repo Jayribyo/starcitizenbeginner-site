@@ -1,213 +1,250 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import SiteHeader from "../components/SiteHeader.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
+const referralBonusUEC = "50,000";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
-const referralPage = "/star-citizen-referral-code/";
 
-const tiles = [
-  {
-    href: referralPage,
-    img: "/assets/img/home/tiles/scb-tile-referral-bonus.webp",
-    title: "Referral Bonus",
-    desc: "Use a Star Citizen referral code and start with extra in-game credits.",
-    pill: "Bonus",
-  },
-  {
-    href: "/beginner-tips/",
-    img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
-    title: "Beginner Tips",
-    desc: "Avoid common mistakes and set smart early priorities.",
-    pill: "Start here",
-  },
-  {
-    href: "/free-fly/",
-    img: "/assets/img/home/tiles/star-citizen-free-fly-tile.webp",
-    title: "Free Fly",
-    desc: "Test all Ships for free and take off.",
-    pill: "Fly Free",
-  },
-  {
-    href: "/starter-pack/",
-    img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
-    title: "Starter Pack Guide",
-    desc: "Which ship to choose and when to upgrade.",
-    pill: "Buy smart",
-  },
-  {
-    href: "/make-money-fast/",
-    img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
-    title: "Make Money Fast",
-    desc: "Early aUEC routes, contracts and safe income loops.",
-    pill: "aUEC",
-  },
-  {
-    href: "/performance-settings/",
-    img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
-    title: "Performance & FPS",
-    desc: "Optimized settings to make Star Citizen run smoother.",
-    pill: "FPS",
-  },
+const flyFreeUrl = "https://robertsspaceindustries.com/en/flyfree";
+
+const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
+const crewImg = "/assets/img/free-fly/star-citizen-free-fly-crew.webp"
+
+const onThisPageItems = [
+  { label: "What Free Fly is", href: "#what-is" },
+  { label: "How to join", href: "#how-to-join" },
+  { label: "First hour plan", href: "#quick-start" },
+  { label: "Ships & roles", href: "#ships" },
+  { label: "What to test", href: "#what-to-test" },
+  { label: "Common pitfalls", href: "#pitfalls" },
+  { label: "FAQ", href: "#faq" },
 ];
 ---
 
 <BaseLayout
   lang="en"
-  title="Star Citizen Beginner Guide (2024) | Referral Code + Smart Start"
-  description="The ultimate Star Citizen beginner guide. Use a referral code for 50,000 UEC and follow step-by-step guides for your first hours, starter ships, FPS optimization and early aUEC."
-  canonicalPath="/"
+  title="Star Citizen Free Fly – How to Join, What to Do First, Ships & Bonus Guide"
+  description={`A practical Star Citizen Free Fly guide: check if it’s active, join step-by-step, follow a first-hour plan, try the right ship roles, and start with the ${referralBonusUEC} UEC referral bonus.`}
+  canonicalPath="/free-fly/"
+  ogImage={heroImg}
 >
-  <SiteHeader active="home" />
+  <SiteHeader active="free-fly" />
 
   <main class="container">
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero freeFlyHero">
       <img
-        class="hero__img"
-        src="/assets/img/home/scb-home-hero.webp"
-        alt="Star Citizen spaceship flying above a planet"
+        class="hero__img freeFlyHero__img"
+        src={heroImg}
+        alt="Star Citizen Free Fly hangar with a variety of ships"
         loading="eager"
+        fetchpriority="high"
       />
-      <div class="hero__overlay"></div>
+      <div class="hero__overlay freeFlyHero__overlay"></div>
 
       <div class="hero__content">
-        <div style="max-width:720px; padding: 26px 0;">
-          <h1 class="h1">Star Citizen Beginner Guide: Start the smart way.</h1>
-          <p class="lead">The clean path for new pilots.</p>
+        <div class="freeFlyHero__content">
+          <div class="kicker"><span class="dot"></span> Star Citizen Free Fly</div>
+          <h1 class="h1">Free Fly: The best way to try Star Citizen (without buying).</h1>
+          <p class="lead">
+            This page tells you what Free Fly is, how to join, what to do in your first hour, which ships to test, and how to activate the referral bonus before you finish signup.
+          </p>
 
           <div class="btnrow">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-              Get 50,000 UEC Bonus
-            </a>
-            <a class="btn secondary" href="#guides">Explore Guides</a>
+            <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Check if Free Fly is active</a>
+            <a class="btn secondary" href="#how-to-join">How to join</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Referral banner (now identical structure to referral/free-fly pages) -->
-    <section class="section" aria-label="Referral bonus callout">
-      <div class="refOffer">
-        <div class="refOffer__badge" aria-hidden="true">BONUS</div>
+    <!-- Referral banner (now global component) -->
+    <div id="referral-bonus"></div>
 
-        <div class="refOffer__main">
-          <div class="refOffer__title">
-            Use referral code <span class="refOffer__code">{referralCode}</span> to start with <b>50,000 UEC</b>.
-          </div>
-          <div class="refOffer__sub">
-            Enter during signup — or within <b>24 hours</b> after account creation.
-          </div>
-        </div>
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaHref={referralLink}
+      howItWorksHref="#how-to-join"
+      sublineHtml="Best practice: enter during signup — or within <b>24 hours</b> after account creation if you forgot."
+      ariaLabel="Referral bonus callout"
+    />
 
-        <div class="refOffer__actions">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-            Create Account (Code prefilled)
-          </a>
-          <a class="refOffer__link" href={`${referralPage}#how-to-use`}>How it works ↓</a>
-        </div>
-      </div>
-    </section>
+    <!-- On this page (now global component) -->
+    <OnThisPage items={onThisPageItems} />
 
-    <!-- ON THIS PAGE -->
-    <section class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> On this page</div>
-        <div class="toc">
-          <a href="#guides">Guides</a>
-          <a href="#what-is">What Star Citizen is</a>
-          <a href="#is-it-for-you">Is it for you?</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== GUIDES ===================== -->
-    <section id="guides" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Beginner Guides</div>
-        <h2 class="section__title">Start here. Then go deeper.</h2>
-        <p class="lead">Structured guides for your first hours, ships, credits and performance.</p>
-      </div>
-
-      <div class="tiles">
-        {tiles.map((t) => (
-          <a class="tile" href={t.href}>
-            <img class="tile__img" src={t.img} alt={t.title} loading="lazy" />
-            <div class="tile__meta">
-              <span class="tile__pill">{t.pill}</span>
-              <h3 class="tile__title">{t.title}</h3>
-              <p class="tile__desc">{t.desc}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- ===================== WHAT IS STAR CITIZEN? ===================== -->
+    <!-- WHAT IS FREE FLY -->
     <section id="what-is" class="section">
       <div class="grid2">
         <div class="card pad">
-          <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
-          <h2 class="section__title">A living sci-fi universe.</h2>
+          <div class="kicker"><span class="dot"></span> What it is</div>
+          <h2 class="section__title">What is a Star Citizen Free Fly?</h2>
 
           <p>
-            Star Citizen is a large-scale space simulation that blends space flight, FPS combat and a fully player-driven economy into one persistent online universe.
-            Unlike traditional MMOs, there are no fixed classes or predefined paths — you choose your role, your ship and your pace.
+            A Free Fly event is an official trial window where you can play Star Citizen without buying a starter pack. You create an RSI account, download the launcher, and log in during the event.
           </p>
 
           <p>
-            You can pilot ships across entire planetary systems, trade cargo between stations, mine resources, run delivery contracts, bounty hunt criminals or join multi-crew operations.
-            Every activity connects to a shared economy where supply, demand and risk directly affect your earnings.
+            Free Fly is the best time to test the game, the flight model, and different ship roles before spending money. It’s also when a lot of new players arrive — so onboarding matters.
           </p>
 
-          <p>
-            What makes Star Citizen unique is its persistence. The universe continues evolving through active development, frequent updates and system expansion.
-            Features improve, mechanics deepen and new gameplay loops are introduced over time — which makes understanding the fundamentals especially important for beginners.
-          </p>
-
-          <p>
-            It is not a fast arcade space shooter. It rewards preparation, knowledge and efficiency.
-            If you start with a clear plan, your first hours become structured instead of overwhelming — and that’s exactly what this guide is built for.
+          <p class="miniLead">
+            Official status page: <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer" style="text-decoration: underline; opacity:.9;">RSI Fly Free</a>
           </p>
         </div>
 
         <div class="card pad">
-          <img class="imgRounded" src="/assets/img/home/scb-home-what-is-star-citizen.webp" alt="Star Citizen character looking over a planet horizon" loading="lazy" />
+          <img class="imgRounded" src={crewImg} alt="A sci-fi crew walking toward a ship during Free Fly" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <!-- ===================== IS IT FOR YOU? ===================== -->
-    <section id="is-it-for-you" class="section">
-      <div class="grid2">
-        <div class="card pad">
-          <img class="imgRounded" src="/assets/img/home/scb-home-pros-cons.webp" alt="Star Citizen player walking through an atmospheric sci-fi landscape" loading="lazy" />
+    <!-- HOW TO JOIN -->
+    <section id="how-to-join" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Step-by-step</div>
+        <h2 class="section__title">How to join Free Fly (clean process)</h2>
+
+        <ol class="steps">
+          <li>Open the official Free Fly page and check if the event is active.</li>
+          <li>Create an RSI account (use a referral code during signup for the {referralBonusUEC} UEC bonus).</li>
+          <li>Download the RSI launcher and install Star Citizen.</li>
+          <li>Log in and claim the Free Fly access (if required on the event page).</li>
+          <li>Enter the PU and spawn in your starting location.</li>
+        </ol>
+
+        <div class="miniNote">
+          Tip: Use the referral code during account creation — it’s the only moment you can reliably apply it.
         </div>
+      </div>
+    </section>
 
-        <div class="card pad">
-          <div class="kicker"><span class="dot"></span> Is it for you?</div>
-          <h2 class="section__title">High highs. Real depth.</h2>
+    <!-- QUICK START -->
+    <section id="quick-start" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> First hour plan</div>
+        <h2 class="section__title">What to do in your first hour</h2>
 
-          <p>
-            Star Citizen rewards patience, planning and systems thinking. It is designed for players who enjoy learning mechanics, understanding ships,
-            optimizing routes and gradually mastering complex systems rather than rushing through scripted content.
-          </p>
+        <p>
+          Your goal is not “do everything”. Your goal is to build a stable baseline: controls, a short route, one simple contract, one ship test.
+        </p>
 
-          <p>
-            If you like sandbox games where your decisions shape your experience — whether that’s focusing on exploration, trading, combat or cooperative gameplay —
-            you’ll likely feel at home. There is no single “correct” way to play, but there are smarter ways to start.
-          </p>
+        <ol class="steps">
+          <li>Set your spawn: learn where the hangar terminals and elevators are.</li>
+          <li>Fly one short route: take off, quantum, land once. Don’t overcomplicate.</li>
+          <li>Do one beginner contract: delivery or basic bounty (depending on confidence).</li>
+          <li>Test a second ship role: fighter vs. hauler vs. multi-role to feel the differences.</li>
+        </ol>
+      </div>
+    </section>
 
-          <ul>
-            <li><b>You’ll enjoy it if:</b> you prefer freedom over hand-holding, long-term progression over instant rewards, and immersive environments over fast arcade loops.</li>
-            <li><b>Be aware:</b> the game is still in active development. Bugs, balance changes and performance fluctuations are part of the experience.</li>
-            <li><b>Good to know:</b> optimized settings and a structured early-game plan dramatically improve your first impression.</li>
-          </ul>
+    <!-- SHIPS -->
+    <section id="ships" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Ships & roles</div>
+        <h2 class="section__title">Which ships to test (so the trial is actually useful)</h2>
 
-          <p>
-            If you approach Star Citizen with realistic expectations and a structured entry path, the experience can feel uniquely immersive and rewarding.
-            If you expect a polished, linear campaign with instant clarity, it may feel overwhelming at first.
-          </p>
+        <p>
+          Free Fly often gives access to multiple ships. Don’t just pick what looks cool — test roles that map to real gameplay loops.
+        </p>
+
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>What you learn</th>
+                <th>Good trial focus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Fighter</th>
+                <td>Combat handling + target tracking</td>
+                <td>Basic bounty / arena-style fights</td>
+              </tr>
+              <tr>
+                <th>Hauler</th>
+                <td>Navigation + landing workflow</td>
+                <td>Delivery contracts</td>
+              </tr>
+              <tr>
+                <th>Multi-role</th>
+                <td>All-round feel + upgrade potential</td>
+                <td>General “starter pack” comparison</td>
+              </tr>
+              <tr>
+                <th>Mining / industry</th>
+                <td>Economy loop thinking</td>
+                <td>Intro mining / resource flow</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO TEST -->
+    <section id="what-to-test" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Trial checklist</div>
+        <h2 class="section__title">What to test before you buy anything</h2>
+
+        <ul>
+          <li>Can you reliably spawn, reach the hangar and take off?</li>
+          <li>Is quantum travel stable for you (route + performance)?</li>
+          <li>Can you land at a station and return without friction?</li>
+          <li>Do you prefer combat, delivery, multi-crew, or sandbox roaming?</li>
+          <li>Is FPS/performance acceptable with basic optimization?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PITFALLS -->
+    <section id="pitfalls" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Common pitfalls</div>
+        <h2 class="section__title">Free Fly mistakes that waste your trial</h2>
+
+        <ul>
+          <li>Trying to do “everything” instead of one clean route + one loop.</li>
+          <li>Ignoring ship role testing (you learn less, buy worse later).</li>
+          <li>Skipping the referral code during signup (you can’t reliably add it later).</li>
+          <li>Not learning basic navigation (hangars, elevators, terminals).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> FAQ</div>
+        <h2 class="section__title">Free Fly – frequently asked questions</h2>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__q">Where do I check if Free Fly is active?</summary>
+            <div class="faq__a">
+              The most reliable source is the official RSI Fly Free page: <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">robertsspaceindustries.com/en/flyfree</a>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Do I need a starter pack during Free Fly?</summary>
+            <div class="faq__a">
+              No. Free Fly is a trial window. You only need a starter pack if you want to keep playing after the event ends.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Should I still use a referral code if I only try Free Fly?</summary>
+            <div class="faq__a">
+              Yes. Create the account with the referral code during signup, then decide later if you activate the account with a starter pack.
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -223,30 +260,12 @@ const tiles = [
   </main>
 
   <style>
-    /* On this page (match free-fly look) */
-    .toc{
-      display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
-      font-weight:800; font-size:13px; opacity:.92;
+    .freeFlyHero__overlay{
+      background:
+        radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
+        linear-gradient(90deg, rgba(7,10,18,.70), rgba(7,10,18,.10));
     }
-    .toc a{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px; border-radius:12px;
-    }
-    .toc a:hover{ background: rgba(255,255,255,.07); }
-
-    /* Referral offer banner (ensure same inner layout as other pages if global differs) */
-    .refOffer__main{ min-width:0; }
-    .refOffer__title{ font-weight: 750; line-height: 1.25; color: rgba(255,255,255,.95); }
-    .refOffer__title b { color: rgba(255, 224, 160, .96); }
-    .refOffer__sub{ margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.5; }
-    .refOffer__actions{
-      display:flex; align-items:center; gap:12px; flex:0 0 auto;
-    }
-    @media (max-width: 720px){
-      .refOffer__actions{ width:100%; align-items:flex-start; }
-    }
+    .freeFlyHero__content{ padding: 22px; }
+    .miniLead{ margin-top: 10px; opacity:.84; font-size: 13px; max-width: 820px; }
   </style>
 </BaseLayout>
-
-
