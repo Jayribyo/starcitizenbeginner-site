@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
+
+const onThisPageItems = [
+  { label: "How to use", href: "#how-to-use" },
+  { label: "Quick facts", href: "#quick-facts" },
+  { label: "What 50,000 UEC does", href: "#what-50000-uec-does" },
+  { label: "24-hour rule", href: "#24-hour-rule" },
+  { label: "Recruit ladder", href: "#recruit-ladder" },
+  { label: "Common mistakes", href: "#common-mistakes" },
+  { label: "FAQ", href: "#faq" },
+];
 
 // FAQ content is also used to generate FAQPage JSON-LD for SEO.
 const faqItems = [
@@ -108,7 +120,7 @@ const faqJsonLd = {
   <SiteHeader active="referral" />
 
   <main class="container">
-    <!-- HERO (reduced, no redundant 50,000 repetition) -->
+    <!-- HERO -->
     <section class="hero refHero">
       <img
         class="hero__img refHero__img"
@@ -121,7 +133,7 @@ const faqJsonLd = {
 
       <div class="hero__content">
         <div class="refHero__content">
-          <div class="kicker"><span class="dot"></span> Star Citizen Referral Code</div>
+          <div class="kicker"><span class="dot"></span> Star Citizen referral code</div>
           <h1 class="h1">Star Citizen Referral Code – Get the Official Bonus</h1>
           <p class="lead">
             This page shows exactly where to enter a referral code, what you receive, and how the recruit reward ladder works. Follow the steps once and you’re set.
@@ -135,28 +147,18 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- Referral offer banner -->
-    <section class="section" aria-label="Referral bonus offer">
-      <div class="refOffer">
-        <div class="refOffer__badge" aria-hidden="true">BONUS</div>
+    <!-- Referral banner (now global component) -->
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000 UEC"
+      ctaHref={referralLink}
+      howItWorksHref="#how-to-use"
+      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation if you forgot."
+      ariaLabel="Referral bonus offer"
+    />
 
-        <div class="refOffer__main">
-          <div class="refOffer__title">
-            Use referral code <span class="refOffer__code">{referralCode}</span> to start with <b>50,000 UEC</b>.
-          </div>
-          <div class="refOffer__sub">
-            Enter during signup — or within <b>24 hours</b> after account creation if you forgot.
-          </div>
-        </div>
-
-        <div class="refOffer__actions">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-            Create Account (Code prefilled)
-          </a>
-          <a class="refOffer__link" href="#how-to-use">How it works ↓</a>
-        </div>
-      </div>
-    </section>
+    <!-- On this page (now global component) -->
+    <OnThisPage items={onThisPageItems} />
 
     <!-- HOW TO USE -->
     <section id="how-to-use" class="section">
@@ -213,7 +215,7 @@ const faqJsonLd = {
     </section>
 
     <!-- SUMMARY -->
-    <section class="section">
+    <section id="quick-facts" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Quick facts</div>
         <h2 class="section__title">Referral bonus summary</h2>
@@ -254,7 +256,7 @@ const faqJsonLd = {
     </section>
 
     <!-- WHAT YOU CAN DO -->
-    <section class="section">
+    <section id="what-50000-uec-does" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What you get</div>
         <h2 class="section__title">What can you do with 50,000 UEC?</h2>
@@ -309,7 +311,7 @@ const faqJsonLd = {
     </section>
 
     <!-- 24-hour rule -->
-    <section class="section">
+    <section id="24-hour-rule" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Timing</div>
         <h2 class="section__title">The 24-hour rule (can you add it later?)</h2>
@@ -332,7 +334,7 @@ const faqJsonLd = {
     </section>
 
     <!-- Recruit ladder -->
-    <section class="section">
+    <section id="recruit-ladder" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Recruit rewards</div>
         <h2 class="section__title">How the recruit reward ladder works</h2>
@@ -379,7 +381,7 @@ const faqJsonLd = {
     </section>
 
     <!-- Common mistakes -->
-    <section class="section">
+    <section id="common-mistakes" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Avoid mistakes</div>
         <h2 class="section__title">Common referral code mistakes</h2>
@@ -436,7 +438,7 @@ const faqJsonLd = {
     }
     .refHero__content{ padding: 22px; }
 
-    /* FAQ accordion (consistent) */
+    /* FAQ accordion (existing style kept) */
     .faq{ margin-top: 10px; }
     .faq__item{
       border-top: 1px solid rgba(255,255,255,.12);
