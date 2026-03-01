@@ -5,83 +5,16 @@ import SiteHeader from "../../components/SiteHeader.astro";
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 
-const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
-const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
+const heroImg = "/assets/img/referral/scb-referral-hero.webp";
+const signupFieldImg = "/assets/img/referral/scb-referral-field.webp";
 
-// FAQ content is also used to generate FAQPage JSON-LD for SEO.
 const faqItems = [
-  {
-    q: "What is a Star Citizen referral code?",
-    a: "A referral code is part of Star Citizen’s official recruit / referral program. New accounts can enter a code during account creation to receive an enlistment bonus and link the account to a recruiter.",
-  },
-  {
-    q: "What bonus do you get from a referral code?",
-    a: "Most of the time, new accounts get an enlistment bonus credited in UEC after the account becomes active. The advertised amount can change during promotions — this page is built around the commonly advertised 50,000 UEC bonus.",
-  },
-  {
-    q: "When do you receive the bonus UEC?",
-    a: "The bonus is usually credited after your account becomes ‘active’ (i.e., after a game package purchase / activation step is completed). It’s not always instant; allow some time after activation.",
-  },
-  {
-    q: "Can I add a referral code after creating my account?",
-    a: "Often yes — but only within a limited window. A common rule is: enter it during signup, or within about 24 hours after account creation. After that, it typically can’t be applied.",
-  },
-  {
-    q: "Is the referral code required to play?",
-    a: "No. It’s optional. Using one is simply a ‘free upside’ for new accounts because it can add extra starting credits and helps you begin with less friction.",
-  },
-  {
-    q: "Does a referral code cost anything?",
-    a: "No. Entering a code is free. The only ‘cost’ is that you must enter it on a brand-new account within the allowed time window.",
-  },
-  {
-    q: "Where do I enter the referral code?",
-    a: "During RSI account creation, look for the field labeled ‘Referral Code (optional)’. Paste the code there before you complete signup.",
-  },
-  {
-    q: "Is it better to use a prefilled signup link or type the code manually?",
-    a: "A prefilled link reduces typos and ensures the code is applied at the right moment in the signup flow. If you type it manually, double-check the formatting before submitting.",
-  },
-  {
-    q: "What are the most common mistakes?",
-    a: "The big ones: signing up first and forgetting the code, missing the time window, typing the code wrong, or assuming you can switch codes later. Treat it as a one-time setup step.",
-  },
-  {
-    q: "Can I change the referral code later?",
-    a: "Usually no. Referral attribution is typically locked once the account is created (or once the limited window closes). Pick a code and commit during signup.",
-  },
-  {
-    q: "Do bonuses stack if I use multiple codes?",
-    a: "No — you can generally only apply one referral code per account.",
-  },
-  {
-    q: "Does the referral code affect my starter pack price or content?",
-    a: "No. A referral code doesn’t change the starter pack you buy. It simply adds an enlistment bonus and sets referral attribution.",
-  },
-  {
-    q: "Does it work during Free Fly?",
-    a: "Free Fly periods can be confusing because you can test without buying a starter package. The safe approach: enter the referral code at account creation anyway, then activate the account when you’re ready.",
-  },
-  {
-    q: "How do I confirm the referral code was applied?",
-    a: "During signup you should see a confirmation (often ‘Referral code successfully applied’). After the account is created, your account/referral status may show who referred you.",
-  },
-  {
-    q: "What if I don’t see the referral code field?",
-    a: "Make sure you’re on the RSI account creation flow (not just logging in). If you’re already signed in, log out and start the create-account process again. Some browsers/extensions can hide form elements — try a clean browser session.",
-  },
-  {
-    q: "What can I do with 50,000 UEC early on?",
-    a: "Think of it as an early-game buffer: you can buy basic gear, stock medical supplies/ammo, cover transport costs, rent small ships for testing, and absorb ‘learning mistakes’ without going broke.",
-  },
-  {
-    q: "How does the recruit reward ladder work?",
-    a: "After your account is active, you get your own referral code. When new players sign up using your code and become active, you progress on the recruit ladder. Rewards vary and can change over time, but the structure is generally: more active recruits → more rewards.",
-  },
-  {
-    q: "Can I use my own referral code on a new account?",
-    a: "Referral programs are intended for recruiting new players. Creating extra accounts just to refer yourself can violate program expectations and is not a recommended path.",
-  },
+  { q: "What is a Star Citizen referral code?", a: "A referral code is part of Star Citizen’s official recruit program. New accounts can enter one during account creation to receive an enlistment bonus. It’s not a discount coupon and it doesn’t change package pricing." },
+  { q: "Does using a referral code cost anything?", a: "No. It’s free. Entering a referral code does not increase package prices or add fees." },
+  { q: "Can I add the referral code after creating my account?", a: "Often yes, but only within a limited window (commonly ~24 hours after account creation). After that, the referral field usually locks." },
+  { q: "Where do I enter the referral code?", a: "During RSI account creation, there is a “Referral Code (optional)” field. The safest method is using a prefilled referral link to avoid typos." },
+  { q: "When do you receive the bonus UEC?", a: "The enlistment bonus is associated with your account after the referral is applied. You typically receive the UEC once your account is active (e.g., after a qualifying purchase / activation)." },
+  { q: "Does it work during Free Fly?", a: "Yes — Free Fly is often the best time to apply a referral code because many new accounts are created during these events." },
 ];
 
 const faqJsonLd = {
@@ -158,6 +91,22 @@ const faqJsonLd = {
       </div>
     </section>
 
+    <!-- ON THIS PAGE -->
+    <section class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> On this page</div>
+        <div class="toc">
+          <a href="#how-to-use">How to use it</a>
+          <a href="#summary">Quick facts</a>
+          <a href="#what-you-get">What 50,000 UEC does</a>
+          <a href="#rule">24-hour rule</a>
+          <a href="#recruit">Recruit ladder</a>
+          <a href="#mistakes">Common mistakes</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW TO USE -->
     <section id="how-to-use" class="section">
       <div class="grid2">
@@ -213,7 +162,7 @@ const faqJsonLd = {
     </section>
 
     <!-- SUMMARY -->
-    <section class="section">
+    <section id="summary" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Quick facts</div>
         <h2 class="section__title">Referral bonus summary</h2>
@@ -254,7 +203,7 @@ const faqJsonLd = {
     </section>
 
     <!-- WHAT YOU CAN DO -->
-    <section class="section">
+    <section id="what-you-get" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What you get</div>
         <h2 class="section__title">What can you do with 50,000 UEC?</h2>
@@ -309,7 +258,7 @@ const faqJsonLd = {
     </section>
 
     <!-- 24-hour rule -->
-    <section class="section">
+    <section id="rule" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Timing</div>
         <h2 class="section__title">The 24-hour rule (can you add it later?)</h2>
@@ -332,7 +281,7 @@ const faqJsonLd = {
     </section>
 
     <!-- Recruit ladder -->
-    <section class="section">
+    <section id="recruit" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Recruit rewards</div>
         <h2 class="section__title">How the recruit reward ladder works</h2>
@@ -379,7 +328,7 @@ const faqJsonLd = {
     </section>
 
     <!-- Common mistakes -->
-    <section class="section">
+    <section id="mistakes" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Avoid mistakes</div>
         <h2 class="section__title">Common referral code mistakes</h2>
@@ -423,9 +372,9 @@ const faqJsonLd = {
         </div>
       </div>
     </footer>
-  </main>
 
-  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
+  </main>
 
   <style>
     /* Referral hero */
@@ -435,6 +384,18 @@ const faqJsonLd = {
         linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
     }
     .refHero__content{ padding: 22px; }
+
+    /* On this page (match free-fly look) */
+    .toc{
+      display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
+      font-weight:800; font-size:13px; opacity:.92;
+    }
+    .toc a{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px; border-radius:12px;
+    }
+    .toc a:hover{ background: rgba(255,255,255,.07); }
 
     /* FAQ accordion (consistent) */
     .faq{ margin-top: 10px; }
