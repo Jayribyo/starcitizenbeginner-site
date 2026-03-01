@@ -120,8 +120,8 @@ const faqJsonLd = {
       <div class="hero__overlay refHero__overlay"></div>
 
       <div class="hero__content">
-        <div class="refHero__content">
-          <div class="kicker"><span class="dot"></span> Star Citizen Referral Code</div>
+        <div style="max-width:860px; padding: 26px 0;">
+          <div class="kicker"><span class="dot"></span> Star Citizen referral code</div>
           <h1 class="h1">Star Citizen Referral Code – Get the Official Bonus</h1>
           <p class="lead">
             This page shows exactly where to enter a referral code, what you receive, and how the recruit reward ladder works. Follow the steps once and you’re set.
@@ -135,7 +135,7 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- Referral offer banner -->
+    <!-- Referral banner (global standard) -->
     <section class="section" aria-label="Referral bonus offer">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
@@ -154,6 +154,22 @@ const faqJsonLd = {
             Create Account (Code prefilled)
           </a>
           <a class="refOffer__link" href="#how-to-use">How it works ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ON THIS PAGE -->
+    <section class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> On this page</div>
+        <div class="toc">
+          <a href="#how-to-use">How to use it</a>
+          <a href="#quick-facts">Quick facts</a>
+          <a href="#uec-uses">What 50,000 UEC does</a>
+          <a href="#24-hour">24-hour rule</a>
+          <a href="#recruit-ladder">Recruit ladder</a>
+          <a href="#mistakes">Common mistakes</a>
+          <a href="#faq">FAQ</a>
         </div>
       </div>
     </section>
@@ -213,7 +229,7 @@ const faqJsonLd = {
     </section>
 
     <!-- SUMMARY -->
-    <section class="section">
+    <section id="quick-facts" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Quick facts</div>
         <h2 class="section__title">Referral bonus summary</h2>
@@ -240,31 +256,32 @@ const faqJsonLd = {
                 <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Free</td>
               </tr>
               <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">Official program</th>
-                <td style="padding: 12px;">Yes (RSI recruit / referral system)</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Official program</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Yes (RSI recruit / referral system)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p style="margin-top:12px; opacity:.78;">
+        <p class="miniLead" style="margin-top: 10px;">
           The biggest mistake is entering too late. If you’re creating a new account anyway, enter the code during signup.
         </p>
       </div>
     </section>
 
-    <!-- WHAT YOU CAN DO -->
-    <section class="section">
+    <!-- WHAT YOU GET -->
+    <section id="uec-uses" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What you get</div>
         <h2 class="section__title">What can you do with 50,000 UEC?</h2>
 
         <p>
-          50,000 UEC won’t buy a new ship — but it removes early friction. It helps you gear up, stay mission ready, and recover from beginner mistakes without turning your first sessions into a grind.
+          50,000 UEC won’t buy a new ship — but it removes early friction. It helps you gear up, stay mission ready, and recover from beginner mistakes without
+          turning your first sessions into a grind.
         </p>
 
         <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
-          <table style="width:100%; border-collapse: collapse; min-width: 820px;">
+          <table style="width:100%; border-collapse: collapse; min-width: 760px;">
             <thead>
               <tr>
                 <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Category</th>
@@ -294,22 +311,23 @@ const faqJsonLd = {
                 <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Reduces frustration; helps you build momentum</td>
               </tr>
               <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">Testing / rentals</th>
-                <td style="padding: 12px;">Short rentals to compare roles</td>
-                <td style="padding: 12px;">Helps you choose smarter later</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Testing / rentals</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Short rentals to compare roles</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Helps you choose smarter later</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="card pad" style="margin-top:14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-          <b>Reality check:</b> Prices, availability, and balance can change over time. The point of the bonus is not “to buy a ship” — it’s to make your first hours smoother: fewer hard stops, fewer “I’m broke again” resets, and faster learning.
+        <div class="miniNote">
+          <b>Reality check:</b> Prices, availability, and balance can change over time.
+          The point of the bonus is not “to buy a ship” — it’s to make your first hours smoother: fewer hard stops, fewer “I’m broke again” resets, and faster learning.
         </div>
       </div>
     </section>
 
-    <!-- 24-hour rule -->
-    <section class="section">
+    <!-- TIMING -->
+    <section id="24-hour" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Timing</div>
         <h2 class="section__title">The 24-hour rule (can you add it later?)</h2>
@@ -325,14 +343,14 @@ const faqJsonLd = {
           <li>Enter <b>{referralCode}</b> and save.</li>
         </ol>
 
-        <div class="miniNote" style="margin-top:14px;">
+        <p class="miniLead" style="margin-top:10px;">
           <b>Recommendation:</b> Use the code at signup. It’s the cleanest path and avoids edge cases.
-        </div>
+        </p>
       </div>
     </section>
 
-    <!-- Recruit ladder -->
-    <section class="section">
+    <!-- RECRUIT REWARDS -->
+    <section id="recruit-ladder" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Recruit rewards</div>
         <h2 class="section__title">How the recruit reward ladder works</h2>
@@ -343,7 +361,7 @@ const faqJsonLd = {
         </p>
 
         <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
-          <table style="width:100%; border-collapse: collapse; min-width: 820px;">
+          <table style="width:100%; border-collapse: collapse; min-width: 760px;">
             <thead>
               <tr>
                 <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Tier</th>
@@ -363,9 +381,9 @@ const faqJsonLd = {
                 <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">More rare items; improves the signal for long-term support</td>
               </tr>
               <tr>
-                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">High</th>
-                <td style="padding: 12px;">Major rewards</td>
-                <td style="padding: 12px;">Long-term progression; not a fast path, but meaningful over time</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">High</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Major rewards</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Long-term progression; not a fast path, but meaningful over time</td>
               </tr>
             </tbody>
           </table>
@@ -378,13 +396,13 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- Common mistakes -->
-    <section class="section">
+    <!-- AVOID MISTAKES -->
+    <section id="mistakes" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Avoid mistakes</div>
         <h2 class="section__title">Common referral code mistakes</h2>
 
-        <ul style="color: rgba(255,255,255,.78); line-height: 1.75;">
+        <ul>
           <li><b>Waiting too long:</b> you only have signup (or a limited window after account creation).</li>
           <li><b>Typos:</b> use the prefilled link to avoid entering the code incorrectly.</li>
           <li><b>Assuming you can change it later:</b> treat it as a one-time setup step.</li>
@@ -399,20 +417,29 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> FAQ</div>
         <h2 class="section__title">Star Citizen referral code – frequently asked questions</h2>
 
-        <div class="faq">
+        <div class="accordion" style="margin-top: 14px;">
           {faqItems.map((item) => (
-            <details class="faq__item">
-              <summary class="faq__q">{item.q}</summary>
-              <div class="faq__a">{item.a}</div>
+            <details>
+              <summary>
+                <span>{item.q}</span>
+                <span class="plus">+</span>
+              </summary>
+              <div class="content">
+                <p>{item.a}</p>
+              </div>
             </details>
           ))}
         </div>
 
-        <div class="btnrow" style="margin-top: 16px;">
+        <div class="btnrow" style="margin-top: 14px;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
           <a class="btn secondary" href="#how-to-use">Back to steps</a>
         </div>
       </div>
+
+      <script type="application/ld+json" is:inline>
+        {JSON.stringify(faqJsonLd)}
+      </script>
     </section>
 
     <footer class="footer">
@@ -424,45 +451,4 @@ const faqJsonLd = {
       </div>
     </footer>
   </main>
-
-  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
-
-  <style>
-    /* Referral hero */
-    .refHero__overlay{
-      background:
-        radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
-        linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
-    }
-    .refHero__content{ padding: 22px; }
-
-    /* FAQ accordion (consistent) */
-    .faq{ margin-top: 10px; }
-    .faq__item{
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding: 10px 0;
-    }
-    .faq__q{
-      cursor: pointer;
-      font-weight: 900;
-      list-style: none;
-      position: relative;
-      padding-right: 26px;
-    }
-    .faq__q::-webkit-details-marker{ display:none; }
-    .faq__q::after{
-      content: "+";
-      position:absolute;
-      right: 0;
-      top: 0;
-      color: rgba(255,255,255,.78);
-      font-weight: 900;
-    }
-    details[open] > .faq__q::after{ content: "–"; }
-    .faq__a{
-      margin-top: 8px;
-      color: rgba(255,255,255,.78);
-      line-height: 1.65;
-    }
-  </style>
 </BaseLayout>
