@@ -1,0 +1,73 @@
+---
+const { active = "" } = Astro.props;
+
+const guides = [
+  { href: "/beginner-tips/", label: "Beginner Tips" },
+  { href: "/starter-pack/", label: "Starter Pack" },
+  { href: "/make-money-fast/", label: "Make Money Fast" },
+  { href: "/performance-settings/", label: "Performance & FPS" },
+  // Optional: wenn diese Dummy-Seiten existieren, kannst du sie sofort mit reinnehmen:
+  // { href: "/first-2-hours/", label: "First 2 Hours" },
+];
+
+const languages = [
+  { href: "/free-fly/", label: "English", code: "EN" },
+  { href: "/de/", label: "Deutsch", code: "DE" },
+  { href: "/es/", label: "Español", code: "ES" },
+  { href: "/fr/", label: "Français", code: "FR" },
+  { href: "/ru/", label: "Русский", code: "RU" },
+  { href: "/zh/", label: "中文", code: "中文" },
+];
+
+// NOTE: "current" ist hier nur ein Placeholder. Wenn du später echtes i18n routing hast,
+// gibst du currentLang als Prop rein. Für jetzt bleibt EN als aktiv.
+const currentLang = "EN";
+---
+
+<header class="siteHeader">
+  <div class="container siteHeader__inner">
+    <a class="brand" href="/" aria-label="SCB Home">
+      <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
+      <span>Star Citizen Beginner</span>
+    </a>
+
+    <nav class="topNav" aria-label="Primary navigation">
+      <a class:list={["topNav__link", active === "home" && "is-active"]} href="/">Home</a>
+
+      <details class:list={["topNav__dd", active === "guides" && "is-active"]}>
+        <summary class="topNav__link topNav__summary">Guides</summary>
+        <div class="topNav__menu" role="menu" aria-label="Guides">
+          {guides.map((g) => (
+            <a class="topNav__item" role="menuitem" href={g.href}>{g.label}</a>
+          ))}
+        </div>
+      </details>
+
+      <a
+        class:list={["topNav__link", active === "referral" && "is-active"]}
+        href="/star-citizen-referral-code/"
+      >
+        Referral code
+      </a>
+
+      <a class:list={["topNav__link", active === "free-fly" && "is-active"]} href="/free-fly/">
+        Free Fly
+      </a>
+
+      <!-- Languages dropdown (replaces old inline language links in topbar) -->
+      <details class="topNav__dd topNav__dd--right">
+        <summary class="topNav__link topNav__summary">
+          Languages <span class="topNav__pill">{currentLang}</span>
+        </summary>
+        <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
+          {languages.map((l) => (
+            <a class="topNav__item" role="menuitem" href={l.href}>
+              <span class="topNav__langCode">{l.code}</span>
+              <span>{l.label}</span>
+            </a>
+          ))}
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
