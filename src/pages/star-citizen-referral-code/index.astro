@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -31,7 +32,7 @@ const faqItems = [
   },
   {
     q: "Does a referral code cost anything?",
-    a: "No. Entering a code is free. The only ‘cost’ is that you must enter it on a brand‑new account within the allowed time window.",
+    a: "No. Entering a code is free. The only ‘cost’ is that you must enter it on a brand-new account within the allowed time window.",
   },
   {
     q: "Where do I enter the referral code?",
@@ -39,11 +40,11 @@ const faqItems = [
   },
   {
     q: "Is it better to use a prefilled signup link or type the code manually?",
-    a: "A prefilled link reduces typos and ensures the code is applied at the right moment in the signup flow. If you type it manually, double‑check the formatting before submitting.",
+    a: "A prefilled link reduces typos and ensures the code is applied at the right moment in the signup flow. If you type it manually, double-check the formatting before submitting.",
   },
   {
     q: "What are the most common mistakes?",
-    a: "The big ones: signing up first and forgetting the code, missing the time window, typing the code wrong, or assuming you can switch codes later. Treat it as a one‑time setup step.",
+    a: "The big ones: signing up first and forgetting the code, missing the time window, typing the code wrong, or assuming you can switch codes later. Treat it as a one-time setup step.",
   },
   {
     q: "Can I change the referral code later?",
@@ -67,11 +68,11 @@ const faqItems = [
   },
   {
     q: "What if I don’t see the referral code field?",
-    a: "Make sure you’re on the RSI account creation flow (not just logging in). If you’re already signed in, log out and start the create‑account process again. Some browsers/extensions can hide form elements — try a clean browser session.",
+    a: "Make sure you’re on the RSI account creation flow (not just logging in). If you’re already signed in, log out and start the create-account process again. Some browsers/extensions can hide form elements — try a clean browser session.",
   },
   {
     q: "What can I do with 50,000 UEC early on?",
-    a: "Think of it as an early‑game buffer: you can buy basic gear, stock medical supplies/ammo, cover transport costs, rent small ships for testing, and absorb ‘learning mistakes’ without going broke.",
+    a: "Think of it as an early-game buffer: you can buy basic gear, stock medical supplies/ammo, cover transport costs, rent small ships for testing, and absorb ‘learning mistakes’ without going broke.",
   },
   {
     q: "How does the recruit reward ladder work?",
@@ -104,25 +105,7 @@ const faqJsonLd = {
   canonicalPath="/star-citizen-referral-code/"
   ogImage={heroImg}
 >
-  <!-- Topbar (matches site style; no global CSS change needed) -->
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="/" aria-label="SCB Home">
-        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
-        <span>Star Citizen Beginner</span>
-      </a>
-
-      <div class="lang" aria-label="Language switch (placeholder)">
-        <span style="opacity:.7;">Lang:</span>
-        <a class="active" href="/star-citizen-referral-code/">EN</a>
-        <a href="/de/">DE</a>
-        <a href="/es/">ES</a>
-        <a href="/fr/">FR</a>
-        <a href="/ru/">RU</a>
-        <a href="/zh/">中文</a>
-      </div>
-    </div>
-  </header>
+  <SiteHeader active="referral" />
 
   <main class="container">
     <!-- HERO (reduced, no redundant 50,000 repetition) -->
@@ -138,23 +121,22 @@ const faqJsonLd = {
 
       <div class="hero__content">
         <div class="refHero__content">
+          <div class="kicker"><span class="dot"></span> Star Citizen Referral Code</div>
           <h1 class="h1">Star Citizen Referral Code – Get the Official Bonus</h1>
-          <p class="lead" style="max-width: 860px;">
-            This page shows exactly where to enter a referral code, what you receive, and how the recruit reward ladder works.
-            Follow the steps once and you’re set.
+          <p class="lead">
+            This page shows exactly where to enter a referral code, what you receive, and how the recruit reward ladder works. Follow the steps once and you’re set.
           </p>
 
           <div class="btnrow">
-            <a class="btn secondary" href="#how-to-use">How to use it</a>
+            <a class="btn primary" href="#how-to-use">How to use it</a>
             <a class="btn secondary" href="#faq">FAQ</a>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- PRIMARY CTA STRIP (gold/bronze; high visibility) -->
-    <section class="section" aria-label="Referral bonus callout">
+    <!-- Referral offer banner -->
+    <section class="section" aria-label="Referral bonus offer">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
 
@@ -176,36 +158,37 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- HOW TO USE + WHAT IS (side-by-side) -->
+    <!-- HOW TO USE -->
     <section id="how-to-use" class="section">
-      <div class="section__grid">
+      <div class="grid2">
         <div class="card pad">
           <div class="kicker"><span class="dot"></span> How to use it</div>
           <h2 class="section__title">How to use a Star Citizen referral code (step-by-step)</h2>
 
-          <div class="callout">
-            <div class="callout__left">
-              <div class="callout__label">Referral code</div>
-              <div class="callout__code" aria-label={`Referral code ${referralCode}`}>{referralCode}</div>
+          <div class="card pad" style="background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.10); margin-top: 12px;">
+            <div style="opacity:.72; font-size:12px; font-weight:900; letter-spacing:.12em; text-transform:uppercase;">
+              Referral code
             </div>
-            <div class="callout__right">
-              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-                Use prefilled link
-              </a>
-              <div class="callout__hint">Recommended: prevents typos.</div>
+            <div style="font-size:22px; font-weight:1000; letter-spacing:.14em; margin-top:6px;">
+              {referralCode}
+            </div>
+            <div style="margin-top:10px;">
+              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Use prefilled link</a>
+            </div>
+            <div style="margin-top:10px; font-size:12px; opacity:.78;">
+              Recommended: avoids typos and ensures the code is applied at the right moment.
             </div>
           </div>
 
-          <ol class="steps">
-            <li><b>Create your RSI account.</b> Start the registration process.</li>
-            <li><b>Enter the referral code</b> in the “Referral Code (optional)” field: <span class="inlineCode">{referralCode}</span>.</li>
-            <li><b>Finish signup</b> and confirm your account details.</li>
-            <li><b>Activate your account</b> with a starter package purchase.</li>
+          <ol style="margin-top: 14px; padding-left: 18px; color: rgba(255,255,255,.78); line-height: 1.75;">
+            <li>Create your RSI account. Start the registration process.</li>
+            <li>Enter the referral code in the “Referral Code (optional)” field.</li>
+            <li>Finish signup and confirm your account details.</li>
+            <li>Activate your account with a starter package purchase.</li>
           </ol>
 
-          <div class="miniNote">
-            <b>24-hour window:</b> If you forgot the code at signup, you can still add one within <b>24 hours</b> after creating your account.
-            After that, it can’t be applied.
+          <div class="card pad" style="margin-top:14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
+            <b>24-hour window:</b> If you forgot the code at signup, you can often still add it within ~24 hours after creating your account. After that, it can’t be applied.
           </div>
         </div>
 
@@ -213,187 +196,176 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> What it is</div>
           <h2 class="section__title">What is a Star Citizen referral code?</h2>
 
-          <p class="lead" style="margin-top:0;">
-            A referral code is part of Star Citizen’s official recruit program. New accounts can link to an existing account
-            during registration to receive an enlistment bonus. It’s not a discount coupon and it doesn’t change package pricing.
+          <p>
+            A referral code is part of Star Citizen’s official recruit program. New accounts can enter a code during account creation to receive an enlistment bonus.
+            It’s not a discount coupon and it doesn’t change package pricing.
           </p>
 
-          <p class="lead" style="margin-top:12px;">
-            The goal is simple: smoother onboarding for new players, and long-term recruit rewards for the inviter.
-            Once your account is active, you’ll have your own code too.
+          <p>
+            The goal is simple: smoother onboarding for new players, and long-term recruit rewards for the inviter. Once your account is active, you get your own referral code.
           </p>
 
-          <div class="imgFrame">
-            <img
-              src={signupFieldImg}
-              alt="Star Citizen signup form showing the referral code field"
-              loading="lazy"
-            />
+          <div class="card pad" style="background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.10); margin-top: 12px;">
+            <img src={signupFieldImg} alt="Referral code field during RSI account creation showing a successfully applied code" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- QUICK FACTS -->
+    <!-- SUMMARY -->
     <section class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Quick facts</div>
         <h2 class="section__title">Referral bonus summary</h2>
 
-        <div class="tableWrap" role="region" aria-label="Referral bonus summary table">
-          <table class="table">
+        <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
+          <table style="width:100%; border-collapse: collapse; min-width: 680px;">
+            <thead>
+              <tr>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Item</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Value</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><th>Bonus amount</th><td><b>50,000 UEC</b></td></tr>
-              <tr><th>When to enter</th><td>During signup or within <b>24 hours</b> after account creation</td></tr>
-              <tr><th>Cost</th><td>Free</td></tr>
-              <tr><th>Official program</th><td>Yes (RSI recruit / referral system)</td></tr>
+              <tr>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Bonus amount</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">50,000 UEC</td>
+              </tr>
+              <tr>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">When to enter</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">During signup or within ~24 hours after account creation</td>
+              </tr>
+              <tr>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Cost</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Free</td>
+              </tr>
+              <tr>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">Official program</th>
+                <td style="padding: 12px;">Yes (RSI recruit / referral system)</td>
+              </tr>
             </tbody>
           </table>
         </div>
 
-        <p class="lead" style="margin-top:12px; max-width: 980px;">
-          The biggest mistake is waiting too long. If you’re creating an account now, enter the code during signup.
+        <p style="margin-top:12px; opacity:.78;">
+          The biggest mistake is entering too late. If you’re creating a new account anyway, enter the code during signup.
         </p>
       </div>
     </section>
 
-    <!-- WHAT DO YOU GET (expanded, concrete but update-safe) -->
+    <!-- WHAT YOU CAN DO -->
     <section class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What you get</div>
         <h2 class="section__title">What can you do with 50,000 UEC?</h2>
 
-        <p class="lead" style="max-width: 980px;">
-          50,000 UEC won’t buy a new ship — but it removes early friction. It helps you gear up, stay mission-ready,
-          and recover from beginner mistakes without turning your first sessions into a grind.
+        <p>
+          50,000 UEC won’t buy a new ship — but it removes early friction. It helps you gear up, stay mission ready, and recover from beginner mistakes without turning your first sessions into a grind.
         </p>
 
-        <div class="tableWrap" role="region" aria-label="What 50,000 UEC can cover early on table" style="margin-top:12px;">
-          <table class="table">
+        <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
+          <table style="width:100%; border-collapse: collapse; min-width: 820px;">
             <thead>
               <tr>
-                <th>Category</th>
-                <th>Examples</th>
-                <th>Why it matters</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Category</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Examples</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Why it matters</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Mission readiness</td>
-                <td>Armor + basic FPS loadout, medpens, ammo, spare utilities</td>
-                <td>Less downtime after early deaths; faster learning</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Mission readiness</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Armor, med pens, ammo, basic tools</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Lets you attempt early content faster</td>
               </tr>
               <tr>
-                <td>Ship operations</td>
-                <td>Refuel, rearm, small repairs, restocks</td>
-                <td>Keeps you flying instead of constantly returning broke</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Ship operations</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Refuel, rearm, small repairs</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Keeps you from getting stranded early</td>
               </tr>
               <tr>
-                <td>Utility tools</td>
-                <td>Multitool + attachments (e.g., tractor beam), essentials for contracts</td>
-                <td>Unlocks smoother gameplay loops early</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Utility tools</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Multi-tool, attachments, basic navigation essentials</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Unlocks smoother gameplay loops</td>
               </tr>
               <tr>
-                <td>Starter upgrades</td>
-                <td>Small component tweaks (depending on ship and goals)</td>
-                <td>Lets you experiment sooner and learn what matters</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Mistake buffer</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Respawns, replacing gear, buying essentials “twice”</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Reduces frustration; helps you build momentum</td>
               </tr>
               <tr>
-                <td>Mistake buffer</td>
-                <td>Replacing lost gear, re-buying essentials, “oops” moments</td>
-                <td>Reduces frustration; helps you build momentum</td>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">Testing / rentals</th>
+                <td style="padding: 12px;">Short rentals to compare roles</td>
+                <td style="padding: 12px;">Helps you choose smarter later</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="grid-2" style="margin-top:14px;">
-          <div class="card soft pad" style="background: rgba(0,0,0,.18);">
-            <h3 class="h3" style="margin:0 0 10px;">Concrete early buys (ideas)</h3>
-            <ul class="bullets" style="margin:0;">
-              <li><b>Basic armor + medpens + ammo</b> so you can run a few FPS missions without constantly re-buying.</li>
-              <li><b>Multitool + tractor beam + small utility items</b> that make early looting / hauling smoother.</li>
-              <li><b>Ship service costs</b> (repairs, refuel, re-arm) so one messy landing doesn’t end the session.</li>
-              <li><b>Starter upgrades</b> like basic components / consumables (where applicable) to reduce friction.</li>
-              <li><b>A small buffer</b> for experimentation: try a contract, fail, and still keep going.</li>
-            </ul>
-          </div>
-
-          <div class="card soft pad" style="background: rgba(0,0,0,.18);">
-            <h3 class="h3" style="margin:0 0 10px;">Reality check</h3>
-            <p class="muted" style="margin:0;">
-              Prices, availability, and balance can change over time. The point of the enlistment bonus isn’t to “buy a big ship” —
-              it’s to make your <b>first hours</b> smoother: fewer hard stops, fewer “I’m broke again” resets, and faster learning.
-            </p>
-          </div>
+        <div class="card pad" style="margin-top:14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
+          <b>Reality check:</b> Prices, availability, and balance can change over time. The point of the bonus is not “to buy a ship” — it’s to make your first hours smoother: fewer hard stops, fewer “I’m broke again” resets, and faster learning.
         </div>
-
-        <p class="lead" style="margin-top:12px; max-width: 980px;">
-          The practical value is flexibility: you can try a few loops (delivery, basic contracts, FPS missions) without feeling punished for experimentation.
-        </p>
       </div>
     </section>
 
-    <!-- 24 HOUR RULE -->
+    <!-- 24-hour rule -->
     <section class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Timing</div>
         <h2 class="section__title">The 24-hour rule (can you add it later?)</h2>
 
-        <p class="lead" style="max-width: 980px;">
-          If you didn’t enter a code during signup, you can still add one within <b>24 hours</b> after creating your RSI account.
-          After that, the code can’t be applied.
+        <p>
+          If you didn’t enter a code during signup, you can often still add one within ~24 hours after creating your RSI account. After that, the code can’t be applied.
         </p>
 
-        <ol class="steps">
+        <ol style="margin-top: 12px; padding-left: 18px; color: rgba(255,255,255,.78); line-height: 1.75;">
           <li>Log in to your RSI account.</li>
           <li>Open your account settings / summary.</li>
           <li>Locate the referral field (if still within the window).</li>
-          <li>Enter <span class="inlineCode">{referralCode}</span> and save.</li>
+          <li>Enter <b>{referralCode}</b> and save.</li>
         </ol>
 
-        <div class="miniNote">
+        <div class="miniNote" style="margin-top:14px;">
           <b>Recommendation:</b> Use the code at signup. It’s the cleanest path and avoids edge cases.
         </div>
       </div>
     </section>
 
-    <!-- REWARD LADDER -->
+    <!-- Recruit ladder -->
     <section class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Recruit rewards</div>
         <h2 class="section__title">How the recruit reward ladder works</h2>
 
-        <p class="lead" style="max-width: 980px;">
-          After your account is active, you get your own referral code. When friends sign up using it and become active,
-          you earn recruit progress and unlock reward tiers over time. The ladder changes occasionally, but the structure is stable:
-          more active recruits → more rewards.
+        <p>
+          After your account is active, you get your own referral code. When friends sign up using it and become active, your recruit progress advances and unlocks rewards over time.
+          The ladder changes occasionally, but the structure is stable: more active recruits → more rewards.
         </p>
 
-        <div class="tableWrap" role="region" aria-label="Recruit reward ladder overview table" style="margin-top:12px;">
-          <table class="table">
+        <div style="overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); margin-top: 12px;">
+          <table style="width:100%; border-collapse: collapse; min-width: 820px;">
             <thead>
               <tr>
-                <th>Tier</th>
-                <th>Reward theme</th>
-                <th>What to expect</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Tier</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">Reward theme</th>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.06);">What to expect</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Early</td>
-                <td>Cosmetics / small items</td>
-                <td>Starter collectibles and account-bound goodies</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Entry</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Cosmetics / small items</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Starter collectibles and momentum-based goodies</td>
               </tr>
               <tr>
-                <td>Mid</td>
-                <td>Exclusive collectibles</td>
-                <td>More noticeable items that signal long-term community support</td>
+                <th style="padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);">Mid</th>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">Exclusive collectibles</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,.10);">More rare items; improves the signal for long-term support</td>
               </tr>
               <tr>
-                <td>High</td>
-                <td>Major rewards</td>
-                <td>Long-term progression track for heavy referrers</td>
+                <th style="padding: 12px; text-align:left; background: rgba(255,255,255,.03);">High</th>
+                <td style="padding: 12px;">Major rewards</td>
+                <td style="padding: 12px;">Long-term progression; not a fast path, but meaningful over time</td>
               </tr>
             </tbody>
           </table>
@@ -406,17 +378,17 @@ const faqJsonLd = {
       </div>
     </section>
 
-    <!-- COMMON MISTAKES -->
+    <!-- Common mistakes -->
     <section class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Avoid mistakes</div>
         <h2 class="section__title">Common referral code mistakes</h2>
 
-        <ul class="bullets">
-          <li><b>Waiting too long:</b> you only have signup or 24 hours after account creation.</li>
+        <ul style="color: rgba(255,255,255,.78); line-height: 1.75;">
+          <li><b>Waiting too long:</b> you only have signup (or a limited window after account creation).</li>
           <li><b>Typos:</b> use the prefilled link to avoid entering the code incorrectly.</li>
           <li><b>Assuming you can change it later:</b> treat it as a one-time setup step.</li>
-          <li><b>Expecting “stacking”:</b> accounts are typically linked once.</li>
+          <li><b>Expecting “stacking”:</b> accounts typically link to one recruiter only.</li>
         </ul>
       </div>
     </section>
@@ -444,228 +416,53 @@ const faqJsonLd = {
     </section>
 
     <footer class="footer">
-      <div class="container">
-        <div><b>SCB</b> — Unofficial community guide.</div>
-        <div style="margin-top:10px;">
-          This site is not endorsed by or affiliated with Cloud Imperium Games or Roberts Space Industries.
-          Star Citizen® and related marks are trademarks of their respective owners.
+      <div class="footer__inner">
+        <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+        <div class="footer__legal">
+          Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® and related marks are trademarks of their respective owners.
         </div>
       </div>
     </footer>
-
-    <!-- Page-local styles (scoped to this page; won't break Home) -->
-    <style>
-      .refHero__img { height: 360px; }
-      @media (max-width: 720px) { .refHero__img { height: 420px; } }
-
-      .refHero__overlay{
-        background:
-          radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.56) 66%),
-          linear-gradient(90deg, rgba(7,10,18,.68), rgba(7,10,18,.10));
-      }
-      .refHero__content{
-        width: min(980px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 26px 0;
-      }
-
-      .refOffer{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:14px;
-        padding: 14px;
-        border-radius: 16px;
-        border: 1px solid rgba(216,168,74,.34);
-        background: linear-gradient(180deg, rgba(216,168,74,.16), rgba(216,168,74,.06));
-        box-shadow: 0 16px 44px rgba(0,0,0,.45), 0 0 0 1px rgba(216,168,74,.10) inset;
-      }
-      .refOffer__badge{
-        font-size: 11px;
-        letter-spacing: .14em;
-        font-weight: 900;
-        padding: 9px 11px;
-        border-radius: 999px;
-        text-transform: uppercase;
-        color: rgba(255, 236, 195, .96);
-        background: rgba(216,168,74,.18);
-        border: 1px solid rgba(216,168,74,.35);
-        box-shadow: 0 0 22px rgba(216,168,74,.16);
-        flex: 0 0 auto;
-      }
-      .refOffer__main{ min-width:0; }
-      .refOffer__title{ font-weight: 750; line-height: 1.25; color: rgba(255,255,255,.95); }
-      .refOffer__title b { color: rgba(255, 224, 160, .96); }
-      .refOffer__sub{ margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.5; }
-      .refOffer__code{
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: 12px;
-        letter-spacing: .08em;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(0,0,0,.22);
-        border: 1px solid rgba(216,168,74,.28);
-        color: rgba(255, 236, 195, .96);
-        white-space: nowrap;
-      }
-      .refOffer__actions{
-        display:flex;
-        flex-direction:column;
-        align-items:flex-end;
-        gap: 8px;
-        flex: 0 0 auto;
-      }
-      .refOffer__link{
-        color: rgba(255, 224, 160, .92);
-        font-weight: 700;
-        font-size: 13px;
-        border-bottom: 1px solid rgba(255, 224, 160, .35);
-        padding-bottom: 2px;
-        white-space: nowrap;
-      }
-      .refOffer__link:hover{
-        color: rgba(255, 238, 195, 1);
-        border-bottom-color: rgba(255, 238, 195, .75);
-      }
-      @media (max-width: 720px){
-        .refOffer{ flex-direction: column; align-items:flex-start; }
-        .refOffer__actions{ width:100%; align-items:flex-start; }
-      }
-
-      .section__grid{
-        display:grid;
-        grid-template-columns: 1.1fr .9fr;
-        gap: 14px;
-        align-items: start;
-      }
-      @media (max-width: 920px){
-        .section__grid{ grid-template-columns: 1fr; }
-      }
-
-      .imgFrame{
-        margin-top: 12px;
-        border-radius: 14px;
-        overflow:hidden;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(0,0,0,.18);
-      }
-
-      .callout{
-        margin-top: 12px;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap: 12px;
-        border-radius: 14px;
-        padding: 12px;
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.12);
-      }
-      @media (max-width: 720px){
-        .callout{ flex-direction: column; align-items:flex-start; }
-        .callout__right{ width:100%; }
-      }
-      .callout__label{ font-size: 12px; opacity: .75; letter-spacing: .08em; text-transform: uppercase; }
-      .callout__code{
-        margin-top: 6px;
-        font-size: 18px;
-        font-weight: 900;
-        letter-spacing: .14em;
-        color: rgba(255,255,255,.95);
-      }
-      .callout__hint{ margin-top: 8px; font-size: 12px; color: rgba(255,255,255,.66); }
-
-      .steps{
-        margin: 12px 0 0;
-        padding-left: 18px;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-      .inlineCode{
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: 12px;
-        padding: 2px 8px;
-        border-radius: 999px;
-        background: rgba(0,0,0,.22);
-        border: 1px solid rgba(255,255,255,.14);
-        white-space: nowrap;
-      }
-      .miniNote{
-        margin-top: 14px;
-        padding: 12px;
-        border-radius: 14px;
-        background: rgba(216,168,74,.12);
-        border: 1px solid rgba(216,168,74,.22);
-        color: rgba(255,255,255,.84);
-        line-height: 1.55;
-      }
-
-      .tableWrap{
-        overflow:auto;
-        border-radius: 14px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(0,0,0,.18);
-      }
-      .table{
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 680px;
-      }
-      .table th, .table td{
-        padding: 12px 12px;
-        border-bottom: 1px solid rgba(255,255,255,.10);
-        text-align: left;
-        vertical-align: top;
-        color: rgba(255,255,255,.84);
-        font-size: 14px;
-        line-height: 1.55;
-      }
-      .table thead th{
-        background: rgba(255,255,255,.06);
-        color: rgba(255,255,255,.92);
-        font-weight: 900;
-      }
-      .table tbody th{
-        width: 220px;
-        color: rgba(255,255,255,.92);
-        font-weight: 800;
-        background: rgba(255,255,255,.03);
-      }
-
-      .bullets{
-        margin: 12px 0 0;
-        padding-left: 18px;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-
-      .faq{ margin-top: 10px; }
-      .faq__item{
-        border-top: 1px solid rgba(255,255,255,.12);
-        padding: 10px 0;
-      }
-      .faq__q{
-        cursor: pointer;
-        font-weight: 900;
-        list-style: none;
-        position: relative;
-        padding-right: 26px;
-      }
-      .faq__q::-webkit-details-marker{ display:none; }
-      .faq__q::after{
-        content: "+";
-        position:absolute;
-        right: 0;
-        top: 0;
-        color: rgba(255,255,255,.78);
-        font-weight: 900;
-      }
-      details[open] > .faq__q::after{ content: "–"; }
-      .faq__a{
-        margin-top: 8px;
-        color: rgba(255,255,255,.78);
-        line-height: 1.65;
-      }
-    </style>
   </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
+
+  <style>
+    /* Referral hero */
+    .refHero__overlay{
+      background:
+        radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
+        linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
+    }
+    .refHero__content{ padding: 22px; }
+
+    /* FAQ accordion (consistent) */
+    .faq{ margin-top: 10px; }
+    .faq__item{
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 10px 0;
+    }
+    .faq__q{
+      cursor: pointer;
+      font-weight: 900;
+      list-style: none;
+      position: relative;
+      padding-right: 26px;
+    }
+    .faq__q::-webkit-details-marker{ display:none; }
+    .faq__q::after{
+      content: "+";
+      position:absolute;
+      right: 0;
+      top: 0;
+      color: rgba(255,255,255,.78);
+      font-weight: 900;
+    }
+    details[open] > .faq__q::after{ content: "–"; }
+    .faq__a{
+      margin-top: 8px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+    }
+  </style>
 </BaseLayout>
