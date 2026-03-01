@@ -86,26 +86,37 @@ const tiles = [
       </div>
     </section>
 
-    <!-- ===================== REFERRAL BENEFIT BADGE (UPGRADED) ===================== -->
-    <section class="refBar refBar--offer" aria-label="Referral bonus offer">
+    <!-- Referral banner (now identical structure to referral/free-fly pages) -->
+    <section class="section" aria-label="Referral bonus callout">
       <div class="refOffer">
         <div class="refOffer__badge" aria-hidden="true">BONUS</div>
 
-        <div class="refOffer__text">
-          <span class="refOffer__headline">
-            Start with <b>50,000 UEC</b> bonus
-          </span>
-          <span class="refOffer__meta">
-            Use referral code
-            <span class="refOffer__code" aria-label={`Referral code ${referralCode}`}>{referralCode}</span>
-          </span>
+        <div class="refOffer__main">
+          <div class="refOffer__title">
+            Use referral code <span class="refOffer__code">{referralCode}</span> to start with <b>50,000 UEC</b>.
+          </div>
+          <div class="refOffer__sub">
+            Best practice: enter during signup — or within <b>24 hours</b> after account creation if you forgot.
+          </div>
         </div>
 
         <div class="refOffer__actions">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-            Create Account (Referral active)
+            Create Account (Code prefilled)
           </a>
-          <a class="refOffer__link" href={referralPage}>How it works →</a>
+          <a class="refOffer__link" href={`${referralPage}#how-to-use`}>How it works ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ON THIS PAGE -->
+    <section class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> On this page</div>
+        <div class="toc">
+          <a href="#guides">Guides</a>
+          <a href="#what-is">What Star Citizen is</a>
+          <a href="#is-it-for-you">Is it for you?</a>
         </div>
       </div>
     </section>
@@ -133,7 +144,7 @@ const tiles = [
     </section>
 
     <!-- ===================== WHAT IS STAR CITIZEN? ===================== -->
-    <section class="section">
+    <section id="what-is" class="section">
       <div class="grid2">
         <div class="card pad">
           <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
@@ -167,7 +178,7 @@ const tiles = [
     </section>
 
     <!-- ===================== IS IT FOR YOU? ===================== -->
-    <section class="section">
+    <section id="is-it-for-you" class="section">
       <div class="grid2">
         <div class="card pad">
           <img class="imgRounded" src="/assets/img/home/scb-home-is-it-for-you.webp" alt="Star Citizen player walking through an atmospheric sci-fi landscape" loading="lazy" />
@@ -209,6 +220,31 @@ const tiles = [
         </div>
       </div>
     </footer>
-
   </main>
+
+  <style>
+    /* On this page (match free-fly look) */
+    .toc{
+      display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:10px;
+      font-weight:800; font-size:13px; opacity:.92;
+    }
+    .toc a{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px; border-radius:12px;
+    }
+    .toc a:hover{ background: rgba(255,255,255,.07); }
+
+    /* Referral offer banner (ensure same inner layout as other pages if global differs) */
+    .refOffer__main{ min-width:0; }
+    .refOffer__title{ font-weight: 750; line-height: 1.25; color: rgba(255,255,255,.95); }
+    .refOffer__title b { color: rgba(255, 224, 160, .96); }
+    .refOffer__sub{ margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.5; }
+    .refOffer__actions{
+      display:flex; align-items:center; gap:12px; flex:0 0 auto;
+    }
+    @media (max-width: 720px){
+      .refOffer__actions{ width:100%; align-items:flex-start; }
+    }
+  </style>
 </BaseLayout>
