@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -57,25 +58,7 @@ const tiles = [
   description="The ultimate Star Citizen beginner guide. Use a referral code for 50,000 UEC and follow step-by-step guides for your first hours, starter ships, FPS optimization and early aUEC."
   canonicalPath="/"
 >
-  <!-- ===================== HEADER ===================== -->
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="/" aria-label="Star Citizen Beginner Home">
-        <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
-        <span>Star Citizen Beginner</span>
-      </a>
-
-      <div class="lang">
-        <span style="opacity:.7;">Lang:</span>
-        <a class="active" href="/">EN</a>
-        <a href="/de/">DE</a>
-        <a href="/es/">ES</a>
-        <a href="/fr/">FR</a>
-        <a href="/ru/">RU</a>
-        <a href="/zh/">中文</a>
-      </div>
-    </div>
-  </header>
+  <SiteHeader active="home" />
 
   <main class="container">
     <!-- ===================== HERO ===================== -->
@@ -119,27 +102,28 @@ const tiles = [
         </div>
 
         <div class="refOffer__actions">
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+            Create Account (Referral active)
+          </a>
           <a class="refOffer__link" href={referralPage}>How it works →</a>
         </div>
       </div>
     </section>
 
-    <!-- ===================== GUIDES HUB ===================== -->
+    <!-- ===================== GUIDES ===================== -->
     <section id="guides" class="section">
-      <div class="card pad" style="margin-bottom:14px;">
+      <div class="card pad">
         <div class="kicker"><span class="dot"></span> Beginner Guides</div>
         <h2 class="section__title">Start here. Then go deeper.</h2>
-        <p style="margin:0; color: var(--muted); line-height:1.6;">
-          Structured guides for your first hours, ships, credits and performance.
-        </p>
+        <p class="lead">Structured guides for your first hours, ships, credits and performance.</p>
       </div>
 
       <div class="tiles">
         {tiles.map((t) => (
           <a class="tile" href={t.href}>
-            <img src={t.img} alt={t.title} loading="lazy" />
-            <div class="tile__content">
-              <div class="tile__pill"><b>SCB</b> • {t.pill}</div>
+            <img class="tile__img" src={t.img} alt={t.title} loading="lazy" />
+            <div class="tile__meta">
+              <span class="tile__pill">{t.pill}</span>
               <h3 class="tile__title">{t.title}</h3>
               <p class="tile__desc">{t.desc}</p>
             </div>
@@ -148,228 +132,83 @@ const tiles = [
       </div>
     </section>
 
-    <!-- ===================== WHAT IS STAR CITIZEN ===================== -->
+    <!-- ===================== WHAT IS STAR CITIZEN? ===================== -->
     <section class="section">
-      <div class="section__grid">
+      <div class="grid2">
         <div class="card pad">
           <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
           <h2 class="section__title">A living sci-fi universe.</h2>
 
-          <p style="margin:0; color: var(--muted); line-height:1.7;">
-            Star Citizen is a large-scale space simulation that blends space flight, FPS combat and a fully player-driven
-            economy into one persistent online universe. Unlike traditional MMOs, there are no fixed classes or predefined
-            paths — you choose your role, your ship and your pace.
+          <p>
+            Star Citizen is a large-scale space simulation that blends space flight, FPS combat and a fully player-driven economy into one persistent online universe.
+            Unlike traditional MMOs, there are no fixed classes or predefined paths — you choose your role, your ship and your pace.
           </p>
 
-          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
-            You can pilot ships across entire planetary systems, trade cargo between stations, mine resources, run delivery
-            contracts, bounty hunt criminals or join multi-crew operations. Every activity connects to a shared economy
-            where supply, demand and risk directly affect your earnings.
+          <p>
+            You can pilot ships across entire planetary systems, trade cargo between stations, mine resources, run delivery contracts, bounty hunt criminals or join multi-crew operations.
+            Every activity connects to a shared economy where supply, demand and risk directly affect your earnings.
           </p>
 
-          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
-            What makes Star Citizen unique is its persistence. The universe continues evolving through active development,
-            frequent updates and system expansions. Features improve, mechanics deepen and new gameplay loops are introduced
-            over time — which makes understanding the fundamentals especially important for beginners.
+          <p>
+            What makes Star Citizen unique is its persistence. The universe continues evolving through active development, frequent updates and system expansion.
+            Features improve, mechanics deepen and new gameplay loops are introduced over time — which makes understanding the fundamentals especially important for beginners.
           </p>
 
-          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
-            It is not a fast arcade space shooter. It rewards preparation, knowledge and efficiency. If you start with a
-            clear plan, your first hours become structured instead of overwhelming — and that’s exactly what this guide is
-            built for.
+          <p>
+            It is not a fast arcade space shooter. It rewards preparation, knowledge and efficiency.
+            If you start with a clear plan, your first hours become structured instead of overwhelming — and that’s exactly what this guide is built for.
           </p>
         </div>
 
-        <div class="section__img">
-          <img
-            src="/assets/img/home/scb-home-what-is-star-citizen.webp"
-            alt="Star Citizen universe scene"
-            loading="lazy"
-          />
+        <div class="card pad">
+          <img class="imgRounded" src="/assets/img/home/scb-home-what-is.webp" alt="Star Citizen character looking over a planet horizon" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <!-- ===================== IS IT FOR YOU ===================== -->
-    <section class="section section--secondary">
-      <div class="section__grid">
-        <div class="section__img">
-          <img
-            src="/assets/img/home/scb-home-pros-cons.webp"
-            alt="Star Citizen gameplay scene"
-            loading="lazy"
-          />
+    <!-- ===================== IS IT FOR YOU? ===================== -->
+    <section class="section">
+      <div class="grid2">
+        <div class="card pad">
+          <img class="imgRounded" src="/assets/img/home/scb-home-is-it-for-you.webp" alt="Star Citizen player walking through an atmospheric sci-fi landscape" loading="lazy" />
         </div>
 
         <div class="card pad">
           <div class="kicker"><span class="dot"></span> Is it for you?</div>
           <h2 class="section__title">High highs. Real depth.</h2>
 
-          <p style="margin:0; color: var(--muted); line-height:1.7;">
-            Star Citizen rewards patience, planning and systems thinking. It is designed for players who enjoy learning
-            mechanics, understanding ships, optimizing routes and gradually mastering complex systems rather than rushing
-            through scripted content.
+          <p>
+            Star Citizen rewards patience, planning and systems thinking. It is designed for players who enjoy learning mechanics, understanding ships,
+            optimizing routes and gradually mastering complex systems rather than rushing through scripted content.
           </p>
 
-          <p style="margin:14px 0 0; color: var(--muted); line-height:1.7;">
-            If you like sandbox games where your decisions shape your experience — whether that’s focusing on exploration,
-            trading, combat or cooperative gameplay — you’ll likely feel at home. There is no single “correct” way to play,
-            but there are smarter ways to start.
+          <p>
+            If you like sandbox games where your decisions shape your experience — whether that’s focusing on exploration, trading, combat or cooperative gameplay —
+            you’ll likely feel at home. There is no single “correct” way to play, but there are smarter ways to start.
           </p>
 
-          <ul style="margin:16px 0 0; padding-left:18px; color: var(--muted); line-height:1.7;">
-            <li>
-              <b style="color:#fff;">You’ll enjoy it if:</b> you prefer freedom over hand-holding, long-term progression
-              over instant rewards, and immersive environments over fast arcade loops.
-            </li>
-            <li>
-              <b style="color:#fff;">Be aware:</b> the game is still in active development. Bugs, balance changes and
-              performance fluctuations are part of the experience.
-            </li>
-            <li>
-              <b style="color:#fff;">Good to know:</b> optimized settings and a structured early-game plan dramatically
-              improve your first impression.
-            </li>
+          <ul>
+            <li><b>You’ll enjoy it if:</b> you prefer freedom over hand-holding, long-term progression over instant rewards, and immersive environments over fast arcade loops.</li>
+            <li><b>Be aware:</b> the game is still in active development. Bugs, balance changes and performance fluctuations are part of the experience.</li>
+            <li><b>Good to know:</b> optimized settings and a structured early-game plan dramatically improve your first impression.</li>
           </ul>
 
-          <p style="margin:16px 0 0; color: var(--muted); line-height:1.7;">
-            If you approach Star Citizen with realistic expectations and a structured entry path, the experience can feel
-            uniquely immersive and rewarding. If you expect a polished, linear campaign with instant clarity, it may feel
-            overwhelming at first.
+          <p>
+            If you approach Star Citizen with realistic expectations and a structured entry path, the experience can feel uniquely immersive and rewarding.
+            If you expect a polished, linear campaign with instant clarity, it may feel overwhelming at first.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
-      <div class="container">
-        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;">
-          <div><b>SCB</b> — Unofficial Star Citizen guide.</div>
-        </div>
-        <div style="margin-top:10px;">
-          Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® is a registered trademark of
-          its respective owner.
+      <div class="footer__inner">
+        <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+        <div class="footer__legal">
+          Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® and related marks are trademarks of their respective owners.
         </div>
       </div>
     </footer>
 
-    <!-- ===================== PAGE-LOCAL STYLES (ONLY FOR OFFER STRIP) ===================== -->
-    <style>
-      /* Scoped: no global side effects */
-      .refBar--offer { margin-top: 12px; }
-
-      .refOffer{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:14px;
-        padding: 12px 14px;
-        border-radius: 14px;
-
-        border: 1px solid rgba(216,168,74,.32);
-        background:
-          linear-gradient(180deg, rgba(216,168,74,.16), rgba(216,168,74,.06));
-        box-shadow:
-          0 10px 28px rgba(0,0,0,.35),
-          0 0 0 1px rgba(216,168,74,.10) inset,
-          0 0 34px rgba(216,168,74,.10);
-      }
-
-      .refOffer__badge{
-        font-size: 11px;
-        letter-spacing: .14em;
-        font-weight: 800;
-        padding: 8px 10px;
-        border-radius: 999px;
-        text-transform: uppercase;
-        color: rgba(255, 236, 195, .95);
-        background: rgba(216,168,74,.18);
-        border: 1px solid rgba(216,168,74,.35);
-        box-shadow: 0 0 22px rgba(216,168,74,.14);
-        flex: 0 0 auto;
-      }
-
-      .refOffer__text{
-        display:flex;
-        flex-direction:column;
-        gap: 4px;
-        min-width: 0;
-      }
-
-      .refOffer__headline{
-        color: rgba(255,255,255,.92);
-        font-weight: 650;
-        line-height: 1.2;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .refOffer__headline b{
-        color: rgba(255, 224, 160, .96);
-      }
-
-      .refOffer__meta{
-        color: rgba(255,255,255,.72);
-        font-size: 13px;
-        display:flex;
-        align-items:center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .refOffer__code{
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: 12px;
-        letter-spacing: .06em;
-        padding: 6px 10px;
-        border-radius: 999px;
-        color: rgba(255, 236, 195, .95);
-        background: rgba(0,0,0,.22);
-        border: 1px solid rgba(216,168,74,.30);
-        box-shadow:
-          0 0 0 1px rgba(0,0,0,.22) inset,
-          0 0 18px rgba(216,168,74,.10);
-        flex: 0 0 auto;
-      }
-
-      .refOffer__actions{
-        flex: 0 0 auto;
-      }
-
-      .refOffer__link{
-        color: rgba(255, 224, 160, .92);
-        font-weight: 600;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 224, 160, .35);
-        padding-bottom: 2px;
-        white-space: nowrap;
-      }
-      .refOffer__link:hover{
-        color: rgba(255, 238, 195, 1);
-        border-bottom-color: rgba(255, 238, 195, .75);
-      }
-
-      /* Mobile stacking */
-      @media (max-width: 560px){
-        .refOffer{
-          align-items:flex-start;
-          flex-direction: column;
-        }
-        .refOffer__actions{
-          width: 100%;
-        }
-        .refOffer__link{
-          display:inline-block;
-        }
-        .refOffer__headline{
-          white-space: normal;
-        }
-      }
-    </style>
   </main>
 </BaseLayout>
-
-
-
