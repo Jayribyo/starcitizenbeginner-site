@@ -31,6 +31,31 @@ const canonical = `https://YOUR_DOMAIN${canonicalPath}`;
     <title>{title}</title>
   </head>
   <body>
+    <div id="top" aria-hidden="true"></div>
+
     <slot />
+
+    <!-- Global Back-to-top (shows after scroll) -->
+    <a class="backToTop" id="backToTop" href="#top" aria-label="Back to top">↑</a>
+
+    <script is:inline>
+      const btn = document.getElementById("backToTop");
+
+      const setVisible = () => {
+        if (!btn) return;
+        btn.classList.toggle("is-visible", window.scrollY > 700);
+      };
+
+      window.addEventListener("scroll", setVisible, { passive: true });
+      window.addEventListener("resize", setVisible, { passive: true });
+      setVisible();
+
+      if (btn) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
   </body>
 </html>
