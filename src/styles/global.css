@@ -788,6 +788,9 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 .faq__q::-webkit-details-marker{ display:none; }
 
+/* Firefox: remove default disclosure triangle */
+.faq__q::marker{ content: ""; }
+
 .faq__q:focus-visible{
   outline: 2px solid rgba(216,168,74,.55);
   outline-offset: 2px;
