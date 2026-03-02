@@ -370,6 +370,8 @@ li {
 /* Burger hidden on desktop by default */
 /* ===== Burger (3 lines) ===== */
 
+/* ===== Burger (3 lines) ===== */
+
 .navBurger{
   display:none;
   width: 48px;
@@ -856,4 +858,5 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 body.nav-open{
   overflow: hidden;
 }
+
 
