@@ -368,50 +368,70 @@ li {
 /* ========== Mobile nav (burger + drawer) ========== */
 
 /* Burger hidden on desktop by default */
+/* ===== Burger (3 lines) ===== */
+
 .navBurger{
   display:none;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  color: rgba(255,255,255,.85);
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
   align-items:center;
   justify-content:center;
+  position: relative;
 }
 
 .navBurger:hover,
 .navBurger:focus-visible{
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.18);
 }
 
+/* middle line */
 .navBurger__lines{
-  width: 18px;
-  height: 12px;
   position: relative;
-  display:block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,.95);
+  border-radius: 999px;
+  transition: all .2s ease;
 }
 
+/* top + bottom lines */
 .navBurger__lines::before,
 .navBurger__lines::after{
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
+  width: 22px;
   height: 2px;
   border-radius: 999px;
-  background: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.95);
+  transition: all .2s ease;
 }
 
-.navBurger__lines::before{ top: 1px; }
-.navBurger__lines::after{ bottom: 1px; }
+.navBurger__lines::before{
+  top: -7px;
+}
 
-.navBurger__lines{
-  background: rgba(255,255,255,.88);
-  height: 2px;
-  border-radius: 999px;
-  top: 5px;
+.navBurger__lines::after{
+  top: 7px;
+}
+
+/* Active → morph to X */
+.navBurger.is-active .navBurger__lines{
+  background: transparent;
+}
+
+.navBurger.is-active .navBurger__lines::before{
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navBurger.is-active .navBurger__lines::after{
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 .mobileNavBackdrop{
@@ -830,5 +850,10 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   box-shadow:
     0 26px 70px rgba(0,0,0,.78),
     0 0 0 1px rgba(255,255,255,.08) inset;
+}
+
+/* ===== Body scroll lock when mobile nav open ===== */
+body.nav-open{
+  overflow: hidden;
 }
 
