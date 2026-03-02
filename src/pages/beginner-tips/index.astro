@@ -9,195 +9,203 @@ const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 const referralPage = "/star-citizen-referral-code/";
 
-/* IMPORTANT: Cloudflare Pages build requires /public in URL */
-const heroImg = "/public/assets/img/beginner-tips/scb-beginner-tips-structured-route-hero.webp";
-const planningImg = "/public/assets/img/beginner-tips/scb-beginner-tips-priority-planning.webp";
+const heroImg = "/assets/img/beginner-tips/scb-beginner-tips-structured-route-hero.webp";
+const planningImg = "/assets/img/beginner-tips/scb-beginner-tips-priority-planning.webp";
 
 const faqItems = [
-{
-q: "What should I focus on during my first hours?",
-a: "Focus on stability. Set regeneration point, create a cheap baseline kit, and complete one repeatable contract type before expanding."
-},
-{
-q: "Why do beginners feel overwhelmed?",
-a: "Because they stack too many systems at once. Reduce variables and repeat one loop until it becomes predictable."
-},
-{
-q: "When should I upgrade my ship?",
-a: "Only after income is stable. Hardware should scale after consistency, not before."
-}
+  {
+    q: "What should I do first after spawning in?",
+    a: "Set your regeneration point immediately, create a minimal repeatable kit, and complete one simple local contract to learn the full loop from acceptance to return."
+  },
+  {
+    q: "Why do beginners lose so much money?",
+    a: "Because they over-gear, travel too far, and stack too many objectives in one session. Stability beats ambition early on."
+  },
+  {
+    q: "Should I rush ship upgrades?",
+    a: "No. Master one loop first. Income consistency matters more than early hardware upgrades."
+  },
+  {
+    q: "What is the safest first loop?",
+    a: "Local delivery or one controlled bunker contract in a single region."
+  }
 ];
 
 const faqJsonLd = {
-"@context": "https://schema.org",
-"@type": "FAQPage",
-mainEntity: faqItems.map((item) => ({
-"@type": "Question",
-name: item.q,
-acceptedAnswer: {
-"@type": "Answer",
-text: item.a
-}
-}))
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a
+    }
+  }))
 };
 ---
 
 <BaseLayout
-title="Star Citizen Beginner Guide - Structured Progression Strategy"
-description="In-depth Star Citizen beginner guide with structured progression, mission loops, risk control and long-term economic scaling."
-canonicalPath="/beginner-tips/"
+  title="Star Citizen Beginner Guide – Structured Start Strategy"
+  description="A complete in-depth beginner strategy for Star Citizen. Learn structured progression, mission loops, risk control, gear discipline and long-term growth."
+  canonicalPath="/beginner-tips/"
 >
-
 <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
 
 <SiteHeader active="guides" />
 
 <main class="container">
 
-<!-- HERO (same structural logic as referral page) -->
 <section class="hero">
-<img
-class="hero__img"
-src={heroImg}
-alt="Structured beginner route on a star map"
-loading="eager"
-fetchpriority="high"
-decoding="async"
-width="1536"
-height="1024"
-/>
-<div class="hero__overlay"></div>
-
-<div class="hero__content">
-<div class="homeHero__content">
-<div style="max-width:760px;padding:26px 0;">
-<div class="kicker"><span class="dot"></span> Beginner Strategy</div>
-<h1 class="h1">Star Citizen Beginner Guide</h1>
-<p class="lead">
-This is a structured progression framework designed to eliminate chaos and accelerate mastery.
-</p>
-</div>
-</div>
-</div>
+  <img
+    class="hero__img"
+    src={heroImg}
+    alt="Structured beginner learning route on a star map"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    width="1536"
+    height="1024"
+  />
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="homeHero__content">
+      <div style="max-width:760px;padding:26px 0;">
+        <div class="kicker"><span class="dot"></span> Beginner Guide</div>
+        <h1 class="h1">Star Citizen Beginner Strategy</h1>
+        <p class="lead">
+          This is not a surface checklist. This is a structured progression framework designed to eliminate chaos and accelerate mastery.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <ReferralBanner
-code={referralCode}
-bonus="50,000 UEC"
-ctaHref={referralLink}
-howItWorksHref={`${referralPage}#how-to-use`}
-sublineHtml="Enter during signup or within <b>24 hours</b> after account creation."
-ariaLabel="Referral bonus"
+  code={referralCode}
+  bonus="50,000 UEC"
+  ctaHref={referralLink}
+  howItWorksHref={`${referralPage}#how-to-use`}
+  sublineHtml="Enter during signup or within <b>24 hours</b> after account creation."
+  ariaLabel="Referral bonus"
 />
 
 <OnThisPage
-title="Guide structure"
-items={[
-{ label: "Progression model", href: "#progression" },
-{ label: "Session framework", href: "#sessions" },
-{ label: "Mission loops", href: "#loops" },
-{ label: "Risk system", href: "#risk" },
-{ label: "Scaling income", href: "#scaling" },
-{ label: "FAQ", href: "#faq" }
-]}
+  title="Guide Structure"
+  items={[
+    { label: "Progression model", href: "#progression-model" },
+    { label: "Session framework", href: "#session-framework" },
+    { label: "Mission loops", href: "#mission-loops" },
+    { label: "Risk system", href: "#risk-system" },
+    { label: "Economic growth", href: "#economic-growth" },
+    { label: "FAQ", href: "#faq" }
+  ]}
 />
 
-<!-- PROGRESSION MODEL -->
-<section id="progression" class="section">
+<section id="progression-model" class="section">
 <div class="card pad">
-<h2 class="section__title">Structured Progression Model</h2>
+<h2 class="section__title">The Beginner Progression Model</h2>
 
 <p>
-Most beginners fail because they chase variety instead of stability.
-Progression in Star Citizen is about system mastery.
+Most new players fail because they chase content instead of building systems.
+Your first objective is stability, not profit.
+Your second objective is repeatability.
+Only then should you scale income.
 </p>
 
 <div class="tableWrap">
 <table class="scTable">
 <thead>
 <tr>
-<th scope="col">Phase</th>
-<th scope="col">Primary goal</th>
-<th scope="col">Result</th>
+<th>Phase</th>
+<th>Objective</th>
+<th>What changes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row">Stabilize</th>
-<td>Learn navigation and return cycles</td>
-<td>No more confusion or random resets</td>
+<th>Stabilization</th>
+<td>Learn movement, travel, return cycles</td>
+<td>Sessions stop feeling chaotic</td>
 </tr>
 <tr>
-<th scope="row">Repeat</th>
-<td>Run one contract type multiple times</td>
-<td>Predictable income flow</td>
+<th>Repetition</th>
+<td>Run one loop multiple times</td>
+<td>Income becomes predictable</td>
 </tr>
 <tr>
-<th scope="row">Optimize</th>
-<td>Reduce downtime and recovery time</td>
-<td>Higher profit per hour</td>
+<th>Optimization</th>
+<td>Reduce downtime and losses</td>
+<td>Profit per hour increases</td>
 </tr>
 <tr>
-<th scope="row">Expand</th>
-<td>Add second loop or upgrade ship</td>
-<td>Compounding progression</td>
+<th>Expansion</th>
+<td>Add new loop or ship upgrade</td>
+<td>Growth compounds</td>
 </tr>
 </tbody>
 </table>
 </div>
+
 </div>
 </section>
 
-<!-- SESSION FRAMEWORK -->
-<section id="sessions" class="section">
+<section id="session-framework" class="section">
 <div class="card pad">
-<h2 class="section__title">3-Session Framework</h2>
+<h2 class="section__title">The 3-Session Framework</h2>
+
+<p>
+Instead of wandering, use structured sessions.
+Each session has a purpose.
+</p>
 
 <div class="tableWrap">
 <table class="scTable">
 <thead>
 <tr>
-<th scope="col">Session</th>
-<th scope="col">Focus</th>
-<th scope="col">Measured outcome</th>
+<th>Session</th>
+<th>Focus</th>
+<th>Measured outcome</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row">1</th>
+<th>1</th>
 <td>Spawn setup and one safe contract</td>
-<td>Travel cycle mastered</td>
+<td>Zero confusion about navigation</td>
 </tr>
 <tr>
-<th scope="row">2</th>
-<td>Repeat identical contract</td>
-<td>Reduced mistakes</td>
+<th>2</th>
+<td>Repeat same contract type</td>
+<td>Reduced travel errors</td>
 </tr>
 <tr>
-<th scope="row">3</th>
+<th>3</th>
 <td>Add minor complexity</td>
-<td>Controlled expansion</td>
+<td>Confidence under pressure</td>
 </tr>
 </tbody>
 </table>
 </div>
+
 </div>
 </section>
 
-<!-- PLANNING SECTION -->
 <section class="section">
 <div class="grid2">
 <div class="card pad">
 <h2 class="section__title">Planning Before Profit</h2>
+
 <p>
-Early success is determined by structure, not gear.
-Define a baseline kit.
-Define your route.
-Define your fallback point.
+Most beginners buy gear before they understand loss cycles.
+Plan your baseline kit.
+Plan your route.
+Plan your recovery path.
 </p>
+
 <p>
-When you remove unpredictability, confidence grows.
-Confidence increases efficiency.
+Structure creates confidence.
+Confidence creates efficiency.
 Efficiency creates income.
 </p>
 </div>
@@ -206,7 +214,7 @@ Efficiency creates income.
 <img
 class="imgRounded"
 src={planningImg}
-alt="Priority planning for beginner pilot"
+alt="Priority planning board for beginner pilot"
 loading="lazy"
 decoding="async"
 width="1536"
@@ -216,34 +224,33 @@ height="1024"
 </div>
 </section>
 
-<!-- MISSION LOOPS -->
-<section id="loops" class="section">
+<section id="mission-loops" class="section">
 <div class="card pad">
-<h2 class="section__title">Beginner Mission Loop Selection</h2>
+<h2 class="section__title">First Mission Loop Selection</h2>
 
 <div class="tableWrap">
 <table class="scTable">
 <thead>
 <tr>
-<th scope="col">Loop</th>
-<th scope="col">What it builds</th>
-<th scope="col">Risk</th>
+<th>Loop</th>
+<th>Teaches</th>
+<th>Risk level</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row">Delivery</th>
-<td>Navigation discipline</td>
+<th>Delivery</th>
+<td>Navigation, landing discipline</td>
 <td>Low</td>
 </tr>
 <tr>
-<th scope="row">Local bunker</th>
+<th>Local bunker</th>
 <td>Combat fundamentals</td>
 <td>Medium</td>
 </tr>
 <tr>
-<th scope="row">Salvage practice</th>
-<td>Ship positioning and scanning</td>
+<th>Salvage practice</th>
+<td>Ship positioning, scanning</td>
 <td>Low to medium</td>
 </tr>
 </tbody>
@@ -253,39 +260,39 @@ height="1024"
 </div>
 </section>
 
-<!-- RISK SYSTEM -->
-<section id="risk" class="section">
+<section id="risk-system" class="section">
 <div class="card pad">
 <h2 class="section__title">Risk Budget System</h2>
 
 <p>
 Never carry more value than the mission justifies.
-Risk multiplies losses if skill is not stable.
+Risk is a multiplier.
+If risk grows faster than skill, progression collapses.
 </p>
 
 <div class="tableWrap">
 <table class="scTable">
 <thead>
 <tr>
-<th scope="col">Loadout type</th>
-<th scope="col">When to use</th>
-<th scope="col">Purpose</th>
+<th>Loadout type</th>
+<th>When to use</th>
+<th>Why</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row">Baseline kit</th>
-<td>Default contracts</td>
-<td>Fast recovery cycle</td>
+<th>Baseline kit</th>
+<td>Default runs</td>
+<td>Fast recovery</td>
 </tr>
 <tr>
-<th scope="row">Enhanced kit</th>
+<th>Enhanced kit</th>
 <td>Controlled missions</td>
 <td>Higher success rate</td>
 </tr>
 <tr>
-<th scope="row">High value kit</th>
-<td>Advanced contracts</td>
+<th>High value kit</th>
+<td>Advanced content</td>
 <td>High risk high reward</td>
 </tr>
 </tbody>
@@ -295,27 +302,29 @@ Risk multiplies losses if skill is not stable.
 </div>
 </section>
 
-<!-- SCALING -->
-<section id="scaling" class="section">
+<section id="economic-growth" class="section">
 <div class="card pad">
-<h2 class="section__title">Income Scaling Strategy</h2>
+<h2 class="section__title">Economic Scaling Strategy</h2>
 
 <p>
-Once loops are stable, reduce downtime between contracts.
-Profit is determined by efficiency, not intensity.
+Income growth is about downtime reduction.
+The player who completes three clean loops beats the player who attempts one large risky run.
+</p>
+
+<p>
+When stable, transition into:
 </p>
 
 <ul>
-<li>Reduce claim and refuel downtime</li>
-<li>Cache gear locally</li>
-<li>Deposit frequently</li>
-<li>Expand only after stability</li>
+<li>Higher tier bunker contracts</li>
+<li>Refined trading routes</li>
+<li>Specialized FPS loops</li>
+<li>Ship role specialization</li>
 </ul>
 
 </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq" class="section">
 <div class="card pad">
 <h2 class="section__title">FAQ</h2>
@@ -330,7 +339,28 @@ Profit is determined by efficiency, not intensity.
 </div>
 </section>
 
+<section class="section">
+<div class="card pad">
+<h2 class="section__title">Next Steps</h2>
+<div class="btnrow">
+<a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
+<a class="btn secondary" href="/starter-pack-guide/">Starter Pack Guide</a>
+<a class="btn secondary" href="/best-settings/">Best Settings</a>
+<a class="btn secondary" href="/earn-auec-fast/">Earn aUEC Fast</a>
+</div>
+</div>
+</section>
+
 <FaqSchema json={faqJsonLd} />
+
+<footer class="footer">
+<div class="footer__inner">
+<div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+<div class="footer__legal">
+Not affiliated with Cloud Imperium Games or Roberts Space Industries.
+</div>
+</div>
+</footer>
 
 </main>
 </BaseLayout>
