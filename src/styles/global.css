@@ -649,20 +649,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 }
 
 /* ========== Homepage tiles ========== */
-.tiles {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 14px;
-}
-
-@media (min-width: 760px) {
-  .tiles {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .tile {
+  position: relative;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -676,10 +664,29 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+  transform: scale(1.001);
+  transition: transform 220ms ease, filter 220ms ease;
 }
 
+.tile:hover .tile__img {
+  transform: scale(1.03);
+  filter: brightness(1.02);
+}
+
+/* Text overlay inside tile */
 .tile__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+  pointer-events: none; /* whole tile stays clickable */
 }
 
 .tile__pill {
@@ -689,22 +696,38 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   letter-spacing: 0.08em;
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
-  opacity: 0.85;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.28);
+  opacity: 0.92;
 }
 
 .tile__title {
   margin: 10px 0 6px;
-  font-size: 15px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 950;
   letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
 
 .tile__desc {
   margin: 0;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* Mobile: slightly stronger overlay for readability */
+@media (max-width: 420px) {
+  .tile__meta {
+    padding: 12px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.62) 42%,
+      rgba(0, 0, 0, 0.84) 100%
+    );
+  }
 }
 
 /* ========== Premium referral offer banner ========== */
@@ -882,6 +905,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 body.nav-open{
   overflow: hidden;
 }
+
 
 
 
