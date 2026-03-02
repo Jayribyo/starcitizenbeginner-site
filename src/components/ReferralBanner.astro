@@ -1,38 +1,67 @@
 ---
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = "https://www.robertsspaceindustries.com/enlist?referral=STAR-FSRJ-5N7Z";
-
-const { title, blurb, ctaPrimary, ctaSecondary } = Astro.props;
+/**
+ * SCB ReferralBanner (global)
+ *
+ * Uses existing refOffer design system (gold accent is handled by global.css).
+ * This component is intentionally static-first (no JS).
+ *
+ * Props:
+ *  - code: string
+ *  - bonus: string (e.g. "50,000 UEC" or `${referralBonusUEC} UEC`)
+ *  - ctaHref: string (prefilled RSI enlist link)
+ *  - howItWorksHref: string (internal anchor/link)
+ *  - sublineHtml: string (allows <b> emphasis)
+ *  - ariaLabel: string
+ */
+const {
+  code = "STAR-FSRJ-5N7Z",
+  bonus = "50,000 UEC",
+  ctaHref = `https://www.robertsspaceindustries.com/enlist?referral=${code}`,
+  howItWorksHref = "/star-citizen-referral-code/#how-to-use",
+  sublineHtml = "Enter during signup — or within <b>24 hours</b> after account creation.",
+  ariaLabel = "Referral bonus callout",
+} = Astro.props;
 ---
-<div class="card">
-  <div class="kicker">Referral bonus</div>
-  <h2 style="margin:10px 0 8px; font-size: 20px;">{title}</h2>
-  <p style="margin:0 0 14px; color: rgba(255,255,255,.78);">{blurb}</p>
 
-  <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-    <span class="badge">
-      Code: <strong style="color:#fff;">{referralCode}</strong>
-    </span>
-    <button class="btn ghost" id="copyBtn" type="button">Copy code</button>
+<section class="section" aria-label={ariaLabel}>
+  <div class="refOffer">
+    <div class="refOffer__badge" aria-hidden="true">BONUS</div>
+
+    <div class="refOffer__main">
+      <div class="refOffer__title">
+        Use referral code <span class="refOffer__code">{code}</span> to start with <b>{bonus}</b>.
+      </div>
+      <div class="refOffer__sub" set:html={sublineHtml} />
+    </div>
+
+    <div class="refOffer__actions">
+      <a class="btn primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
+        Create Account (Code prefilled)
+      </a>
+      <a class="refOffer__link" href={howItWorksHref}>How it works ↓</a>
+    </div>
   </div>
+</section>
 
-  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
-    <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">{ctaPrimary}</a>
-    <a class="btn ghost" href="#quickstart">{ctaSecondary}</a>
-  </div>
+<style>
+  /* Alias classes (your repo's global.css styles the older __text/__headline/__meta names).
+     This keeps the banner stable without touching global.css. */
+  .refOffer__main{
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
 
-  <script is:inline>
-    const btn = document.getElementById("copyBtn");
-    if (btn) {
-      btn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText("STAR-FSRJ-5N7Z");
-          btn.textContent = "Copied ✓";
-          setTimeout(()=>btn.textContent="Copy code", 1400);
-        } catch (e) {
-          alert("Code: STAR-FSRJ-5N7Z");
-        }
-      });
-    }
-  </script>
-</div>
+  .refOffer__title{
+    font-weight: 850;
+    color: rgba(255,255,255,.92);
+    line-height: 1.25;
+  }
+
+  .refOffer__sub{
+    font-size: 13px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.5;
+  }
+</style>
