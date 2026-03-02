@@ -681,17 +681,13 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 .tile__img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
   transform: scale(1.001);
   transition: transform 220ms ease, filter 220ms ease;
 }
 
-@media (max-width: 640px) {
-  .tile__img {
-    aspect-ratio: 1 / 1;
-  }
 }
 
 .tile:hover .tile__img {
@@ -931,6 +927,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 body.nav-open{
   overflow: hidden;
 }
+
 
 
 
