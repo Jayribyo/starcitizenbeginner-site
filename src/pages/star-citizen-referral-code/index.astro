@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -414,6 +415,9 @@ const faqJsonLd = {
       </div>
     </section>
 
+<!-- SEO: FAQPage JSON-LD -->
+<FaqSchema json={faqJsonLd} />
+
     <footer class="footer">
       <div class="footer__inner">
         <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
@@ -423,8 +427,6 @@ const faqJsonLd = {
       </div>
     </footer>
   </main>
-
-  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
 
   <style>
     /* Referral hero */
