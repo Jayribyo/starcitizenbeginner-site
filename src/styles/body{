@@ -218,14 +218,26 @@ li {
 }
 
 /* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
-/* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
 .siteHeader{
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100; /* IMPORTANT: above hero/overlays */
+  left: 0;
+  right: 0;
+  z-index: 100; /* above hero/overlays */
   background: rgba(7,10,18,.52);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+/* Offset the page content because header is fixed */
+body{
+  padding-top: 72px;
+}
+
+@media (max-width: 860px){
+  body{
+    padding-top: 72px;
+  }
 }
 
 .siteHeader__inner{
@@ -856,4 +868,5 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 body.nav-open{
   overflow: hidden;
 }
+
 
