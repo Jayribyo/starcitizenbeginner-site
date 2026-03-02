@@ -752,6 +752,98 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 }
 
+/* ========== FAQ Accordion (global) ========== */
+/* Markup expectation:
+<div class="faq">
+  <details class="faq__item">
+    <summary class="faq__q">Question</summary>
+    <div class="faq__a">Answer</div>
+  </details>
+</div>
+*/
+.faq{
+  margin-top: 10px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.14);
+}
+
+.faq__item{
+  border-top: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+}
+
+.faq__item:first-child{ border-top: 0; }
+
+.faq__q{
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding: 14px 44px 14px 16px;
+  font-weight: 900;
+  color: rgba(255,255,255,.90);
+  transition: background .15s ease, color .15s ease;
+}
+
+.faq__q::-webkit-details-marker{ display:none; }
+
+.faq__q:focus-visible{
+  outline: 2px solid rgba(216,168,74,.55);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.faq__q::after{
+  content: "+";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 950;
+  color: rgba(255,255,255,.82);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.faq__item:hover > .faq__q{
+  background: rgba(255,255,255,.03);
+}
+
+details[open].faq__item > .faq__q{
+  background: rgba(255,255,255,.04);
+}
+
+details[open].faq__item > .faq__q::after{
+  content: "–";
+  color: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+}
+
+.faq__a{
+  padding: 0 16px 14px 16px;
+  color: rgba(255,255,255,.76);
+  line-height: 1.65;
+}
+
+/* Reduced motion: keep UX snappy without fancy animation */
+@media (prefers-reduced-motion: no-preference){
+  details[open].faq__item > .faq__a{
+    animation: faqFadeIn .12s ease-out;
+  }
+  @keyframes faqFadeIn{
+    from{ opacity: 0; transform: translateY(-2px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+}
+
 /* ========== Premium referral offer banner ========== */
 .refBar {
   margin-top: 14px;
