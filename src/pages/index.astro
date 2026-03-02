@@ -8,12 +8,6 @@ const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 const referralPage = "/star-citizen-referral-code/";
 
-const onThisPageItems = [
-  { label: "Guides", href: "#guides" },
-  { label: "What Star Citizen is", href: "#what-is" },
-  { label: "Is it for you?", href: "#is-it-for-you" },
-];
-
 const tiles = [
   {
     href: referralPage,
@@ -94,7 +88,7 @@ const tiles = [
       </div>
     </section>
 
-    <!-- Referral banner (now global component) -->
+    <!-- Referral banner (consistent with referral page) -->
     <ReferralBanner
       code={referralCode}
       bonus="50,000 UEC"
@@ -104,8 +98,15 @@ const tiles = [
       ariaLabel="Referral bonus callout"
     />
 
-    <!-- On this page (now global component) -->
-    <OnThisPage items={onThisPageItems} />
+    <!-- ON THIS PAGE -->
+    <OnThisPage
+      title="On this page"
+      items={[
+        { label: "Guides", href: "#guides" },
+        { label: "What Star Citizen is", href: "#what-is" },
+        { label: "Is it for you?", href: "#is-it-for-you" },
+      ]}
+    />
 
     <!-- ===================== GUIDES ===================== -->
     <section id="guides" class="section">
@@ -206,6 +207,5 @@ const tiles = [
         </div>
       </div>
     </footer>
-
   </main>
 </BaseLayout>
