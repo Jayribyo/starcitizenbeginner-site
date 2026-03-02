@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -451,7 +452,8 @@ const faqJsonLd = {
 
   </main>
 
-  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
+ <!-- SEO: FAQPage JSON-LD -->
+<FaqSchema json={faqJsonLd} />
 
   <style>
     .freeFlyHero__overlay{
@@ -465,6 +467,7 @@ const faqJsonLd = {
     .miniLead{ margin-top: 10px; opacity:.84; font-size: 13px; max-width: 820px; }
   </style>
 </BaseLayout>
+
 
 
 
