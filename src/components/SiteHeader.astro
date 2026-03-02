@@ -1,78 +1,198 @@
 ---
-const { active = "" } = Astro.props;
+const currentLang = Astro.props?.lang ?? "EN";
 
+/**
+ * Keep routes exactly as in your project:
+ * - Home: /
+ * - Referral: /referral/
+ * - Free Fly: /free-fly/
+ * - Guides: your existing guide routes
+ *
+ * If your actual slugs differ, only change the href values below.
+ */
 const guides = [
-  { href: "/beginner-tips/", label: "Beginner Tips" },
-  { href: "/starter-pack/", label: "Starter Pack" },
-  { href: "/make-money-fast/", label: "Make Money Fast" },
-  { href: "/performance-settings/", label: "Performance & FPS" },
+  { label: "Beginner Tips", href: "/beginner-tips/" },
+  { label: "Starter Pack", href: "/starter-pack/" },
+  { label: "Make Money Fast", href: "/make-money-fast/" },
+  { label: "Performance & FPS", href: "/performance/" },
 ];
 
-// Languages: RU removed; order fixed as requested
 const languages = [
-  { href: "/", label: "English", code: "EN" },
-  { href: "/de/", label: "Deutsch", code: "DE" },
-  { href: "/fr/", label: "Français", code: "FR" },
-  { href: "/es/", label: "Español", code: "ES" },
-  { href: "/zh/", label: "中文", code: "中文" },
+  { code: "EN", label: "English", href: "/en/" },
+  { code: "DE", label: "Deutsch", href: "/de/" },
+  { code: "FR", label: "Français", href: "/fr/" },
+  { code: "ES", label: "Español", href: "/es/" },
+  { code: "中文", label: "中文", href: "/zh/" },
 ];
-
-// For now static; later can be computed globally from Astro.url.pathname (no page edits needed).
-const currentLang = "EN";
 ---
 
-<header class="siteHeader">
-  <div class="container siteHeader__inner">
-    <!-- SCB logo stays top-left as Home button -->
-    <a class="brand" href="/" aria-label="Star Citizen Beginner Home">
-      <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
-      <span>Star Citizen Beginner</span>
+<header class="siteHeader" data-header>
+  <div class="siteHeader__inner">
+    <!-- Brand / Logo (home button) -->
+    <a class="siteHeader__brand" href="/" aria-label="SCB Home">
+      <img
+        class="siteHeader__logo"
+        src="/assets/img/branding/scb-logo.webp"
+        alt="SCB"
+        width="64"
+        height="64"
+        loading="eager"
+        decoding="async"
+      />
+      <span class="siteHeader__title">Star Citizen Beginner</span>
     </a>
 
-    <nav class="topNav" aria-label="Primary navigation">
-      <a class:list={["topNav__link", active === "home" && "is-active"]} href="/">Home</a>
+    <!-- Desktop nav -->
+    <nav class="siteHeader__nav siteHeader__nav--desktop" aria-label="Primary">
+      <a class="navLink" href="/">Home</a>
 
-      <!-- Guides dropdown (hover/focus, closes on mouse leave) -->
-      <div class:list={["topNav__dd", active === "guides" && "is-active"]}>
-        <a class="topNav__link topNav__trigger" href="/beginner-tips/" aria-haspopup="true">
-          Guides <span class="topNav__chev" aria-hidden="true">▾</span>
-        </a>
-        <div class="topNav__menu" role="menu" aria-label="Guides">
+      <div class="navItem navItem--dropdown" data-dropdown>
+        <button class="navLink navLink--dropdown" type="button" aria-haspopup="true" aria-expanded="false">
+          Guides <span class="navCaret" aria-hidden="true">▾</span>
+        </button>
+        <div class="navDropdown" role="menu">
           {guides.map((g) => (
-            <a class="topNav__item" role="menuitem" href={g.href}>{g.label}</a>
+            <a class="navDropdown__link" role="menuitem" href={g.href}>{g.label}</a>
           ))}
         </div>
       </div>
 
-      <a
-        class:list={["topNav__link", active === "referral" && "is-active"]}
-        href="/star-citizen-referral-code/"
-      >
-        Referral Code
-      </a>
+      <a class="navLink" href="/referral/">Referral Code</a>
+      <a class="navLink" href="/free-fly/">Free Fly</a>
 
-      <a
-        class:list={["topNav__link", active === "free-fly" && "is-active"]}
-        href="/free-fly/"
-      >
-        Free Fly
-      </a>
-
-      <!-- Languages dropdown (hover/focus, closes on mouse leave) -->
-      <div class="topNav__dd topNav__dd--right">
-        <button class="topNav__link topNav__trigger" type="button" aria-haspopup="true">
-          Languages <span class="topNav__pill">{currentLang}</span>
-          <span class="topNav__chev" aria-hidden="true">▾</span>
+      <div class="navItem navItem--dropdown" data-dropdown>
+        <button class="navLink navLink--dropdown" type="button" aria-haspopup="true" aria-expanded="false">
+          Languages <span class="navCaret" aria-hidden="true">▾</span>
         </button>
-        <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
+        <div class="navDropdown navDropdown--langs" role="menu">
           {languages.map((l) => (
-            <a class="topNav__item" role="menuitem" href={l.href}>
-              <span class="topNav__langCode">{l.code}</span>
-              <span>{l.label}</span>
+            <a class="navDropdown__link" role="menuitem" href={l.href}>
+              <span class="langCode">{l.code}</span>
+              <span class="langLabel">{l.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <span class="navPill" aria-label="Current language">{currentLang}</span>
+    </nav>
+
+    <!-- Mobile trigger -->
+    <button
+      class="burger"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+      data-burger
+    >
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="mobileMenuBackdrop" data-backdrop hidden></div>
+
+  <aside class="mobileMenu" id="mobileMenu" data-mobile-menu hidden aria-label="Mobile menu">
+    <div class="mobileMenu__top">
+      <span class="mobileMenu__heading">Menu</span>
+      <button class="mobileMenu__close" type="button" aria-label="Close menu" data-close>
+        ✕
+      </button>
+    </div>
+
+    <nav class="mobileMenu__nav" aria-label="Mobile primary">
+      <a class="mobileLink" href="/" data-close-on-click>Home</a>
+      <a class="mobileLink" href="/referral/" data-close-on-click>Referral Code</a>
+      <a class="mobileLink" href="/free-fly/" data-close-on-click>Free Fly</a>
+
+      <div class="mobileSection">
+        <button class="mobileAccordion" type="button" aria-expanded="false" data-acc="guides">
+          Guides <span class="navCaret" aria-hidden="true">▾</span>
+        </button>
+        <div class="mobileAccordionPanel" data-panel="guides" hidden>
+          {guides.map((g) => (
+            <a class="mobileSubLink" href={g.href} data-close-on-click>{g.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="mobileSection">
+        <button class="mobileAccordion" type="button" aria-expanded="false" data-acc="langs">
+          Languages <span class="navCaret" aria-hidden="true">▾</span>
+        </button>
+        <div class="mobileAccordionPanel" data-panel="langs" hidden>
+          {languages.map((l) => (
+            <a class="mobileLangLink" href={l.href} data-close-on-click>
+              <span class="langCode">{l.code}</span>
+              <span class="langLabel">{l.label}</span>
             </a>
           ))}
         </div>
       </div>
     </nav>
-  </div>
+  </aside>
+
+  <script is:inline>
+    (function () {
+      const burger = document.querySelector("[data-burger]");
+      const menu = document.querySelector("[data-mobile-menu]");
+      const backdrop = document.querySelector("[data-backdrop]");
+      const closeBtn = document.querySelector("[data-close]");
+      if (!burger || !menu || !backdrop || !closeBtn) return;
+
+      const openMenu = () => {
+        menu.hidden = false;
+        backdrop.hidden = false;
+        requestAnimationFrame(() => {
+          menu.classList.add("is-open");
+          backdrop.classList.add("is-open");
+          burger.setAttribute("aria-expanded", "true");
+          burger.classList.add("is-open");
+        });
+      };
+
+      const closeMenu = () => {
+        menu.classList.remove("is-open");
+        backdrop.classList.remove("is-open");
+        burger.setAttribute("aria-expanded", "false");
+        burger.classList.remove("is-open");
+        window.setTimeout(() => {
+          menu.hidden = true;
+          backdrop.hidden = true;
+        }, 160);
+      };
+
+      burger.addEventListener("click", () => {
+        const expanded = burger.getAttribute("aria-expanded") === "true";
+        expanded ? closeMenu() : openMenu();
+      });
+
+      closeBtn.addEventListener("click", closeMenu);
+      backdrop.addEventListener("click", closeMenu);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && burger.getAttribute("aria-expanded") === "true") closeMenu();
+      });
+
+      // Close on any nav click
+      menu.addEventListener("click", (e) => {
+        const t = e.target;
+        if (t && t.matches("[data-close-on-click]")) closeMenu();
+      });
+
+      // Accordions
+      const accButtons = menu.querySelectorAll("[data-acc]");
+      accButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-acc");
+          const panel = menu.querySelector('[data-panel="' + key + '"]');
+          if (!panel) return;
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          panel.hidden = isOpen;
+        });
+      });
+    })();
+  </script>
 </header>
