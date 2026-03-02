@@ -62,6 +62,7 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
+<link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
   title="Star Citizen Free Fly Guide – How It Works & What to Test"
   description="Everything about Star Citizen Free Fly events: how to join, what ships to test, when it happens, and how to prepare as a new player."
   canonicalPath="/free-fly/"
@@ -73,12 +74,15 @@ const faqJsonLd = {
     <!-- HERO -->
     <section class="hero freeFlyHero">
       <img
-        class="hero__img"
-        src={heroImg}
-        alt="Star Citizen Free Fly expo hall with many ships and players"
-        loading="eager"
-        fetchpriority="high"
-      />
+  class="hero__img"
+  src={heroImg}
+  alt="Star Citizen Free Fly expo hall with many ships and players"
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
       <div class="hero__overlay freeFlyHero__overlay"></div>
 
       <div class="hero__content">
@@ -328,7 +332,15 @@ const faqJsonLd = {
         </div>
 
         <div class="card pad">
-          <img class="imgRounded" src={crewImg} alt="A sci-fi crew walking toward a ship" loading="lazy" />
+          <img
+  class="imgRounded"
+  src={crewImg}
+  alt="A sci-fi crew walking toward a ship"
+  loading="lazy"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
         </div>
       </div>
     </section>
@@ -467,6 +479,7 @@ const faqJsonLd = {
     .miniLead{ margin-top: 10px; opacity:.84; font-size: 13px; max-width: 820px; }
   </style>
 </BaseLayout>
+
 
 
 
