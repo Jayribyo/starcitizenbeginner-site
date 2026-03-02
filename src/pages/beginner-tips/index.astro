@@ -5,37 +5,30 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 
-// Referral funnel: keep the same code + banner pattern used on other landing pages.
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 const referralPage = "/star-citizen-referral-code/";
 
-// Images (must exist under /public)
 const heroImg = "/assets/img/beginner-tips/scb-beginner-tips-structured-route-hero.webp";
 const planningImg = "/assets/img/beginner-tips/scb-beginner-tips-priority-planning.webp";
 
-// FAQ content also used to generate FAQPage JSON-LD for SEO.
 const faqItems = [
   {
     q: "What should I do first after spawning in?",
-    a: "Set your spawn at your chosen city, buy a very small starter kit (medpens + a multi-tool if you need it), and do one simple contract to learn the flow: accept -> travel -> complete -> return.",
+    a: "Set your regeneration point immediately, create a minimal repeatable kit, and complete one simple local contract to learn the full loop from acceptance to return."
   },
   {
-    q: "What is the fastest way to stop losing money early?",
-    a: "Use a \"risk budget\": only carry gear you can afford to lose. Store your expensive gear, run early missions with a cheap kit, and cash in frequently so deaths don't reset your progress.",
+    q: "Why do beginners lose so much money?",
+    a: "Because they over-gear, travel too far, and stack too many objectives in one session. Stability beats ambition early on."
   },
   {
-    q: "Should I focus on FPS, space combat, or delivery first?",
-    a: "Start with delivery / low-risk travel contracts to learn navigation and cities/stations. Add FPS once you can reliably move, land, and return. Add ship combat after you understand quantum travel, fuel, and basic ship controls.",
+    q: "Should I rush ship upgrades?",
+    a: "No. Master one loop first. Income consistency matters more than early hardware upgrades."
   },
   {
-    q: "How do I avoid getting stuck or losing my ship?",
-    a: "Always note your last station/city, keep a small buffer for refuel/claim fees, and avoid logging out in risky locations. If something feels bugged, reset by returning to a station instead of forcing it.",
-  },
-  {
-    q: "Do I need to buy gear immediately?",
-    a: "No. Buy the minimum: a couple of medpens and essentials. Upgrade later when you know what loop you enjoy. Early overbuying is the #1 beginner money trap.",
-  },
+    q: "What is the safest first loop?",
+    a: "Local delivery or one controlled bunker contract in a single region."
+  }
 ];
 
 const faqJsonLd = {
@@ -46,415 +39,328 @@ const faqJsonLd = {
     name: item.q,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.a,
-    },
-  })),
+      text: item.a
+    }
+  }))
 };
 ---
 
 <BaseLayout
-  title="Star Citizen Beginner Tips – A Structured Start That Actually Works"
-  description="In-depth Star Citizen beginner tips: a 3-session learning plan, risk control, early mission loops, gear discipline, and common mistakes to avoid. Built to help new pilots progress faster with less frustration."
+  title="Star Citizen Beginner Guide – Structured Start Strategy"
+  description="A complete in-depth beginner strategy for Star Citizen. Learn structured progression, mission loops, risk control, gear discipline and long-term growth."
   canonicalPath="/beginner-tips/"
 >
-  <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
+<link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
 
-  <SiteHeader active="guides" />
+<SiteHeader active="guides" />
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <img
-        class="hero__img"
-        src={heroImg}
-        alt="A star map route with three numbered checkpoints showing a structured beginner learning path"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1536"
-        height="1024"
-      />
-      <div class="hero__overlay"></div>
+<main class="container">
 
-      <div class="hero__content">
-        <div class="homeHero__content">
-          <div style="max-width: 760px; padding: 26px 0;">
-            <div class="kicker"><span class="dot"></span> Beginner tips</div>
-            <h1 class="h1">Star Citizen Beginner Tips</h1>
-            <p class="lead">A practical, structured start: learn the core systems first, control risk, then scale into ships and money loops.</p>
-
-            <div class="btnrow">
-              <a class="btn primary" href="#3-session-plan">Start with the plan</a>
-              <a class="btn secondary" href="#common-mistakes">Avoid mistakes</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Referral banner (funnel consistency with other landing pages) -->
-    <ReferralBanner
-      code={referralCode}
-      bonus="50,000 UEC"
-      ctaHref={referralLink}
-      howItWorksHref={`${referralPage}#how-to-use`}
-      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
-      ariaLabel="Referral bonus callout"
-    />
-
-    <!-- ON THIS PAGE -->
-    <OnThisPage
-      title="On this page"
-      items={[
-        { label: "3-session plan", href: "#3-session-plan" },
-        { label: "Non-negotiables", href: "#non-negotiables" },
-        { label: "Risk control", href: "#risk-control" },
-        { label: "First mission loops", href: "#first-loops" },
-        { label: "Gear discipline", href: "#gear-discipline" },
-        { label: "Navigation habits", href: "#navigation" },
-        { label: "Common mistakes", href: "#common-mistakes" },
-        { label: "FAQ", href: "#faq" },
-      ]}
-    />
-
-    <!-- 3-SESSION PLAN -->
-    <section id="3-session-plan" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Sessions</div>
-        <h2 class="section__title">A simple 3-session learning plan</h2>
-        <p class="lead">If you do nothing else: follow this. It prevents the "random wandering" trap and builds momentum.</p>
-
-        <div class="tableWrap" style="margin-top: 12px;">
-          <table class="scTable">
-            <thead>
-              <tr>
-                <th>Session</th>
-                <th>Focus</th>
-                <th>Outcome</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <td>Movement, inventory, spawn point, one simple contract</td>
-                <td>You can reliably leave, travel, land, and return without getting stuck</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Risk control: gear-light runs, mission selection, safe routing</td>
-                <td>You stop "resetting" from mistakes and your sessions become repeatable</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Add one new system: FPS loop or trading loop (choose one)</td>
-                <td>You start building specialization instead of re-learning basics</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p style="margin-top: 12px; opacity: .82;">
-          If your goal is fast progress, combine this with <a href="/earn-auec-fast/"><b>Earn aUEC Fast</b></a> once your basics are stable.
+<section class="hero">
+  <img
+    class="hero__img"
+    src={heroImg}
+    alt="Structured beginner learning route on a star map"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    width="1536"
+    height="1024"
+  />
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="homeHero__content">
+      <div style="max-width:760px;padding:26px 0;">
+        <div class="kicker"><span class="dot"></span> Beginner Guide</div>
+        <h1 class="h1">Star Citizen Beginner Strategy</h1>
+        <p class="lead">
+          This is not a surface checklist. This is a structured progression framework designed to eliminate chaos and accelerate mastery.
         </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- NON-NEGOTIABLES (with section image, deliberately NOT right under hero) -->
-    <section id="non-negotiables" class="section">
-      <div class="grid2">
-        <div class="card pad">
-          <div class="kicker"><span class="dot"></span> Foundation</div>
-          <h2 class="section__title">Non-negotiables for a smooth start</h2>
+<ReferralBanner
+  code={referralCode}
+  bonus="50,000 UEC"
+  ctaHref={referralLink}
+  howItWorksHref={`${referralPage}#how-to-use`}
+  sublineHtml="Enter during signup or within <b>24 hours</b> after account creation."
+  ariaLabel="Referral bonus"
+/>
 
-          <p>
-            Star Citizen punishes improvisation early on. The "secret" is not skill — it’s reducing chaos.
-            These habits remove the most common failure points (lost gear, long recovery, wasted travel, random deaths).
-          </p>
+<OnThisPage
+  title="Guide Structure"
+  items={[
+    { label: "Progression model", href: "#progression-model" },
+    { label: "Session framework", href: "#session-framework" },
+    { label: "Mission loops", href: "#mission-loops" },
+    { label: "Risk system", href: "#risk-system" },
+    { label: "Economic growth", href: "#economic-growth" },
+    { label: "FAQ", href: "#faq" }
+  ]}
+/>
 
-          <ul>
-            <li><b>Set a regeneration point:</b> pick one base and set your hospital / medical regeneration there.</li>
-            <li><b>Keep a "starter kit" cached:</b> store a cheap repeatable loadout so deaths don’t end your session.</li>
-            <li><b>Run one loop per session:</b> one contract type, one region, one goal. Variety comes later.</li>
-            <li><b>Deposit frequently:</b> move loot/money into storage between runs. Don’t carry your net worth.</li>
-            <li><b>Plan your route:</b> avoid multi-stop detours until you can do the basics without friction.</li>
-          </ul>
+<section id="progression-model" class="section">
+<div class="card pad">
+<h2 class="section__title">The Beginner Progression Model</h2>
 
-          <div class="card pad" style="margin-top: 14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <b>Beginner heuristic:</b> if an action adds travel time, inventory risk, or "unknowns", postpone it.
-            Your first job is to make your sessions repeatable.
-          </div>
-        </div>
+<p>
+Most new players fail because they chase content instead of building systems.
+Your first objective is stability, not profit.
+Your second objective is repeatability.
+Only then should you scale income.
+</p>
 
-        <div class="card pad">
-          <img
-            class="imgRounded"
-            src={planningImg}
-            alt="Priority planning board for a new pilot: essentials first, then upgrades"
-            loading="lazy"
-            decoding="async"
-            width="1536"
-            height="1024"
-          />
-        </div>
-      </div>
-    </section>
+<div class="tableWrap">
+<table class="scTable">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Objective</th>
+<th>What changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Stabilization</th>
+<td>Learn movement, travel, return cycles</td>
+<td>Sessions stop feeling chaotic</td>
+</tr>
+<tr>
+<th>Repetition</th>
+<td>Run one loop multiple times</td>
+<td>Income becomes predictable</td>
+</tr>
+<tr>
+<th>Optimization</th>
+<td>Reduce downtime and losses</td>
+<td>Profit per hour increases</td>
+</tr>
+<tr>
+<th>Expansion</th>
+<td>Add new loop or ship upgrade</td>
+<td>Growth compounds</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-    <!-- RISK CONTROL -->
-    <section id="risk-control" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Risk control</div>
-        <h2 class="section__title">The "risk budget" rule that keeps you progressing</h2>
+</div>
+</section>
 
-        <p>
-          The fastest way to hate Star Citizen is to treat every mission like "bring my best gear".
-          Early on, your goal is a stable learning loop. That requires a <b>risk budget</b>.
-        </p>
+<section id="session-framework" class="section">
+<div class="card pad">
+<h2 class="section__title">The 3-Session Framework</h2>
 
-        <div class="tableWrap" style="margin-top: 12px;">
-          <table class="scTable">
-            <thead>
-              <tr>
-                <th>What to carry</th>
-                <th>Why</th>
-                <th>When to upgrade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Cheap kit (default)</th>
-                <td>Death becomes a small setback, not a full reset</td>
-                <td>Always (your baseline loadout)</td>
-              </tr>
-              <tr>
-                <th>Mission-specific gear</th>
-                <td>Only add what directly increases success chance</td>
-                <td>When you know the contract and location</td>
-              </tr>
-              <tr>
-                <th>High-value loadout</th>
-                <td>Use rarely; you’re increasing stakes and recovery time</td>
-                <td>When you have stable income and you’re confident</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<p>
+Instead of wandering, use structured sessions.
+Each session has a purpose.
+</p>
 
-        <p style="margin-top: 12px; opacity: .82;">
-          Practical version: store your good items, run early contracts with a cheap kit, and only "gear up" when the mission truly requires it.
-        </p>
-      </div>
-    </section>
+<div class="tableWrap">
+<table class="scTable">
+<thead>
+<tr>
+<th>Session</th>
+<th>Focus</th>
+<th>Measured outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+<td>Spawn setup and one safe contract</td>
+<td>Zero confusion about navigation</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Repeat same contract type</td>
+<td>Reduced travel errors</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Add minor complexity</td>
+<td>Confidence under pressure</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-    <!-- FIRST LOOPS -->
-    <section id="first-loops" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> First loops</div>
-        <h2 class="section__title">Pick one mission loop first (and get good at it)</h2>
+</div>
+</section>
 
-        <p>
-          Beginners get stuck because they try to sample everything.
-          Pick one loop that teaches the fundamentals with low downtime.
-          Once it’s stable, you can add another.
-        </p>
+<section class="section">
+<div class="grid2">
+<div class="card pad">
+<h2 class="section__title">Planning Before Profit</h2>
 
-        <div class="tableWrap" style="margin-top: 12px;">
-          <table class="scTable">
-            <thead>
-              <tr>
-                <th>Loop</th>
-                <th>What you learn</th>
-                <th>Common failure</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Delivery contracts</th>
-                <td>Navigation, landing, basic time management</td>
-                <td>Over-complicating routes; taking multi-stop detours</td>
-              </tr>
-              <tr>
-                <th>One local bunker/FPS contract</th>
-                <td>Movement, inventory, combat basics, looting discipline</td>
-                <td>Over-gearing, entering without a plan, forgetting med supplies</td>
-              </tr>
-              <tr>
-                <th>Simple salvage / scanning practice</th>
-                <td>Ship control, scanning, patience, reading risk</td>
-                <td>Chasing "best route" videos instead of learning basics</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<p>
+Most beginners buy gear before they understand loss cycles.
+Plan your baseline kit.
+Plan your route.
+Plan your recovery path.
+</p>
 
-        <div class="card pad" style="margin-top: 14px; background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-          <b>Do this for 2–3 sessions:</b> same loop, same region, same goal. You’ll learn faster because the variables stay constant.
-        </div>
-      </div>
-    </section>
+<p>
+Structure creates confidence.
+Confidence creates efficiency.
+Efficiency creates income.
+</p>
+</div>
 
-    <!-- GEAR DISCIPLINE -->
-    <section id="gear-discipline" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Loadout</div>
-        <h2 class="section__title">Gear discipline: the "cached kit" approach</h2>
+<div class="card pad">
+<img
+class="imgRounded"
+src={planningImg}
+alt="Priority planning board for beginner pilot"
+loading="lazy"
+decoding="async"
+width="1536"
+height="1024"
+/>
+</div>
+</div>
+</section>
 
-        <p>
-          Your first quality-of-life upgrade is not a ship. It’s a repeatable kit.
-          The idea: have a cheap baseline loadout stored so you can re-run content immediately after a death.
-        </p>
+<section id="mission-loops" class="section">
+<div class="card pad">
+<h2 class="section__title">First Mission Loop Selection</h2>
 
-        <div class="tableWrap" style="margin-top: 12px;">
-          <table class="scTable">
-            <thead>
-              <tr>
-                <th>Slot</th>
-                <th>Minimum viable</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Suit</th>
-                <td>Undersuit + helmet</td>
-                <td>Keep a few spares in your base inventory</td>
-              </tr>
-              <tr>
-                <th>Medical</th>
-                <td>Med pens + basic healing</td>
-                <td>Deaths happen; recovery speed matters more than perfection</td>
-              </tr>
-              <tr>
-                <th>Weapon</th>
-                <td>One cheap primary + a few mags</td>
-                <td>Early contracts don’t require expensive meta builds</td>
-              </tr>
-              <tr>
-                <th>Utility</th>
-                <td>One tool only if needed</td>
-                <td>Don’t turn every run into a "full kit expedition"</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<div class="tableWrap">
+<table class="scTable">
+<thead>
+<tr>
+<th>Loop</th>
+<th>Teaches</th>
+<th>Risk level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Delivery</th>
+<td>Navigation, landing discipline</td>
+<td>Low</td>
+</tr>
+<tr>
+<th>Local bunker</th>
+<td>Combat fundamentals</td>
+<td>Medium</td>
+</tr>
+<tr>
+<th>Salvage practice</th>
+<td>Ship positioning, scanning</td>
+<td>Low to medium</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-        <p style="margin-top: 12px; opacity: .82;">
-          Once this is in place, you’ll notice a big change: you stop spending most of your session "recovering" and start spending it learning.
-        </p>
-      </div>
-    </section>
+</div>
+</section>
 
-    <!-- NAVIGATION -->
-    <section id="navigation" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Navigation</div>
-        <h2 class="section__title">Travel habits that prevent 30-minute setbacks</h2>
+<section id="risk-system" class="section">
+<div class="card pad">
+<h2 class="section__title">Risk Budget System</h2>
 
-        <p>
-          Most "beginner pain" is travel-related: wrong destination, missed landing, losing your ship, or dying far from your base.
-          These habits keep you moving.
-        </p>
+<p>
+Never carry more value than the mission justifies.
+Risk is a multiplier.
+If risk grows faster than skill, progression collapses.
+</p>
 
-        <ul>
-          <li><b>Always know your return point:</b> before you take off, decide where you’re landing next.</li>
-          <li><b>Avoid multi-stop chains early:</b> one contract -> finish -> deposit -> repeat.</li>
-          <li><b>Use landmarks and simple routines:</b> same hangar -> same route -> fewer mistakes.</li>
-          <li><b>If you’re lost, reset calmly:</b> return to your base, re-gear from cached kit, continue.</li>
-        </ul>
+<div class="tableWrap">
+<table class="scTable">
+<thead>
+<tr>
+<th>Loadout type</th>
+<th>When to use</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Baseline kit</th>
+<td>Default runs</td>
+<td>Fast recovery</td>
+</tr>
+<tr>
+<th>Enhanced kit</th>
+<td>Controlled missions</td>
+<td>Higher success rate</td>
+</tr>
+<tr>
+<th>High value kit</th>
+<td>Advanced content</td>
+<td>High risk high reward</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-        <div class="btnrow" style="margin-top: 14px;">
-          <a class="btn secondary" href="/best-settings/">Best settings (FPS)</a>
-          <a class="btn secondary" href="/starter-pack-guide/">Starter pack guide</a>
-          <a class="btn secondary" href="/earn-auec-fast/">Earn aUEC fast</a>
-        </div>
-      </div>
-    </section>
+</div>
+</section>
 
-    <!-- COMMON MISTAKES -->
-    <section id="common-mistakes" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Avoid mistakes</div>
-        <h2 class="section__title">Common beginner mistakes (and the fix)</h2>
+<section id="economic-growth" class="section">
+<div class="card pad">
+<h2 class="section__title">Economic Scaling Strategy</h2>
 
-        <div class="tableWrap" style="margin-top: 12px;">
-          <table class="scTable">
-            <thead>
-              <tr>
-                <th>Mistake</th>
-                <th>Why it hurts</th>
-                <th>Do this instead</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Over-gearing every run</th>
-                <td>Deaths become expensive and slow your learning</td>
-                <td>Use a cheap baseline kit; upgrade only when needed</td>
-              </tr>
-              <tr>
-                <th>Traveling too far too early</th>
-                <td>Small mistakes turn into long recovery</td>
-                <td>Stay local for 2–3 sessions and build repetition</td>
-              </tr>
-              <tr>
-                <th>Trying "everything" in one session</th>
-                <td>You never stabilize a loop; everything feels random</td>
-                <td>One loop per session; add variety later</td>
-              </tr>
-              <tr>
-                <th>Not depositing loot</th>
-                <td>You carry your progress on your body/ship</td>
-                <td>Deposit frequently; keep your base stocked</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+<p>
+Income growth is about downtime reduction.
+The player who completes three clean loops beats the player who attempts one large risky run.
+</p>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> FAQ</div>
-        <h2 class="section__title">Beginner tips – frequently asked questions</h2>
+<p>
+When stable, transition into:
+</p>
 
-        <div class="faq">
-          {faqItems.map((item) => (
-            <details class="faqItem">
-              <summary class="faqQ">{item.q}</summary>
-              <div class="faqA">{item.a}</div>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
+<ul>
+<li>Higher tier bunker contracts</li>
+<li>Refined trading routes</li>
+<li>Specialized FPS loops</li>
+<li>Ship role specialization</li>
+</ul>
 
-    <!-- CTA -->
-    <section class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Next steps</div>
-        <h2 class="section__title">Keep your momentum</h2>
-        <p class="lead">Once your basics are stable, use the guides below to optimize performance, pick a starter pack, and build income loops.</p>
+</div>
+</section>
 
-        <div class="btnrow">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
-          <a class="btn secondary" href="/free-fly/">Free Fly guide</a>
-          <a class="btn secondary" href="/starter-pack-guide/">Starter pack guide</a>
-          <a class="btn secondary" href="/best-settings/">Best settings (FPS)</a>
-          <a class="btn secondary" href="/earn-auec-fast/">Earn aUEC fast</a>
-        </div>
-      </div>
-    </section>
+<section id="faq" class="section">
+<div class="card pad">
+<h2 class="section__title">FAQ</h2>
+<div class="faq">
+{faqItems.map((item) => (
+<details class="faqItem">
+<summary class="faqQ">{item.q}</summary>
+<div class="faqA">{item.a}</div>
+</details>
+))}
+</div>
+</div>
+</section>
 
-    <!-- SEO: FAQPage JSON-LD -->
-    <FaqSchema json={faqJsonLd} />
+<section class="section">
+<div class="card pad">
+<h2 class="section__title">Next Steps</h2>
+<div class="btnrow">
+<a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create Account (Code prefilled)</a>
+<a class="btn secondary" href="/starter-pack-guide/">Starter Pack Guide</a>
+<a class="btn secondary" href="/best-settings/">Best Settings</a>
+<a class="btn secondary" href="/earn-auec-fast/">Earn aUEC Fast</a>
+</div>
+</div>
+</section>
 
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
-        <div class="footer__legal">
-          Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® and related marks are trademarks of their respective owners.
-        </div>
-      </div>
-    </footer>
-  </main>
+<FaqSchema json={faqJsonLd} />
+
+<footer class="footer">
+<div class="footer__inner">
+<div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+<div class="footer__legal">
+Not affiliated with Cloud Imperium Games or Roberts Space Industries.
+</div>
+</div>
+</footer>
+
+</main>
 </BaseLayout>
