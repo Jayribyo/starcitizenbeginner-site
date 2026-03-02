@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   output: "static",
-  site: "https://starcitizenbeginner.com", // <- deine echte Domain
+  site: "https://starcitizenbeginner.com",
+  integrations: [sitemap()],
 });
