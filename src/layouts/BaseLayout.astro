@@ -7,10 +7,43 @@ const {
   description = "",
   canonicalPath = "/",
   ogImage = "/assets/img/home/scb-home-hero.webp",
+  ogImageAlt = "Star Citizen Beginner – guide preview image",
+  robots = "index,follow",
 } = Astro.props;
 
-// TODO: ersetzen mit echter Domain (z.B. https://starcitizenbeginner.com)
-const canonical = new URL(canonicalPath, Astro.site).toString();
+/* We assume `site` is correctly set in astro.config.mjs */
+const site = Astro.site.toString().replace(/\/$/, "");
+
+// Ensure canonicalPath always starts with /
+const safePath = canonicalPath?.startsWith("/")
+  ? canonicalPath
+  : `/${canonicalPath ?? ""}`;
+
+// Build absolute canonical URL
+const canonical = new URL(safePath, site).toString();
+
+// Absolute OG image URL
+const ogImageAbs = ogImage?.startsWith("http")
+  ? ogImage
+  : new URL(
+      ogImage.startsWith("/") ? ogImage : `/${ogImage}`,
+      site
+    ).toString();
+
+// Fallback description
+const desc =
+  description?.trim() ||
+  "Structured Star Citizen beginner guides: referral code bonus, Free Fly events, starter packs, early aUEC loops, and performance tips.";
+
+// OG locale mapping
+const ogLocaleMap = {
+  en: "en_US",
+  de: "de_DE",
+  fr: "fr_FR",
+  es: "es_ES",
+  zh: "zh_CN",
+};
+const ogLocale = ogLocaleMap[lang] ?? "en_US";
 ---
 
 <!doctype html>
@@ -18,25 +51,39 @@ const canonical = new URL(canonicalPath, Astro.site).toString();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <meta name="robots" content={robots} />
+
     <link rel="canonical" href={canonical} />
 
     <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
 
-    <title>{title}</title>
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    <slot name="head" />
   </head>
+
   <body>
-    <!-- Anchor for "Back to top" -->
     <div id="top" aria-hidden="true"></div>
 
     <slot />
 
-    <!-- Global Back-to-top button -->
     <a class="backToTop" id="backToTop" href="#top" aria-label="Back to top">
       ↑
     </a>
@@ -62,4 +109,3 @@ const canonical = new URL(canonicalPath, Astro.site).toString();
     </script>
   </body>
 </html>
-
