@@ -1,18 +1,259 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralPage = "/star-citizen-referral-code/";
+
+const heroImg = "/assets/img/beginner-tips/scb-beginner-tips-hero.webp";
+const checklistImg = "/assets/img/beginner-tips/scb-beginner-tips-checklist.webp";
+
+const faqItems = [
+  {
+    q: "What should I do first in Star Citizen?",
+    a: "Start with a simple loop: set your spawn, do 1–2 delivery or bunker intro missions, learn navigation (quantum + markers), then build a basic gear and money buffer."
+  },
+  {
+    q: "What are the biggest beginner mistakes?",
+    a: "Overbuying gear, skipping a spawn point, taking high-risk missions too early, ignoring performance settings, and not learning insurance/claim timers."
+  },
+  {
+    q: "Do I need a starter pack before playing?",
+    a: "To access the persistent universe long-term, yes. During Free Fly you can test without buying. If you plan to commit, choose a starter pack that fits your preferred playstyle."
+  },
+  {
+    q: "Is it worth using a referral code?",
+    a: "Yes for new accounts: it’s free upside and can provide an early currency buffer. Use it during signup (or within the limited window after creation)."
+  },
+  {
+    q: "How do I avoid being overwhelmed?",
+    a: "Use a checklist approach: learn movement + inventory, set spawn, do low-risk contracts, then add one new system per session (FPS, ship combat, trading, mining)."
+  }
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 ---
+
 <BaseLayout
-  lang="en"
-  title="Beginner Tips | SCB"
-  description="Beginner Tips (coming soon) for Star Citizen."
+  title="Star Citizen Beginner Tips – The Smart First Sessions Checklist"
+  description="A structured Star Citizen beginner checklist: first-session priorities, common mistakes, early money safety, and what to learn next (without overwhelm)."
   canonicalPath="/beginner-tips/"
+  ogImage={heroImg}
+  ogImageAlt="Star Citizen beginner tips: a route map with checkpoints"
 >
-  <main class="container" style="padding:18px 0 30px;">
-    <div class="card pad">
-      <div class="kicker"><span class="dot"></span> SCB</div>
-      <h1 class="h1" style="font-size:36px;">Beginner Tips</h1>
-      <p class="lead">Coming soon. This page will be built next.</p>
-      <a class="btn secondary" href="/">Back to Home</a>
-    </div>
+  <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
+
+  <SiteHeader active="guides" />
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="A sci-fi star map with a glowing route through 3 checkpoints"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="homeHero__content">
+          <div style="max-width:760px; padding: 26px 0;">
+            <div class="kicker"><span class="dot"></span> Beginner Tips</div>
+            <h1 class="h1">Star Citizen Beginner Tips</h1>
+            <p class="lead">A planful start: what to learn first, what to ignore, and how to build momentum.</p>
+
+            <div class="btnrow">
+              <a class="btn primary" href="#checklist">Start the checklist</a>
+              <a class="btn secondary" href={referralPage}>Referral bonus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referral CTA -->
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000 UEC"
+      ctaHref={referralLink}
+      howItWorksHref={`${referralPage}#how-to-use`}
+      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
+      ariaLabel="Referral bonus callout"
+    />
+
+    <OnThisPage
+      title="On this page"
+      items={[
+        { label: "Checklist", href: "#checklist" },
+        { label: "First sessions", href: "#first-sessions" },
+        { label: "Mistakes", href: "#mistakes" },
+        { label: "What to do next", href: "#next" },
+        { label: "FAQ", href: "#faq" },
+      ]}
+    />
+
+    <!-- Checklist -->
+    <section id="checklist" class="section">
+      <div class="grid2">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> Checklist</div>
+          <h2 class="section__title">Your first-session checklist</h2>
+
+          <ul>
+            <li><b>Set your spawn:</b> pick a home location and confirm you can respawn reliably.</li>
+            <li><b>Learn navigation:</b> markers, quantum travel, landing permissions, basic routes.</li>
+            <li><b>Run low-risk contracts:</b> deliveries / intro missions for confidence + muscle memory.</li>
+            <li><b>Build a small buffer:</b> don’t go broke on gear — keep it lightweight early.</li>
+            <li><b>Fix performance early:</b> do <a href="/best-settings/"><b>best settings</b></a> before “judging” the game.</li>
+          </ul>
+
+          <div class="btnrow">
+            <a class="btn primary" href="/free-fly/">Try Free Fly first</a>
+            <a class="btn secondary" href="/starter-pack-guide/">Starter pack guide</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <img
+            class="imgRounded"
+            src={checklistImg}
+            alt="A sci-fi checklist interface showing structured onboarding steps"
+            loading="lazy"
+            decoding="async"
+            width="1536"
+            height="1024"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- First sessions -->
+    <section id="first-sessions" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Sessions</div>
+        <h2 class="section__title">A simple 3-session learning plan</h2>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Session</th>
+                <th>Focus</th>
+                <th>Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Movement, inventory, spawn, basic missions</td>
+                <td>You can reliably leave, travel, land, and return</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Risk control: gear light, mission selection, safe routing</td>
+                <td>You stop “resetting” from mistakes</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>Add one new system: FPS loop or trading loop</td>
+                <td>You start building specialization</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:12px; opacity:.78;">
+          If your goal is fast progress, combine this with <a href="/earn-auec-fast/"><b>Earn aUEC Fast</b></a> after your basics are stable.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mistakes -->
+    <section id="mistakes" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Mistakes</div>
+        <h2 class="section__title">Common beginner mistakes (and what to do instead)</h2>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Don’t</th>
+                <th>Do this instead</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Buy expensive gear every run</td>
+                <td>Start light; upgrade only after your loop is stable</td>
+              </tr>
+              <tr>
+                <td>Take high-risk missions immediately</td>
+                <td>Use “confidence contracts” first, then scale difficulty</td>
+              </tr>
+              <tr>
+                <td>Ignore performance problems</td>
+                <td>Apply <a href="/best-settings/"><b>best settings</b></a> early for a smoother experience</td>
+              </tr>
+              <tr>
+                <td>Skip the referral bonus on a new account</td>
+                <td>Use it during signup (free upside): <a href={referralPage}><b>Referral guide</b></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next -->
+    <section id="next" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Next steps</div>
+        <h2 class="section__title">What to do next (choose your path)</h2>
+
+        <ul>
+          <li><b>Buying smart:</b> <a href="/starter-pack-guide/"><b>Starter Pack Guide</b></a></li>
+          <li><b>Money momentum:</b> <a href="/earn-auec-fast/"><b>Earn aUEC Fast</b></a></li>
+          <li><b>Make it smoother:</b> <a href="/best-settings/"><b>Best Settings</b></a></li>
+          <li><b>Try before you buy:</b> <a href="/free-fly/"><b>Free Fly</b></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> FAQ</div>
+        <h2 class="section__title">Beginner tips – frequently asked questions</h2>
+
+        <div class="faq">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <FaqSchema json={faqJsonLd} />
   </main>
 </BaseLayout>
