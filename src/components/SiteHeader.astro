@@ -134,25 +134,35 @@ const currentLang = "EN";
       const closeBtn = document.querySelector('[data-mobilenavclose]');
       if (!burger || !drawer || !backdrop || !closeBtn) return;
 
-      const open = () => {
-        drawer.hidden = false;
-        backdrop.hidden = false;
-        requestAnimationFrame(() => {
-          drawer.classList.add('is-open');
-          backdrop.classList.add('is-open');
-          burger.setAttribute('aria-expanded', 'true');
-        });
-      };
+  const open = () => {
+  drawer.hidden = false;
+  backdrop.hidden = false;
 
-      const close = () => {
-        drawer.classList.remove('is-open');
-        backdrop.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        window.setTimeout(() => {
-          drawer.hidden = true;
-          backdrop.hidden = true;
-        }, 160);
-      };
+  // body scroll lock
+  document.body.classList.add('nav-open');
+
+  requestAnimationFrame(() => {
+    drawer.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.classList.add('is-active'); // for burger animation
+  });
+};
+
+const close = () => {
+  drawer.classList.remove('is-open');
+  backdrop.classList.remove('is-open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.classList.remove('is-active');
+
+  // remove body scroll lock
+  document.body.classList.remove('nav-open');
+
+  window.setTimeout(() => {
+    drawer.hidden = true;
+    backdrop.hidden = true;
+  }, 160);
+};
 
       burger.addEventListener('click', () => {
         const expanded = burger.getAttribute('aria-expanded') === 'true';
@@ -173,3 +183,4 @@ const currentLang = "EN";
     })();
   </script>
 </header>
+
