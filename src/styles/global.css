@@ -637,6 +637,11 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   align-items: stretch;
 }
 
+/* Home hero content alignment (match referral spacing) */
+.homeHero__content {
+  padding: 22px;
+}
+
 @media (min-width: 900px) {
   .hero__img {
     height: 300px;
@@ -877,6 +882,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 body.nav-open{
   overflow: hidden;
 }
+
 
 
 
