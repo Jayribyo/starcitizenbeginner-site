@@ -102,6 +102,7 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
+<link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
   title="Star Citizen Referral Code – Get 50,000 UEC Bonus (Official Guide)"
   description="Use the official Star Citizen referral code to get 50,000 UEC bonus. Step-by-step instructions, 24-hour rule explained, and common mistakes to avoid."
   canonicalPath="/referral/"
@@ -111,13 +112,16 @@ const faqJsonLd = {
   <main class="container">
     <!-- HERO (reduced, no redundant 50,000 repetition) -->
     <section class="hero refHero">
-      <img
-        class="hero__img refHero__img"
-        src={heroImg}
-        alt="Two Star Citizen pilots introducing the referral system with subtle recruit progression UI"
-        loading="eager"
-        fetchpriority="high"
-      />
+<img
+  class="hero__img refHero__img"
+  src={heroImg}
+  alt="Two Star Citizen pilots introducing the referral system with subtle recruit progression UI"
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
       <div class="hero__overlay refHero__overlay"></div>
 
       <div class="hero__content">
@@ -206,7 +210,14 @@ const faqJsonLd = {
           </p>
 
           <div class="card pad" style="background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.10); margin-top: 12px;">
-            <img src={signupFieldImg} alt="Referral code field during RSI account creation showing a successfully applied code" loading="lazy" />
+            <img
+  src={signupFieldImg}
+  alt="Referral code field during RSI account creation showing a successfully applied code"
+  loading="lazy"
+  decoding="async"
+  width="653"
+  height="385"
+/>
           </div>
         </div>
       </div>
