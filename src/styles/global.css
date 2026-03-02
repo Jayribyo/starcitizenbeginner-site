@@ -649,6 +649,26 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 }
 
 /* ========== Homepage tiles ========== */
+.tiles {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop → 3 oben / 3 unten */
+@media (min-width: 980px) {
+  .tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .tile {
   position: relative;
   border-radius: 18px;
@@ -905,6 +925,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 body.nav-open{
   overflow: hidden;
 }
+
 
 
 
