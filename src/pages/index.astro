@@ -59,17 +59,24 @@ const tiles = [
   description="Start Star Citizen the smart way. Structured beginner guides, referral bonus help, Free Fly tips, starter pack advice, and early aUEC routes — clear, practical, and up to date."
   canonicalPath="/"
 />
+
+<link slot="head" rel="preload" as="image" href="/assets/img/home/scb-home-hero.webp" fetchpriority="high" />
+
   <SiteHeader active="home" />
 
   <main class="container">
     <!-- ===================== HERO ===================== -->
     <section class="hero">
-      <img
-        class="hero__img"
-        src="/assets/img/home/scb-home-hero.webp"
-        alt="Star Citizen spaceship flying above a planet"
-        loading="eager"
-      />
+ <img
+  class="hero__img"
+  src="/assets/img/home/scb-home-hero.webp"
+  alt="Star Citizen spaceship flying above a planet"
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
@@ -118,7 +125,15 @@ const tiles = [
       <div class="tiles">
         {tiles.map((t) => (
           <a class="tile" href={t.href}>
-            <img class="tile__img" src={t.img} alt={t.title} loading="lazy" />
+            <img
+  class="tile__img"
+  src={t.img}
+  alt={t.title}
+  loading="lazy"
+  decoding="async"
+  width="1024"
+  height="1024"
+/>
             <div class="tile__meta">
               <span class="tile__pill">{t.pill}</span>
               <h3 class="tile__title">{t.title}</h3>
@@ -158,8 +173,15 @@ const tiles = [
         </div>
 
         <div class="card pad">
-          <img class="imgRounded" src="/assets/img/home/scb-home-what-is-star-citizen.webp" alt="Star Citizen character looking over a planet horizon" loading="lazy" />
-        </div>
+          <img
+  class="imgRounded"
+  src="/assets/img/home/scb-home-what-is-star-citizen.webp"
+  alt="Star Citizen character looking over a planet horizon"
+  loading="lazy"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
       </div>
     </section>
 
@@ -167,7 +189,15 @@ const tiles = [
     <section id="is-it-for-you" class="section">
       <div class="grid2">
         <div class="card pad">
-          <img class="imgRounded" src="/assets/img/home/scb-home-pros-cons.webp" alt="Star Citizen player walking through an atmospheric sci-fi landscape" loading="lazy" />
+          <img
+  class="imgRounded"
+  src="/assets/img/home/scb-home-pros-cons.webp"
+  alt="Star Citizen character looking over a planet horizon"
+  loading="lazy"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
         </div>
 
         <div class="card pad">
@@ -208,6 +238,7 @@ const tiles = [
     </footer>
   </main>
 </BaseLayout>
+
 
 
 
