@@ -718,6 +718,19 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   .section {
     margin-top: 10px;
   }
+
+  /* Premium overlap: keep the first "On this page" row visible on 16:9 without
+     sacrificing the cinematic hero height. This pulls the TOC card upward so it
+     peeks into the fold and invites interaction immediately. */
+  .section--toc {
+    margin-top: -56px;
+    position: relative;
+    z-index: 6;
+  }
+
+  .section--toc .card {
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.52);
+  }
 }
 
 /* ========== Homepage tiles ========== */
