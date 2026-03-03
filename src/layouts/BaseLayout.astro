@@ -10,6 +10,9 @@ const {
   ogImage = "/assets/img/home/scb-home-hero.webp",
   ogImageAlt = "Star Citizen Beginner – guide preview image",
   robots = "index,follow",
+  stickyCtaLabel = "",
+  stickyCtaHref = "",
+  stickyCtaExternal = false,
 } = Astro.props;
 
 /* We assume `site` is correctly set in astro.config.mjs */
@@ -98,6 +101,18 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
       </footer>
     )}
 
+    {(stickyCtaLabel && stickyCtaHref) && (
+      <div class="stickyCta" id="stickyCta" aria-hidden="true">
+        <a
+          class="btn primary stickyCta__btn"
+          href={stickyCtaHref}
+          {...(stickyCtaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {stickyCtaLabel}
+        </a>
+      </div>
+    )}
+
 
     <a class="backToTop" id="backToTop" href="#top" aria-label="Back to top">
       ↑
@@ -121,6 +136,20 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
       }
+
+      // Sticky CTA (mobile only)
+      const sticky = document.getElementById("stickyCta");
+      const setSticky = () => {
+        if (!sticky) return;
+        const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+        const show = isMobile && window.scrollY > (window.innerHeight * 0.30);
+        sticky.classList.toggle("is-visible", show);
+        sticky.setAttribute("aria-hidden", show ? "false" : "true");
+      };
+
+      window.addEventListener("scroll", setSticky, { passive: true });
+      window.addEventListener("resize", setSticky, { passive: true });
+      setSticky();
     </script>
   </body>
 </html>
