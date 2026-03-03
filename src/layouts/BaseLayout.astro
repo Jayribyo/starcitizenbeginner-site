@@ -2,6 +2,7 @@
 import "../styles/global.css";
 
 const {
+  showFooter = true,
   lang = "en",
   title = "Star Citizen Beginner (SCB)",
   description = "",
@@ -83,6 +84,20 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
     <div id="top" aria-hidden="true"></div>
 
     <slot />
+
+    {showFooter && (
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__inner">
+            <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+            <div class="footer__legal">
+              Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® and related marks are trademarks of their respective owners.
+            </div>
+          </div>
+        </div>
+      </footer>
+    )}
+
 
     <a class="backToTop" id="backToTop" href="#top" aria-label="Back to top">
       ↑

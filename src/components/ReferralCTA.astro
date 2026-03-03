@@ -2,7 +2,7 @@
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = "https://www.robertsspaceindustries.com/enlist?referral=STAR-FSRJ-5N7Z";
 
-const { title, blurb, ctaPrimary, ctaSecondary } = Astro.props;
+const { title, blurb, ctaPrimary, ctaSecondary, ctaSecondaryHref = "#quickstart" } = Astro.props;
 ---
 <div class="card">
   <div class="kicker">Referral bonus</div>
@@ -18,7 +18,7 @@ const { title, blurb, ctaPrimary, ctaSecondary } = Astro.props;
 
   <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
     <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">{ctaPrimary}</a>
-    <a class="btn ghost" href="#quickstart">{ctaSecondary}</a>
+    <a class="btn ghost" href={ctaSecondaryHref}>{ctaSecondary}</a>
   </div>
 
   <script is:inline>
