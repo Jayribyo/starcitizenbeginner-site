@@ -686,14 +686,17 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 @media (min-width: 900px) {
   .hero__img {
-    height: clamp(460px, 60vh, 680px);
+    /* Cinematic desktop hero: give wide 16:9 screens enough vertical room
+       so the main motif remains identifiable (without forcing a fixed height). */
+    height: clamp(520px, 72vh, 820px);
   }
 }
 
 /* Ultra-wide desktops benefit from a bit more hero height so the motif remains identifiable. */
 @media (min-width: 1400px) {
   .hero__img {
-    height: clamp(520px, 62vh, 740px);
+    /* Ultra-wide desktops: slightly higher ceiling while staying controlled. */
+    height: clamp(560px, 74vh, 860px);
   }
 }
 
@@ -701,6 +704,14 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 @media (max-height: 820px) {
   .hero__img {
     height: clamp(340px, 46vh, 520px);
+  }
+}
+
+/* Keep the "On this page" row more likely to remain in the fold on desktop:
+   tighten vertical rhythm slightly for wide viewports (without affecting mobile density). */
+@media (min-width: 900px) {
+  .section {
+    margin-top: 14px;
   }
 }
 
