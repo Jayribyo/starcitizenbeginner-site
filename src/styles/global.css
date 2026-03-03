@@ -678,6 +678,20 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   padding: 22px;
 }
 
+/* Hero-integrated "On this page" (TOC)
+   Goal: keep a cinematic hero on desktop while still showing page navigation
+   immediately (no mandatory scroll before interaction).
+   - Mobile: TOC sits naturally after the hero text.
+   - Desktop: TOC is anchored to the bottom of the hero, like a premium landing page pattern.
+*/
+.hero__toc {
+  margin-top: 14px;
+}
+
+.hero__tocCard {
+  background: rgba(255, 255, 255, 0.035);
+}
+
 /* Home hero content alignment (match referral spacing) */
 .homeHero__content {
   /* Padding is handled by .hero__content globally */
@@ -691,6 +705,20 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
        Using min() avoids the “clamp gets smaller when the browser chrome reduces vh” issue. */
     height: min(88vh, 900px);
     min-height: 640px;
+  }
+
+  /* Reserve room so the bottom-anchored TOC never collides with hero content. */
+  .hero__content {
+    padding: 22px 22px 140px;
+  }
+
+  .hero__toc {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    z-index: 4;
+    margin-top: 0;
   }
 }
 
@@ -712,26 +740,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 }
 
-/* Keep the "On this page" row more likely to remain in the fold on desktop:
-   tighten vertical rhythm slightly for wide viewports (without affecting mobile density). */
-@media (min-width: 900px) {
-  .section {
-    margin-top: 10px;
-  }
-
-  /* Premium overlap: keep the first "On this page" row visible on 16:9 without
-     sacrificing the cinematic hero height. This pulls the TOC card upward so it
-     peeks into the fold and invites interaction immediately. */
-  .section--toc {
-    margin-top: -56px;
-    position: relative;
-    z-index: 6;
-  }
-
-  .section--toc .card {
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.52);
-  }
-}
+/* The "On this page" component is now integrated into the hero on key pages,
+   so we no longer need global margin hacks to keep it in the fold. */
 
 /* ========== Homepage tiles ========== */
 .tiles {

@@ -82,18 +82,30 @@ const tiles = [
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
-<div class="homeHero__content">
-        <div style="max-width:720px; padding: 26px 0;">
-          <h1 class="h1">Star Citizen Beginner Guide</h1>
-          <p class="lead">The clean path for new pilots.</p>
+        <div class="homeHero__content">
+          <div style="max-width:720px; padding: 26px 0;">
+            <h1 class="h1">Star Citizen Beginner Guide</h1>
+            <p class="lead">The clean path for new pilots.</p>
 
-          <div class="btnrow">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-              Start your Star Citizen journey
-            </a>
+            <div class="btnrow">
+              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+                Start your Star Citizen journey
+              </a>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- ON THIS PAGE (integrated into hero on desktop) -->
+      <OnThisPage
+        variant="hero"
+        title="On this page"
+        items={[
+          { label: "Guides", href: "#guides" },
+          { label: "What Star Citizen is", href: "#what-is" },
+          { label: "Is it for you?", href: "#is-it-for-you" },
+        ]}
+      />
     </section>
 
     <!-- Referral banner (consistent with referral page) -->
@@ -104,16 +116,6 @@ const tiles = [
       howItWorksHref={`${referralPage}#how-to-use`}
       sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
       ariaLabel="Referral bonus callout"
-    />
-
-    <!-- ON THIS PAGE -->
-    <OnThisPage
-      title="On this page"
-      items={[
-        { label: "Guides", href: "#guides" },
-        { label: "What Star Citizen is", href: "#what-is" },
-        { label: "Is it for you?", href: "#is-it-for-you" },
-      ]}
     />
 
     <!-- ===================== GUIDES ===================== -->

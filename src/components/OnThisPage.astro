@@ -11,19 +11,35 @@ const {
   items = [],
   title = "On this page",
   ariaLabel = "On this page",
+  variant = "section", // "section" | "hero"
 } = Astro.props;
 ---
 
-<section class="section section--toc" aria-label={ariaLabel}>
-  <div class="card pad">
-    <div class="kicker"><span class="dot"></span> {title}</div>
-    <div class="toc">
-      {items.map((it) => (
-        <a href={it.href}>{it.label}</a>
-      ))}
+{variant === "hero" ? (
+  <div class="hero__toc" aria-label={ariaLabel}>
+    <div class="container">
+      <div class="card pad hero__tocCard">
+        <div class="kicker"><span class="dot"></span> {title}</div>
+        <div class="toc">
+          {items.map((it) => (
+            <a href={it.href}>{it.label}</a>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
-</section>
+) : (
+  <section class="section" aria-label={ariaLabel}>
+    <div class="card pad">
+      <div class="kicker"><span class="dot"></span> {title}</div>
+      <div class="toc">
+        {items.map((it) => (
+          <a href={it.href}>{it.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 <style>
   .toc{
