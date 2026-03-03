@@ -686,24 +686,29 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 @media (min-width: 900px) {
   .hero__img {
-    /* Cinematic desktop hero: give wide 16:9 screens enough vertical room
-       so the main motif remains identifiable (without forcing a fixed height). */
-    height: clamp(520px, 72vh, 820px);
+    /* Full authority desktop hero: use most of the viewport height on 16:9 screens.
+       We cap the maximum to avoid absurdly tall heroes on huge monitors.
+       Using min() avoids the “clamp gets smaller when the browser chrome reduces vh” issue. */
+    height: min(88vh, 900px);
+    min-height: 640px;
   }
 }
 
 /* Ultra-wide desktops benefit from a bit more hero height so the motif remains identifiable. */
 @media (min-width: 1400px) {
   .hero__img {
-    /* Ultra-wide desktops: slightly higher ceiling while staying controlled. */
-    height: clamp(560px, 74vh, 860px);
+    /* Ultra-wide desktops: a bit more vertical room keeps the art readable. */
+    height: min(90vh, 980px);
+    min-height: 700px;
   }
 }
 
 /* Short viewport safeguard: keep the first row of "On this page" reachable without losing the hero. */
 @media (max-height: 820px) {
   .hero__img {
-    height: clamp(340px, 46vh, 520px);
+    /* Short viewport safeguard: keep the hero strong but prevent the fold from becoming only hero. */
+    height: min(72vh, 640px);
+    min-height: 420px;
   }
 }
 
@@ -711,7 +716,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
    tighten vertical rhythm slightly for wide viewports (without affecting mobile density). */
 @media (min-width: 900px) {
   .section {
-    margin-top: 14px;
+    margin-top: 10px;
   }
 }
 
