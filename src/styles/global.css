@@ -65,7 +65,13 @@ li {
 
 /* ========== Layout ========== */
 .container {
-  width: min(1120px, calc(100% - 36px));
+  /*
+    Global layout change:
+    Match the newer Free Fly layout by allowing pages to use the full viewport
+    width (while keeping comfortable side padding). This removes the large
+    “boxed” margins on 16:9 screens.
+  */
+  width: calc(100% - 36px);
   margin: 0 auto;
 }
 
