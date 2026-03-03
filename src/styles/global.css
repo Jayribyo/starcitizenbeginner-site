@@ -167,6 +167,8 @@ li {
   background: linear-gradient(180deg, rgba(216, 168, 74, 0.95), rgba(216, 168, 74, 0.82));
   border: 1px solid rgba(216, 168, 74, 0.35);
   color: rgba(0, 0, 0, 0.85);
+  text-transform: uppercase;
+  letter-spacing: .03em;
 }
 
 .btn.primary:hover {
@@ -1062,7 +1064,7 @@ details[open].faq__item > .faq__q::after{
     border-color .16s ease,
     box-shadow .16s ease;
 
-  z-index: 120;
+  z-index: 9999;
 }
 
 .backToTop.is-visible{
