@@ -640,9 +640,11 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 .hero__img {
   width: 100%;
-  /* Give cinematic hero images enough vertical space to read the motif.
-     Use a clamp so "On this page" remains visible on typical 16:9 screens. */
-  height: clamp(360px, 42vh, 460px);
+  /* Cinematic hero height (responsive):
+     - Desktop 16:9 needs more vertical room so the motif stays readable.
+     - Mobile stays moderate so the first row of "On this page" is still reachable quickly.
+     We intentionally use clamp() to avoid extreme heights on very tall or very short viewports. */
+  height: clamp(380px, 52vh, 560px);
   object-fit: cover;
   object-position: 50% 50%;
   display: block;
@@ -651,10 +653,19 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  /* Slightly lighter overlay so the hero art reads again, while keeping text contrast. */
+  /* Side-gradient overlay:
+     Keep strong contrast behind the text (left side), but let the art read on the right.
+     This avoids the "dark soup" look on wide 16:9 screens while preserving legibility. */
   background:
-    radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.06), rgba(0,0,0,.54) 68%),
-    linear-gradient(90deg, rgba(7,10,18,.68), rgba(7,10,18,.06));
+    linear-gradient(
+      90deg,
+      rgba(7,10,18,.78) 0%,
+      rgba(7,10,18,.52) 28%,
+      rgba(7,10,18,.22) 58%,
+      rgba(7,10,18,.06) 78%,
+      rgba(7,10,18,.02) 100%
+    ),
+    radial-gradient(1200px 520px at 18% 40%, rgba(0,0,0,.10), rgba(0,0,0,.34) 62%, rgba(0,0,0,.06) 100%);
 }
 
 .hero__content {
@@ -675,14 +686,21 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 @media (min-width: 900px) {
   .hero__img {
-    height: clamp(420px, 46vh, 520px);
+    height: clamp(460px, 60vh, 680px);
+  }
+}
+
+/* Ultra-wide desktops benefit from a bit more hero height so the motif remains identifiable. */
+@media (min-width: 1400px) {
+  .hero__img {
+    height: clamp(520px, 62vh, 740px);
   }
 }
 
 /* Short viewport safeguard: keep the first row of "On this page" reachable without losing the hero. */
-@media (max-height: 760px) {
+@media (max-height: 820px) {
   .hero__img {
-    height: clamp(320px, 38vh, 420px);
+    height: clamp(340px, 46vh, 520px);
   }
 }
 
