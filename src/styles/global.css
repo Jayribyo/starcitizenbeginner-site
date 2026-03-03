@@ -658,11 +658,15 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   inset: 0;
   display: flex;
   align-items: stretch;
+
+  /* Global hero content gutter (consistent H1 positioning across pages) */
+  padding: 22px;
 }
 
 /* Home hero content alignment (match referral spacing) */
 .homeHero__content {
-  padding: 22px;
+  /* Padding is now handled by .hero__content for all pages */
+  padding: 0;
 }
 
 @media (min-width: 900px) {
