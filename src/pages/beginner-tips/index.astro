@@ -16,24 +16,24 @@ const planningImg =
   "/assets/img/beginner-tips/star-citizen-beginner-tips-priority-planning.webp";
 
 const toc = [
-  { label: "The goal (what success looks like)", href: "#goal" },
+  { label: "Your goal", href: "#goal" },
   { label: "First 60 minutes route", href: "#first-60" },
   { label: "Controls & interaction quirks", href: "#controls" },
   { label: "Inventory, storage & death", href: "#inventory" },
-  { label: "Flight basics you actually need", href: "#flight" },
+  { label: "Flight basics", href: "#flight" },
   { label: "Pick one mission loop first", href: "#mission-loop" },
   { label: "Risk budget (gear discipline)", href: "#risk" },
   { label: "CrimeStat: avoid beginner traps", href: "#crimestat" },
   { label: "Bug recovery playbook", href: "#bugs" },
   { label: "When to rent, when to buy", href: "#economy" },
-  { label: "Next steps (links + checklist)", href: "#next" },
+  { label: "Next steps", href: "#next" },
   { label: "FAQ", href: "#faq" },
 ];
 
 const faqItems = [
   {
     q: "What should I do first after spawning in?",
-    a: "Set your regeneration point, learn where your local storage is, then run one simple contract end‑to‑end (accept → travel → do the objective → return). Your first success metric is a repeatable loop, not a big payout.",
+    a: "Set your regeneration point, learn where your local storage is, then run one simple contract end‑to‑end (accept → travel → objective → return). Your first win is consistency — finish the same small loop twice before you chase bigger payouts.",
   },
   {
     q: "Do I need to buy weapons and armor immediately?",
@@ -72,8 +72,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Star Citizen Beginner Tips – The In‑Depth Start Guide That Works"
-  description="A truly in-depth Star Citizen beginner guide: first 60 minutes route, controls & interaction quirks, inventory + death, mission loop selection, risk budget, CrimeStat traps, bug recovery, and a clean next-step plan."
+  title="Star Citizen Beginner Tips – First 60 Minutes Route, Safe Mission Loops & Gear Rules"
+  description="Star Citizen beginner tips that actually help: a first‑60‑minutes route, safe mission loop picks, gear and risk rules, CrimeStat traps, bug recovery, and how to claim the 50,000 UEC referral bonus."
   canonicalPath="/beginner-tips/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen beginner route planning and structured start strategy"
@@ -83,11 +83,11 @@ const faqJsonLd = {
   <SiteHeader active="guides" />
 
   <main class="container">
-    <section class="hero">
+        <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Star Citizen beginner route: a structured start path from spawn to first repeatable loop"
+        alt="Star Citizen beginner route: a structured start path from spawn to your first reliable mission loop"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -95,25 +95,26 @@ const faqJsonLd = {
         height="1024"
       />
       <div class="hero__overlay"></div>
+
       <div class="hero__content">
-        <div class="homeHero__content">
-          <div class="kicker">Beginner guide</div>
-          <h1>Star Citizen Beginner Tips: a structured start that actually works</h1>
-          <p class="lead">
-            This is not a “10 quick tips” list. It’s a practical onboarding system for new and returning pilots:
-            a safe first-hour route, decision rules for missions and gear, and a recovery playbook for when the game
-            (or you) misbehaves. Follow it and you’ll go from confusion → competence → repeatable income.
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Beginner guide</div>
+          <h1 class="h1">Star Citizen Beginner Tips</h1>
+
+          <p class="lead" style="max-width: 860px;">
+            Star Citizen is incredible when it “clicks” — and frustrating when you’re lost, broke, or stuck in recovery loops.
+            This guide gives you a clean first route, beginner‑safe mission choices, and the habits that keep your sessions fun.
           </p>
 
-          <div class="btnrow">
-            <a class="btn btn--primary" href="#first-60">Start with the first 60 minutes</a>
-            <a class="btn" href="#bugs">Jump to bug recovery</a>
+          <div class="btnrow" style="margin-top: 14px;">
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+              Get 50,000 UEC bonus (referral)
+            </a>
           </div>
 
-          <div class="miniNote" style="margin-top:10px;">
-            The goal is <b>repeatability</b>: one small loop you can complete twice in a row with low stress.
-            Only after that do you scale payout, gear, and travel distance.
-          </div>
+          <p class="miniLead" style="margin-top: 10px;">
+            Use code <b>{referralCode}</b> during signup (or within <b>24 hours</b> after account creation) so you don’t miss the bonus.
+          </p>
         </div>
       </div>
     </section>
@@ -125,12 +126,11 @@ const faqJsonLd = {
     {/* ========= Goal ========= */}
     <section id="goal" class="section">
       <div class="card pad">
-        <h2 class="section__title">The goal: build a “repeatable loop” (and protect your time)</h2>
+        <h2 class="section__title">Your goal: a repeatable first loop</h2>
 
         <p>
-          Star Citizen overwhelms beginners because the game is not a tutorial funnel — it is a sandbox with friction.
-          The fastest path to confidence is to stop trying to “see everything” and instead build a small routine that
-          you can execute reliably.
+          Star Citizen overwhelms beginners because it doesn’t gently funnel you forward — it drops you into a huge sandbox and expects you to cope with the friction.
+          The fastest path to confidence is to stop trying to “see everything” and instead build one small routine you can execute reliably.
         </p>
 
         <div class="tableWrap">
@@ -177,7 +177,7 @@ const faqJsonLd = {
         <h2 class="section__title">The first 60 minutes: a step-by-step route you can repeat</h2>
 
         <p>
-          Your first session should feel like a controlled checklist. The outcome is simple: you know where your stuff
+          Your first session should feel calm and deliberate — like a short practice run, not a scavenger hunt. The outcome is simple: you know where your stuff
           is, you can move around without getting lost, and you complete one contract end-to-end.
         </p>
 
@@ -335,7 +335,7 @@ const faqJsonLd = {
     {/* ========= Flight basics ========= */}
     <section id="flight" class="section">
       <div class="card pad">
-        <h2 class="section__title">Flight basics you actually need (ignore the rest for now)</h2>
+        <h2 class="section__title">Flight basics you actually need</h2>
 
         <p>
           You can learn advanced flight later. Early on, your job is to fly safely, arrive consistently, and land without panic.
@@ -353,17 +353,17 @@ const faqJsonLd = {
             </thead>
             <tbody>
               <tr>
-                <td><b>Depart</b></td>
+                <td class="nowrap"><b>Depart</b></td>
                 <td>Clear the pad, stabilize, then leave atmosphere or no-fly zone calmly.</td>
                 <td>Don’t collide. Don’t overcorrect. Slow is smooth.</td>
               </tr>
               <tr>
-                <td><b>Travel</b></td>
+                <td class="nowrap"><b>Travel</b></td>
                 <td>Quantum to a known point. Keep your route short and local.</td>
                 <td>Learn basic map usage and how to reorient when lost.</td>
               </tr>
               <tr>
-                <td><b>Arrive</b></td>
+                <td class="nowrap"><b>Arrive</b></td>
                 <td>Reduce speed early, align, then land with intention.</td>
                 <td>Landing is the skill that determines whether missions feel “easy” or “impossible”.</td>
               </tr>
@@ -397,7 +397,9 @@ const faqJsonLd = {
     <section class="section">
       <div class="grid2">
         <div class="card pad">
-          <h2 class="section__title">Planning before profit (why most beginners stall)</h2>
+          <h2 class="section__title">Planning before profit</h2>
+
+          <p class="miniLead">Why most beginners stall: they change plans mid-session and bleed time on travel and recovery.</p>
 
           <p>
             The game rewards patience more than bravado. A beginner who plans a simple route and sticks to it
@@ -438,7 +440,9 @@ const faqJsonLd = {
     {/* ========= Mission loop ========= */}
     <section id="mission-loop" class="section">
       <div class="card pad">
-        <h2 class="section__title">Pick one mission loop first (then master it)</h2>
+        <h2 class="section__title">Pick one mission loop first</h2>
+
+        <p class="miniLead">Master one forgiving loop twice in a row. Then you’ve earned the right to add complexity.</p>
 
         <p>
           Your first loop should teach fundamentals and be forgiving. The “best” loop is the one you can complete
@@ -799,6 +803,8 @@ const faqJsonLd = {
 
   <style>
     /* Keep hero overlay consistent with SCB "gold standard" look */
+    .nowrap{ white-space: nowrap; }
+
     .hero__overlay{
       background:
         radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.10), rgba(0,0,0,.62) 70%),
