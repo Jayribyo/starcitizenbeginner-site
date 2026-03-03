@@ -18,35 +18,51 @@ const crewImg = "/assets/img/free-fly/star-citizen-free-fly-crew.webp";
 const faqItems = [
   {
     q: "What is Star Citizen Free Fly?",
-    a: "Free Fly is an official limited-time event where you can play Star Citizen without buying a starter pack. You create an RSI account, install the launcher, and get temporary access for the event window.",
+    a: "Free Fly is an official limited-time event where anyone can play Star Citizen without buying a starter pack. You create an RSI account, install the launcher, and get temporary access for the event window.",
   },
   {
-    q: "How do I check if Free Fly is active right now?",
-    a: "Use the official RSI Free Fly page. If a Free Fly is live, the event and access steps will be shown there.",
+    q: "How do I check if Free Fly is live right now?",
+    a: "Open the official RSI Free Fly page. If an event is active, you’ll see the event banner plus the exact steps to get access.",
   },
   {
-    q: "Do I need to buy a starter pack during Free Fly?",
-    a: "No. Free Fly lets you play without purchase during the event. If you want to continue after it ends, you’ll need a starter pack.",
+    q: "How long does a Free Fly usually last?",
+    a: "Most Free Fly events run about 5–10 days. The exact start and end time is always listed on the official event page.",
   },
   {
-    q: "Can I keep my account and progress after Free Fly?",
-    a: "Your RSI account stays. Access after the event requires a starter pack. As with any live development game, long-term progression can change over time.",
+    q: "Do I need a game package during Free Fly?",
+    a: "No. During the event you can play without purchasing anything. To keep playing after the event ends, you’ll need a starter pack.",
   },
   {
-    q: "Should I use a referral code during Free Fly?",
-    a: `Yes. If you’re creating a new account, apply a referral code during signup to activate the enlistment bonus (commonly advertised as ${referralBonusUEC} UEC). It doesn’t change pricing and it’s easiest to do at registration.`,
+    q: "Can I use a referral code during Free Fly?",
+    a: `Yes. Use a referral code when creating a new RSI account to activate the enlistment bonus (commonly advertised as ${referralBonusUEC} UEC). The safest time is during signup.`,
   },
   {
     q: "Can I add a referral code after creating my account?",
-    a: "Often there’s a limited window (commonly referenced as ~24 hours). The safest approach is to apply it during account creation so you don’t miss it.",
+    a: "Sometimes there’s a limited window (commonly up to 24 hours). If you want the bonus, enter the code during account creation so you don’t rely on exceptions.",
   },
   {
-    q: "How long do Free Fly events last?",
-    a: "Most Free Fly events run roughly 5–10 days depending on the promotion. The exact duration is listed on the official Free Fly page when active.",
+    q: "Do I keep my progress after Free Fly?",
+    a: "Your RSI account stays. Your access to the game ends with the event unless you purchase a starter pack. Progress persistence can change over time because Star Citizen is in active development.",
   },
   {
-    q: "What ships are available during Free Fly?",
-    a: "It changes per event. You typically get a curated rotating selection so you can try different roles (combat, cargo, multi-crew).",
+    q: "Why does Free Fly feel laggy or unstable?",
+    a: "Free Fly weeks bring huge player spikes. Servers and starting zones get crowded, which can make performance and stability worse than normal weeks.",
+  },
+  {
+    q: "Which ships can I fly during Free Fly?",
+    a: "It changes per event. RSI usually offers a curated selection, often with rotations, so you can test different roles like combat, cargo, and multi-crew.",
+  },
+  {
+    q: "How big is the download and how long does it take?",
+    a: "Expect a large download (often 80–100+ GB). Install on an SSD if possible and start the download before peak hours during event week.",
+  },
+  {
+    q: "Is Free Fly available worldwide?",
+    a: "Generally yes, but availability and login flow can vary by region and account status. If you can access the RSI website and launcher, you can usually participate.",
+  },
+  {
+    q: "Should I buy during Free Fly?",
+    a: "Only if you enjoyed the core loop you tested and your sessions were mostly stable. If the event week felt rough, wait a few days after Free Fly for a more typical experience.",
   },
 ];
 
@@ -62,57 +78,51 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Star Citizen Free Fly Guide – How It Works & What to Test"
-  description="Everything about Star Citizen Free Fly events: how to join, what ships to test, when it happens, and how to prepare as a new player."
+  title="Star Citizen Free Fly Guide – How It Works, Best Ships & What to Expect"
+  description="A complete Star Citizen Free Fly guide for new players: what it is, how to join, what to test, best ships to try, and the smartest next steps."
   canonicalPath="/free-fly/"
   stickyCtaLabel="Check Free Fly status"
   stickyCtaHref={flyFreeUrl}
   stickyCtaExternal={true}
 >
+  <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
 
-<link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
+  <SiteHeader />
 
-  <SiteHeader active="free-fly" />
-
-  <main class="container">
-
+  <main>
     <!-- HERO -->
     <section class="hero freeFlyHero">
       <img
-  class="hero__img"
-  src={heroImg}
-  alt="Star Citizen Free Fly expo hall with many ships and players"
-  loading="eager"
-  fetchpriority="high"
-  decoding="async"
-  width="1536"
-  height="1024"
-/>
+        class="hero__img"
+        src={heroImg}
+        alt="Star Citizen Free Fly expo hall with many ships and players"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
       <div class="hero__overlay freeFlyHero__overlay"></div>
 
       <div class="hero__content">
         <div class="freeFlyHero__content">
           <div class="kicker"><span class="dot"></span> Free Fly Guide</div>
           <h1 class="h1">Star Citizen Free Fly</h1>
-<p></p>
-          <p class="lead" style="max-width: 920px;">
-          </p>
 
-  <p class="miniLead">
-            Check if Free Fly is available and activate the referral bonus before you finish signup.
+          <p class="lead" style="max-width: 920px;">
+            Play without buying a starter pack during official Free Fly events — then decide what to purchase with confidence.
           </p>
 
           <div class="btnrow">
             <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">
-              Check Free Fly status (official)
+              Check Free Fly status
             </a>
           </div>
-      
         </div>
       </div>
     </section>
 
-    <!-- Referral banner (consistent with referral page) -->
+    <!-- Referral banner (consistent site-wide) -->
     <ReferralBanner
       code={referralCode}
       bonus={`${referralBonusUEC} UEC`}
@@ -127,64 +137,100 @@ const faqJsonLd = {
       title="On this page"
       items={[
         { label: "What Free Fly is", href: "#what-is" },
+        { label: "Is it worth it?", href: "#worth-it" },
         { label: "How to join", href: "#how-to-join" },
-        { label: "First hour plan", href: "#quick-start" },
-        { label: "Ships & roles", href: "#ships" },
-        { label: "What to test", href: "#what-to-test" },
-        { label: "When it happens", href: "#timing" },
-        { label: "Next steps", href: "#next" },
+        { label: "Free Fly vs full game", href: "#compare" },
+        { label: "Best ships to try", href: "#ships" },
+        { label: "Prepare like a pro", href: "#prepare" },
+        { label: "Common myths", href: "#myths" },
+        { label: "Buy or wait?", href: "#buy" },
         { label: "FAQ", href: "#faq" },
       ]}
     />
 
-    <!-- WHAT IT IS -->
+    <!-- WHAT IS -->
     <section id="what-is" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> What it is</div>
-        <h2 class="section__title">What is Star Citizen Free Fly?</h2>
+        <h2 class="section__title">What Free Fly actually is</h2>
 
-        <p class="lead" style="margin-top:0;">
-          Free Fly is an official trial window where you can play Star Citizen without purchasing a starter pack.
-          You create an RSI account, install the launcher, and get access for the event duration.
+        <p>
+          Free Fly is a limited-time “open access” event run by the developers (RSI). During the event window you can download the
+          game, log in, and play without owning a starter pack. It’s the best way to feel the flight model, the scale, and the moment-to-moment
+          experience before you spend anything.
         </p>
 
-        <div class="tableWrap">
-          <table class="table" aria-label="Free Fly overview">
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What you get</h3>
+            <ul class="bullets">
+              <li><b>Time-limited access</b> to the live servers during the event.</li>
+              <li><b>A curated ship selection</b> (often rotated) so you can test different roles.</li>
+              <li><b>Real progression systems</b> (missions, money, reputation), like normal play.</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What Free Fly is not</h3>
+            <ul class="bullets">
+              <li><b>Not a tiny demo.</b> It’s the actual live build, with all the good and all the rough edges.</li>
+              <li><b>Not permanent access.</b> When the event ends, you’ll need a starter pack to keep playing.</li>
+              <li><b>Not a “perfect performance week”.</b> The servers are often busiest during Free Fly.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <img
+            src={crewImg}
+            alt="A small Star Citizen crew preparing ships together before launch"
+            loading="lazy"
+            decoding="async"
+            width="1536"
+            height="1024"
+            style="border-radius:16px; border:1px solid rgba(255,255,255,.10);"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- WORTH IT -->
+    <section id="worth-it" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Is Free Fly worth it?</h2>
+
+        <p>
+          Usually yes — if you treat it like a <b>hands-on test flight</b>, not a speedrun. The event week can be crowded and sometimes a little chaotic,
+          so your best outcome is simple: <b>learn the feel</b>, test a few roles, and decide whether you want to commit.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
             <thead>
               <tr>
-                <th>Item</th>
-                <th>Free Fly</th>
-                <th>After Free Fly</th>
+                <th>Free Fly is perfect for you if…</th>
+                <th>You might want to wait if…</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>Cost to try</th>
-                <td>Free</td>
-                <td>Starter pack required</td>
+                <td>You want to experience the scale and flight model before buying.</td>
+                <td>You only want a “polished release” experience right now.</td>
               </tr>
               <tr>
-                <th>Account</th>
-                <td>RSI account (create once)</td>
-                <td>Same account continues</td>
+                <td>You’re okay learning a few systems (navigation, landing, inventory).</td>
+                <td>You get frustrated easily by bugs or server instability.</td>
               </tr>
               <tr>
-                <th>Ships</th>
-                <td>Curated rotating selection</td>
-                <td>Depends on your package / rentals / purchases</td>
-              </tr>
-              <tr>
-                <th>Best use-case</th>
-                <td>Find your playstyle + test performance</td>
-                <td>Pick a starter path and build routine</td>
+                <td>You can play outside peak hours for smoother sessions.</td>
+                <td>You can only play at prime time and need ultra-stable servers.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="miniNote">
-          <b>Beginner tip:</b> Don’t try to “see everything” on day one.
-          Aim for one clean loop: spawn → reach your ship → do a simple contract → return safely.
+        <div class="callout" style="margin-top:12px;">
+          <b>Expectation that keeps people happy:</b> If your first session is messy, don’t quit on the whole game.
+          Try again at a different time of day — Free Fly weeks can be the noisiest weeks.
         </div>
       </div>
     </section>
@@ -192,249 +238,276 @@ const faqJsonLd = {
     <!-- HOW TO JOIN -->
     <section id="how-to-join" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> How to join</div>
-        <h2 class="section__title">How to join Free Fly (step-by-step)</h2>
+        <h2 class="section__title">How to join Free Fly</h2>
 
-        <ol class="steps">
-          <li>
-            <b>Check status:</b> Open the official Free Fly page and confirm the event is active.
-            <div class="miniLead">
-              <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer" style="text-decoration: underline; opacity:.9;">
-                robertsspaceindustries.com/en/flyfree
-              </a>
-            </div>
-          </li>
-          <li>
-            <b>Create an RSI account:</b> If you’re new, register once and keep that account forever.
-          </li>
-          <li>
-            <b>Use the referral code at signup:</b> Apply <b>{referralCode}</b> during registration to activate the enlistment bonus ({referralBonusUEC} UEC).
-          </li>
-          <li>
-            <b>Install the RSI launcher:</b> Download, install, then install Star Citizen.
-          </li>
-          <li>
-            <b>Log in and enter the PU:</b> Once Free Fly access is active, select the Persistent Universe and spawn in.
-          </li>
-        </ol>
+        <p>
+          The cleanest setup is: create your RSI account (with a referral code), install the launcher, and then use the official Free Fly page to confirm access.
+          If a Free Fly is live, RSI will show the exact steps for that specific event.
+        </p>
 
-        <div class="grid2" style="margin-top: 14px;">
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <div style="font-weight: 900; letter-spacing:.08em; text-transform:uppercase; font-size:12px; opacity:.76;">
-              Referral code
-            </div>
-            <div style="font-size: 22px; font-weight: 1000; letter-spacing:.14em; margin-top: 6px;">
-              {referralCode}
-            </div>
-            <div style="margin-top: 10px;">
-              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create your RSI account</a>
-            </div>
-          </div>
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="nowrap">Step</th>
+                <th>Do this</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="nowrap">1</td>
+                <td>Create an RSI account and enter the referral code during signup.</td>
+                <td>You lock in the enlistment bonus and avoid the “I forgot the code” headache.</td>
+              </tr>
+              <tr>
+                <td class="nowrap">2</td>
+                <td>Install the RSI Launcher and start the download early.</td>
+                <td>Free Fly traffic is huge — downloading before peak hours is smoother.</td>
+              </tr>
+              <tr>
+                <td class="nowrap">3</td>
+                <td>Open the official Free Fly page and follow the event access prompts.</td>
+                <td>Events differ — the official page is the source of truth for access.</td>
+              </tr>
+              <tr>
+                <td class="nowrap">4</td>
+                <td>Pick one ship/role to test first and stick with it for 1–2 sessions.</td>
+                <td>You learn faster when you repeat a loop instead of sampling everything once.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <div style="font-weight: 900; letter-spacing:.08em; text-transform:uppercase; font-size:12px; opacity:.76;">
-              Why this matters
-            </div>
-            <p style="margin-top: 8px; color: rgba(255,255,255,.78); line-height: 1.65;">
-              Free Fly brings the largest wave of new players. If you create a fresh account anyway, applying a referral code at signup is the cleanest path.
-              If you skip it, you may not be able to add it later.
-            </p>
-          </div>
+        <div class="btnrow" style="margin-top:14px;">
+          <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer">Check Free Fly status</a>
+          <a class="btn" href="/beginner-tips/">Use the beginner first-hour plan</a>
         </div>
       </div>
     </section>
 
-    <!-- QUICK START -->
-    <section id="quick-start" class="section">
+    <!-- COMPARE -->
+    <section id="compare" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> First-hour plan</div>
-        <h2 class="section__title">Your first hour: a clean, repeatable plan</h2>
+        <h2 class="section__title">Free Fly vs the full game</h2>
 
-        <p class="lead" style="margin-top:0;">
-          The goal is not to “see everything”. The goal is to build a stable baseline:
-          controls → a short flight route → one contract → one ship comparison.
+        <p>
+          Free Fly gives you a real slice of the live game, but it’s still time-limited access. This table is the fastest way to set expectations.
         </p>
 
-        <div class="grid2" style="margin-top: 14px;">
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <h3 style="margin: 0 0 10px; font-size: 16px;">Phase 1: Get functional</h3>
-            <ol class="steps">
-              <li>Find the hangar terminals and elevators.</li>
-              <li>Call your ship, reach the hangar, and take off once.</li>
-              <li>Set a short quantum route and land at a station.</li>
-            </ol>
-          </div>
-
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <h3 style="margin: 0 0 10px; font-size: 16px;">Phase 2: Run one loop</h3>
-            <ol class="steps">
-              <li>Pick one beginner contract type (delivery or simple bounty).</li>
-              <li>Complete it once end-to-end.</li>
-              <li>Return safely and repeat once if possible.</li>
-            </ol>
-          </div>
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Free Fly</th>
+                <th>Full account</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Access duration</td>
+                <td>Limited to the event window</td>
+                <td>Permanent (with a starter pack)</td>
+              </tr>
+              <tr>
+                <td>Ships available</td>
+                <td>Curated event selection (often rotates)</td>
+                <td>Your starter ship + anything you earn/rent/buy in-game</td>
+              </tr>
+              <tr>
+                <td>Best use</td>
+                <td>Test the feel, roles, performance, and your tolerance for friction</td>
+                <td>Settle into a loop, earn credits, and progress over time</td>
+              </tr>
+              <tr>
+                <td>Buying decision</td>
+                <td>Try first, then purchase if you enjoyed your loop</td>
+                <td>Commit when you’re ready to keep playing past the event</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="miniNote">
-          <b>Why this works:</b> If you can do one loop reliably, you can scale from there.
-          If you scatter your attention, Free Fly becomes confusing and you learn less.
+        <div class="callout" style="margin-top:12px;">
+          <b>Pro tip:</b> If you love Free Fly but the week feels unstable, wait a few days after the event ends.
+          The same build often feels smoother once the surge drops.
         </div>
       </div>
     </section>
 
     <!-- SHIPS -->
     <section id="ships" class="section">
-      <div class="grid2">
-        <div class="card pad">
-          <div class="kicker"><span class="dot"></span> Ships & roles</div>
-          <h2 class="section__title">Which ships to try (so the trial is actually useful)</h2>
-
-          <p>
-            Free Fly often gives you access to multiple ships. Don’t pick randomly.
-            Try at least <b>two roles</b> so you understand the real difference in gameplay loops.
-          </p>
-
-          <div class="tableWrap">
-            <table class="table" aria-label="Ship roles during Free Fly">
-              <thead>
-                <tr>
-                  <th>Role</th>
-                  <th>What you learn</th>
-                  <th>Best test</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>Fighter</th>
-                  <td>Combat handling + targeting</td>
-                  <td>Basic bounty contract</td>
-                </tr>
-                <tr>
-                  <th>Hauler</th>
-                  <td>Navigation + landing workflow</td>
-                  <td>Delivery contract</td>
-                </tr>
-                <tr>
-                  <th>Multi-role</th>
-                  <td>General “starter pack” feel</td>
-                  <td>Compare comfort + upgrades</td>
-                </tr>
-                <tr>
-                  <th>Multi-crew</th>
-                  <td>Team roles + ship systems</td>
-                  <td>Tour / multi-seat operation</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="miniNote">
-            <b>Beginner tip:</b> Your best Free Fly outcome is a clear answer to:
-            “Do I want combat, cargo, exploration, or multi-crew as my default?”
-          </div>
-        </div>
-
-        <div class="card pad">
-          <img
-  class="imgRounded"
-  src={crewImg}
-  alt="A sci-fi crew walking toward a ship"
-  loading="lazy"
-  decoding="async"
-  width="1536"
-  height="1024"
-/>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT TO TEST -->
-    <section id="what-to-test" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Checklist</div>
-        <h2 class="section__title">What to test before you buy a starter pack</h2>
+        <h2 class="section__title">Best ships to try during Free Fly</h2>
 
-        <div class="grid2" style="margin-top: 12px;">
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <h3 style="margin: 0 0 10px; font-size: 16px;">Gameplay</h3>
-            <ul>
-              <li>Spawn → hangar → ship call → takeoff</li>
-              <li>Short quantum route + landing</li>
-              <li>One contract end-to-end</li>
-              <li>At least two ship roles</li>
-            </ul>
-          </div>
-
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <h3 style="margin: 0 0 10px; font-size: 16px;">Performance</h3>
-            <ul>
-              <li>Are you comfortable in major cities?</li>
-              <li>Are ship fights playable for you?</li>
-              <li>Is stutter acceptable after basic settings?</li>
-              <li>Can you land without big input delay?</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="miniNote">
-          <b>Reality check:</b> Free Fly is high traffic. Don’t judge everything on one session.
-          Your goal is: “Is this universe worth investing in?” not “Is it perfect?”
-        </div>
-      </div>
-    </section>
-
-    <!-- TIMING -->
-    <section id="timing" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> When it happens</div>
-        <h2 class="section__title">When Free Fly events happen (and what to watch)</h2>
-
-        <p class="lead" style="margin-top:0;">
-          Free Fly typically runs around major promotions and events.
-          The exact dates and included ships are always listed on the official Free Fly page when active.
+        <p>
+          Don’t try to fly everything. Pick <b>3–4 ships</b> that represent different roles and you’ll leave Free Fly with a clear sense of what you actually enjoy.
         </p>
 
-        <div class="miniNote">
-          <b>Best practice:</b> Always verify status on the official page:
-          <a href={flyFreeUrl} target="_blank" rel="noopener noreferrer" style="text-decoration: underline; opacity:.9;">
-            robertsspaceindustries.com/en/flyfree
-          </a>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Combat</h3>
+            <ul class="bullets">
+              <li>Practice takeoff/landing under pressure.</li>
+              <li>Try simple bounty contracts and learn travel + rearm flow.</li>
+              <li>Focus on <b>time to re-try</b> rather than perfect dogfights.</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Cargo & delivery</h3>
+            <ul class="bullets">
+              <li>Best role to learn stations, elevators, and navigation.</li>
+              <li>Low stress, high repetition — perfect for beginners.</li>
+              <li>Teaches “inventory realism” without constant combat risk.</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Mining / industry</h3>
+            <ul class="bullets">
+              <li>Great for players who enjoy routines and optimization.</li>
+              <li>Try it once to see if “process gameplay” clicks for you.</li>
+              <li>Don’t judge it by your first run — learning curve is real.</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Multi-crew</h3>
+            <ul class="bullets">
+              <li>Play with friends, or join an org to experience teamwork.</li>
+              <li>Shows what makes Star Citizen feel unique vs other space sims.</li>
+              <li>Even one good multi-crew session can sell the game.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:12px;">
+          <b>Small but huge win:</b> Rent ships in-game during Free Fly and compare “fun per minute” — not raw damage or max cargo.
         </div>
       </div>
     </section>
 
-    <!-- NEXT -->
-    <section id="next" class="section">
+    <!-- PREPARE -->
+    <section id="prepare" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Next steps</div>
-        <h2 class="section__title">After Free Fly: what to do next</h2>
+        <h2 class="section__title">Prepare like a pro</h2>
 
-        <div class="grid2" style="margin-top: 12px;">
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <h3 style="margin: 0 0 10px; font-size: 16px;">If you want to buy</h3>
-            <ul>
-              <li>Pick a starter pack that matches your role preference.</li>
-              <li>Use your referral bonus as early buffer (gear + refuel).</li>
-              <li>Follow a simple aUEC loop to stabilize income.</li>
+        <p>
+          Free Fly week rewards people who do the boring setup early. These are the steps that prevent the classic “I spent my whole night downloading and troubleshooting” session.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Do this before you play</th>
+                <th>Why it helps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Install on an SSD and leave extra free space.</td>
+                <td>Reduces stutter and lowers the risk of patch/download issues.</td>
+              </tr>
+              <tr>
+                <td>Create your account + referral bonus first.</td>
+                <td>You’re not scrambling later, and you get the enlistment bonus.</td>
+              </tr>
+              <tr>
+                <td>Play your first session outside peak hours if possible.</td>
+                <td>Less queueing, fewer overloaded hubs, smoother mission flow.</td>
+              </tr>
+              <tr>
+                <td>Start in a popular location only if you want the chaos.</td>
+                <td>Busy hubs look cool — but they can also be the most unstable.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btnrow" style="margin-top:14px;">
+          <a class="btn" href="/beginner-tips/">Beginner survival guide</a>
+          <a class="btn" href="/star-citizen-referral-code/">Referral bonus explained</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYTHS -->
+    <section id="myths" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Common Free Fly myths</h2>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Myth</th>
+                <th>Reality</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>“Free Fly is just a tiny demo.”</td>
+                <td>It’s the live game. You’re seeing the real experience — including the rough edges.</td>
+              </tr>
+              <tr>
+                <td>“If it runs badly during Free Fly, it always runs badly.”</td>
+                <td>Free Fly weeks can be unusually busy. Performance can look worse than typical weeks.</td>
+              </tr>
+              <tr>
+                <td>“I have to buy something to participate.”</td>
+                <td>Free Fly is designed to be playable without purchase during the event.</td>
+              </tr>
+              <tr>
+                <td>“Progress always resets immediately.”</td>
+                <td>Progress policies can change over time. Treat Free Fly as a test, not as long-term grinding.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout" style="margin-top:12px;">
+          <b>Authority signal:</b> People who enjoy Star Citizen usually enjoy it because the sandbox “clicks”.
+          Give yourself a few sessions to see if that click happens.
+        </div>
+      </div>
+    </section>
+
+    <!-- BUY -->
+    <section id="buy" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Should you buy during Free Fly?</h2>
+
+        <p>
+          Buy if you found a loop you genuinely enjoyed and you want to keep playing after the event. Wait if your sessions were dominated by queues, crashes, or you never got into a rhythm.
+          A good rule is to base your decision on your <b>best session</b>, not your worst.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Buy now if…</h3>
+            <ul class="bullets">
+              <li>You completed the same mission type twice and it felt fun.</li>
+              <li>You like the flight + landing loop.</li>
+              <li>You’re okay with a game in active development.</li>
             </ul>
-            <div style="margin-top: 10px;">
-              <a class="btn secondary" href="/starter-pack/">Starter pack guide</a>
-              <a class="btn secondary" href="/make-money-fast/">Make money fast</a>
-            </div>
           </div>
 
-          <div class="card pad" style="background: rgba(0,0,0,.16); border-color: rgba(255,255,255,.10);">
-            <h3 style="margin: 0 0 10px; font-size: 16px;">If you want to keep testing</h3>
-            <ul>
-              <li>Try a different ship role next session.</li>
-              <li>Do one loop twice to reduce “randomness”.</li>
-              <li>Optimize FPS settings if needed.</li>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Wait if…</h3>
+            <ul class="bullets">
+              <li>You only played at peak hours and it felt unplayable.</li>
+              <li>You didn’t enjoy the core loop even when things worked.</li>
+              <li>You want a finished, friction-free release experience.</li>
             </ul>
-            <div style="margin-top: 10px;">
-              <a class="btn secondary" href="/performance-settings/">Performance guide</a>
-              <a class="btn secondary" href="/beginner-tips/">Beginner tips</a>
-            </div>
           </div>
+        </div>
+
+        <div class="btnrow" style="margin-top:14px;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create your account</a>
+          <a class="btn" href="/star-citizen-referral-code/">Referral bonus explained</a>
         </div>
       </div>
     </section>
@@ -442,10 +515,10 @@ const faqJsonLd = {
     <!-- FAQ -->
     <section id="faq" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> FAQ</div>
-        <h2 class="section__title">Free Fly – frequently asked questions</h2>
+        <h2 class="section__title">Free Fly FAQ</h2>
+        <p class="miniLead">Fast answers to the questions new players search for during Free Fly week.</p>
 
-        <div class="faq">
+        <div class="faq" style="margin-top:12px;">
           {faqItems.map((item) => (
             <details class="faq__item">
               <summary class="faq__q">{item.q}</summary>
@@ -455,11 +528,10 @@ const faqJsonLd = {
         </div>
       </div>
     </section>
-
   </main>
 
- <!-- SEO: FAQPage JSON-LD -->
-<FaqSchema json={faqJsonLd} />
+  <!-- SEO: FAQPage JSON-LD -->
+  <FaqSchema json={faqJsonLd} />
 
   <style>
     .freeFlyHero__overlay{
@@ -469,18 +541,6 @@ const faqJsonLd = {
     }
     .freeFlyHero__content{ padding: 22px; }
 
-    /* Minimal page-scoped adjustments kept from repo baseline */
-    .miniLead{ margin-top: 10px; opacity:.84; font-size: 13px; max-width: 820px; }
+    .nowrap{ white-space: nowrap; }
   </style>
 </BaseLayout>
-
-
-
-
-
-
-
-
-
-
-
