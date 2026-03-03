@@ -658,14 +658,14 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   inset: 0;
   display: flex;
   align-items: stretch;
-
-  /* Global hero content gutter (consistent H1 positioning across pages) */
+  /* Global hero gutter so H1/lead/CTA never hug the card edge.
+     This keeps all hero variants consistent (home, referral, beginner-tips, etc.). */
   padding: 22px;
 }
 
 /* Home hero content alignment (match referral spacing) */
 .homeHero__content {
-  /* Padding is now handled by .hero__content for all pages */
+  /* Padding is handled by .hero__content globally */
   padding: 0;
 }
 
