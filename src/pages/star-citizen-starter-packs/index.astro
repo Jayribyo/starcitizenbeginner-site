@@ -17,9 +17,9 @@ const sectionImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-
 const tocItems = [
   { label: "What a starter pack is", href: "#what-it-is" },
   { label: "How to choose", href: "#choose" },
-  { label: "Best starter packs", href: "#best-starter-packs" },
+  { label: "Best starter packs", href: "#best" },
   { label: "How to buy", href: "#how-to-buy" },
-  { label: "Ship upgrades", href: "#ship-upgrades" },
+  { label: "Upgrade path", href: "#upgrade" },
   { label: "Common mistakes", href: "#mistakes" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -112,36 +112,33 @@ const howToJsonLd = {
   <main>
     <!-- HERO -->
     <section class="hero">
-  <img
-    class="hero__img"
-    src={heroImg}
-    alt="A Star Citizen starter ship blueprint hologram"
-    width="1920"
-    height="1080"
-    loading="eager"
-    decoding="async"
-  />
-  <div class="hero__overlay" aria-hidden="true"></div>
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Star Citizen ships in a cinematic hangar scene"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
 
-  <div class="hero__content">
-    <div class="kicker">
-      <span class="dot"></span>
-      Starter Guides
+      <div class="hero__content">
+      <div class="packsHero__content">
+        <div class="kicker">Starter Guides</div>
+        <h1>Best Star Citizen Starter Packs</h1>
+        <p class="lead packsHero__lead">
+          Pick a beginner-safe game package that fits your first sessions, avoids wasted spend, and stays upgrade-friendly later.
+        </p>
+        <div class="btnrow packsHero__buttons">
+          <a class="btn primary" href="#best">See top picks</a>
+          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Browse official packs</a>
+        </div>
+      </div>
     </div>
-
-    <h1 class="h1">Best Star Citizen Starter Packs</h1>
-    <p class="lead">
-      Pick a beginner-safe game package that fits your first sessions, avoids wasted spend, and stays upgrade‑friendly later.
-    </p>
-
-    <div class="btnrow">
-      <a class="btn primary" href="#best-starter-packs">See top picks</a>
-      <a class="btn" href={rsiPacksUrl} rel="noopener" target="_blank">Browse official packs</a>
-    </div>
-
-    <HeroTOC items={tocItems} />
-  </div>
-</section>
+      <OnThisPage variant="hero" title="On this page" items={tocItems} />
+    </section>
 
     <!-- Referral banner (consistent site-wide) -->
     <ReferralBanner
@@ -236,44 +233,50 @@ const howToJsonLd = {
     </section>
 
     <!-- BEST -->
-    <section id="best-starter-packs" class="section">
+    <section id="best" class="section">
       <div class="card pad">
         <h2 class="section__title">Best starter packs for beginners</h2>
         <p>
-          These are the most beginner-friendly picks by playstyle. Use this as a short-list, then confirm the exact current offers on the official store.
+          If you want the beginner-safe default: choose a <strong>simple, common starter pack</strong>, then upgrade later when you actually feel a limitation.
+          Your first purchase should optimize for <strong>learning speed</strong> and <strong>low friction</strong> — not for long-term “dream ship” goals.
         </p>
 
-        <div class="tableWrap" style="margin-top:12px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Pack type</th>
-                <th>Best for</th>
-                <th>Why it works for beginners</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Balanced starter pack</th>
-                <td>First-time players</td>
-                <td>Flexible mission choices, easy learning curve, fewer “dead-end” moments.</td>
-              </tr>
-              <tr>
-                <th scope="row">Combat-focused starter pack</th>
-                <td>Dogfights early</td>
-                <td>More confidence in early combat contracts, fast handling, clear purpose.</td>
-              </tr>
-              <tr>
-                <th scope="row">Utility / comfort starter pack</th>
-                <td>Delivery + travel</td>
-                <td>Better quality-of-life for moving around and carrying small mission items.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Best value for most players</h3>
+            <p style="margin:0 0 10px;">
+              Pick a <strong>general-purpose starter</strong>. It’s forgiving, works across delivery + light combat, and has the most community support.
+            </p>
+            <ul class="bullets">
+              <li>Easy learning curve (flight + missions)</li>
+              <li>Flexible early gameplay</li>
+              <li>Great base for upgrades later</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Best for combat-first beginners</h3>
+            <p style="margin:0 0 10px;">
+              If you want bounties and dogfights early, choose a <strong>combat-leaning starter</strong> that feels agile and confident in fights.
+            </p>
+            <ul class="bullets">
+              <li>Faster confidence in combat contracts</li>
+              <li>Great practice for aiming + pip control</li>
+              <li>Still upgradeable into specialists</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="btnrow" style="margin-top:12px;">
-          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Compare current packs on RSI</a>
+        <div class="card pad" style="margin-top:12px;">
+          <h3 style="margin:0 0 8px;">Beginner-safe buying rule</h3>
+          <p style="margin:0 0 10px;">
+            When in doubt, buy the <strong>cheapest pack that gets you in</strong>. If you love the game, upgrade later — upgrading is usually just paying the difference.
+          </p>
+          <div class="btnrow">
+            <a class="btn" href="#ship-upgrades">How upgrades work</a>
+            <a class="btn" href="#how-to-buy">Buy steps</a>
+            <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">See current packs on RSI</a>
+          </div>
         </div>
       </div>
     </section>
@@ -330,47 +333,43 @@ const howToJsonLd = {
       </div>
     </section>
 
-    
-<!-- UPGRADE -->
-<section id="ship-upgrades" class="section">
-  <div class="card pad">
-    <h2 class="section__title">Ship upgrades (CCUs): how upgrades work</h2>
-    <p>
-      A starter pack is not a “forever decision”. In Star Citizen you can upgrade your pledge ship later by paying the
-      <strong>price difference</strong> between your current ship and the new one. That’s why beginners should prioritize a pack that feels comfortable now —
-      and stays <em>upgrade‑friendly</em> later.
-    </p>
-
-    <div class="grid2" style="margin-top:12px;">
+    <!-- UPGRADE -->
+    <section id="ship-upgrades" class="section">
       <div class="card pad">
-        <h3 style="margin:0 0 8px;">What an upgrade is</h3>
-        <p style="margin:0;">
-          An upgrade (often called a <strong>CCU</strong>) swaps your current pledge ship for another ship.
-          You typically pay the difference in value — you’re not buying everything from scratch again.
+        <h2 class="section__title">Ship upgrades (CCU) — how it works</h2>
+        <p>
+          You can <strong>upgrade your starter ship</strong> later instead of replacing your whole purchase. These are often called <strong>ship upgrades</strong> or
+          <strong>CCUs</strong>: you select a “from” ship and a “to” ship, then pay the <strong>difference</strong>. Your game access stays valid — only the ship changes.
         </p>
-      </div>
-      <div class="card pad">
-        <h3 style="margin:0 0 8px;">What stays the same</h3>
-        <p style="margin:0;">
-          Your <strong>game access</strong> from the starter pack stays tied to the package. You’re upgrading the ship inside the package — not losing your entry.
-        </p>
-      </div>
-    </div>
 
-    <div class="card pad" style="margin-top:12px;">
-      <strong>A simple beginner upgrade mindset</strong>
-      <ol style="margin:10px 0 0; padding-left: 18px; color: rgba(255,255,255,.78);">
-        <li>Start with a pack that’s easy to learn in (comfort &amp; reliability beat “best stats”).</li>
-        <li>Play a few sessions until you know what loop you enjoy (missions, cargo, combat, mining, etc.).</li>
-        <li>Upgrade once — with intention — to remove the friction you feel most often.</li>
-      </ol>
-    </div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What upgrades do</h3>
+            <ul class="bullets">
+              <li>Replace your current ship with a higher-tier one.</li>
+              <li>Let you evolve your pack as your interests change.</li>
+              <li>Reduce buyer’s regret: start cheap, then step up intentionally.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Beginner strategy</h3>
+            <ul class="bullets">
+              <li>Start with a safe baseline starter pack.</li>
+              <li>Play enough to learn what you actually enjoy.</li>
+              <li>Upgrade only when you feel a real limitation.</li>
+              <li>Prefer versatile ships before niche specialists.</li>
+            </ul>
+          </div>
+        </div>
 
-    <p style="color: rgba(255,255,255,.74); margin-top:10px;">
-      That’s the real “upgrade path”: not a rigid meta list, but a clean plan that prevents impulsive buying while still letting you grow into better ships.
-    </p>
-  </div>
-</section><!-- MISTAKES -->
+        <div class="callout" style="margin-top:12px;">
+          <h3>Why this matters</h3>
+          <p>Knowing upgrades exist removes purchase anxiety: you can start sensible now, then grow later without “wasting” your first choice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISTAKES -->
     <section id="mistakes" class="section">
       <div class="card pad">
         <h2 class="section__title">Common mistakes</h2>
@@ -423,3 +422,9 @@ const howToJsonLd = {
     </section>
   </main>
 </BaseLayout>
+
+
+<style>
+.packsHero__content{max-width:720px;}
+.packsHero__lead{max-width:60ch;}
+</style>
