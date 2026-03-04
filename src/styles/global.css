@@ -692,22 +692,6 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   background: rgba(255, 255, 255, 0.035);
 }
 
-/* Mobile readability: the hero-integrated TOC label ("ON THIS PAGE") can look too dim
-   because the global .kicker uses ~0.72 opacity and the hero background is very dark.
-   We boost contrast ONLY for the hero TOC on touch devices / narrow viewports.
-   (We keep other kickers unchanged to preserve the overall visual hierarchy.) */
-@media (max-width: 900px), (hover: none) and (pointer: coarse) {
-  .hero__toc .kicker {
-    color: rgba(255, 255, 255, 0.94) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
-  }
-
-  .hero__toc .dot {
-    background: rgba(255, 255, 255, 0.78) !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
-  }
-}
-
 /* Home hero content alignment (match referral spacing) */
 .homeHero__content {
   /* Padding is handled by .hero__content globally */
@@ -755,6 +739,21 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
     min-height: 420px;
   }
 }
+
+
+
+/* Mobile readability: the hero-integrated TOC sits on top of imagery + glass.
+   The global .kicker is intentionally subtle, but here we need stronger contrast. */
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
+  .hero__tocCard .kicker {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  }
+  .hero__tocCard .dot {
+    background: rgba(255, 255, 255, 0.72);
+  }
+}
+
 
 /* The "On this page" component is now integrated into the hero on key pages,
    so we no longer need global margin hacks to keep it in the fold. */
