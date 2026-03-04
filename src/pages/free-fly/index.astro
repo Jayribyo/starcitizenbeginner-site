@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SiteHeader from "../../components/SiteHeader.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
@@ -84,11 +83,8 @@ const faqJsonLd = {
   stickyCtaLabel="Check Free Fly status"
   stickyCtaHref={flyFreeUrl}
   stickyCtaExternal={true}
->
+ activeNav="free-fly">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
-
-  <SiteHeader />
-
   <main>
     <!-- HERO -->
     <section class="hero freeFlyHero">

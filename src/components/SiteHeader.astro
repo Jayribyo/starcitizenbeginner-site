@@ -3,9 +3,10 @@ const { active = "" } = Astro.props;
 
 const guides = [
   { href: "/beginner-tips/", label: "Beginner Tips" },
-  { href: "/starter-pack-guide/", label: "Starter Pack Guide" },
-  { href: "/earn-auec-fast/", label: "Earn aUEC Fast" },
-  { href: "/best-settings/", label: "Best Settings" },
+  { href: "/star-citizen-starter-packs/", label: "Best Starter Packs" },
+  { href: "/star-citizen-performance-guide/", label: "Performance Guide" },
+  { href: "/make-money-fast/", label: "Make Money Fast" },
+  { href: "/is-star-citizen-worth-playing/", label: "Is Star Citizen Worth Playing" },
 ];
 
 // Languages: RU removed; order fixed as requested
@@ -36,9 +37,9 @@ const currentLang = "EN";
       <!-- Guides dropdown (hover/focus) -->
       <div class:list={["topNav__dd", active === "guides" && "is-active"]}>
         <a class="topNav__link topNav__trigger" href="/beginner-tips/" aria-haspopup="true">
-          Guides <span class="topNav__chev" aria-hidden="true">▾</span>
+          Starter Guides <span class="topNav__chev" aria-hidden="true">▾</span>
         </a>
-        <div class="topNav__menu" role="menu" aria-label="Guides">
+        <div class="topNav__menu" role="menu" aria-label="Starter Guides">
           {guides.map((g) => (
             <a class="topNav__item" role="menuitem" href={g.href}>{g.label}</a>
           ))}
@@ -48,9 +49,7 @@ const currentLang = "EN";
       <a
         class:list={["topNav__link", active === "referral" && "is-active"]}
         href="/star-citizen-referral-code/"
-      >
-        Referral Code
-      </a>
+      >Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
 
       <a
         class:list={["topNav__link", active === "free-fly" && "is-active"]}
@@ -100,11 +99,11 @@ const currentLang = "EN";
 
     <nav class="mobileNav" aria-label="Mobile primary">
       <a class="mobileNav__link" href="/" data-close-on-nav>Home</a>
-      <a class="mobileNav__link" href="/star-citizen-referral-code/" data-close-on-nav>Referral Code</a>
+      <a class="mobileNav__link" href="/star-citizen-referral-code/" data-close-on-nav>Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
       <a class="mobileNav__link" href="/free-fly/" data-close-on-nav>Free Fly</a>
 
       <details class="mobileNav__details">
-        <summary class="mobileNav__summary">Guides</summary>
+        <summary class="mobileNav__summary">Starter Guides</summary>
         <div class="mobileNav__panel">
           {guides.map((g) => (
             <a class="mobileNav__sublink" href={g.href} data-close-on-nav>{g.label}</a>

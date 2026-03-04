@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SiteHeader from "../components/SiteHeader.astro";
 import ReferralBanner from "../components/ReferralBanner.astro";
 import OnThisPage from "../components/OnThisPage.astro";
 
@@ -61,11 +60,8 @@ const tiles = [
   stickyCtaLabel="Start your Star Citizen journey"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
->
+ activeNav="home">
 <link slot="head" rel="preload" as="image" href="/assets/img/home/scb-home-hero.webp" fetchpriority="high" />
-
-  <SiteHeader active="home" />
-
   <main>
     <!-- ===================== HERO ===================== -->
     <section class="hero">

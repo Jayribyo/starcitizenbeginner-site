@@ -1282,3 +1282,8 @@ body.nav-open{
   opacity: 1;
   transform: translateX(-50%) translateY(-6px);
 }
+
+
+/* Referral highlight pill in top nav */
+.topNav__pill--bonus{margin-left:10px; font-weight:800; letter-spacing:0.02em;}
+@media (max-width: 720px){.topNav__pill--bonus{margin-left:8px;}}

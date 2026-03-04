@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SiteHeader from "../../components/SiteHeader.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
@@ -82,11 +81,8 @@ const faqJsonLd = {
   stickyCtaLabel="Begin your first flight"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
->
+ activeNav="guides">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
-
-  <SiteHeader active="guides" />
-
   <main>
         <section class="hero guideHero">
       <img

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SiteHeader from "../../components/SiteHeader.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
@@ -140,11 +139,8 @@ const faqJsonLd = {
   stickyCtaLabel="Claim your start bonus"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
->
+ activeNav="referral">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
-
-  <SiteHeader active="referral" />
-
   <main>
     <!-- HERO (reduced, no redundant 50,000 repetition) -->
     <section class="hero refHero">

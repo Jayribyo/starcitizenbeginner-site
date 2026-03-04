@@ -1,8 +1,10 @@
 ---
 import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
 
 const {
   showFooter = true,
+  activeNav = "",
   lang = "en",
   title = "Star Citizen Beginner (SCB)",
   description = "",
@@ -85,6 +87,8 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
 
   <body>
     <div id="top" aria-hidden="true"></div>
+
+    <SiteHeader active={activeNav} />
 
     <slot />
 
