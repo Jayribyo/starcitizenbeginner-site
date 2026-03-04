@@ -17,9 +17,9 @@ const sectionImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-
 const tocItems = [
   { label: "What a starter pack is", href: "#what-it-is" },
   { label: "How to choose", href: "#choose" },
-  { label: "Best starter packs", href: "#best" },
+  { label: "Best starter packs", href: "#best-starter-packs" },
   { label: "How to buy", href: "#how-to-buy" },
-  { label: "Upgrade path", href: "#upgrade" },
+  { label: "Ship upgrades", href: "#ship-upgrades" },
   { label: "Common mistakes", href: "#mistakes" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -112,33 +112,36 @@ const howToJsonLd = {
   <main>
     <!-- HERO -->
     <section class="hero">
-      <img
-        class="hero__img"
-        src={heroImg}
-        alt="Star Citizen ships in a cinematic hangar scene"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1536"
-        height="1024"
-      />
-      <div class="hero__overlay"></div>
+  <img
+    class="hero__img"
+    src={heroImg}
+    alt="A Star Citizen starter ship blueprint hologram"
+    width="1920"
+    height="1080"
+    loading="eager"
+    decoding="async"
+  />
+  <div class="hero__overlay" aria-hidden="true"></div>
 
-      <div class="hero__content">
-        <div class="kicker"><span class="dot"></span> Starter Guides</div>
-        <h1 class="h1">Best Star Citizen Starter Packs</h1>
-        <p class="lead" style="max-width: 920px;">
-          Pick a beginner-safe game package that fits your first sessions, avoids wasted spend, and stays upgrade-friendly later.
-        </p>
+  <div class="hero__content">
+    <div class="kicker">
+      <span class="dot"></span>
+      Starter Guides
+    </div>
 
-        <div class="btnrow">
-          <a class="btn primary" href="#best">See top picks</a>
-          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Browse official packs</a>
-        </div>
-      </div>
+    <h1 class="h1">Best Star Citizen Starter Packs</h1>
+    <p class="lead">
+      Pick a beginner-safe game package that fits your first sessions, avoids wasted spend, and stays upgrade‑friendly later.
+    </p>
 
-      <OnThisPage variant="hero" title="On this page" items={tocItems} />
-    </section>
+    <div class="btnrow">
+      <a class="btn primary" href="#best-starter-packs">See top picks</a>
+      <a class="btn" href={rsiPacksUrl} rel="noopener" target="_blank">Browse official packs</a>
+    </div>
+
+    <HeroTOC items={tocItems} />
+  </div>
+</section>
 
     <!-- Referral banner (consistent site-wide) -->
     <ReferralBanner
@@ -233,7 +236,7 @@ const howToJsonLd = {
     </section>
 
     <!-- BEST -->
-    <section id="best" class="section">
+    <section id="best-starter-packs" class="section">
       <div class="card pad">
         <h2 class="section__title">Best starter packs for beginners</h2>
         <p>
@@ -327,28 +330,47 @@ const howToJsonLd = {
       </div>
     </section>
 
-    <!-- UPGRADE -->
-    <section id="upgrade" class="section">
-      <div class="card pad">
-        <h2 class="section__title">Upgrade path</h2>
-        <p>
-          The smartest beginner strategy is to start with a comfortable baseline, then upgrade after you’ve learned what you actually like.
-          You don’t need to “solve” your forever ship on day one.
-        </p>
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Start small</h3>
-            <p style="margin:0;">A basic starter pack is enough to learn navigation, missions, and travel flow.</p>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Upgrade after clarity</h3>
-            <p style="margin:0;">Once you know your loop, upgrades become targeted instead of impulsive.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    
+<!-- UPGRADE -->
+<section id="ship-upgrades" class="section">
+  <div class="card pad">
+    <h2 class="section__title">Ship upgrades (CCUs): how upgrades work</h2>
+    <p>
+      A starter pack is not a “forever decision”. In Star Citizen you can upgrade your pledge ship later by paying the
+      <strong>price difference</strong> between your current ship and the new one. That’s why beginners should prioritize a pack that feels comfortable now —
+      and stays <em>upgrade‑friendly</em> later.
+    </p>
 
-    <!-- MISTAKES -->
+    <div class="grid2" style="margin-top:12px;">
+      <div class="card pad">
+        <h3 style="margin:0 0 8px;">What an upgrade is</h3>
+        <p style="margin:0;">
+          An upgrade (often called a <strong>CCU</strong>) swaps your current pledge ship for another ship.
+          You typically pay the difference in value — you’re not buying everything from scratch again.
+        </p>
+      </div>
+      <div class="card pad">
+        <h3 style="margin:0 0 8px;">What stays the same</h3>
+        <p style="margin:0;">
+          Your <strong>game access</strong> from the starter pack stays tied to the package. You’re upgrading the ship inside the package — not losing your entry.
+        </p>
+      </div>
+    </div>
+
+    <div class="card pad" style="margin-top:12px;">
+      <strong>A simple beginner upgrade mindset</strong>
+      <ol style="margin:10px 0 0; padding-left: 18px; color: rgba(255,255,255,.78);">
+        <li>Start with a pack that’s easy to learn in (comfort &amp; reliability beat “best stats”).</li>
+        <li>Play a few sessions until you know what loop you enjoy (missions, cargo, combat, mining, etc.).</li>
+        <li>Upgrade once — with intention — to remove the friction you feel most often.</li>
+      </ol>
+    </div>
+
+    <p style="color: rgba(255,255,255,.74); margin-top:10px;">
+      That’s the real “upgrade path”: not a rigid meta list, but a clean plan that prevents impulsive buying while still letting you grow into better ships.
+    </p>
+  </div>
+</section><!-- MISTAKES -->
     <section id="mistakes" class="section">
       <div class="card pad">
         <h2 class="section__title">Common mistakes</h2>
