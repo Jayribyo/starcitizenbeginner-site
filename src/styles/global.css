@@ -93,6 +93,15 @@ li {
   margin-right: auto;
 }
 
+/*
+  Anchor jumps from the in-page TOC should land at the *start* of a section.
+  Our header is fixed, so without an offset the section title can end up hidden
+  behind the nav (making it feel like the jump landed “in the middle”).
+*/
+.section[id] {
+  scroll-margin-top: 104px;
+}
+
 /* Sections that should match hero width (e.g., the referral banner under the hero) */
 .section.section--heroWidth{
   max-width: var(--scb-max-hero);
