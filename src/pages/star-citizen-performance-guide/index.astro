@@ -1,529 +1,462 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
-import FaqSchema from "../../components/FaqSchema.astro";
-import HowToSchema from "../../components/HowToSchema.astro";
+import FAQ from "../../components/FAQ.astro";
+import ReferralBonusStrip from "../../components/ReferralBonusStrip.astro";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralBonusUEC = "50,000";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const title = "Star Citizen Performance Guide";
+const description = "Check the current Star Citizen PC requirements, verify if your rig is ready, then apply the most effective settings and fixes for stutter, low FPS, and crashes.";
 
-const heroImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp";
-const sectionImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance.webp";
-
-const tocItems = [
-  { label: "Requirements explained", href: "#requirements" },
-  { label: "Can your PC run it?", href: "#pc-ready" },
-  { label: "Recommended settings", href: "#settings" },
-  { label: "Fix stutter & low FPS", href: "#stutter" },
-  { label: "CPU vs GPU bottleneck", href: "#bottleneck" },
-  { label: "Crash fixes", href: "#crashes" },
-  { label: "Upgrades that matter", href: "#upgrades" },
-  { label: "FAQ", href: "#faq" },
+const toc = [
+  { id: "requirements", label: "Requirements explained" },
+  { id: "pc-ready", label: "Can your PC run it?" },
+  { id: "settings", label: "Recommended settings" },
+  { id: "stutter", label: "Fix stutter & low FPS" },
+  { id: "bottleneck", label: "CPU vs GPU bottleneck" },
+  { id: "crashes", label: "Crash fixes" },
+  { id: "upgrades", label: "Upgrades that matter" },
+  { id: "faq", label: "FAQ" },
 ];
 
 const faqItems = [
   {
-    q: "What PC specs do I actually need for Star Citizen?",
-    a: "Think in outcomes, not marketing labels: you want enough CPU headroom for busy areas, enough RAM to avoid stutters and crashes, and a fast SSD to stream assets smoothly. If any one of those is missing, you’ll feel it — even with a strong GPU.",
+    q: "What are the current minimum requirements for Star Citizen?",
+    a: `The official minimum target is a quad‑core CPU, 16 GB RAM, a dedicated GPU with at least 4 GB VRAM, and an SSD with roughly 100 GB free. Use the table above and treat it as “can launch and play” — not “smooth everywhere.”`,
   },
   {
-    q: "Why does Star Citizen run worse in cities?",
-    a: "Cities combine dense geometry, lots of lighting, and heavy streaming. That stresses CPU scheduling, RAM, and storage at the same time. A stable baseline setup reduces the spikes that feel like stutter.",
+    q: "Is 16 GB RAM enough?",
+    a: `It can launch, but 32 GB is the practical sweet spot for smoother cities, fewer stalls, and fewer crash‑like hitches under memory pressure. If you only upgrade one thing for stability, RAM is often the best value.`,
   },
   {
-    q: "Do settings really matter for FPS?",
-    a: "Yes, but not every setting is equal. A few options can dramatically increase GPU load (and frame-time spikes). The goal is stable frame-times, not just a high FPS number.",
+    q: "Why does lowering graphics sometimes not increase FPS?",
+    a: `Star Citizen is often CPU‑limited in busy areas. Lowering overall quality can shift more work to the CPU. A beginner‑safe approach: keep overall quality “High”, then reduce the known heavy hitters (clouds, shadows, reflections).`,
   },
   {
-    q: "Is stutter normal on the first session?",
-    a: "Some stutter can happen while shaders compile and assets cache. After a couple of sessions, it usually improves. Persistent stutter usually means a storage, RAM, or background-process issue.",
+    q: "What’s the fastest single setting to improve FPS?",
+    a: `Volumetric clouds. Dropping clouds from High to Medium/Low (or Off where possible) is usually the quickest way to claw back frames during storms and in atmospheric locations.`,
   },
   {
-    q: "Should I cap FPS or use V-Sync?",
-    a: "A cap can smooth frame-times by preventing wild swings. V-Sync can reduce tearing but may add input latency. Start with the recommended baseline and adjust only one thing at a time.",
-  },
-  {
-    q: "What is the single biggest performance upgrade?",
-    a: "A fast SSD and enough memory headroom. These two reduce the worst stutter and loading spikes for most players. After that, CPU headroom becomes the limiter in busy hubs.",
-  },
-  {
-    q: "Do I need a high-end PC to enjoy the game?",
-    a: "Not necessarily. Many players get a good experience with a sensible baseline setup and realistic expectations in the most demanding locations. The key is stability: avoid crashes and heavy stutter first.",
+    q: "Do I need a referral code to play?",
+    a: `No. But using one during account creation starts you with the bonus credits — which makes early gear and ship rentals easier. If you’re new, that quality‑of‑life boost matters.`,
   },
 ];
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
-
-const howToJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to optimize Star Citizen performance (beginner checklist)",
-  description:
-    "A safe, step-by-step checklist to check PC readiness, apply baseline settings, reduce stutter, and fix common crashes.",
-  totalTime: "PT20M",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Check PC readiness",
-      text: "Confirm you have SSD storage, enough free disk space, and enough memory headroom for smooth streaming.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Apply baseline in-game settings",
-      text: "Use the recommended baseline settings first, then change only one setting at a time.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Fix stutter sources",
-      text: "Reduce background overlays, allow shader caching to settle, and ensure Windows has enough virtual memory headroom.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Stabilize crashes",
-      text: "Verify files, remove unstable overclocks, and test without overlays or capture tools.",
-    },
-  ],
-};
 ---
 
 <BaseLayout
-  title="Star Citizen Performance Guide: Requirements, Settings & FPS Fixes"
-  description="Check if your PC can run Star Citizen, then fix stutter, low FPS, and crashes with a beginner-safe baseline: recommended settings, stability tweaks, and upgrade priorities."
+  lang="en"
+  title={title}
+  description={description}
   canonicalPath="/star-citizen-performance-guide/"
-  ogImage={heroImg}
-  ogImageAlt="Star Citizen performance guide hero image"
-  activeNav="guides"
+  ogImage="/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp"
 >
-  <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
-  <FaqSchema slot="head" json={faqJsonLd} />
-  <HowToSchema slot="head" json={howToJsonLd} />
+  <section class="hero" aria-label="Star Citizen performance guide">
+    <img class="hero__img" src="/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp" alt="Star Citizen performance dashboard style background" loading="eager" decoding="async" />
+    <div class="hero__overlay"></div>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <img
-        class="hero__img"
-        src={heroImg}
-        alt="Cinematic Star Citizen scene representing performance optimization and smooth gameplay"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1536"
-        height="1024"
-      />
-      <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="container hero__grid">
+        <div class="hero__main">
+          <div class="hero__kicker">STARTER GUIDE</div>
+          <h1 class="hero__title">Star Citizen Performance Guide</h1>
+          <p class="hero__lead">Check if your PC is ready — then fix stutter, low FPS, and crashes with a beginner‑safe baseline.</p>
 
-      <div class="hero__content">
-        <div class="kicker"><span class="dot"></span> Starter Guide</div>
-        <h1 class="h1">Star Citizen Performance Guide</h1>
-        <p class="lead">
-          Check if your PC is ready — then fix stutter, low FPS, and crashes with a beginner-safe baseline.
-        </p>
-
-        <div class="btnrow" style="margin-top: 14px;">
-          <a class="btn primary" href="#pc-ready">Check PC readiness</a>
-          <a class="btn secondary" href="#settings">Recommended settings</a>
+          <div class="hero__actions">
+            <a class="btn primary" href="#pc-ready">CHECK PC READINESS</a>
+            <a class="btn" href="#settings">RECOMMENDED SETTINGS</a>
+          </div>
         </div>
+
+        <OnThisPage items={toc} />
       </div>
+    </div>
+  </section>
 
-      <OnThisPage variant="hero" title="On this page" items={tocItems} />
-    </section>
+  <ReferralBonusStrip />
 
-    <!-- Referral banner (consistent site-wide) -->
-    <ReferralBanner
-      code={referralCode}
-      bonus={`${referralBonusUEC} UEC`}
-      ctaHref={referralLink}
-      howItWorksHref="/star-citizen-referral-code/#how-to-use"
-      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
-      ariaLabel="Referral bonus callout"
-    />
-
-    <!-- REQUIREMENTS -->
-    <section id="requirements" class="section">
+  <!-- Requirements -->
+  <section id="requirements" class="section">
+    <div class="container">
       <div class="card pad">
-        <h2 class="section__title">Requirements explained (what matters in real play)</h2>
-        <p>
-          Star Citizen performance is shaped less by one “magic” part and more by how well your system handles <strong>streaming</strong>.
-          The game constantly loads assets, shaders, and data — especially in busy hubs. That’s why the best approach is to build a stable baseline:
-          <strong>SSD + memory headroom + CPU breathing room</strong>.
+        <h2 class="section__title">Star Citizen PC requirements (what they actually mean)</h2>
+        <p class="muted">
+          The official specs answer one question: <strong>can you run the game?</strong> Your real goal as a new player is different:
+          <strong>stable sessions</strong> (no stutters, no random crashes) — then smooth out FPS.
         </p>
 
-        <div class="tableWrap" style="margin-top:12px;">
+        <div class="tableWrap" style="margin-top: 14px;">
           <table class="table">
             <thead>
               <tr>
-                <th>Target experience</th>
+                <th>Tier</th>
+                <th>CPU</th>
+                <th>RAM</th>
+                <th>GPU</th>
+                <th>Storage</th>
                 <th>What to expect</th>
-                <th>What matters most</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>Minimum (playable)</th>
-                <td>You can play, but expect stutter in large cities and big fights.</td>
-                <td>SSD streaming + enough memory headroom to avoid spikes.</td>
+                <th>Minimum (official)</th>
+                <td>Quad‑core CPU (~3.0 GHz)</td>
+                <td>16 GB</td>
+                <td>Dedicated GPU (4 GB VRAM)</td>
+                <td>SSD, ~100 GB free</td>
+                <td>Playable, but cities can feel rough; avoid heavy multitasking.</td>
               </tr>
               <tr>
-                <th>Recommended (smooth)</th>
-                <td>Comfortable sessions in most areas with fewer frame-time spikes.</td>
-                <td>CPU headroom + stable drivers + baseline settings.</td>
+                <th>Recommended (official)</th>
+                <td>Intel i7 / Ryzen 5 or better</td>
+                <td>16 GB (32 GB strongly recommended)</td>
+                <td>Dedicated GPU (6 GB+ VRAM)</td>
+                <td>SSD, ~100 GB free</td>
+                <td>Much smoother baseline; fewer stalls and fewer “fake crashes”.</td>
               </tr>
               <tr>
-                <th>High-end (best feel)</th>
-                <td>Better consistency in demanding hubs and heavy activity.</td>
-                <td>CPU + memory + strong GPU for higher resolution settings.</td>
+                <th>Beginner‑smooth target</th>
+                <td>Modern 6–8 cores (strong single‑core)</td>
+                <td><strong>32 GB</strong></td>
+                <td>8–12 GB VRAM</td>
+                <td>NVMe SSD preferred</td>
+                <td>Best “first impression”: smoother cities, less hitching, faster streaming.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-          <div>
-            <strong>Considering buying the game?</strong>
-            <div style="color: rgba(255,255,255,.74);">Use the readiness check below to see whether your current PC will be enjoyable.</div>
+        <div class="grid2" style="margin-top: 16px;">
+          <div class="card pad" style="background: rgba(255,255,255,.03);">
+            <h3 style="margin:0 0 8px;">The #1 stability rule</h3>
+            <p class="muted" style="margin:0;">Install on an SSD, keep headroom free, and avoid background memory hogs. Star Citizen streams assets constantly — storage and memory pressure create most “broken game” first impressions.</p>
           </div>
-          <a class="btn secondary" href="#pc-ready">Run the quick check</a>
+          <div class="card pad" style="background: rgba(255,255,255,.03);">
+            <h3 style="margin:0 0 8px;">The #1 FPS rule</h3>
+            <p class="muted" style="margin:0;">In busy hubs you’re often CPU‑limited. Don’t chase ultra‑low graphics. Start with a balanced preset and reduce the biggest GPU hitters (clouds, shadows, reflections).</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECTION IMAGE -->
-    <section class="section" aria-label="Performance guide image">
-      <div class="card pad" style="padding:0; overflow:hidden;">
-        <img
-          src={sectionImg}
-          alt="Star Citizen settings and performance optimization illustration"
-          loading="lazy"
-          decoding="async"
-          width="1536"
-          height="1024"
-          style="width:100%; height:auto; display:block;"
-        />
-      </div>
-    </section>
-
-    <!-- PC READY -->
-    <section id="pc-ready" class="section">
+  <!-- PC readiness -->
+  <section id="pc-ready" class="section">
+    <div class="container">
       <div class="card pad">
-        <h2 class="section__title">Can your PC run Star Citizen? (2-minute checklist)</h2>
-        <p>
-          Use this quick checklist before you spend time tweaking settings. It’s designed for beginners: you don’t need benchmark apps — just a realistic
-          picture of what’s likely holding you back.
-        </p>
+        <h2 class="section__title">Can your PC run Star Citizen? (fast checklist)</h2>
+        <p class="muted">If you only do one thing: hit these baselines first. Most performance complaints come from missing one of these items.</p>
 
-        <div class="tableWrap" style="margin-top:12px;">
+        <div class="tableWrap" style="margin-top: 14px;">
           <table class="table table--steps">
             <thead>
               <tr>
                 <th>Step</th>
                 <th>Check</th>
+                <th>Minimum</th>
+                <th>Recommended</th>
                 <th>Why it matters</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><b>1</b></td>
-                <td><b>SSD installed</b> (game on SSD)</td>
-                <td>Most “micro-stutter” is asset streaming. SSD is the biggest quality-of-life baseline.</td>
+                <th>1</th>
+                <td><strong>SSD install</strong></td>
+                <td>SSD required</td>
+                <td>NVMe SSD</td>
+                <td>Prevents asset streaming stalls (“micro‑stutter”).</td>
               </tr>
               <tr>
-                <td><b>2</b></td>
-                <td><b>Free disk space</b> on the SSD</td>
-                <td>Low free space can worsen streaming and caching behavior.</td>
+                <th>2</th>
+                <td><strong>Free space</strong></td>
+                <td>~100 GB free</td>
+                <td>150+ GB headroom</td>
+                <td>Low disk space increases hitching and can break patches.</td>
               </tr>
               <tr>
-                <td><b>3</b></td>
-                <td><b>Memory headroom</b> while playing</td>
-                <td>If you hit memory pressure, you get stutter spikes and sometimes crashes.</td>
+                <th>3</th>
+                <td><strong>RAM headroom</strong></td>
+                <td>16 GB</td>
+                <td><strong>32 GB</strong></td>
+                <td>Memory pressure causes stutters and “random” crashes.</td>
               </tr>
               <tr>
-                <td><b>4</b></td>
-                <td><b>Stable drivers</b> (no experimental tweaks)</td>
-                <td>Driver instability is a top cause of random crashes and hitching.</td>
+                <th>4</th>
+                <td><strong>GPU VRAM</strong></td>
+                <td>4 GB</td>
+                <td>8 GB+</td>
+                <td>Too little VRAM forces swapping and tanks frame pacing.</td>
               </tr>
               <tr>
-                <td><b>5</b></td>
-                <td><b>Overlays off</b> for testing (Discord, capture tools)</td>
-                <td>Overlays can add frame-time spikes and cause crashes. Test baseline first.</td>
+                <th>5</th>
+                <td><strong>Drivers + overlays</strong></td>
+                <td>Stable drivers</td>
+                <td>Overlays off while testing</td>
+                <td>Overlays can cause frame spikes and crashes. Test clean.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">If you’re testing during Free Fly</h3>
-            <p style="margin:0;">
-              Judge your system by consistency, not perfect FPS in cities. Busy hubs are the worst-case scenario.
-              If your baseline is stable, the game becomes far more enjoyable.
-            </p>
+        <p class="muted" style="margin-top: 12px;">If you’re below recommended: you can still play — but use the settings below and avoid expecting smooth hubs. Free Fly is a great way to test before buying.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settings -->
+  <section id="settings" class="section">
+    <div class="container">
+      <div class="card pad">
+        <h2 class="section__title">Recommended Star Citizen settings (beginner‑safe baseline)</h2>
+        <p class="muted">Start here, play for 20 minutes, then change <em>one thing at a time</em>. This avoids the classic trap of changing ten sliders and never knowing what helped.</p>
+
+        <div class="grid2" style="margin-top: 14px;">
+          <div class="card pad" style="background: rgba(255,255,255,.03);">
+            <h3 style="margin:0 0 8px;">Fast wins (change these first)</h3>
+            <ul class="muted" style="margin:0; padding-left: 18px; line-height:1.7;">
+              <li><strong>Volumetric Clouds:</strong> Medium / Low (or Off where possible)</li>
+              <li><strong>Shadows:</strong> Medium</li>
+              <li><strong>Screen Space Reflections:</strong> Low / Off</li>
+              <li><strong>Motion Blur / Film Grain / Chromatic Aberration:</strong> Off</li>
+              <li><strong>V‑Sync:</strong> Off (test baseline first)</li>
+            </ul>
           </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">If you plan to buy</h3>
-            <p style="margin:0;">
-              Once your PC passes the baseline, the next step is choosing a beginner-friendly starter pack.
-              Don’t overbuy — you can upgrade later.
-            </p>
-            <a class="btn primary" href="/star-citizen-starter-packs/" style="margin-top:10px;">See starter packs</a>
+          <div class="card pad" style="background: rgba(255,255,255,.03);">
+            <h3 style="margin:0 0 8px;">Good defaults (don’t overthink)</h3>
+            <ul class="muted" style="margin:0; padding-left: 18px; line-height:1.7;">
+              <li><strong>Overall Quality:</strong> High (often smoother than Low in CPU‑limited areas)</li>
+              <li><strong>Textures:</strong> High if you have VRAM; otherwise Medium</li>
+              <li><strong>Anisotropic Filtering:</strong> 8×</li>
+              <li><strong>Sharpening:</strong> low to taste</li>
+              <li><strong>Resolution:</strong> native first; use upscaling only if needed</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SETTINGS -->
-    <section id="settings" class="section">
-      <div class="card pad">
-        <h2 class="section__title">Recommended settings (beginner-safe baseline)</h2>
-        <p>
-          The goal is <strong>stable frame-times</strong> — not chasing a single “max FPS” number. Apply this baseline first, then adjust slowly.
-          If you change ten things at once, you’ll never know what helped.
-        </p>
-
-        <div class="tableWrap" style="margin-top:12px;">
+        <div class="tableWrap" style="margin-top: 16px;">
           <table class="table">
             <thead>
               <tr>
                 <th>Setting</th>
-                <th>Recommended</th>
-                <th>Why</th>
+                <th>Baseline</th>
+                <th>If you need more FPS</th>
+                <th>Trade‑off</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>Quality approach</th>
-                <td>Start balanced, then tune 1–2 heavy settings</td>
-                <td>Most gains come from a few options. Keep the rest stable.</td>
+                <th>Volumetric Clouds</th>
+                <td>Medium</td>
+                <td>Low / Off</td>
+                <td>Less atmosphere in storms; big FPS gain.</td>
               </tr>
               <tr>
-                <th>Volumetric clouds</th>
-                <td>Lower for smoother performance</td>
-                <td>High impact in atmospheres and cities.</td>
+                <th>Shadows</th>
+                <td>Medium</td>
+                <td>Low</td>
+                <td>Flatter lighting; moderate FPS gain.</td>
               </tr>
               <tr>
-                <th>Motion blur / film grain</th>
+                <th>Reflections (SSR)</th>
+                <td>Low</td>
                 <td>Off</td>
-                <td>Reduces visual noise and can improve perceived clarity.</td>
+                <td>Less shiny surfaces; good stability gain.</td>
               </tr>
               <tr>
-                <th>V-Sync</th>
-                <td>Off for troubleshooting</td>
-                <td>Removes one variable and avoids added input latency while testing.</td>
+                <th>Overall Quality</th>
+                <td>High</td>
+                <td>Keep High, reduce the items above</td>
+                <td>Lowering too far can increase CPU load.</td>
               </tr>
               <tr>
-                <th>FPS cap</th>
-                <td>Use a sensible cap if you get big swings</td>
-                <td>Smoother frame-times can feel better than uncapped peaks.</td>
+                <th>Textures</th>
+                <td>High (8 GB+ VRAM)</td>
+                <td>Medium</td>
+                <td>Less crisp surfaces; reduces VRAM pressure.</td>
               </tr>
               <tr>
-                <th>Resolution scaling</th>
-                <td>Lower only if you’re GPU-bound</td>
-                <td>If lowering resolution doesn’t help, your bottleneck is likely CPU/streaming.</td>
+                <th>V‑Sync</th>
+                <td>Off</td>
+                <td>Off</td>
+                <td>Use later only if you hate tearing.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-          <div>
-            <strong>New account tip:</strong>
-            <div style="color: rgba(255,255,255,.74);">When you sign up, you can start with extra credits via a referral code.</div>
-          </div>
-          <a class="btn secondary" href="/star-citizen-referral-code/">Claim the signup bonus</a>
-        </div>
+        <p class="muted" style="margin-top: 12px;">Want to test before buying? Free Fly lets you verify performance on your real machine — then decide with confidence (and still use a referral code during signup).</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- STUTTER -->
-    <section id="stutter" class="section">
+  <!-- Stutter -->
+  <section id="stutter" class="section">
+    <div class="container">
       <div class="card pad">
-        <h2 class="section__title">Fix stutter & low FPS (in the safest order)</h2>
-        <p>
-          Stutter usually comes from <strong>streaming + shaders + background hooks</strong>. Use this order to avoid endless tinkering.
-        </p>
+        <h2 class="section__title">Fix stutter & low FPS (the real beginner troubleshooting order)</h2>
+        <p class="muted">Do these in order. Most people jump straight to graphics tweaks and miss the actual cause (storage, memory, overlays).</p>
 
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">1) Let shaders settle</h3>
-            <p style="margin:0;">
-              The first sessions after a major update or a fresh install can include shader compilation hitches.
-              If the stutter improves after a couple of sessions, you’re likely fine.
-            </p>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">2) Reduce background hooks</h3>
-            <p style="margin:0;">Disable overlays and capture tools while testing. Add them back one by one later.</p>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">3) Ensure virtual memory headroom</h3>
-            <p style="margin:0;">Windows needs breathing room. If memory pressure hits, frame-times spike and crashes become more likely.</p>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">4) Keep SSD free space</h3>
-            <p style="margin:0;">Low SSD space can worsen caching and streaming. Keep comfortable free space for stability.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOTTLENECK -->
-    <section id="bottleneck" class="section">
-      <div class="card pad">
-        <h2 class="section__title">CPU-bound or GPU-bound? Use this simple test</h2>
-        <p>
-          You don’t need deep benchmarking. A quick observation tells you what to change — and what to ignore.
-        </p>
-
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Likely GPU-bound</h3>
-            <ul class="bullets">
-              <li>Lowering resolution noticeably increases FPS.</li>
-              <li>Lowering heavy visual settings increases FPS.</li>
-              <li>Performance is worse in atmospheres or with lots of effects.</li>
-            </ul>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Likely CPU / streaming-bound</h3>
-            <ul class="bullets">
-              <li>Lowering resolution barely changes FPS.</li>
-              <li>Stutter spikes happen during movement/loading.</li>
-              <li>Cities feel inconsistent even on low settings.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CRASHES -->
-    <section id="crashes" class="section">
-      <div class="card pad">
-        <h2 class="section__title">Crash fixes (common causes)</h2>
-        <p>Use this order. It solves most crashes without guesswork.</p>
-
-        <div class="tableWrap" style="margin-top:12px;">
+        <div class="tableWrap" style="margin-top: 14px;">
           <table class="table table--steps">
             <thead>
               <tr>
                 <th>Step</th>
-                <th>Action</th>
+                <th>Do this</th>
+                <th>Why it works</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td><strong>Close overlays</strong> (Discord, Steam, GeForce/Adrenalin capture, browsers)</td>
+                <td>Removes frame‑time spikes and unstable hooks.</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td><strong>Verify SSD + free space</strong> (don’t fill the drive)</td>
+                <td>Prevents asset streaming stalls and patch issues.</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td><strong>Increase RAM headroom</strong> (close apps; 32 GB if possible)</td>
+                <td>Stops hitching when the game hits memory pressure.</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td><strong>Lower clouds</strong> first, then shadows, then reflections</td>
+                <td>Hits the biggest GPU costs with the least gameplay impact.</td>
+              </tr>
+              <tr>
+                <th>5</th>
+                <td><strong>Reset “mystery tweaks”</strong> (overclocks, experimental driver features)</td>
+                <td>Stability > peak FPS. Get a stable baseline first.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottleneck -->
+  <section id="bottleneck" class="section">
+    <div class="container">
+      <div class="card pad">
+        <h2 class="section__title">CPU vs GPU bottleneck (what to do with the result)</h2>
+        <div class="grid2" style="margin-top: 14px;">
+          <div class="card pad" style="background: rgba(255,255,255,.03);">
+            <h3 style="margin:0 0 8px;">Signs you’re CPU‑limited</h3>
+            <ul class="muted" style="margin:0; padding-left: 18px; line-height:1.7;">
+              <li>FPS is similar on Low vs High</li>
+              <li>Busy cities tank FPS even on low resolution</li>
+              <li>GPU usage often below ~80%</li>
+            </ul>
+            <p class="muted" style="margin:10px 0 0;">Focus on <strong>stability</strong> and reduce CPU pressure: avoid ultra‑low settings, lower crowd/extra effects, keep background apps closed.</p>
+          </div>
+          <div class="card pad" style="background: rgba(255,255,255,.03);">
+            <h3 style="margin:0 0 8px;">Signs you’re GPU‑limited</h3>
+            <ul class="muted" style="margin:0; padding-left: 18px; line-height:1.7;">
+              <li>FPS improves when you drop resolution</li>
+              <li>GPU usage stays high (90–100%)</li>
+              <li>Clouds/shadows/reflections hit hard</li>
+            </ul>
+            <p class="muted" style="margin:10px 0 0;">Reduce GPU hitters first: <strong>clouds → shadows → reflections</strong>. Consider upscaling only after you’ve tested these.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crashes -->
+  <section id="crashes" class="section">
+    <div class="container">
+      <div class="card pad">
+        <h2 class="section__title">Crash fixes (most common causes)</h2>
+        <div class="tableWrap" style="margin-top: 14px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Symptom</th>
+                <th>Try this first</th>
                 <th>Why it helps</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><b>1</b></td>
-                <td>Verify game files in the launcher</td>
-                <td>Fixes corrupted/partial downloads and missing assets.</td>
+                <th>Crashes after a long session</th>
+                <td>Close background apps; ensure enough RAM/pagefile headroom</td>
+                <td>Memory pressure looks like “random crashes”.</td>
               </tr>
               <tr>
-                <td><b>2</b></td>
-                <td>Disable overlays and capture tools</td>
-                <td>Removes a frequent crash source while troubleshooting.</td>
+                <th>Crashes on launch or patching</th>
+                <td>Verify game files; check SSD space; avoid external drives</td>
+                <td>Partial installs and disk errors are common.</td>
               </tr>
               <tr>
-                <td><b>3</b></td>
-                <td>Remove unstable overclocks / undervolts</td>
-                <td>Star Citizen can be sensitive to borderline stability.</td>
+                <th>Crash in specific locations</th>
+                <td>Lower clouds/shadows; reduce VRAM pressure (textures)</td>
+                <td>Heavy scenes can spike VRAM and frame times.</td>
               </tr>
               <tr>
-                <td><b>4</b></td>
-                <td>Update to a stable GPU driver</td>
-                <td>Eliminates driver-level instability and rendering errors.</td>
+                <th>Crashes while streaming/recording</th>
+                <td>Disable overlays; test without capture; try a stable driver</td>
+                <td>Overlays/hooks can be unstable.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- UPGRADES -->
-    <section id="upgrades" class="section">
+  <!-- Upgrades -->
+  <section id="upgrades" class="section">
+    <div class="container">
       <div class="card pad">
-        <h2 class="section__title">Upgrades that matter (highest ROI first)</h2>
-        <p>
-          If you’re checking requirements before buying, or you’re disappointed by performance, these upgrades give the most consistent improvement.
-          Think “reduce stutter and crashes first” — then chase higher visuals.
-        </p>
-
-        <div class="tableWrap" style="margin-top:12px;">
+        <h2 class="section__title">Upgrades that matter (highest impact first)</h2>
+        <div class="tableWrap" style="margin-top: 14px;">
           <table class="table">
             <thead>
               <tr>
                 <th>Upgrade</th>
+                <th>Who should do it</th>
                 <th>Impact</th>
-                <th>When it’s worth it</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>SSD (fast storage)</th>
-                <td>Huge stutter reduction</td>
-                <td>If the game is on HDD or a slow drive.</td>
+                <th>32 GB RAM</th>
+                <td>Anyone on 16 GB who gets stutter/crash‑like hitches</td>
+                <td>Huge stability and smoother streaming.</td>
               </tr>
               <tr>
-                <th>More memory headroom</th>
-                <td>Fewer spikes + fewer crashes</td>
-                <td>If you see heavy hitching or background apps push you into memory pressure.</td>
+                <th>NVMe SSD</th>
+                <td>Anyone on a slow SSD / external drive</td>
+                <td>Fewer stalls, faster patching, better first impression.</td>
               </tr>
               <tr>
-                <th>CPU headroom</th>
-                <td>Better consistency in hubs</td>
-                <td>If lowering resolution doesn’t help and cities feel choppy.</td>
+                <th>CPU with strong single‑core</th>
+                <td>Players stuck in city CPU bottlenecks</td>
+                <td>More consistent FPS where it matters (hubs).</td>
               </tr>
               <tr>
-                <th>GPU</th>
-                <td>Higher visuals / resolution</td>
-                <td>If you’re clearly GPU-bound and want a sharper image.</td>
+                <th>GPU with more VRAM</th>
+                <td>Players hitting VRAM limits at higher resolution</td>
+                <td>Better frame pacing; fewer drops in heavy scenes.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-          <div>
-            <strong>Next step:</strong>
-            <div style="color: rgba(255,255,255,.74);">If your PC meets the baseline, pick a beginner-friendly starter pack and start playing.</div>
-          </div>
-          <a class="btn primary" href="/star-citizen-starter-packs/">Choose a starter pack</a>
-        </div>
+        <p class="muted" style="margin-top: 12px;">If you’re here because you’re unsure about buying: validate performance during Free Fly — then decide on a starter pack with confidence (and don’t forget the referral bonus during signup).</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
+  <section id="faq" class="section">
+    <div class="container">
       <div class="card pad">
-        <h2 class="section__title">FAQ</h2>
-        <div class="faq" style="margin-top:10px;">
-          {faqItems.map((item) => (
-            <details class="faq__item">
-              <summary class="faq__q">{item.q}</summary>
-              <div class="faq__a">{item.a}</div>
-            </details>
-          ))}
-        </div>
-
-        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-          <div>
-            <strong>Ready to start?</strong>
-            <div style="color: rgba(255,255,255,.74);">Use a referral code before signup, then pick a starter pack that fits your playstyle.</div>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn secondary" href="/star-citizen-referral-code/">Claim signup bonus</a>
-            <a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
-          </div>
-        </div>
+        <h2 class="section__title">Star Citizen performance FAQ</h2>
+        <FAQ items={faqItems} />
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </BaseLayout>
