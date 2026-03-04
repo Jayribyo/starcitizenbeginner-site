@@ -15,7 +15,8 @@ body {
 
 body {
   margin: 0;
-  padding-top: 72px;
+  /* room for the fixed header (header is slightly inset on large screens) */
+  padding-top: 84px;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
   background: #06080f; /* IMPORTANT: gradient moved to fixed layer below */
@@ -30,8 +31,7 @@ body {
 :root{
   /* Layout caps for large/ultrawide displays.
      Hero can be wider than content, but both should stop stretching. */
-  /* 1920px keeps a strong "cinematic" hero on 16:9 while preventing ultra-wide stretch */
-  --scb-max-hero: 1920px;
+  --scb-max-hero: 1560px;
   --scb-max-content: 1180px;
 }
 
@@ -280,13 +280,18 @@ li {
 /* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
 .siteHeader{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  /* Cap header width on ultra-wide screens so it matches the site's max-width rhythm */
+  top: 12px;
+  left: 50%;
+  right: auto;
+  width: min(calc(100% - 24px), var(--scb-max-hero));
+  transform: translateX(-50%);
   z-index: 100; /* IMPORTANT: above hero/overlays */
-  background: rgba(7,10,18,.52);
+  background: rgba(7,10,18,.58);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 999px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
 }
 
 .siteHeader__inner{
@@ -650,10 +655,11 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 /* ========== Hero ========== */
 .hero {
-  position: relative;
-  /* Prevent ultra-wide "stretch". Center a capped hero while keeping it full width on <= 16:9. */
+  /* Cap hero width on ultra-wide screens (content already uses max-width) */
   width: min(100%, var(--scb-max-hero));
-  margin-inline: auto;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
