@@ -1,413 +1,403 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageSection from '../../components/PageSection.astro';
-import OnThisPage from '../../components/OnThisPage.astro';
-import ReferralBanner from '../../components/ReferralBanner.astro';
-import CTAButton from '../../components/CTAButton.astro';
-import FAQSchema from '../../components/FAQSchema.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+import HowToSchema from "../../components/HowToSchema.astro";
 
-const title = 'Star Citizen Starter Packs: what to buy and how to choose';
-const description = 'A practical starter pack guide for new players: what a starter pack includes, how to pick the right one, common mistakes, and a safe upgrade path.';
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralBonusUEC = "50,000";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 
-const toc = [
-  { href: '#what-it-is', label: 'What a starter pack is' },
-  { href: '#choose', label: 'How to choose' },
-  { href: '#value', label: 'What you get' },
-  { href: '#buy', label: 'How to buy (step-by-step)' },
-  { href: '#upgrade', label: 'Upgrades and changes later' },
-  { href: '#mistakes', label: 'Common mistakes' },
-  { href: '#faq', label: 'FAQ' },
+const officialPacksUrl = "https://robertsspaceindustries.com/en/store/pledge/browse/game-packages";
+
+const heroImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-pack-guide-ship-selection-hero.webp";
+const sectionImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-pack-comparison.webp";
+
+const tocItems = [
+  { label: "What a starter pack is", href: "#what-it-is" },
+  { label: "How to choose", href: "#choose" },
+  { label: "Best starter packs", href: "#best" },
+  { label: "How to buy", href: "#how-to-buy" },
+  { label: "Upgrade path", href: "#upgrade" },
+  { label: "Common mistakes", href: "#mistakes" },
+  { label: "FAQ", href: "#faq" },
 ];
 
-const faqs = [
+const faqItems = [
   {
-    question: 'What is a Star Citizen starter pack?',
-    answer:
-      'A starter pack is the required purchase to access the live game. It bundles game access with at least one starter ship so you can log in and play immediately.',
+    q: "What is a Star Citizen starter pack?",
+    a: "A starter pack (also called a game package) is the minimum purchase required to access the live game outside Free Fly. It includes game access and at least one ship so you can play immediately.",
   },
   {
-    question: 'Do I need a starter pack if I play Free Fly?',
-    answer:
-      'Free Fly is temporary. You can try the game without buying, but you need a starter pack to keep playing once the event ends.',
+    q: "Can I play without buying a starter pack?",
+    a: "Only during official Free Fly events. Once Free Fly ends, you need a starter pack to keep playing.",
   },
   {
-    question: 'Is there a “best” starter pack for everyone?',
-    answer:
-      'Not really. The best pack is the one that matches how you actually play (combat, delivery, mining, exploration) and stays comfortable for your first 10–20 hours without forcing expensive detours.',
+    q: "Do starter packs include Squadron 42?",
+    a: "Starter packs are for the online universe. Single-player content is sold separately when available.",
   },
   {
-    question: 'Can I upgrade my starter ship later?',
-    answer:
-      'Yes. Most players start small and upgrade later. You can change your ship via upgrades, and you can also switch packs over time if your preferences change.',
+    q: "Should I use a referral code before buying a starter pack?",
+    a: "Yes. Use a referral code during RSI account creation (or within the limited post-signup window) to claim the new-player bonus, then buy your starter pack normally.",
   },
   {
-    question: 'Does a starter pack include Squadron 42?',
-    answer:
-      'Starter packs are for the online universe. Any single-player content is sold separately when available.',
+    q: "Which starter pack is best for new players?",
+    a: "The best starter pack is the one that matches your first mission loop. A balanced ship is usually the safest pick because it lets you test delivery, light combat, and basic travel without feeling locked into one playstyle.",
   },
   {
-    question: 'Do I need a referral code before buying a starter pack?',
-    answer:
-      'Use a referral code during account creation (or shortly after creating the account) to claim the new-player bonus, then buy your starter pack normally.',
+    q: "Can I upgrade my starter ship later?",
+    a: "Yes. Most players start with a basic pack and upgrade later once they understand what they enjoy. You can change ships over time and keep your account.",
   },
   {
-    question: 'Where is the official place to browse starter packs?',
-    answer:
-      'The official store has a dedicated game package (starter pack) page. Use it to compare current packs and pricing before you buy.',
+    q: "Where is the official starter pack store page?",
+    a: "The official RSI store has a dedicated game package page where you can browse current starter packs and pricing.",
   },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to buy a Star Citizen starter pack",
+  description:
+    "A beginner-safe checklist to buy the right starter pack: claim your referral bonus, pick the pack, complete checkout, and launch the game.",
+  step: [
+    {
+      "@type": "HowToStep",
+      name: "Create your RSI account (use a referral code)",
+      text: "Create a new RSI account and enter a referral code during signup to claim the new-player bonus.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Open the official starter pack page",
+      text: "Browse current game packages on the official RSI store page.",
+      url: officialPacksUrl,
+    },
+    {
+      "@type": "HowToStep",
+      name: "Pick a beginner-safe starter pack",
+      text: "Choose a pack that matches your first mission loop (balanced is usually safest).",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Complete checkout",
+      text: "Finish checkout in the RSI store, then install the launcher and log in.",
+    },
+  ],
+};
 ---
 
 <BaseLayout
-  lang="en"
-  title={title}
-  description={description}
+  title="Best Star Citizen Starter Packs for New Players"
+  description="A practical Star Citizen starter pack guide: what a starter pack includes, which pack to buy first, common mistakes, and the safest upgrade-friendly path for beginners."
   canonicalPath="/star-citizen-starter-packs/"
-  ogImage="/assets/img/landing/star-citizen-starter-pack-guide-ship-selection-hero.webp"
+  ogImage={heroImg}
+  ogImageAlt="Star Citizen starter pack guide hero image"
+  activeNav="guides"
 >
+  <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
+  <FaqSchema slot="head" json={faqJsonLd} />
+  <HowToSchema slot="head" json={howToJsonLd} />
+
   <main>
     <!-- HERO -->
-    <section class="hero" aria-label="Starter packs hero">
-      <div class="hero__media" aria-hidden="true">
-        <div
-          class="hero__bg"
-          style={`background-image:url(/assets/img/landing/star-citizen-starter-pack-guide-ship-selection-hero.webp); background-position:center center;`}
-        />
-        <div class="hero__overlay" />
+    <section class="hero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Star Citizen ships in a cinematic hangar scene"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="kicker"><span class="dot"></span> Starter Guides</div>
+        <h1 class="h1">Best Star Citizen Starter Packs</h1>
+        <p class="lead" style="max-width: 920px;">
+          Pick a beginner-safe game package that fits your first sessions, avoids wasted spend, and stays upgrade-friendly later.
+        </p>
+
+        <div class="btnrow">
+          <a class="btn primary" href="#best">See top picks</a>
+          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Browse official packs</a>
+        </div>
       </div>
 
-      <div class="hero__inner">
-        <div class="hero__eyebrow">• STARTER GUIDE</div>
-        <h1>Star Citizen Starter Packs</h1>
-        <p class="hero__sub">Choose a pack that fits your first sessions, avoids buyer’s regret, and stays upgrade-friendly later.</p>
+      <OnThisPage variant="hero" title="On this page" items={tocItems} />
+    </section>
 
-        <div class="hero__ctaRow">
-          <CTAButton href="#buy" variant="primary">See the step-by-step</CTAButton>
-          <CTAButton
-            href="https://robertsspaceindustries.com/en/store/pledge/browse/game-packages"
-            variant="secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Browse official starter packs
-          </CTAButton>
-        </div>
+    <!-- Referral banner (consistent site-wide) -->
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
+      ariaLabel="Referral bonus callout"
+    />
 
-        <div class="hero__note">
-          If you haven’t created an RSI account yet, use a referral code first — then buy your pack normally.
-          <a class="hero__noteLink" href="/star-citizen-referral-code/">Get the referral bonus →</a>
+    <!-- WHAT IT IS -->
+    <section id="what-it-is" class="section">
+      <div class="card pad">
+        <h2 class="section__title">What a starter pack actually is</h2>
+        <p>
+          A starter pack (RSI calls it a <em>game package</em>) is the minimum purchase required to access the live game when Free Fly is not active.
+          It’s not just a ship — it’s <strong>game access + a starter ship</strong>, so you can log in and play immediately.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What you get</h3>
+            <ul class="bullets">
+              <li><strong>Game access</strong> to the online universe.</li>
+              <li><strong>A starter ship</strong> you can claim and fly right away.</li>
+              <li><strong>A clean baseline</strong> you can upgrade later once you know what you enjoy.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What you don’t need</h3>
+            <ul class="bullets">
+              <li>Expensive ships on day one.</li>
+              <li>Multi-crew “dream ships” before you’ve learned the basics.</li>
+              <li>Complex loadouts or min-maxing to start having fun.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TOC (integrated hero toc standard) -->
-    <div class="hero_toc" aria-label="On this page">
-      <OnThisPage items={toc} />
-    </div>
-
-    <!-- Referral block: keep global standard component -->
-    <ReferralBanner />
-
-    <!-- WHAT IT IS -->
-    <PageSection id="what-it-is" title="What a starter pack is" subtitle="A starter pack is game access + a ship. Everything else is optional.">
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>What it includes</h3>
-          <ul>
-            <li><strong>Game access</strong> to the live universe.</li>
-            <li><strong>At least one ship</strong> so you can play instantly.</li>
-            <li><strong>A simple baseline</strong> you can build from.</li>
-          </ul>
-          <p class="muted">Think of the starter pack as your entry ticket — not your forever ship decision.</p>
-        </div>
-
-        <div class="card">
-          <h3>What it is not</h3>
-          <ul>
-            <li>Not a subscription — you buy access once.</li>
-            <li>Not a promise of a permanent ship list — packs rotate.</li>
-            <li>Not required to be expensive — upgrading later is normal.</li>
-          </ul>
-          <div class="ctaInline">
-            <CTAButton href="/free-fly/" variant="secondary">Try Free Fly first</CTAButton>
-            <CTAButton href="/star-citizen-referral-code/" variant="secondary">Use a referral code</CTAButton>
-          </div>
-        </div>
-      </div>
-    </PageSection>
-
     <!-- CHOOSE -->
-    <PageSection id="choose" title="How to choose your starter pack" subtitle="Pick the pack that matches how you’ll actually play in your first 10–20 hours.">
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Decision rule (works for most beginners)</h3>
-          <ol>
-            <li><strong>Comfort first:</strong> choose the ship that feels easy to land, navigate, and recover with.</li>
-            <li><strong>Do one loop well:</strong> pick a pack that supports a single reliable activity (delivery, bounty, basic mining, or sightseeing).</li>
-            <li><strong>Upgrade-friendly:</strong> prefer a pack you won’t feel bad upgrading later.</li>
-          </ol>
-          <p class="muted">If you’re stuck between two packs, choose the cheaper one and learn what you actually enjoy.</p>
-        </div>
+    <section id="choose" class="section">
+      <div class="card pad">
+        <h2 class="section__title">How to choose the right starter pack</h2>
+        <p>
+          New players get stuck when the first ship feels too limited for the missions they naturally try. The safest choice is a pack that lets you test
+          multiple beginner loops: basic delivery, light combat, and comfortable travel.
+        </p>
 
-        <div class="card">
-          <h3>Match pack to playstyle</h3>
-          <div class="pillGrid">
-            <div class="pill"><strong>Delivery / exploration</strong><span>Space + ground convenience matters more than firepower.</span></div>
-            <div class="pill"><strong>Combat</strong><span>Stable handling and clear weapon control beats “raw stats”.</span></div>
-            <div class="pill"><strong>Learning systems</strong><span>Pick the ship that keeps frustration low (recovery, travel, landing).</span></div>
-            <div class="pill"><strong>Group play</strong><span>Comfortable logistics first — you can specialize later.</span></div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Pick based on your first loop</h3>
+            <ul class="bullets">
+              <li><strong>Balanced</strong>: best if you want a smooth start and flexibility.</li>
+              <li><strong>Combat</strong>: best if you mainly want dogfights early.</li>
+              <li><strong>Utility</strong>: best if you like cargo, small hauls, and convenience.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Rule of thumb</h3>
+            <p style="margin:0;">
+              Don’t optimize for the endgame on day one. Optimize for <strong>your first 10–20 hours</strong>: learning controls, completing missions, and staying mobile.
+              You can always upgrade later.
+            </p>
           </div>
         </div>
-      </div>
 
-      <div class="card mediaCard" style="margin-top: 18px;">
-        <div class="mediaCard__text">
-          <h3>Use this one question</h3>
-          <p>
-            <strong>“What is the one thing I want to do in my first session?”</strong>
-            If your answer is “see the universe”, pick comfort and reliability. If it’s “fight”, pick a ship you can control confidently.
-          </p>
-          <p class="muted">The fastest path to enjoying Star Citizen is reducing chaos — not buying the perfect ship on day one.</p>
-        </div>
-        <div class="mediaCard__img" aria-hidden="true">
-          <div class="mediaCard__bg" style="background-image:url(/assets/img/landing/star-citizen-starter-pack-comparison.webp); background-position:center center;" />
+        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div>
+            <strong>New to the signup flow?</strong>
+            <div style="color: rgba(255,255,255,.74);">Use the referral bonus first so you don’t miss the extra starting credits.</div>
+          </div>
+          <a class="btn primary" href="/star-citizen-referral-code/">Use a referral code</a>
         </div>
       </div>
-    </PageSection>
+    </section>
 
-    <!-- VALUE -->
-    <PageSection id="value" title="What you get with a starter pack" subtitle="Understand the tradeoff so you don’t overpay for the wrong reason.">
-      <div class="card">
-        <div class="tableWrap">
-          <table class="dataTable">
+    <!-- SECTION IMAGE -->
+    <section class="section" aria-label="Starter pack comparison image">
+      <div class="card pad" style="padding:0; overflow:hidden;">
+        <img
+          src={sectionImg}
+          alt="Star Citizen starter pack comparison visual"
+          loading="lazy"
+          decoding="async"
+          width="1536"
+          height="1024"
+          style="width:100%; height:auto; display:block;"
+        />
+      </div>
+    </section>
+
+    <!-- BEST -->
+    <section id="best" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Best starter packs for beginners</h2>
+        <p>
+          These are the most beginner-friendly picks by playstyle. Use this as a short-list, then confirm the exact current offers on the official store.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
             <thead>
               <tr>
-                <th>Focus</th>
-                <th>What matters</th>
-                <th>What to ignore early</th>
+                <th>Pack type</th>
+                <th>Best for</th>
+                <th>Why it works for beginners</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Comfort</strong></td>
-                <td>Landing, travel, recovery, and “I can do this again” reliability.</td>
-                <td>Perfect loadouts and niche min/maxing.</td>
+                <th scope="row">Balanced starter pack</th>
+                <td>First-time players</td>
+                <td>Flexible mission choices, easy learning curve, fewer “dead-end” moments.</td>
               </tr>
               <tr>
-                <td><strong>Time efficiency</strong></td>
-                <td>How quickly you can start a loop and repeat it without friction.</td>
-                <td>Trying to do 5 gameplay loops in one night.</td>
+                <th scope="row">Combat-focused starter pack</th>
+                <td>Dogfights early</td>
+                <td>More confidence in early combat contracts, fast handling, clear purpose.</td>
               </tr>
               <tr>
-                <td><strong>Upgrade path</strong></td>
-                <td>Starting small and upgrading later with confidence.</td>
-                <td>“Forever ship” thinking before you know your preferences.</td>
+                <th scope="row">Utility / comfort starter pack</th>
+                <td>Delivery + travel</td>
+                <td>Better quality-of-life for moving around and carrying small mission items.</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
 
-      <div class="grid grid-2" style="margin-top: 18px;">
-        <div class="card">
-          <h3>Best “value” is usually simplicity</h3>
-          <p>
-            Beginners quit because the first sessions are messy: travel confusion, bad recovery habits, inventory chaos and failed missions.
-            A starter pack that keeps the basics easy has higher real value than a pack that looks better on paper.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Use your referral bonus intelligently</h3>
-          <p>The bonus is best used to reduce early friction: basic gear, small quality-of-life purchases, and “repeatable loop” setup.</p>
-          <div class="ctaInline"><CTAButton href="/star-citizen-referral-code/" variant="primary">Get the referral bonus</CTAButton></div>
+        <div class="btnrow" style="margin-top:12px;">
+          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Compare current packs on RSI</a>
         </div>
       </div>
-    </PageSection>
+    </section>
 
-    <!-- BUY -->
-    <PageSection id="buy" title="How to buy a starter pack" subtitle="A clean, repeatable checklist (and where the referral code fits).">
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Step-by-step</h3>
-          <ol>
-            <li>
-              <strong>Create your RSI account</strong> and enter a referral code during signup.
-              <span class="muted"> (If you already created the account, you typically still have a limited window.)</span>
-            </li>
-            <li><strong>Open the official starter pack page</strong> and filter by “Game Packages”.</li>
-            <li><strong>Pick a comfort-first pack</strong> that supports your first gameplay loop.</li>
-            <li><strong>Buy the pack</strong> — then start with a simple session plan.</li>
-          </ol>
-          <div class="ctaInline">
-            <CTAButton href="https://robertsspaceindustries.com/en/store/pledge/browse/game-packages" variant="primary" target="_blank" rel="noopener noreferrer">Open official starter packs</CTAButton>
-            <CTAButton href="/star-citizen-referral-code/" variant="secondary">Referral code walkthrough</CTAButton>
+    <!-- HOW TO BUY -->
+    <section id="how-to-buy" class="section">
+      <div class="card pad">
+        <h2 class="section__title">How to buy a starter pack</h2>
+        <p>
+          This is the safest beginner sequence. It prevents you from missing the referral bonus and keeps the purchase process simple.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table table--steps">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>What to do</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Create your RSI account and enter a referral code</td>
+                <td>Locks in the new-player bonus so you don’t rely on exceptions later.</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Open the official starter pack page</td>
+                <td>Ensures you’re comparing current packs and pricing from the source.</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Pick a pack that matches your first mission loop</td>
+                <td>A beginner-safe match reduces frustration and “buyer’s regret”.</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Checkout, install the launcher, and log in</td>
+                <td>Once you own a pack, you can play anytime (not just Free Fly).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div>
+            <strong>Want the bonus first?</strong>
+            <div style="color: rgba(255,255,255,.74);">Create your RSI account with the referral code prefilled.</div>
           </div>
-        </div>
-
-        <div class="card">
-          <h3>When to buy (and when to wait)</h3>
-          <ul>
-            <li><strong>Buy now</strong> if you already enjoyed a test session and want to commit to learning the basics.</li>
-            <li><strong>Wait</strong> if you’re unsure — use Free Fly to validate performance, stability, and whether you enjoy the pace.</li>
-          </ul>
-          <div class="ctaInline">
-            <CTAButton href="/free-fly/" variant="secondary">Check Free Fly status</CTAButton>
-            <CTAButton href="/beginner-tips/" variant="secondary">Beginner tips (first sessions)</CTAButton>
-          </div>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Use referral code now</a>
         </div>
       </div>
-    </PageSection>
+    </section>
 
     <!-- UPGRADE -->
-    <PageSection id="upgrade" title="Upgrades and changes later" subtitle="Start small. Learn your loop. Upgrade when you can explain why.">
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Upgrading is normal</h3>
-          <p>Most players don’t get their “right ship” on day one. Use your starter pack to learn systems first.</p>
-        </div>
-        <div class="card">
-          <h3>Upgrade based on friction</h3>
-          <p>Upgrade when you’ve hit a clear bottleneck: cargo capacity, travel convenience, combat confidence, or your preferred activity.</p>
-        </div>
-        <div class="card">
-          <h3>Keep decisions reversible</h3>
-          <p>Early purchases should be low-regret. Avoid stacking multiple changes at once until your basics are stable.</p>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top: 18px;">
-        <h3>Smart beginner upgrade rule</h3>
+    <section id="upgrade" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Upgrade path</h2>
         <p>
-          <strong>If you can’t describe the problem in one sentence, don’t upgrade yet.</strong> Run your loop two more times — consistency reveals what actually needs improvement.
+          The smartest beginner strategy is to start with a comfortable baseline, then upgrade after you’ve learned what you actually like.
+          You don’t need to “solve” your forever ship on day one.
         </p>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Start small</h3>
+            <p style="margin:0;">A basic starter pack is enough to learn navigation, missions, and travel flow.</p>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Upgrade after clarity</h3>
+            <p style="margin:0;">Once you know your loop, upgrades become targeted instead of impulsive.</p>
+          </div>
+        </div>
       </div>
-    </PageSection>
+    </section>
 
     <!-- MISTAKES -->
-    <PageSection id="mistakes" title="Common starter pack mistakes" subtitle="Avoid the predictable traps that waste money or kill motivation.">
-      <div class="card">
-        <div class="tableWrap">
-          <table class="dataTable">
-            <thead>
-              <tr>
-                <th>Mistake</th>
-                <th>What happens</th>
-                <th>Do this instead</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Buying for “future meta”</strong></td>
-                <td>You overpay before you know what you enjoy.</td>
-                <td>Buy for comfort and your first loop. Upgrade later with clarity.</td>
-              </tr>
-              <tr>
-                <td><strong>Optimizing everything at once</strong></td>
-                <td>Too many changes hides what actually helped or hurt.</td>
-                <td>Change one variable at a time: route, ship, loadout, or settings.</td>
-              </tr>
-              <tr>
-                <td><strong>Skipping Free Fly testing</strong></td>
-                <td>Performance surprises can poison your first impression.</td>
-                <td>Try Free Fly if you’re unsure — then commit with confidence.</td>
-              </tr>
-              <tr>
-                <td><strong>Forgetting the referral code</strong></td>
-                <td>You miss the signup bonus window.</td>
-                <td>Use the referral code during signup, then buy the starter pack normally.</td>
-              </tr>
-            </tbody>
-          </table>
+    <section id="mistakes" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Common mistakes</h2>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Buying too big too early</h3>
+            <p style="margin:0;">Big ships are fun later, but they slow learning and add maintenance overhead when you’re still figuring out the basics.</p>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Skipping the referral code</h3>
+            <p style="margin:0;">If you create an account without a code, you may miss the new-player bonus. It’s easiest to do it during signup.</p>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Choosing based on looks only</h3>
+            <p style="margin:0;">Early comfort matters: how easy it is to complete missions, carry items, and move around without friction.</p>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Over-optimizing the first purchase</h3>
+            <p style="margin:0;">Your first pack should get you playing. You can optimize later once you understand what you enjoy.</p>
+          </div>
         </div>
       </div>
-    </PageSection>
+    </section>
 
     <!-- FAQ -->
-    <PageSection id="faq" title="Starter pack FAQ" subtitle="Fast answers to the questions new players ask before buying.">
-      <FAQSchema faqs={faqs} />
-    </PageSection>
+    <section id="faq" class="section">
+      <div class="card pad">
+        <h2 class="section__title">FAQ</h2>
 
-    <!-- FINAL CTA -->
-    <PageSection id="ready" title="Ready to buy with confidence?" subtitle="Do it in the right order: referral code → starter pack → simple first session.">
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>New account?</h3>
-          <p>Start with the referral code first so you don’t miss the bonus window — then buy the pack.</p>
-          <CTAButton href="/star-citizen-referral-code/" variant="primary">Get the referral code</CTAButton>
+        <div class="faq" style="margin-top:12px;">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
         </div>
-        <div class="card">
-          <h3>Still deciding?</h3>
-          <p>Use Free Fly to validate performance and whether the pace is for you — then commit with a starter pack.</p>
-          <CTAButton href="/free-fly/" variant="secondary">Go to Free Fly guide</CTAButton>
+
+        <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div>
+            <strong>Next best step</strong>
+            <div style="color: rgba(255,255,255,.74);">Use the referral bonus first, then pick your pack on the official store page.</div>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="/star-citizen-referral-code/">Get referral bonus</a>
+            <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Browse official packs</a>
+          </div>
         </div>
       </div>
-    </PageSection>
+    </section>
   </main>
-
-  <style>
-    .hero {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      margin: 0 auto;
-      max-width: var(--scb-maxwidth-hero, 1400px);
-    }
-    .hero__media { position: absolute; inset: 0; }
-    .hero__bg { position: absolute; inset: 0; background-size: cover; filter: saturate(1.05) contrast(1.05); }
-    .hero__overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.42) 55%, rgba(0,0,0,.68)),
-        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.72));
-    }
-    .hero__inner {
-      position: relative;
-      padding: clamp(28px, 4.6vw, 56px);
-      min-height: clamp(320px, 42vh, 520px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
-    }
-    .hero__eyebrow { font-size: 12px; letter-spacing: .14em; opacity: .9; }
-    .hero h1 { margin: 0; line-height: 1.05; font-size: clamp(34px, 4.2vw, 56px); }
-    .hero__sub { margin: 0; max-width: 70ch; color: rgba(255,255,255,.86); font-size: clamp(14px, 1.35vw, 18px); }
-    .hero__ctaRow { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
-    .hero__note { margin-top: 8px; max-width: 80ch; font-size: 13px; color: rgba(255,255,255,.78); }
-    .hero__noteLink { margin-left: 10px; color: rgba(255, 210, 120, .95); text-decoration: none; }
-    .hero__noteLink:hover { text-decoration: underline; }
-
-    .grid { display: grid; gap: 18px; }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    @media (max-width: 860px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-
-    .card {
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-    .card h3 { margin: 0 0 10px 0; }
-    .muted { color: rgba(255,255,255,.72); }
-    .ctaInline { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
-
-    .tableWrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .dataTable { width: 100%; border-collapse: collapse; min-width: 720px; }
-    .dataTable th, .dataTable td { text-align: left; padding: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }
-    .dataTable thead th { color: rgba(255,255,255,.88); font-weight: 700; background: rgba(255,255,255,0.02); position: sticky; top: 0; }
-
-    .pillGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 860px) { .pillGrid { grid-template-columns: 1fr; } }
-    .pill { padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.18); display: grid; gap: 6px; }
-    .pill span { color: rgba(255,255,255,.74); font-size: 13px; }
-
-    .mediaCard { display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden; padding: 0; }
-    .mediaCard__text { padding: 18px; }
-    .mediaCard__img { position: relative; min-height: 220px; }
-    .mediaCard__bg { position: absolute; inset: 0; background-size: cover; }
-    @media (max-width: 860px) { .mediaCard { grid-template-columns: 1fr; } .mediaCard__img { min-height: 180px; } }
-  </style>
 </BaseLayout>
