@@ -30,7 +30,8 @@ body {
 :root{
   /* Layout caps for large/ultrawide displays.
      Hero can be wider than content, but both should stop stretching. */
-  --scb-max-hero: 1560px;
+  /* 1920px keeps a strong "cinematic" hero on 16:9 while preventing ultra-wide stretch */
+  --scb-max-hero: 1920px;
   --scb-max-content: 1180px;
 }
 
@@ -650,6 +651,9 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 /* ========== Hero ========== */
 .hero {
   position: relative;
+  /* Prevent ultra-wide "stretch". Center a capped hero while keeping it full width on <= 16:9. */
+  width: min(100%, var(--scb-max-hero));
+  margin-inline: auto;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
