@@ -102,6 +102,9 @@ const howToJsonLd = {
   canonicalPath="/star-citizen-performance-guide/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen performance guide hero image"
+  stickyCtaLabel="Claim +50k UEC start bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
   activeNav="guides"
 >
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
@@ -608,6 +611,16 @@ const howToJsonLd = {
         <p>
           Want the biggest improvement per euro? Prioritize stability first (stutter/crashes), then chase resolution/visuals.
         </p>
+
+        <div class="callout" style="margin-top:12px;">
+          <b>New account?</b> Claim the free start bonus once, then spend your credits smarter.
+          <div class="btnrow" style="margin-top:10px;">
+            <a class="btn primary" href="/star-citizen-referral-code/">Referral code steps</a>
+            <a class="btn secondary" href={referralLink} target="_blank" rel="noopener noreferrer">
+              Claim +{referralBonusUEC} UEC
+            </a>
+          </div>
+        </div>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
