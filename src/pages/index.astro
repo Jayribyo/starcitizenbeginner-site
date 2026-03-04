@@ -1,0 +1,241 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ReferralBanner from "../components/ReferralBanner.astro";
+import OnThisPage from "../components/OnThisPage.astro";
+
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralPage = "/star-citizen-referral-code/";
+
+const tiles = [
+  {
+    href: referralPage,
+    img: "/assets/img/home/tiles/scb-tile-referral-bonus.webp",
+    title: "Referral Bonus",
+    desc: "Use a Star Citizen referral code and start with extra in-game credits.",
+    pill: "Bonus",
+  },
+  {
+    href: "/beginner-tips/",
+    img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
+    title: "Beginner Tips",
+    desc: "Avoid common mistakes and set smart early priorities.",
+    pill: "Start here",
+  },
+  {
+    href: "/free-fly/",
+    img: "/assets/img/home/tiles/star-citizen-free-fly-tile.webp",
+    title: "Free Fly",
+    desc: "Test all Ships for free and take off.",
+    pill: "Fly Free",
+  },
+  {
+    href: "/starter-pack-guide/",
+    img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
+    title: "Starter Pack Guide",
+    desc: "Which ship to choose and when to upgrade.",
+    pill: "Buy smart",
+  },
+  {
+    href: "/earn-auec-fast/",
+    img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
+    title: "Make Money Fast",
+    desc: "Early aUEC routes, contracts and safe income loops.",
+    pill: "aUEC",
+  },
+  {
+    href: "/best-settings/",
+    img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
+    title: "Performance & FPS",
+    desc: "Optimized settings to make Star Citizen run smoother.",
+    pill: "FPS",
+  },
+];
+---
+
+<BaseLayout
+  title="Star Citizen Beginner Guide – Smart Start System for New Players"
+  description="Start Star Citizen the smart way. Structured beginner guides, referral bonus help, Free Fly tips, starter pack advice, and early aUEC routes — clear, practical, and up to date."
+  canonicalPath="/"
+  stickyCtaLabel="Start your Star Citizen journey"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+ activeNav="home">
+<link slot="head" rel="preload" as="image" href="/assets/img/home/scb-home-hero.webp" fetchpriority="high" />
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+ <img
+  class="hero__img"
+  src="/assets/img/home/scb-home-hero.webp"
+  alt="Star Citizen spaceship flying above a planet"
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="homeHero__content">
+          <div style="max-width:720px; padding: 26px 0;">
+            <h1 class="h1">Star Citizen Beginner Guide</h1>
+            <p class="lead">The clean path for new pilots.</p>
+
+            <div class="btnrow">
+              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
+                Start your Star Citizen journey
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ON THIS PAGE (integrated into hero on desktop) -->
+      <OnThisPage
+        variant="hero"
+        title="On this page"
+        items={[
+          { label: "Guides", href: "#guides" },
+          { label: "What Star Citizen is", href: "#what-is" },
+          { label: "Is it for you?", href: "#is-it-for-you" },
+        ]}
+      />
+    </section>
+
+    <!-- Referral banner (consistent with referral page) -->
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000 UEC"
+      ctaHref={referralLink}
+      howItWorksHref={`${referralPage}#how-to-use`}
+      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
+      ariaLabel="Referral bonus callout"
+    />
+
+    <!-- ===================== GUIDES ===================== -->
+    <section id="guides" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Beginner Guides</div>
+        <h2 class="section__title">Start here. Then go deeper.</h2>
+        <p class="lead">Structured guides for your first hours, ships, credits and performance.</p>
+      </div>
+
+      <div class="tiles">
+        {tiles.map((t) => (
+          <a class="tile" href={t.href}>
+            <img
+  class="tile__img"
+  src={t.img}
+  alt={t.title}
+  loading="lazy"
+  decoding="async"
+  width="1024"
+  height="1024"
+/>
+            <div class="tile__meta">
+              <span class="tile__pill">{t.pill}</span>
+              <h3 class="tile__title">{t.title}</h3>
+              <p class="tile__desc">{t.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===================== WHAT IS STAR CITIZEN? ===================== -->
+    <section id="what-is" class="section">
+      <div class="grid2">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
+          <h2 class="section__title">A living sci-fi universe.</h2>
+
+          <p>
+            Star Citizen is a large-scale space simulation that blends space flight, FPS combat and a fully player-driven economy into one persistent online universe.
+            Unlike traditional MMOs, there are no fixed classes or predefined paths — you choose your role, your ship and your pace.
+          </p>
+
+          <p>
+            You can pilot ships across entire planetary systems, trade cargo between stations, mine resources, run delivery contracts, bounty hunt criminals or join multi-crew operations.
+            Every activity connects to a shared economy where supply, demand and risk directly affect your earnings.
+          </p>
+
+          <p>
+            What makes Star Citizen unique is its persistence. The universe continues evolving through active development, frequent updates and system expansion.
+            Features improve, mechanics deepen and new gameplay loops are introduced over time — which makes understanding the fundamentals especially important for beginners.
+          </p>
+
+          <p>
+            It is not a fast arcade space shooter. It rewards preparation, knowledge and efficiency.
+            If you start with a clear plan, your first hours become structured instead of overwhelming — and that’s exactly what this guide is built for.
+          </p>
+        </div>
+
+        <div class="card pad">
+          <img
+  class="imgRounded"
+  src="/assets/img/home/scb-home-what-is-star-citizen.webp"
+  alt="Star Citizen character looking over a planet horizon"
+  loading="lazy"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
+      </div>
+    </section>
+
+    <!-- ===================== IS IT FOR YOU? ===================== -->
+    <section id="is-it-for-you" class="section">
+      <div class="grid2">
+        <div class="card pad">
+          <img
+  class="imgRounded"
+  src="/assets/img/home/scb-home-pros-cons.webp"
+  alt="Star Citizen character looking over a planet horizon"
+  loading="lazy"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span> Is it for you?</div>
+          <h2 class="section__title">High highs. Real depth.</h2>
+
+          <p>
+            Star Citizen rewards patience, planning and systems thinking. It is designed for players who enjoy learning mechanics, understanding ships,
+            optimizing routes and gradually mastering complex systems rather than rushing through scripted content.
+          </p>
+
+          <p>
+            If you like sandbox games where your decisions shape your experience — whether that’s focusing on exploration, trading, combat or cooperative gameplay —
+            you’ll likely feel at home. There is no single “correct” way to play, but there are smarter ways to start.
+          </p>
+
+          <ul>
+            <li><b>You’ll enjoy it if:</b> you prefer freedom over hand-holding, long-term progression over instant rewards, and immersive environments over fast arcade loops.</li>
+            <li><b>Be aware:</b> the game is still in active development. Bugs, balance changes and performance fluctuations are part of the experience.</li>
+            <li><b>Good to know:</b> optimized settings and a structured early-game plan dramatically improve your first impression.</li>
+          </ul>
+
+          <p>
+            If you approach Star Citizen with realistic expectations and a structured entry path, the experience can feel uniquely immersive and rewarding.
+            If you expect a polished, linear campaign with instant clarity, it may feel overwhelming at first.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+
+
+
+
+
+
+
+
+
