@@ -151,5 +151,73 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
       window.addEventListener("resize", setSticky, { passive: true });
       setSticky();
     </script>
-  </body>
+  
+    <div id="copyToast" class="copyToast" role="status" aria-live="polite">Copied</div>
+
+    <script>
+      (() => {
+        const FALLBACK_CODE = "STAR-FSRJ-5N7Z";
+        const toast = document.getElementById("copyToast");
+        let t;
+
+        async function copyText(str) {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(str);
+              return true;
+            }
+          } catch (e) {}
+
+          try {
+            const ta = document.createElement("textarea");
+            ta.value = str;
+            ta.setAttribute("readonly", "");
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand("copy");
+            document.body.removeChild(ta);
+            return ok;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function showToast(msg) {
+          if (!toast) return;
+          toast.textContent = msg;
+          toast.classList.add("is-visible");
+          window.clearTimeout(t);
+          t = window.setTimeout(() => toast.classList.remove("is-visible"), 1200);
+        }
+
+        document.addEventListener(
+          "click",
+          async (e) => {
+            const btn = e.target?.closest?.(".js-copyCode");
+            if (!btn) return;
+
+            const value = (btn.getAttribute("data-copy") || btn.textContent || FALLBACK_CODE).trim();
+            const ok = await copyText(value);
+
+            const status = btn.parentElement?.querySelector?.(".js-copyStatus");
+            if (status) {
+              status.textContent = ok ? "COPIED" : "COPY FAILED";
+              status.classList.add("is-visible");
+              status.setAttribute("data-show", "true");
+              window.setTimeout(() => {
+                status.textContent = "";
+                status.classList.remove("is-visible");
+                status.removeAttribute("data-show");
+              }, 1100);
+            }
+
+            showToast(ok ? "Copied referral code" : "Copy failed");
+          },
+          { passive: true }
+        );
+      })();
+    </script>
+</body>
 </html>
