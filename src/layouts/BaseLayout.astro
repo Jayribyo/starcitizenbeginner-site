@@ -151,54 +151,5 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
       window.addEventListener("resize", setSticky, { passive: true });
       setSticky();
     </script>
-
-    <!-- Global: copy referral codes anywhere they appear (buttons with .js-copyCode) -->
-    <script is:inline>
-      const bindCopyButtons = () => {
-        const els = document.querySelectorAll(".js-copyCode");
-        els.forEach((el) => {
-          if (!(el instanceof HTMLElement)) return;
-          if (el.dataset.copyBound === "true") return;
-          el.dataset.copyBound = "true";
-
-          el.addEventListener("click", async () => {
-            const text = el.dataset.copy || el.textContent?.trim() || "";
-            if (!text) return;
-
-            try {
-              await navigator.clipboard.writeText(text);
-            } catch {
-              // Fallback for older browsers / restricted contexts
-              const ta = document.createElement("textarea");
-              ta.value = text;
-              ta.setAttribute("readonly", "");
-              ta.style.position = "fixed";
-              ta.style.top = "-9999px";
-              document.body.appendChild(ta);
-              ta.select();
-              document.execCommand("copy");
-              document.body.removeChild(ta);
-            }
-
-            const host = el.closest(".js-copyHost") || el.parentElement;
-            const status = host?.querySelector?.(".js-copyStatus");
-            if (status instanceof HTMLElement) {
-              status.textContent = "Copied";
-              status.setAttribute("data-show", "true");
-              window.clearTimeout(status._copyT);
-              status._copyT = window.setTimeout(() => {
-                status.setAttribute("data-show", "false");
-              }, 1400);
-            }
-          });
-        });
-      };
-
-      // Run once on load
-      bindCopyButtons();
-
-      // If Astro swaps content later, re-bind safely
-      document.addEventListener("astro:page-load", bindCopyButtons);
-    </script>
   </body>
 </html>

@@ -27,6 +27,13 @@ body {
   isolation: isolate;
 }
 
+:root{
+  /* Layout caps for large/ultrawide displays.
+     Hero can be wider than content, but both should stop stretching. */
+  --scb-max-hero: 1560px;
+  --scb-max-content: 1180px;
+}
+
 /* Fixed background layer to prevent "seams" / color breaks while scrolling */
 body::before {
   content: "";
@@ -66,66 +73,28 @@ li {
 /* ========== Layout ========== */
 .container {
   /*
-    Authority layout: keep a premium, readable line length on ultra‑wide screens
-    while still looking great on 16:9.
+    Global layout change:
+    Match the newer Free Fly layout by allowing pages to use the full viewport
+    width (while keeping comfortable side padding). This removes the large
+    “boxed” margins on 16:9 screens.
   */
-  width: min(1440px, calc(100% - 36px));
-  margin-inline: auto;
-}
-
-/* Copy‑pill (used across pages: referral code blocks, quick answers, etc.) */
-.refOffer__code {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(214, 178, 85, 0.38);
-  background: rgba(7, 10, 14, 0.45);
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 800;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-size: 12px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.refOffer__code:hover {
-  border-color: rgba(214, 178, 85, 0.62);
-  box-shadow: 0 0 0 2px rgba(214, 178, 85, 0.10);
-}
-
-.refOffer__code:active {
-  transform: translateY(1px);
-}
-
-.refOffer__copied {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(214, 178, 85, 0.20);
-  border: 1px solid rgba(214, 178, 85, 0.55);
-  color: rgba(255, 255, 255, 0.96);
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.refOffer__copied[data-show="true"] {
-  opacity: 1;
-  transform: translateY(0);
+  /* Page frame: allow comfortable padding, but cap width on ultrawide screens. */
+  width: min(calc(100% - 36px), var(--scb-max-hero));
+  margin: 0 auto;
 }
 
 .section {
+  /* Default section width: readable, not stretched. */
   margin-top: 18px;
+  width: 100%;
+  max-width: var(--scb-max-content);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sections that should match hero width (e.g., the referral banner under the hero) */
+.section.section--heroWidth{
+  max-width: var(--scb-max-hero);
 }
 
 .grid2 {
@@ -1015,14 +984,10 @@ details[open].faq__item > .faq__q::after{
   overflow-wrap: anywhere;
 }
 
-/*
-  Prevent tiny header labels like "Step" from breaking into multiple lines.
-  IMPORTANT: Only apply this to dedicated step/phase tables.
-  (Applying it globally caused overlap on mobile for descriptive tables.)
-*/
-.table.table--tightFirstCol thead th:first-child,
-.table.table--tightFirstCol tbody th:first-child,
-.table.table--tightFirstCol tbody td:first-child{
+/* Prevent tiny header labels like "Step" from breaking into multiple lines on narrow screens */
+.table thead th:first-child,
+.table tbody th:first-child,
+.table tbody td:first-child{
   white-space: nowrap;
   overflow-wrap: normal;
   word-break: normal;

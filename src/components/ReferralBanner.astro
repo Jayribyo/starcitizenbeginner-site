@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="section" aria-label={ariaLabel}>
+<section class="section section--heroWidth" aria-label={ariaLabel}>
   <div class="refOffer">
     <div class="refOffer__badge" aria-hidden="true">BONUS</div>
 
@@ -42,7 +42,39 @@ const {
   </div>
 </section>
 
-<!-- Copy-to-clipboard binding is handled globally in BaseLayout.astro -->
+<script is:inline>
+  const nodes = document.querySelectorAll('.js-copyCode');
+  if (nodes && nodes.length) {
+    nodes.forEach((el) => {
+      el.addEventListener('click', async () => {
+        const code = (el.textContent || '').trim();
+        if (!code) return;
+
+        try {
+          await navigator.clipboard.writeText(code);
+          el.dataset.copied = 'true';
+          const status = el.parentElement?.querySelector('.js-copyStatus');
+          if (status) {
+            status.textContent = 'Copied ✓';
+            status.dataset.show = 'true';
+            window.clearTimeout(status.__t);
+            status.__t = window.setTimeout(() => {
+              status.textContent = '';
+              delete status.dataset.show;
+            }, 1200);
+          }
+          window.clearTimeout(el.__t);
+          el.__t = window.setTimeout(() => {
+            delete el.dataset.copied;
+          }, 1100);
+        } catch (e) {
+          // Fallback: prompt-style
+          window.prompt('Copy referral code:', code);
+        }
+      });
+    });
+  }
+</script>
 
 <style>
   /* Alias classes (your repo's global.css styles the older __text/__headline/__meta names).
