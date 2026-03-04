@@ -692,20 +692,6 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   background: rgba(255, 255, 255, 0.035);
 }
 
-/* Mobile readability: the hero can be very dark on narrow devices, so the TOC label
-   needs a bit more contrast (without changing the desktop look). */
-@media (max-width: 768px) {
-  .hero__tocCard .kicker {
-    color: rgba(255, 255, 255, 0.90);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
-  }
-
-  .hero__tocCard .dot {
-    background: rgba(255, 255, 255, 0.72);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
-  }
-}
-
 /* Home hero content alignment (match referral spacing) */
 .homeHero__content {
   /* Padding is handled by .hero__content globally */
