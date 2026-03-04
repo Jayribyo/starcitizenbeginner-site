@@ -1,0 +1,227 @@
+---
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+
+const {
+  showFooter = true,
+  activeNav = "",
+  lang = "en",
+  title = "Star Citizen Beginner (SCB)",
+  description = "",
+  canonicalPath = "/",
+  ogImage = "/assets/img/home/scb-home-hero.webp",
+  ogImageAlt = "Star Citizen Beginner – guide preview image",
+  robots = "index,follow",
+  stickyCtaLabel = "",
+  stickyCtaHref = "",
+  stickyCtaExternal = false,
+} = Astro.props;
+
+/* We assume `site` is correctly set in astro.config.mjs */
+const site = Astro.site.toString().replace(/\/$/, "");
+
+// Ensure canonicalPath always starts with /
+const safePath = canonicalPath?.startsWith("/")
+  ? canonicalPath
+  : `/${canonicalPath ?? ""}`;
+
+// Build absolute canonical URL
+const canonical = new URL(safePath, site).toString();
+
+// Absolute OG image URL
+const ogImageAbs = ogImage?.startsWith("http")
+  ? ogImage
+  : new URL(
+      ogImage.startsWith("/") ? ogImage : `/${ogImage}`,
+      site
+    ).toString();
+
+// Fallback description
+const desc =
+  description?.trim() ||
+  "Structured Star Citizen beginner guides: referral code bonus, Free Fly events, starter packs, early aUEC loops, and performance tips.";
+
+// OG locale mapping
+const ogLocaleMap = {
+  en: "en_US",
+  de: "de_DE",
+  fr: "fr_FR",
+  es: "es_ES",
+  zh: "zh_CN",
+};
+const ogLocale = ogLocaleMap[lang] ?? "en_US";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <meta name="robots" content={robots} />
+
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    <slot name="head" />
+  </head>
+
+  <body>
+    <div id="top" aria-hidden="true"></div>
+
+    <SiteHeader active={activeNav} />
+
+    <slot />
+
+    {showFooter && (
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__inner">
+            <div class="footer__brand">SCB — Unofficial Star Citizen guide.</div>
+            <div class="footer__legal">
+              Not affiliated with Cloud Imperium Games or Roberts Space Industries. Star Citizen® and related marks are trademarks of their respective owners.
+            </div>
+          </div>
+        </div>
+      </footer>
+    )}
+
+    {(stickyCtaLabel && stickyCtaHref) && (
+      <div class="stickyCta" id="stickyCta" aria-hidden="true">
+        <a
+          class="btn primary stickyCta__btn"
+          href={stickyCtaHref}
+          {...(stickyCtaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {stickyCtaLabel}
+        </a>
+      </div>
+    )}
+
+
+    <a class="backToTop" id="backToTop" href="#top" aria-label="Back to top">
+      ↑
+    </a>
+
+    <script is:inline>
+      const btn = document.getElementById("backToTop");
+
+      const setVisibility = () => {
+        if (!btn) return;
+        btn.classList.toggle("is-visible", window.scrollY > 650);
+      };
+
+      window.addEventListener("scroll", setVisibility, { passive: true });
+      window.addEventListener("resize", setVisibility, { passive: true });
+      setVisibility();
+
+      if (btn) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // Sticky CTA (mobile only)
+      const sticky = document.getElementById("stickyCta");
+      const setSticky = () => {
+        if (!sticky) return;
+        const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+        const show = isMobile && window.scrollY > (window.innerHeight * 0.30);
+        sticky.classList.toggle("is-visible", show);
+        sticky.setAttribute("aria-hidden", show ? "false" : "true");
+      };
+
+      window.addEventListener("scroll", setSticky, { passive: true });
+      window.addEventListener("resize", setSticky, { passive: true });
+      setSticky();
+    </script>
+  
+    <div id="copyToast" class="copyToast" role="status" aria-live="polite">Copied</div>
+
+    <script>
+      (() => {
+        const FALLBACK_CODE = "STAR-FSRJ-5N7Z";
+        const toast = document.getElementById("copyToast");
+        let t;
+
+        async function copyText(str) {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(str);
+              return true;
+            }
+          } catch (e) {}
+
+          try {
+            const ta = document.createElement("textarea");
+            ta.value = str;
+            ta.setAttribute("readonly", "");
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand("copy");
+            document.body.removeChild(ta);
+            return ok;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function showToast(msg) {
+          if (!toast) return;
+          toast.textContent = msg;
+          toast.classList.add("is-visible");
+          window.clearTimeout(t);
+          t = window.setTimeout(() => toast.classList.remove("is-visible"), 1200);
+        }
+
+        document.addEventListener(
+          "click",
+          async (e) => {
+            const btn = e.target?.closest?.(".js-copyCode");
+            if (!btn) return;
+
+            const value = (btn.getAttribute("data-copy") || btn.textContent || FALLBACK_CODE).trim();
+            const ok = await copyText(value);
+
+            const status = btn.parentElement?.querySelector?.(".js-copyStatus");
+            if (status) {
+              status.textContent = ok ? "COPIED" : "COPY FAILED";
+              status.classList.add("is-visible");
+              status.setAttribute("data-show", "true");
+              window.setTimeout(() => {
+                status.textContent = "";
+                status.classList.remove("is-visible");
+                status.removeAttribute("data-show");
+              }, 1100);
+            }
+
+            showToast(ok ? "Copied referral code" : "Copy failed");
+          },
+          { passive: true }
+        );
+      })();
+    </script>
+</body>
+</html>

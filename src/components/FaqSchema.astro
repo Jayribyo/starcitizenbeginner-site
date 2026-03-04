@@ -1,0 +1,17 @@
+---
+/**
+ * FaqSchema
+ * Renders FAQPage JSON-LD (Schema.org) for search engines.
+ *
+ * Usage:
+ *   <FaqSchema json={faqJsonLd} />
+ *
+ * Keep the JSON-LD payload strict (no HTML) for best compatibility.
+ */
+const { json } = Astro.props;
+
+// Allow passing either an object or a pre-stringified JSON.
+const payload = typeof json === "string" ? json : JSON.stringify(json);
+---
+
+<script type="application/ld+json" set:html={payload}></script>

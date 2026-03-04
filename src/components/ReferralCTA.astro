@@ -1,0 +1,38 @@
+---
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = "https://www.robertsspaceindustries.com/enlist?referral=STAR-FSRJ-5N7Z";
+
+const { title, blurb, ctaPrimary, ctaSecondary, ctaSecondaryHref = "#quickstart" } = Astro.props;
+---
+<div class="card">
+  <div class="kicker">Referral bonus</div>
+  <h2 style="margin:10px 0 8px; font-size: 20px;">{title}</h2>
+  <p style="margin:0 0 14px; color: rgba(255,255,255,.78);">{blurb}</p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+    <span class="badge">
+      Code: <strong style="color:#fff;">{referralCode}</strong>
+    </span>
+    <button class="btn ghost" id="copyBtn" type="button">Copy code</button>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+    <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">{ctaPrimary}</a>
+    <a class="btn ghost" href={ctaSecondaryHref}>{ctaSecondary}</a>
+  </div>
+
+  <script is:inline>
+    const btn = document.getElementById("copyBtn");
+    if (btn) {
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("STAR-FSRJ-5N7Z");
+          btn.textContent = "Copied ✓";
+          setTimeout(()=>btn.textContent="Copy code", 1400);
+        } catch (e) {
+          alert("Code: STAR-FSRJ-5N7Z");
+        }
+      });
+    }
+  </script>
+</div>

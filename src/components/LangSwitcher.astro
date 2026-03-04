@@ -1,0 +1,29 @@
+---
+const { lang, paths } = Astro.props;
+
+// paths: { en:"/", de:"/de/", es:"/es/", fr:"/fr/", ru:"/ru/", zh:"/zh/" }
+const langs = [
+  { key: "en", label: "EN" },
+  { key: "de", label: "DE" },
+  { key: "es", label: "ES" },
+  { key: "fr", label: "FR" },
+  { key: "ru", label: "RU" },
+  { key: "zh", label: "中文" },
+];
+---
+<nav aria-label="Language switcher">
+  <div class="badge">
+    <span style="opacity:.8;">Lang:</span>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      {langs.map(l => (
+        <a
+          href={paths[l.key]}
+          style={`text-decoration:none; font-weight:800; opacity:${l.key===lang ? 1 : .7};`}
+          aria-current={l.key===lang ? "page" : undefined}
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
