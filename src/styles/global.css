@@ -740,21 +740,6 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 }
 
-
-
-/* Mobile readability: the hero-integrated TOC sits on top of imagery + glass.
-   The global .kicker is intentionally subtle, but here we need stronger contrast. */
-@media (max-width: 900px), (hover: none) and (pointer: coarse) {
-  .hero__tocCard .kicker {
-    color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  }
-  .hero__tocCard .dot {
-    background: rgba(255, 255, 255, 0.72);
-  }
-}
-
-
 /* The "On this page" component is now integrated into the hero on key pages,
    so we no longer need global margin hacks to keep it in the fold. */
 
