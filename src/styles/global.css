@@ -157,6 +157,51 @@ li {
   background: rgba(255, 255, 255, 0.55);
 }
 
+/* Copyable code pill (reused across pages; JS behavior is attached by ReferralBanner) */
+.codePillRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.codePill{
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(216,168,74,.38);
+  background: rgba(0,0,0,.28);
+  color: rgba(255,255,255,.92);
+  font-weight: 900;
+  letter-spacing: .06em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.codePill[data-copied="true"]{
+  border-color: rgba(216,168,74,.7);
+  box-shadow: 0 0 0 2px rgba(216,168,74,.22);
+}
+
+.copyStatus{
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(216,168,74,.45);
+  background: rgba(216,168,74,.16);
+  font-size: 0.85rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+  color: rgba(216,168,74,0.98);
+  opacity: 0;
+  transform: translateY(-1px);
+  transition: opacity .18s ease, transform .18s ease;
+  white-space: nowrap;
+}
+
+.copyStatus[data-show="true"]{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .h1 {
   font-size: clamp(30px, 4vw, 44px);
   line-height: 1.05;

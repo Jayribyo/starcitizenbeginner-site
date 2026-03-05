@@ -120,7 +120,10 @@ const faqItems = [
     </div>
     <div>
       <h3 class="h3">Use this code</h3>
-      <div class="codebox">{referralCode}</div>
+      <div class="codePillRow">
+        <button class="codePill js-copyCode" type="button" aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+        <span class="copyStatus js-copyStatus" role="status" aria-live="polite"></span>
+      </div>
       <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;">
         <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
         <a class="btn" href="/satellites/where-to-enter-referral-code/">Where to paste it</a>
@@ -158,25 +161,13 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
 
-<div class="grid-3">
-  <a class="card pad linkcard" href="/star-citizen-referral-code/">
-    <div class="kicker"><span class="dot"></span>Referral hub</div>
-    <h3 class="h3">Referral code guide</h3>
-    <p class="muted">Everything in one place: when it applies, common pitfalls, and what to do next.</p>
-  </a>
-  <a class="card pad linkcard" href="/free-fly/">
-    <div class="kicker"><span class="dot"></span>Try first</div>
-    <h3 class="h3">Free Fly first session</h3>
-    <p class="muted">Try without buying—then decide with real experience.</p>
-  </a>
-  <a class="card pad linkcard" href="/star-citizen-starter-packs/">
-    <div class="kicker"><span class="dot"></span>Buy smart</div>
-    <h3 class="h3">Starter packs</h3>
-    <p class="muted">Spend the minimum and avoid beginner purchase traps.</p>
-  </a>
-</div>
-
-</section>
+        <ul class="bullets">
+          <li><a href="/star-citizen-referral-code/">Referral code guide</a> — where to paste it, when it counts, and the common mistakes.</li>
+          <li><a href="/free-fly/">Free Fly first session</a> — try the game without buying, then decide with real experience.</li>
+          <li><a href="/star-citizen-starter-packs/">Starter packs</a> — spend the minimum and avoid beginner purchase traps.</li>
+        </ul>
+      </div>
+    </section>
 
     <section id="faq" class="section">
       <div class="container">
