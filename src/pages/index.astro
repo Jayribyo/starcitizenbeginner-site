@@ -9,13 +9,6 @@ const referralPage = "/star-citizen-referral-code/";
 
 const tiles = [
   {
-    href: referralPage,
-    img: "/assets/img/home/tiles/scb-tile-referral-bonus.webp",
-    title: "Referral Bonus",
-    desc: "Use a Star Citizen referral code and start with extra in-game credits.",
-    pill: "Bonus",
-  },
-  {
     href: "/beginner-tips/",
     img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
     title: "Beginner Tips",
@@ -26,38 +19,45 @@ const tiles = [
     href: "/free-fly/",
     img: "/assets/img/home/tiles/star-citizen-free-fly-tile.webp",
     title: "Free Fly",
-    desc: "Test all Ships for free and take off.",
-    pill: "Fly Free",
+    desc: "Try Star Citizen before you buy. What to test first, what to ignore.",
+    pill: "Try it",
   },
   {
-    href: "/starter-pack-guide/",
+    href: "/star-citizen-starter-packs/",
     img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
-    title: "Starter Pack Guide",
-    desc: "Which ship to choose and when to upgrade.",
+    title: "Starter Packs",
+    desc: "Pick a starter without wasting money. Clear decision path.",
     pill: "Buy smart",
   },
   {
-    href: "/earn-auec-fast/",
+    href: "/make-money-fast/",
     img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
     title: "Make Money Fast",
-    desc: "Early aUEC routes, contracts and safe income loops.",
-    pill: "aUEC",
+    desc: "Beginner-proof money loops. Safe routes first, scaling paths next.",
+    pill: "Credits",
   },
   {
-    href: "/best-settings/",
+    href: "/star-citizen-performance-guide/",
     img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
     title: "Performance & FPS",
-    desc: "Optimized settings to make Star Citizen run smoother.",
+    desc: "Concrete settings and PC targets. Fix stutter and crashes first.",
     pill: "FPS",
+  },
+  {
+    href: "/should-you-buy-star-citizen/",
+    img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
+    title: "Should You Buy?",
+    desc: "2-minute decision test + beginner-proof first session route.",
+    pill: "Decision",
   },
 ];
 ---
 
 <BaseLayout
-  title="Star Citizen Beginner Guide – Smart Start System for New Players"
-  description="Start Star Citizen the smart way. Structured beginner guides, referral bonus help, Free Fly tips, starter pack advice, and early aUEC routes — clear, practical, and up to date."
+  title="Star Citizen Beginner Guide – Start Smart, Avoid Mistakes, Enjoy Your First Session"
+  description="A no-fluff Star Citizen beginner hub: pick your path, run a beginner-proof first session route, fix performance fast, choose a starter pack without wasting money, and learn safe money loops."
   canonicalPath="/"
-  stickyCtaLabel="Start your Star Citizen journey"
+  stickyCtaLabel="Claim signup bonus (+50k UEC)"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
  activeNav="home">
@@ -81,12 +81,10 @@ const tiles = [
         <div class="homeHero__content">
           <div style="max-width:720px; padding: 26px 0;">
             <h1 class="h1">Star Citizen Beginner Guide</h1>
-            <p class="lead">The clean path for new pilots.</p>
+            <p class="lead">Pick your path. Get your first good session. Buy only if it makes sense.</p>
 
             <div class="btnrow">
-              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
-                Start your Star Citizen journey
-              </a>
+              <a class="btn primary" href="#first-session">Start the 10-minute beginner route</a>
             </div>
           </div>
         </div>
@@ -97,9 +95,12 @@ const tiles = [
         variant="hero"
         title="On this page"
         items={[
-          { label: "Guides", href: "#guides" },
-          { label: "What Star Citizen is", href: "#what-is" },
-          { label: "Is it for you?", href: "#is-it-for-you" },
+          { label: "Quick answer", href: "#quick-answer" },
+          { label: "Pick your path", href: "#pick-your-path" },
+          { label: "First 60 minutes", href: "#first-session" },
+          { label: "Go deeper", href: "#guides" },
+          { label: "Common mistakes", href: "#mistakes" },
+          { label: "FAQ", href: "#faq" },
         ]}
       />
     </section>
@@ -110,16 +111,168 @@ const tiles = [
       bonus="50,000 UEC"
       ctaHref={referralLink}
       howItWorksHref={`${referralPage}#how-to-use`}
-      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
+      sublineHtml="Optional. No cost. Doesn’t change your price — it just adds the signup bonus."
       ariaLabel="Referral bonus callout"
     />
+
+    <!-- ===================== QUICK ANSWER ===================== -->
+    <section id="quick-answer" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Quick answer</h2>
+
+        <div class="grid2" style="margin-top:10px;">
+          <div>
+            <ul class="list">
+              <li><b>Not sure if you should buy?</b> Start with <a href="/free-fly/">Free Fly →</a> or take the <a href="/should-you-buy-star-citizen/">2‑minute decision test →</a>.</li>
+              <li><b>Buying anyway?</b> Pick a <a href="/star-citizen-starter-packs/">starter pack without wasting money →</a> (upgrade later only if you keep playing).</li>
+              <li><b>Game runs badly?</b> Do the <a href="/star-citizen-performance-guide/">10‑minute performance fix →</a> before judging the game.</li>
+              <li><b>Need credits fast?</b> Use a <a href="/make-money-fast/">beginner-proof money loop →</a> (safe first, scaling second).</li>
+            </ul>
+          </div>
+          <div>
+            <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+              <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + claim signup bonus</a>
+              <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">Where to paste the code →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PICK YOUR PATH ===================== -->
+    <section id="pick-your-path" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Pick your path (60‑second decision)</h2>
+        <p style="max-width: 980px;">
+          Don’t start random. Choose the path that matches where you are right now — then follow the next link and execute.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Your situation</th>
+                <th>Do this now</th>
+                <th>Next page</th>
+                <th>Common mistake</th>
+                <th>Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>I haven’t bought yet</th>
+                <td>Try the game first (avoid overwhelm)</td>
+                <td><a href="/free-fly/">Free Fly guide →</a></td>
+                <td>Judging the game from one bad session</td>
+                <td>Run the first‑session route + fix performance first</td>
+              </tr>
+              <tr>
+                <th>I’m deciding whether to buy</th>
+                <td>Use a clear yes/no checklist</td>
+                <td><a href="/should-you-buy-star-citizen/">Should you buy? →</a></td>
+                <td>Buying extra ships early</td>
+                <td>Start minimum → upgrade later if you keep playing</td>
+              </tr>
+              <tr>
+                <th>I’m ready to buy</th>
+                <td>Choose the right starter pack once</td>
+                <td><a href="/star-citizen-starter-packs/">Starter packs →</a></td>
+                <td>Picking based on looks only</td>
+                <td>Pick by your first loop (combat / delivery / mining)</td>
+              </tr>
+              <tr>
+                <th>It stutters / crashes</th>
+                <td>Apply the high-impact fixes</td>
+                <td><a href="/star-citizen-performance-guide/">Performance guide →</a></td>
+                <td>Tweaking 20 settings at once</td>
+                <td>Change 1 cluster → retest in the same location</td>
+              </tr>
+              <tr>
+                <th>I need credits</th>
+                <td>Run a safe loop 2–3 times</td>
+                <td><a href="/make-money-fast/">Make money fast →</a></td>
+                <td>Trading “all-in” too early</td>
+                <td>Start small → scale only after repeatable wins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Buying soon? Claim the signup bonus</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FIRST SESSION ROUTE ===================== -->
+    <section id="first-session" class="section">
+      <div class="card pad">
+        <h2 class="section__title">First 60 minutes (beginner-proof route)</h2>
+        <p style="max-width: 980px;">
+          Your goal is simple: one clean loop you can repeat. This route minimizes confusion and maximizes “okay, I get it now.”
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Do</th>
+                <th>Why</th>
+                <th>If you get stuck</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Spawn and set your home location</td>
+                <td>Reduces friction on your next login</td>
+                <td>Follow station signage + elevators (stay in the main flow)</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Claim your ship at the ASOP terminal</td>
+                <td>Gets you moving fast</td>
+                <td>If the UI bugs out: relog once</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>Run a simple courier/delivery contract</td>
+                <td>Teaches travel + navigation with low risk</td>
+                <td><a href="/make-money-fast/#do-this-now">Use the 10‑minute money route →</a></td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>Get your first payout and repeat 1–2 times</td>
+                <td>Builds confidence and routine</td>
+                <td>If performance ruins it: <a href="/star-citizen-performance-guide/#do-this-now">do the 10‑minute fix →</a></td>
+              </tr>
+              <tr>
+                <th>5</th>
+                <td>Log out safely (don’t gamble your progress)</td>
+                <td>Protects your first session experience</td>
+                <td>Keep gear cheap until the loop is stable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="pad">
+            <div class="kicker"><span class="dot"></span> Verify</div>
+            <p style="margin:0;">You should complete <b>one full contract loop</b> in your first session. If you can’t, fix performance first — then retry the same route.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ===================== GUIDES ===================== -->
     <section id="guides" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Beginner Guides</div>
-        <h2 class="section__title">Start here. Then go deeper.</h2>
-        <p class="lead">Structured guides for your first hours, ships, credits and performance.</p>
+        <h2 class="section__title">Go deeper (choose one next step)</h2>
+        <p class="lead">Use these pages as specialized tools. Pick one, execute, then come back.</p>
       </div>
 
       <div class="tiles">
@@ -144,86 +297,108 @@ const tiles = [
       </div>
     </section>
 
-    <!-- ===================== WHAT IS STAR CITIZEN? ===================== -->
-    <section id="what-is" class="section">
-      <div class="grid2">
-        <div class="card pad">
-          <div class="kicker"><span class="dot"></span> What is Star Citizen?</div>
-          <h2 class="section__title">A living sci-fi universe.</h2>
+    <!-- ===================== COMMON MISTAKES ===================== -->
+    <section id="mistakes" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Common beginner mistakes (and the exact fix)</h2>
 
-          <p>
-            Star Citizen is a large-scale space simulation that blends space flight, FPS combat and a fully player-driven economy into one persistent online universe.
-            Unlike traditional MMOs, there are no fixed classes or predefined paths — you choose your role, your ship and your pace.
-          </p>
-
-          <p>
-            You can pilot ships across entire planetary systems, trade cargo between stations, mine resources, run delivery contracts, bounty hunt criminals or join multi-crew operations.
-            Every activity connects to a shared economy where supply, demand and risk directly affect your earnings.
-          </p>
-
-          <p>
-            What makes Star Citizen unique is its persistence. The universe continues evolving through active development, frequent updates and system expansion.
-            Features improve, mechanics deepen and new gameplay loops are introduced over time — which makes understanding the fundamentals especially important for beginners.
-          </p>
-
-          <p>
-            It is not a fast arcade space shooter. It rewards preparation, knowledge and efficiency.
-            If you start with a clear plan, your first hours become structured instead of overwhelming — and that’s exactly what this guide is built for.
-          </p>
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What happens</th>
+                <th>Fix (exact)</th>
+                <th>Next step</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Trying to learn everything at once</th>
+                <td>Overwhelm, random choices, slow progress</td>
+                <td>Pick one loop (delivery or simple bounty) and repeat it 2–3 times</td>
+                <td><a href="/make-money-fast/">Money loop guide →</a></td>
+              </tr>
+              <tr>
+                <th>Judging the game while it stutters</th>
+                <td>Bad first impression, crashes, wasted time</td>
+                <td>Apply the 10‑minute performance fixes before you evaluate</td>
+                <td><a href="/star-citizen-performance-guide/">Performance guide →</a></td>
+              </tr>
+              <tr>
+                <th>Buying extra ships early</th>
+                <td>Regret spend, still no clear playstyle</td>
+                <td>Start with one starter pack; upgrade only after consistent play</td>
+                <td><a href="/star-citizen-starter-packs/">Starter packs →</a></td>
+              </tr>
+              <tr>
+                <th>Skipping Free Fly structure</th>
+                <td>Testing the wrong things, missing the fun</td>
+                <td>Use the Free Fly checklist + first session plan</td>
+                <td><a href="/free-fly/">Free Fly guide →</a></td>
+              </tr>
+              <tr>
+                <th>Missing the signup bonus window</th>
+                <td>No free starting credits</td>
+                <td>Enter a referral code during account creation</td>
+                <td><a href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + claim bonus →</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        <div class="card pad">
-          <img
-  class="imgRounded"
-  src="/assets/img/home/scb-home-what-is-star-citizen.webp"
-  alt="Star Citizen character looking over a planet horizon"
-  loading="lazy"
-  decoding="async"
-  width="1536"
-  height="1024"
-/>
       </div>
     </section>
 
-    <!-- ===================== IS IT FOR YOU? ===================== -->
-    <section id="is-it-for-you" class="section">
-      <div class="grid2">
-        <div class="card pad">
-          <img
-  class="imgRounded"
-  src="/assets/img/home/scb-home-pros-cons.webp"
-  alt="Star Citizen character looking over a planet horizon"
-  loading="lazy"
-  decoding="async"
-  width="1536"
-  height="1024"
-/>
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq" class="section">
+      <div class="card pad">
+        <h2 class="section__title">FAQ</h2>
+        <div class="faq" style="margin-top:12px;">
+          <details class="faq__item">
+            <summary class="faq__q">Can I try Star Citizen without buying?</summary>
+            <div class="faq__a">Yes. Use <a href="/free-fly/">Free Fly →</a> to test the game first and follow a structured first session plan.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">What’s the smartest first thing to do in-game?</summary>
+            <div class="faq__a">Run one simple contract loop (delivery/courier) and repeat it 2–3 times. It teaches travel, UI, and pays you without heavy risk.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Do I need a strong PC?</summary>
+            <div class="faq__a">You need a solid baseline and the right settings. If the game stutters, fix performance first: <a href="/star-citizen-performance-guide/">Performance guide →</a></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">What starter pack should I buy?</summary>
+            <div class="faq__a">Pick a pack that matches your first loop and buy the minimum. Use this: <a href="/star-citizen-starter-packs/">Starter packs guide →</a></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Is the referral code mandatory?</summary>
+            <div class="faq__a">No. It’s optional and doesn’t change your price. If you want the free starting credits, enter it during signup: <a href="/star-citizen-referral-code/">how it works →</a></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can I use these guides during Free Fly?</summary>
+            <div class="faq__a">Yes. The same first-session route and money loops work — you’re just testing before buying.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">How do I make money fast as a beginner?</summary>
+            <div class="faq__a">Start with safe delivery loops, then scale into bounties or mining. Full playbooks here: <a href="/make-money-fast/">Make money fast →</a></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">What should I avoid in my first hours?</summary>
+            <div class="faq__a">Avoid all-in trading, expensive gear runs, and changing 20 settings at once. Build one repeatable loop first.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">I’m overwhelmed. What’s the simplest route?</summary>
+            <div class="faq__a">Follow the <a href="#first-session">First 60 minutes route</a> on this page and ignore everything else until you complete one full loop.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Where do I enter the referral code?</summary>
+            <div class="faq__a">On the RSI signup page during account creation. Quick guide: <a href="/star-citizen-referral-code/#how-to-use">Where to paste it →</a></div>
+          </details>
         </div>
 
-        <div class="card pad">
-          <div class="kicker"><span class="dot"></span> Is it for you?</div>
-          <h2 class="section__title">High highs. Real depth.</h2>
-
-          <p>
-            Star Citizen rewards patience, planning and systems thinking. It is designed for players who enjoy learning mechanics, understanding ships,
-            optimizing routes and gradually mastering complex systems rather than rushing through scripted content.
-          </p>
-
-          <p>
-            If you like sandbox games where your decisions shape your experience — whether that’s focusing on exploration, trading, combat or cooperative gameplay —
-            you’ll likely feel at home. There is no single “correct” way to play, but there are smarter ways to start.
-          </p>
-
-          <ul>
-            <li><b>You’ll enjoy it if:</b> you prefer freedom over hand-holding, long-term progression over instant rewards, and immersive environments over fast arcade loops.</li>
-            <li><b>Be aware:</b> the game is still in active development. Bugs, balance changes and performance fluctuations are part of the experience.</li>
-            <li><b>Good to know:</b> optimized settings and a structured early-game plan dramatically improve your first impression.</li>
-          </ul>
-
-          <p>
-            If you approach Star Citizen with realistic expectations and a structured entry path, the experience can feel uniquely immersive and rewarding.
-            If you expect a polished, linear campaign with instant clarity, it may feel overwhelming at first.
-          </p>
+        <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + claim signup bonus</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
         </div>
       </div>
     </section>
