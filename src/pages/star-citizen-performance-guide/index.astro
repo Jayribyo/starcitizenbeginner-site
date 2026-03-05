@@ -38,7 +38,7 @@ const faqItems = [
   },
   {
     q: "Is stutter normal on the first session?",
-    a: "Some hitching after a big patch can be normal while shaders/assets settle. If it stays bad after 2–3 sessions, it’s usually SSD/RAM/pagefile headroom or overlays.",
+    a: "Some hitching can happen on a fresh install or after major driver/graphics-setting changes while shaders/assets settle. If it stays bad after 2–3 repeat runs in the same spot, it’s usually SSD/RAM/pagefile headroom or overlays.",
   },
   {
     q: "Should I cap FPS or use V-Sync?",
@@ -51,6 +51,23 @@ const faqItems = [
   {
     q: "Do I need a high-end PC to enjoy the game?",
     a: "No — but you do need the right basics: SSD + enough RAM + a decent CPU. If your baseline is stable, you can enjoy most content even if city FPS isn’t perfect.",
+  },
+
+  {
+    q: "Should I use Vulkan or DirectX?",
+    a: "Start with the option that is stable on your system. If Vulkan gives crashes or severe stutter, switch back to DirectX and retest in the same location. Stability beats a tiny FPS gain.",
+  },
+  {
+    q: "How much free disk space do I need on the SSD?",
+    a: "Keep meaningful headroom. As a rule-of-thumb, aim for ~20% free space on the drive that holds the game. Low free space can worsen caching and increase stutter or crashes.",
+  },
+  {
+    q: "Will more RAM reduce stutter?",
+    a: "Often, yes. 16 GB can work, but it’s easier to hit memory pressure (pagefile spikes, hitching, out-of-memory errors). 32 GB is the most consistent beginner baseline.",
+  },
+  {
+    q: "Should I reinstall the game if performance is bad?",
+    a: "Only after you’ve done the basics: SSD install, enough free space, pagefile set safely, overlays off, and a stable driver. Reinstalling rarely fixes a hardware bottleneck or memory pressure.",
   },
 ];
 
@@ -392,7 +409,7 @@ ctaHref={referralLink}
                 <th>Graphics Renderer <span style="opacity:.7;">(Official)</span></th>
                 <td>Try <b>Vulkan</b> first. If unstable, switch back to DirectX.</td>
                 <td>High</td>
-                <td>Vulkan can be patch/driver sensitive.</td>
+                <td>Vulkan can be driver sensitive.</td>
               </tr>
               <tr>
                 <th>Upscaling Technique <span style="opacity:.7;">(Official)</span></th>
@@ -498,9 +515,9 @@ ctaHref={referralLink}
               </tr>
               <tr>
                 <td><b>4</b></td>
-                <td><b>After big patches: play 1–2 sessions</b> before judging</td>
-                <td>Shaders/assets can settle after an update.</td>
-                <td>Stutter improves across repeat runs.</td>
+                <td><b>Repeat the same route 2–3 times</b> before judging</td>
+                <td>Streaming + shader caching can look worse on the first run.</td>
+                <td>Later runs should feel smoother in the same route.</td>
               </tr>
             </tbody>
           </table>
@@ -605,22 +622,27 @@ ctaHref={referralLink}
     </section>
 
     <!-- Contextual referral CTA (banner stays only once, below hero) -->
-    <p style="margin-top: 14px; max-width: 980px;">
-      <b>New account?</b> A referral code gives you a free starting credit boost — only during signup.
-    </p>
-    <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
-      <a class="btn secondary" href={referralLink}>Claim your start bonus (+{referralBonusUEC} UEC)</a>
-      <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
-    </div>
+    <section class="section" aria-label="Referral start bonus">
+      <div class="card pad">
+        <h2 class="section__title">Free start bonus (only during signup)</h2>
+        <p style="margin-top:0;">
+          If you’re creating a brand-new account, a referral code gives you <b>+{referralBonusUEC} UEC</b> to start with.
+          It’s optional — but if you plan to buy anyway, it’s the easiest free boost you’ll ever get.
+        </p>
+        <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
+          <a class="btn secondary" href={referralLink} target="_blank" rel="noopener">Create account with bonus (+{referralBonusUEC} UEC)</a>
+          <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+        </div>
+      </div>
+    </section>
 
-<!-- UPGRADES -->
+    <!-- UPGRADES -->
     <section id="upgrades" class="section">
       <div class="card pad">
         <h2 class="section__title">Upgrades that matter (highest ROI first)</h2>
-        <p>
+        <p style="margin-top:0;">
           Want the biggest improvement per euro? Prioritize stability first (stutter/crashes), then chase resolution/visuals.
         </p>
-</div>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
@@ -634,23 +656,23 @@ ctaHref={referralLink}
             <tbody>
               <tr>
                 <th>SSD / NVMe</th>
-                <td>Huge stutter reduction</td>
+                <td>High</td>
                 <td>If the game is on HDD or a slow drive.</td>
               </tr>
               <tr>
                 <th>RAM headroom</th>
-                <td>Fewer spikes + fewer crashes</td>
+                <td>High</td>
                 <td>If you’re on 16 GB, upgrade to <b>32 GB</b>. If you multitask/stream, consider <b>64 GB</b>.</td>
               </tr>
               <tr>
                 <th>CPU headroom</th>
-                <td>Better consistency in hubs</td>
-                <td>If lowering resolution doesn’t help and cities feel choppy.</td>
+                <td>Medium</td>
+                <td>If lowering resolution barely helps and hubs feel choppy/uneven.</td>
               </tr>
               <tr>
                 <th>GPU</th>
-                <td>Higher visuals / resolution</td>
-                <td>If you’re clearly GPU-bound and want a sharper image.</td>
+                <td>Medium</td>
+                <td>If you’re clearly GPU-bound and want higher resolution or sharper visuals.</td>
               </tr>
             </tbody>
           </table>
@@ -659,7 +681,7 @@ ctaHref={referralLink}
         <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
           <div>
             <strong>Next step</strong>
-            <div style="color: rgba(255,255,255,.74);">If your PC meets the baseline, pick a beginner-friendly starter pack and start playing.</div>
+            <div style="color: rgba(255,255,255,.74);">If your baseline is stable, pick a beginner-friendly starter pack and start playing.</div>
           </div>
           <a class="btn primary" href="/star-citizen-starter-packs/">Choose a starter pack</a>
         </div>
@@ -685,7 +707,9 @@ ctaHref={referralLink}
             <div style="color: rgba(255,255,255,.74);">Use a referral code before signup, then pick a starter pack that fits your playstyle.</div>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-<a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
+            <a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
+            <a class="btn secondary" href={referralLink} target="_blank" rel="noopener">Create account with bonus (+{referralBonusUEC} UEC)</a>
+            <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
           </div>
         </div>
       </div>
