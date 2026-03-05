@@ -4,6 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -129,6 +130,8 @@ const howToJsonLd = {
   <HowToSchema slot="head" json={howToJsonLd} />
 
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Performance guide', href: '/star-citizen-performance-guide/' }]} />
     <!-- HERO -->
     <section class="hero guideHero">
       <img
@@ -175,6 +178,9 @@ ctaHref={referralLink}
     <section id="requirements" class="section">
       <div class="card pad">
         <h2 class="section__title">Requirements: min / recommended / optimal</h2>
+
+        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+
         <p>
           Star Citizen is a <strong>streaming-heavy</strong> game. If one pillar is weak, you’ll feel it even with a strong GPU:
           <strong>SSD</strong> (asset streaming), <strong>RAM + pagefile headroom</strong> (stutter/crash prevention), and <strong>CPU headroom</strong> (cities + big fights).
@@ -630,7 +636,7 @@ ctaHref={referralLink}
           It’s optional — but if you plan to buy anyway, it’s the easiest free boost you’ll ever get.
         </p>
         <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus (+{referralBonusUEC} UEC)</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus +{referralBonusUEC} UEC</a>
           <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
         </div>
       </div>
@@ -690,13 +696,30 @@ ctaHref={referralLink}
 
     <!-- FAQ -->
     
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+            <li><a href="/star-citizen-performance-guide/">Fix stutter + FPS</a></li>
+            <li><a href="/free-fly/">Try without buying</a></li>
+            <li><a href="/should-you-buy-star-citizen/">Take the 2-minute buy test</a></li>
+            <li><a href="/make-money-fast/">Earn credits fast</a></li>
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="related-answers" class="section alt">
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-            <li><a href="/fix-stuttering/">Fix stuttering (SSD/RAM/pagefile checklist)</a></li>
-            <li><a href="/cpu-vs-gpu-bottleneck-test/">CPU vs GPU bottleneck test (2 minutes)</a></li>
-        </ul>
+            <li><a href="/satellites/fix-stuttering/">Fix stuttering (10-minute checklist)</a></li>
+            <li><a href="/satellites/cpu-vs-gpu-bottleneck-test/">CPU vs GPU bottleneck test (2-minute check)</a></li>
+            <li><a href="/satellites/best-settings-for-low-end-pc-star-citizen/">Best settings for low-end PCs (safe baseline)</a></li>
+            <li><a href="/satellites/increase-fps-without-making-it-ugly/">Increase FPS without ruining visuals</a></li>
+            <li><a href="/satellites/star-citizen-crash-fix-checklist/">Crash fix checklist (safe order)</a></li>
+</ul>
       </div>
     </section>
 
@@ -719,7 +742,7 @@ ctaHref={referralLink}
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus (+{referralBonusUEC} UEC)</a>
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus +{referralBonusUEC} UEC</a>
             <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
           </div>
         </div>

@@ -4,6 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -16,14 +17,14 @@ const planningImg =
 
 const toc = [
   { label: "Your goal", href: "#goal" },
-  { label: "How to start (checklist)", href: "#how-to-start" },
+  { label: "How to start", href: "#how-to-start" },
   { label: "Download & install", href: "#download-install" },
   { label: "First 60 minutes route", href: "#first-60" },
   { label: "Controls & interaction quirks", href: "#controls" },
   { label: "Inventory, storage & death", href: "#inventory" },
   { label: "Flight basics", href: "#flight" },
   { label: "Pick one mission loop first", href: "#mission-loop" },
-  { label: "Risk budget (gear discipline)", href: "#risk" },
+  { label: "Risk budget", href: "#risk" },
   { label: "CrimeStat: avoid beginner traps", href: "#crimestat" },
   { label: "Bug recovery playbook", href: "#bugs" },
   { label: "When to rent, when to buy", href: "#economy" },
@@ -84,6 +85,8 @@ const faqJsonLd = {
  activeNav="guides">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Beginner tips', href: '/beginner-tips/' }]} />
         <section class="hero guideHero">
       <img
         class="hero__img"

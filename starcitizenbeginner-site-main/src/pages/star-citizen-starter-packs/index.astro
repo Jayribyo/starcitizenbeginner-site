@@ -4,6 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -127,6 +128,8 @@ const howToJsonLd = {
   <HowToSchema slot="head" json={howToJsonLd} />
 
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Starter packs', href: '/star-citizen-starter-packs/' }]} />
     <!-- HERO -->
     <section class="hero">
       <img
@@ -207,6 +210,9 @@ const howToJsonLd = {
           <li><strong>Golden rule:</strong> optimize for your first <strong>10–20 hours</strong>, not for a dream ship.</li>
           <li><strong>Don’t miss:</strong> claim the referral bonus <strong>during account creation</strong> before you buy anything.</li>
         </ul>
+
+        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+
 
         <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
           <div>
@@ -517,14 +523,29 @@ const howToJsonLd = {
 
     <!-- FAQ -->
     
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+            <li><a href="/should-you-buy-star-citizen/">Take the 2-minute buy test</a></li>
+            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+            <li><a href="/free-fly/">Try without buying</a></li>
+            <li><a href="/make-money-fast/">Earn credits fast</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="related-answers" class="section alt">
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-            <li><a href="/does-referral-code-change-price/">Referral code: does it change price? (no)</a></li>
-            <li><a href="/where-to-enter-referral-code/">Where to paste the referral code</a></li>
-            <li><a href="/first-session-checklist/">First session checklist (so you don’t waste your purchase)</a></li>
-        </ul>
+            <li><a href="/satellites/what-starter-ship-should-i-choose/">Starter ship choice (simple pick)</a></li>
+            <li><a href="/satellites/first-session-checklist/">First session checklist (beginner-proof route)</a></li>
+            <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code (signup step)</a></li>
+            <li><a href="/satellites/does-referral-code-change-price/">Referral code: does it change the price? (no)</a></li>
+</ul>
       </div>
     </section>
 

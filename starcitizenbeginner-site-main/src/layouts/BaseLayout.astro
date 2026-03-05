@@ -205,18 +205,6 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
             const value = (btn.getAttribute("data-copy") || btn.textContent || FALLBACK_CODE).trim();
             const ok = await copyText(value);
 
-            const status = btn.parentElement?.querySelector?.(".js-copyStatus");
-            if (status) {
-              status.textContent = ok ? "COPIED" : "COPY FAILED";
-              status.classList.add("is-visible");
-              status.setAttribute("data-show", "true");
-              window.setTimeout(() => {
-                status.textContent = "";
-                status.classList.remove("is-visible");
-                status.removeAttribute("data-show");
-              }, 1100);
-            }
-
             showToast(ok ? "Copied referral code" : "Copy failed");
           },
           { passive: true }

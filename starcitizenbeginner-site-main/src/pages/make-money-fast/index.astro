@@ -4,6 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -153,6 +154,8 @@ const howToJsonLd = {
   <HowToSchema json={howToJsonLd} />
 
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Make money fast', href: '/make-money-fast/' }]} />
     <!-- HERO -->
     <section class="hero guideHero">
       <img
@@ -209,6 +212,9 @@ ctaHref={referralLink}
               <li><b>Stable long-term income:</b> mining (learn the loop once, repeat safely).</li>
               <li><b>Most risky for beginners:</b> trading “all-in” and piracy without a plan.</li>
             </ul>
+
+        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+
           </div>
           <div>
             <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
@@ -333,7 +339,7 @@ ctaHref={referralLink}
 
             <!-- Contextual referral CTA (use buttons only; banner stays only once below the hero) -->
             <div class="btnrow" style="margin-top:10px; flex-wrap: wrap;">
-              <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Start with +{referralBonusUEC} UEC (signup bonus)</a>
+              <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Start with +{referralBonusUEC} UEC signup bonus</a>
               <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How the bonus works →</a>
             </div>
           </div>
@@ -631,7 +637,7 @@ ctaHref={referralLink}
         </div>
 
         <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC (free signup bonus)</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC free signup bonus</a>
           <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">Exact steps →</a>
         </div>
       </div>
@@ -639,13 +645,30 @@ ctaHref={referralLink}
 
     <!-- FAQ -->
     
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+            <li><a href="/make-money-fast/">Earn credits fast</a></li>
+            <li><a href="/star-citizen-performance-guide/">Fix stutter + FPS</a></li>
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+            <li><a href="/satellites/">Browse quick answers</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="related-answers" class="section alt">
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-            <li><a href="/best-beginner-mission-to-earn-credits/">Best beginner mission loop (safe start)</a></li>
-            <li><a href="/avoid-losing-gear-beginner/">Avoid losing gear (stop the money leak)</a></li>
-        </ul>
+            <li><a href="/satellites/best-beginner-mission-to-earn-credits/">Best beginner mission loop (safe start)</a></li>
+            <li><a href="/satellites/avoid-losing-gear-beginner/">Avoid losing gear (stop the money leak)</a></li>
+            <li><a href="/satellites/courier-missions-beginner-route/">Courier route (safe, repeatable loop)</a></li>
+            <li><a href="/satellites/bounties-beginner-setup/">PvE bounties: beginner setup (scale reliably)</a></li>
+            <li><a href="/satellites/inventory-and-gear-beginner-basics/">Inventory & gear basics (stop losing kit)</a></li>
+</ul>
       </div>
     </section>
 
