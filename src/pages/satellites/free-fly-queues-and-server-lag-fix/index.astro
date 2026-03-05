@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -27,8 +28,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="Free Fly Queues & Server Lag (Beginner-Safe Fixes) | Star Citizen Beginner"
-  description="Queues and lag can ruin a first impression. Here’s what you can control (region, hubs, expectations) and what to do when servers feel rough."
+  title="Free Fly Queues & Server Lag (Beginner-Safe Fixes) (Beginner checklist) | Star Citizen Beginner"
+  description="Queues and lag can ruin a first impression. Here’s what you can control (region, hubs, expectations) and what to do when servers feel rough. Clear steps, common mistakes, and next steps."
   canonicalPath="/satellites/free-fly-queues-and-server-lag-fix/"
   ogImage={heroImg}
   ogImageAlt="Free Fly Queues & Server Lag (Beginner-Safe Fixes)"
@@ -38,6 +39,8 @@ const faqItems = [
   activeNav="guides"
 >
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/free-fly-queues-and-server-lag-fix/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -55,7 +58,7 @@ const faqItems = [
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
           <h1 class="h1">Free Fly Queues & Server Lag (Beginner-Safe Fixes)</h1>
-          <p class="lead" style="max-width: 820px;">Queues and lag can ruin a first impression. Here’s what you can control (region, hubs, expectations) and what to do when servers feel rough.</p>
+          <p class="lead" style="max-width: 820px;">Answer: Queues and lag can ruin a first impression. Here’s what you can control (region, hubs, expectations) and what to do when servers feel rough.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -77,6 +80,12 @@ const faqItems = [
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">Queues and lag are mostly server-side. Your PC tuning won’t remove queues — but you can still get a fair test session.</p>
+        </div>
+
         <ul class="bullets">
           <li>Queues and lag are mostly <b>server-side</b>. Your PC tuning won’t remove queues — but you can still get a fair test session.</li>
 <li>Beginner rule: don’t waste an hour in a bad session. Run short loops and switch sessions/regions if needed.</li>

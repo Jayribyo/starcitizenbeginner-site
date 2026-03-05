@@ -1299,3 +1299,13 @@ body.nav-open{
 /* Referral highlight pill in top nav */
 .topNav__pill--bonus{margin-left:10px; font-weight:800; letter-spacing:0.02em;}
 @media (max-width: 720px){.topNav__pill--bonus{margin-left:8px;}}
+
+
+/* Breadcrumbs */
+.crumbs{padding:10px 0 0;}
+.crumbs__list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;color:rgba(255,255,255,.68);font-size:13px;}
+.crumbs__item{display:flex;align-items:center;gap:6px;}
+.crumbs__link{color:rgba(255,255,255,.78);text-decoration:none;}
+.crumbs__link:hover{text-decoration:underline;}
+.crumbs__current{color:rgba(255,255,255,.9);}
+.crumbs__sep{color:rgba(255,255,255,.35);}

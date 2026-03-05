@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -27,8 +28,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="Best Settings for Low-End PCs (Playability First) | Star Citizen Beginner"
-  description="A concrete, evergreen settings baseline for low-end systems: the biggest FPS levers, what to lower first, and how to verify improvements."
+  title="What's the Settings for Low-End PCs (Playability First)? (Beginner checklist) | Star Citizen Beginner"
+  description="A concrete, evergreen settings baseline for low-end systems: the biggest FPS levers, what to lower first, and how to verify improvements. Clear steps, common mistakes, and next steps."
   canonicalPath="/satellites/best-settings-for-low-end-pc-star-citizen/"
   ogImage={heroImg}
   ogImageAlt="Best Settings for Low-End PCs (Playability First)"
@@ -38,6 +39,8 @@ const faqItems = [
   activeNav="guides"
 >
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/best-settings-for-low-end-pc-star-citizen/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -55,7 +58,7 @@ const faqItems = [
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
           <h1 class="h1">Best Settings for Low-End PCs (Playability First)</h1>
-          <p class="lead" style="max-width: 820px;">A concrete, evergreen settings baseline for low-end systems: the biggest FPS levers, what to lower first, and how to verify improvements.</p>
+          <p class="lead" style="max-width: 820px;">Answer: A concrete, evergreen settings baseline for low-end systems: the biggest FPS levers, what to lower first, and how to verify improvements.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -77,6 +80,12 @@ const faqItems = [
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">Low-end goal is playability: stable frametime and fewer stutters, not perfect visuals.</p>
+        </div>
+
         <ul class="bullets">
           <li>Low-end goal is <b>playability</b>: stable frametime and fewer stutters, not perfect visuals.</li>
 <li>Start with the biggest levers (clouds/volumetrics/shadows/upscaling) before micro-tweaks.</li>

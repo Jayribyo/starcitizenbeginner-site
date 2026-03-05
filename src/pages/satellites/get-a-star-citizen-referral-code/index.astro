@@ -8,29 +8,31 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
 
-const heroImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
+const heroImg = "/assets/img/referral/star-citizen-referral-code-hero.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Where to paste it" },
-  { id: "do-this-now", label: "Exact steps" },
-  { id: "common-mistakes", label: "Mistakes to avoid" },
+  { id: "quick-answer", label: "Fast answer" },
+  { id: "do-this-now", label: "Copy + signup" },
+  { id: "common-mistakes", label: "Avoid losing the bonus" },
   { id: "next-steps", label: "Next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
+
 const faqItems = [
-  { q: "Do I have to use a referral code?", a: "No. It’s optional. If you use one, do it during account creation so you don’t have to think about it again." },
-  { q: "Does it cost money?", a: "No. Entering a code is free." },
-  { q: "Does it change the price of a starter pack?", a: "No. It doesn’t affect store pricing." },
-  { q: "Can I use it during Free Fly?", a: "Yes — create the account first (with the code), then play Free Fly later." },
-  { q: "What if I already created my account?", a: "In practice, you should assume it won’t apply later. Use the decision test / Free Fly and buy smart instead of chasing the bonus." }
+  { q: "Where can I find a referral code?", a: "If you have one from a friend or org, use that. If not, you can use any valid referral code—including ours—so you still get the signup bonus." },
+  { q: "Does it cost me anything?", a: "No. A referral code is optional and does not add fees. It only applies a signup bonus when entered during account creation." },
+  { q: "Can I enter it after I created my account?", a: "Usually no. Treat it as a one-time signup field: enter it during account creation so you don’t rely on exceptions." },
+  { q: "Does it change what I can buy?", a: "No. It doesn’t change pricing or what’s in the store. It just affects the signup bonus." },
+  { q: "What’s the safest way to start if I’m not buying yet?", a: "Create the account now (with the code), then try Free Fly or watch guides before buying a starter pack." },
+  { q: "What if the code field is missing?", a: "You’re likely not on the account-creation form. Use the official enlist/signup page and look for the Referral Code field before finalizing your account." }
 ];
 ---
 
 <BaseLayout
-  title="Where to Enter a Star Citizen Referral Code (Exact Signup Step) (Beginner checklist) | Star Citizen Beginner"
-  description="Answer: enter the referral code on the RSI account creation page — before you create the account. This page shows the exact moment and the common mistakes. Clear steps, common mistakes, and next steps."
-  canonicalPath="/satellites/where-to-enter-referral-code/"
+  title="Where can you get a Star Citizen referral code? (Fast answer) | Star Citizen Beginner"
+  description="If you don’t have a code from a friend, you can still use a valid referral code during signup to claim the bonus. This page shows the fastest safe way."
+  canonicalPath="/satellites/get-a-star-citizen-referral-code/"
   ogImage={heroImg}
   ogImageAlt="Where to Enter a Star Citizen Referral Code (Exact Signup Step) hero image"
   stickyCtaLabel="Create account + claim bonus"
@@ -57,7 +59,7 @@ const faqItems = [
       <div class="hero__content">
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">Where to Enter a Star Citizen Referral Code (Exact Signup Step)</h1>
+          <h1 class="h1">Where to get a Star Citizen referral code</h1>
           <p class="lead" style="max-width: 820px;">Answer: enter the referral code on the RSI account creation page — before you create the account. This page shows the exact moment and the common mistakes.</p>
 
           <div class="hero__cta">
@@ -87,9 +89,9 @@ const faqItems = [
         </div>
 
         <ul class="bullets">
-          <li><b>Enter the referral code during RSI account creation</b> — before you submit the signup form.</li>
-<li>It’s a one-time window: <b>do it first</b>, then create the account, then test Free Fly / buy later.</li>
-<li>Use this page if you want zero guessing: you’ll do the exact step once and be done.</li>
+          <li>If you have a code from a friend or org, use it. If not, use any valid code so you still get the signup bonus.</li>
+          <li>Enter the code <b>during account creation</b> (that window is the whole point).</li>
+          <li>It’s optional and doesn’t change your price—just your starting bonus.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
@@ -102,14 +104,32 @@ const faqItems = [
     <section id="do-this-now" class="section alt">
       <div class="container">
         <h2 class="h2">Do this now</h2>
-        <ol class="steps">
-          <li><b>Open the RSI signup page</b> — Use the official account creation flow (new account).</li>
-<li><b>Find the referral code field</b> — It’s on the signup form — enter the code before you submit.</li>
-<li><b>Create the account</b> — Submit the signup form normally.</li>
-<li><b>Verify once</b> — Log into your RSI account and confirm the referral/signup bonus status if visible.</li>
-        </ol>
+
+<div class="card pad">
+  <div class="grid-2">
+    <div>
+      <h3 class="h3">10‑minute setup</h3>
+      <ol class="steps">
+        <li>Open the official account creation page.</li>
+        <li>Paste a referral code into the <b>Referral Code</b> field.</li>
+        <li>Create your account (don’t skip this step “for later”).</li>
+        <li>Verify you’re logged in and your account exists.</li>
+      </ol>
+      <p class="muted" style="margin-top:10px;">Verify: you should have an active account and the referral field is no longer needed.</p>
+    </div>
+    <div>
+      <h3 class="h3">Use this code</h3>
+      <div class="codebox">{referralCode}</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;">
+        <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
+        <a class="btn" href="/satellites/where-to-enter-referral-code/">Where to paste it</a>
       </div>
-    </section>
+      <p class="muted" style="margin-top:10px;">If you plan to try Free Fly first, you can still create the account now and buy later.</p>
+    </div>
+  </div>
+</div>
+
+</section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
@@ -136,14 +156,26 @@ const faqItems = [
     <section id="next-steps" class="section alt">
       <div class="container">
         <h2 class="h2">Next steps</h2>
-        <ul class="bullets">
-          <li><a href="/star-citizen-referral-code/">Full referral code guide (benefits, mistakes, FAQ)</a></li>
-<li><a href="/satellites/does-referral-code-change-price/">Does a referral code change the price? (no)</a></li>
-<li><a href="/free-fly/">Try Star Citizen without buying (Free Fly guide)</a></li>
-<li><a href="/star-citizen-starter-packs/">If you buy: starter packs decision table</a></li>
-        </ul>
-      </div>
-    </section>
+
+<div class="grid-3">
+  <a class="card pad linkcard" href="/star-citizen-referral-code/">
+    <div class="kicker"><span class="dot"></span>Referral hub</div>
+    <h3 class="h3">Referral code guide</h3>
+    <p class="muted">Everything in one place: when it applies, common pitfalls, and what to do next.</p>
+  </a>
+  <a class="card pad linkcard" href="/free-fly/">
+    <div class="kicker"><span class="dot"></span>Try first</div>
+    <h3 class="h3">Free Fly first session</h3>
+    <p class="muted">Try without buying—then decide with real experience.</p>
+  </a>
+  <a class="card pad linkcard" href="/star-citizen-starter-packs/">
+    <div class="kicker"><span class="dot"></span>Buy smart</div>
+    <h3 class="h3">Starter packs</h3>
+    <p class="muted">Spend the minimum and avoid beginner purchase traps.</p>
+  </a>
+</div>
+
+</section>
 
     <section id="faq" class="section">
       <div class="container">

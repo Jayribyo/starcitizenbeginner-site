@@ -4,6 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -144,6 +145,8 @@ const howToJsonLd = {
   <HowToSchema json={howToJsonLd} />
 
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Should you buy Star Citizen', href: '/should-you-buy-star-citizen/' }]} />
     <!-- HERO (must match global landing page hero layout) -->
     <section class="hero guideHero">
       <img
@@ -202,11 +205,14 @@ ctaHref={referralLink}
                 <a href="/star-citizen-performance-guide/" style="margin-left: 6px;">Performance guide →</a>
               </li>
             </ul>
+
+        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+
           </div>
 
           <div>
 <div class="btnrow" style="margin-top: 12px;">
-<a class="btn secondary" href="/make-money-fast/">Make money fast (beginner)</a>
+<a class="btn secondary" href="/make-money-fast/">Make money fast beginner</a>
             </div>
           </div>
         </div>
@@ -434,7 +440,7 @@ ctaHref={referralLink}
       <b>New account?</b> A referral code gives you a free starting credit boost — only during signup.
     </p>
     <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
-      <a class="btn secondary" href={referralLink}>Claim your start bonus (+{referralBonusUEC} UEC)</a>
+      <a class="btn secondary" href={referralLink}>Claim your start bonus +{referralBonusUEC} UEC</a>
       <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
     </div>
 
@@ -593,6 +599,20 @@ ctaHref={referralLink}
 
     <!-- FAQ -->
     
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+            <li><a href="/free-fly/">Try without buying</a></li>
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+            <li><a href="/star-citizen-performance-guide/">Fix stutter + FPS</a></li>
+            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+            <li><a href="/satellites/">Browse quick answers</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="related-answers" class="section alt">
       <div class="container">
         <h2 class="h2">Related answers</h2>

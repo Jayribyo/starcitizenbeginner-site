@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -27,8 +28,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="How to Avoid Losing Gear as a Beginner | Star Citizen Beginner"
-  description="The fastest way to go broke is re-buying gear. This guide shows a simple gear discipline that keeps you progressing without frustration."
+  title="How to Avoid Losing Gear as a Beginner (Beginner checklist) | Star Citizen Beginner"
+  description="The fastest way to go broke is re-buying gear. This guide shows a simple gear discipline that keeps you progressing without frustration. Clear steps, common mistakes, and next steps."
   canonicalPath="/satellites/avoid-losing-gear-beginner/"
   ogImage={heroImg}
   ogImageAlt="How to Avoid Losing Gear as a Beginner hero image"
@@ -38,6 +39,8 @@ const faqItems = [
   activeNav="guides"
 >
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/avoid-losing-gear-beginner/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -55,7 +58,7 @@ const faqItems = [
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
           <h1 class="h1">How to Avoid Losing Gear as a Beginner</h1>
-          <p class="lead" style="max-width: 820px;">The fastest way to go broke is re-buying gear. This guide shows a simple gear discipline that keeps you progressing without frustration.</p>
+          <p class="lead" style="max-width: 820px;">Answer: The fastest way to go broke is re-buying gear. This guide shows a simple gear discipline that keeps you progressing without frustration.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -77,6 +80,12 @@ const faqItems = [
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">earn in light gear until you can replace a loadout multiple times without caring.</p>
+        </div>
+
         <ul class="bullets">
           <li>Beginner rule: <b>earn in light gear</b> until you can replace a loadout multiple times without caring.</li>
 <li>Treat gear as consumable. The real progress is <b>stable loops</b>, not fancy loadouts.</li>

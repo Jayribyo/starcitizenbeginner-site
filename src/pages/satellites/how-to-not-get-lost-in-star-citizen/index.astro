@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -27,8 +28,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="How to Not Get Lost in Star Citizen (Navigation Basics for Beginners) | Star Citizen Beginner"
-  description="Simple navigation rules that prevent 80% of beginner confusion: markers, quantum travel basics, and choosing one hub."
+  title="How to Not Get Lost in Star Citizen (Navigation Basics for Beginners) (Beginner checklist) | Star Citizen Beginner"
+  description="Simple navigation rules that prevent 80% of beginner confusion: markers, quantum travel basics, and choosing one hub. Clear steps, common mistakes, and next steps."
   canonicalPath="/satellites/how-to-not-get-lost-in-star-citizen/"
   ogImage={heroImg}
   ogImageAlt="How to Not Get Lost in Star Citizen (Navigation Basics for Beginners)"
@@ -38,6 +39,8 @@ const faqItems = [
   activeNav="guides"
 >
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/how-to-not-get-lost-in-star-citizen/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -55,7 +58,7 @@ const faqItems = [
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
           <h1 class="h1">How to Not Get Lost in Star Citizen (Navigation Basics for Beginners)</h1>
-          <p class="lead" style="max-width: 820px;">Simple navigation rules that prevent 80% of beginner confusion: markers, quantum travel basics, and choosing one hub.</p>
+          <p class="lead" style="max-width: 820px;">Answer: Simple navigation rules that prevent 80% of beginner confusion: markers, quantum travel basics, and choosing one hub.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -77,6 +80,12 @@ const faqItems = [
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">Most beginner confusion comes from doing too much at once. The fix is simple: one hub, one objective, one loop.</p>
+        </div>
+
         <ul class="bullets">
           <li>Most beginner confusion comes from doing too much at once. The fix is simple: <b>one hub, one objective, one loop</b>.</li>
 <li>Use markers and quantum travel like a system, not guesswork.</li>

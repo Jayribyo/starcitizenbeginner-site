@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -28,7 +29,7 @@ const faqItems = [
 
 <BaseLayout
   title="Does a Star Citizen Referral Code Change the Price? | Star Citizen Beginner"
-  description="Short answer: no. A referral code is optional and doesn’t change store prices — it’s simply a signup bonus. Here’s the no-fluff explanation."
+  description="Short answer: no. A referral code is optional and doesn’t change store prices — it’s simply a signup bonus. Here’s the no-fluff explanation. Clear steps, common mistakes, and next steps."
   canonicalPath="/satellites/does-referral-code-change-price/"
   ogImage={heroImg}
   ogImageAlt="Does a Star Citizen Referral Code Change the Price? hero image"
@@ -38,6 +39,8 @@ const faqItems = [
   activeNav="guides"
 >
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/does-referral-code-change-price/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -55,7 +58,7 @@ const faqItems = [
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
           <h1 class="h1">Does a Star Citizen Referral Code Change the Price?</h1>
-          <p class="lead" style="max-width: 820px;">Short answer: no. A referral code is optional and doesn’t change store prices — it’s simply a signup bonus. Here’s the no-fluff explanation.</p>
+          <p class="lead" style="max-width: 820px;">Answer: Short answer: no. A referral code is optional and doesn’t change store prices — it’s simply a signup bonus. Here’s the no-fluff explanation.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -77,6 +80,12 @@ const faqItems = [
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">No. A referral code does not change store prices and is not a discount code.</p>
+        </div>
+
         <ul class="bullets">
           <li><b>No.</b> A referral code does not change store prices and is not a discount code.</li>
 <li>It’s simply an optional signup bonus you enter during account creation.</li>

@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralBonusUEC = "50,000";
@@ -86,6 +87,8 @@ const faqJsonLd = {
  activeNav="free-fly">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Free Fly', href: '/free-fly/' }]} />
     <!-- HERO -->
     <section class="hero freeFlyHero">
       <img
@@ -129,7 +132,9 @@ const faqJsonLd = {
           { label: "Prepare like a pro", href: "#prepare" },
           { label: "Common myths", href: "#myths" },
           { label: "Buy or wait?", href: "#buy" },
-          { label: "FAQ", href: "#faq" },
+                    { label: "Next steps", href: "#next-steps" },
+          { label: "Related answers", href: "#related-answers" },
+{ label: "FAQ", href: "#faq" },
         ]}
       />
     </section>
@@ -148,6 +153,9 @@ const faqJsonLd = {
     <section id="what-is" class="section">
       <div class="card pad">
         <h2 class="section__title">What Free Fly actually is</h2>
+
+        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+
 
         <p>
           Free Fly is a limited-time “open access” event run by the developers (RSI). During the event window you can download the
@@ -510,6 +518,20 @@ const faqJsonLd = {
 
     <!-- FAQ -->
     
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+            <li><a href="/star-citizen-performance-guide/">Fix stutter + FPS</a></li>
+            <li><a href="/make-money-fast/">Earn credits fast</a></li>
+            <li><a href="/should-you-buy-star-citizen/">Take the 2-minute buy test</a></li>
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="related-answers" class="section alt">
       <div class="container">
         <h2 class="h2">Related answers</h2>

@@ -4,6 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -143,6 +144,8 @@ const faqJsonLd = {
  activeNav="referral">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Referral code', href: '/star-citizen-referral-code/' }]} />
     <!-- HERO (reduced, no redundant 50,000 repetition) -->
     <section class="hero refHero">
 <img
@@ -187,7 +190,9 @@ const faqJsonLd = {
           { label: "Starter packs", href: "#starter-pack" },
           { label: "When you receive the bonus", href: "#how-it-works" },
           { label: "Common mistakes", href: "#common-mistakes" },
-          { label: "FAQ", href: "#faq" },
+                    { label: "Next steps", href: "#next-steps" },
+          { label: "Related answers", href: "#related-answers" },
+{ label: "FAQ", href: "#faq" },
         ]}
       />
     </section>
@@ -207,6 +212,9 @@ const faqJsonLd = {
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What it is</div>
         <h2 class="section__title">Quick answer: claim the 50,000 UEC signup bonus</h2>
+
+        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+
         <p>
           A Star Citizen referral code is a free signup code from the official referral program. Enter it during account creation (or within
           about <b>24 hours</b> after signup) to receive a starter bonus once your account becomes active.
@@ -246,7 +254,7 @@ const faqJsonLd = {
         </div>
 
         <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create account + claim bonus (+50,000 UEC)</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create account + claim bonus +50,000 UEC</a>
 </div>
       </div>
     </section>
@@ -277,7 +285,7 @@ const faqJsonLd = {
           </div>
 
           <div class="btnrow" style="margin-top: 16px;">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Open signup page (bonus ready)</a>
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Open signup page bonus ready</a>
 </div>
         </div>
 
@@ -581,14 +589,30 @@ const faqJsonLd = {
 
     <!-- FAQ -->
     
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+            <li><a href="/should-you-buy-star-citizen/">Take the 2-minute buy test</a></li>
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+            <li><a href="/free-fly/">Try without buying</a></li>
+            <li><a href="/satellites/">Browse quick answers</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="related-answers" class="section alt">
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-            <li><a href="/satellites/where-to-enter-referral-code/">Where to paste the referral code (exact signup step)</a></li>
-            <li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add the code after signup? (short answer)</a></li>
-            <li><a href="/satellites/referral-code-not-working/">Referral code not working? Quick fix checklist</a></li>
-            <li><a href="/satellites/does-referral-code-change-price/">Does the code change the price? (no)</a></li>
+            <li><a href="/referral-bonus-checklist/">Referral bonus checklist (capture the window)</a></li>
+            <li><a href="/satellites/get-a-star-citizen-referral-code/">Where to get a referral code</a></li>
+            <li><a href="/satellites/where-to-enter-referral-code/">Where to paste the code</a></li>
+            <li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add it after signup?</a></li>
+            <li><a href="/satellites/referral-code-not-working/">Referral code not working (quick fixes)</a></li>
+            <li><a href="/satellites/does-referral-code-change-price/">Does a code change the price?</a></li>
         </ul>
       </div>
     </section>
@@ -608,7 +632,7 @@ const faqJsonLd = {
         </div>
 
         <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create account (bonus included)</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create account bonus included</a>
 </div>
       </div>
     </section>

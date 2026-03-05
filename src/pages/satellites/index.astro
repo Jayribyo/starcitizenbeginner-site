@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const groups = [
+  {
+    title: "Buying & Referral",
+    items: [
+      { href: "/satellites/where-to-enter-referral-code/", label: "Where to paste the referral code" },
+      { href: "/satellites/get-a-star-citizen-referral-code/", label: "Where to get a referral code" },
+      { href: "/satellites/can-you-add-referral-code-after-signup/", label: "Can I add a referral code after signup?" },
+      { href: "/satellites/does-referral-code-change-price/", label: "Does a referral code change the price?" },
+      { href: "/satellites/referral-code-not-working/", label: "Referral code not working: quick fixes" },
+      { href: "/satellites/what-starter-ship-should-i-choose/", label: "What starter ship should I choose?" },
+    ],
+  },
+  {
+    title: "Free Fly & First Session",
+    items: [
+      { href: "/satellites/try-star-citizen-without-buying/", label: "Try without buying" },
+      { href: "/satellites/free-fly-first-session/", label: "Free Fly: first session route" },
+      { href: "/satellites/free-fly-download-install-checklist/", label: "Free Fly download + install checklist" },
+      { href: "/satellites/free-fly-what-do-i-keep/", label: "Free Fly: what do I keep?" },
+      { href: "/satellites/first-session-checklist/", label: "First session checklist" },
+    ],
+  },
+  {
+    title: "Performance",
+    items: [
+      { href: "/satellites/fix-stuttering/", label: "Fix stuttering checklist" },
+      { href: "/satellites/cpu-vs-gpu-bottleneck-test/", label: "CPU vs GPU bottleneck test" },
+      { href: "/satellites/best-settings-for-low-end-pc-star-citizen/", label: "Best settings for a low-end PC" },
+      { href: "/satellites/increase-fps-without-making-it-ugly/", label: "Increase FPS without making it ugly" },
+      { href: "/satellites/star-citizen-crash-fix-checklist/", label: "Crash fix checklist" },
+    ],
+  },
+  {
+    title: "Early Money",
+    items: [
+      { href: "/satellites/best-beginner-mission-to-earn-credits/", label: "Best first mission to earn credits" },
+      { href: "/satellites/courier-missions-beginner-route/", label: "Courier loop route" },
+      { href: "/satellites/bounties-beginner-setup/", label: "Bounties beginner setup" },
+      { href: "/satellites/avoid-losing-gear-beginner/", label: "Avoid losing gear" },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Star Citizen Beginner Answers (Quick Fixes & Mini Guides) | SCB"
+  description="Quick-answer pages for Star Citizen beginners: referral code, Free Fly, first session, performance fixes, and early money loops."
+  canonicalPath="/satellites/"
+  activeNav="guides"
+>
+  <main>
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }]} />
+
+    <section class="hero guideHero">
+      <img
+        class="hero__img"
+        src="/assets/img/home/scb-home-hero.webp"
+        alt="Star Citizen Beginner Answers"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Quick answers</div>
+          <h1 class="h1">Star Citizen Beginner Answers</h1>
+          <p class="lead" style="max-width: 820px;">Short, high-density pages that answer one beginner question perfectly — built to be easy to scan and easy to act on.</p>
+
+          <div class="hero__cta">
+            <a class="btn primary" href="#answers">Browse answers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="answers" class="section">
+      <div class="container">
+        {groups.map((g) => (
+          <div class="card pad" style="margin-bottom: 14px;">
+            <h2 class="h2" style="margin-top:0;">{g.title}</h2>
+            <ul class="bullets" style="margin-top:10px;">
+              {g.items.map((it) => (
+                <li><a href={it.href}>{it.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+{
+  title: "Glossary",
+  items: [
+    { href: "/satellites/glossary/", label: "Beginner glossary (key terms)" },
+  ],
+},

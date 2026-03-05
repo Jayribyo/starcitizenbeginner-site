@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const referralCode = "STAR-FSRJ-5N7Z";
 const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
@@ -27,8 +28,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="Try Star Citizen Without Buying (Free Fly Shortcut Guide) | Star Citizen Beginner"
-  description="Want to try Star Citizen without paying? This is the fastest way to do a Free Fly test run and decide if it’s worth buying."
+  title="Try Star Citizen Without Buying (Free Fly Shortcut Guide) (Beginner checklist) | Star Citizen Beginner"
+  description="Want to try Star Citizen without paying? This is the fastest way to do a Free Fly test run and decide if it’s worth buying. Clear steps, common mistakes, and next steps."
   canonicalPath="/satellites/try-star-citizen-without-buying/"
   ogImage={heroImg}
   ogImageAlt="Try Star Citizen Without Buying (Free Fly Shortcut Guide) hero image"
@@ -38,6 +39,8 @@ const faqItems = [
   activeNav="guides"
 >
   <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/try-star-citizen-without-buying/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -55,7 +58,7 @@ const faqItems = [
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
           <h1 class="h1">Try Star Citizen Without Buying (Free Fly Shortcut Guide)</h1>
-          <p class="lead" style="max-width: 820px;">Want to try Star Citizen without paying? This is the fastest way to do a Free Fly test run and decide if it’s worth buying.</p>
+          <p class="lead" style="max-width: 820px;">Answer: Want to try Star Citizen without paying? This is the fastest way to do a Free Fly test run and decide if it’s worth buying.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -77,6 +80,12 @@ const faqItems = [
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">Free Fly is the safest way to try Star Citizen without buying. Your goal is not “do everything” — it’s to answer: “Will I enjoy this loop?”.</p>
+        </div>
+
         <ul class="bullets">
           <li><b>Free Fly is the safest way to try Star Citizen without buying.</b> Your goal is not “do everything” — it’s to answer: “Will I enjoy this loop?”</li>
 <li>A good test session has 3 parts: <b>spawn → claim a ship → complete one simple contract</b>.</li>
