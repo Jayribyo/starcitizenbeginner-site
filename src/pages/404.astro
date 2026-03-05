@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Page not found | Star Citizen Beginner";
+const description = "This page does not exist. Use the beginner hub to find the right guide.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/404/"
+  ogImage="/assets/img/home/scb-home-hero.webp"
+  ogImageAlt="Star Citizen Beginner"
+  activeNav="home"
+>
+  <main>
+    <section class="section" style="padding-top: 64px;">
+      <div class="container">
+        <h1 class="h1">404 — Page not found</h1>
+        <p class="lead" style="max-width: 820px;">The URL you opened doesn’t match a published guide. Use the beginner hub to get back on track.</p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
+          <a class="btn primary" href="/">Go to the beginner hub</a>
+          <a class="btn ghost" href="/should-you-buy-star-citizen/">Should you buy? →</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
