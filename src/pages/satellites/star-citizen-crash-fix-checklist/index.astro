@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+
+const heroImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp";
+
+const tocItems = [
+  { id: "quick-answer", label: "Quick answer" },
+  { id: "do-this-now", label: "Do this now" },
+  { id: "common-mistakes", label: "Common mistakes" },
+  { id: "next-steps", label: "Next steps" },
+  { id: "faq", label: "FAQ" }
+];
+
+const faqItems = [
+  { q: "Do crashes mean my PC can’t run it?", a: "Not necessarily. Many crashes are fixable with storage/driver/overlay checks." },
+  { q: "Should I reinstall immediately?", a: "Usually no. Try verify files + storage/driver steps first." },
+  { q: "Are overlays really a problem?", a: "They can be. Disable them as a quick test." },
+  { q: "What if it only crashes in one place?", a: "Retest another scene; if it persists, continue the checklist." },
+  { q: "Where’s the broader performance baseline?", a: "Use the full performance guide to stabilize FPS and stutter too." }
+];
+---
+
+<BaseLayout
+  title="Star Citizen Crash Fix Checklist (Beginner-Safe Order) | Star Citizen Beginner"
+  description="A safe crash-fix order you can run in 10–20 minutes: storage, drivers, overlays, and verification steps."
+  canonicalPath="/satellites/star-citizen-crash-fix-checklist/"
+  ogImage={heroImg}
+  ogImageAlt="Star Citizen Crash Fix Checklist (Beginner-Safe Order)"
+  stickyCtaLabel="Create account + claim bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+  activeNav="guides"
+>
+  <main>
+    <section class="hero guideHero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Star Citizen Crash Fix Checklist (Beginner-Safe Order)"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <h1 class="h1">Star Citizen Crash Fix Checklist (Beginner-Safe Order)</h1>
+          <p class="lead" style="max-width: 820px;">A safe crash-fix order you can run in 10–20 minutes: storage, drivers, overlays, and verification steps.</p>
+
+          <div class="hero__cta">
+            <a class="btn primary" href="#quick-answer">Start here</a>
+          </div>
+        </div>
+
+        <OnThisPage variant="hero" title="On this page" items={tocItems} />
+      </div>
+    </section>
+
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000"
+      ctaLabel="Claim your start bonus"
+      ctaHref={referralLink}
+      ctaExternal={true}
+    />
+
+    <section id="quick-answer" class="section">
+      <div class="container">
+        <h2 class="h2">Quick answer</h2>
+        <ul class="bullets">
+          <li>Crash fixes work best in a <b>safe order</b>: remove the common causes first (storage, drivers, overlays), then retest.</li>
+<li>Don’t apply 20 tweaks. Do 3–5 high-confidence steps and verify.</li>
+<li>This checklist avoids patch-specific advice and focuses on repeatable stability wins.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="do-this-now" class="section alt">
+      <div class="container">
+        <h2 class="h2">Do this now</h2>
+        <ol class="steps">
+          <li><b>Ensure SSD + free space</b> (low space can trigger corruption and instability).</li>
+<li><b>Update GPU drivers</b> and reboot once.</li>
+<li><b>Disable overlays</b> (Discord, GPU overlay, capture tools) for a test session.</li>
+<li><b>Verify game files</b> via launcher if crashes persist.</li>
+<li><b>Retest</b> in the same scenario for 10–15 minutes.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="common-mistakes" class="section">
+      <div class="container">
+        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What happens</th>
+                <th>Fix (exact)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Changing too many variables</b></td><td>You never learn what fixed it.</td><td>Change 1 cluster, retest, then continue.</td></tr>
+<tr><td><b>Running with unstable background apps</b></td><td>Overlays/hooks can crash games.</td><td>Disable overlays for stability tests.</td></tr>
+<tr><td><b>Assuming crashes are ‘normal’ forever</b></td><td>You stop troubleshooting too early.</td><td>Run the safe checklist and retest.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+          <li><a href="/star-citizen-performance-guide/">Full performance guide (requirements + best levers)</a></li>
+<li><a href="/satellites/fix-stuttering/">Fix stuttering checklist</a></li>
+<li><a href="/satellites/cpu-vs-gpu-bottleneck-test/">CPU vs GPU bottleneck test</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="h2">FAQ</h2>
+        <div class="faq" style="margin-top:12px;">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+        
+      </div>
+
+      <FaqSchema items={faqItems} />
+    </section>
+  </main>
+</BaseLayout>

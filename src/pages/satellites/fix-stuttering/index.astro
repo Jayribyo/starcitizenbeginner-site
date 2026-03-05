@@ -1,0 +1,160 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+
+const heroImg = "/assets/img/performance/star-citizen-performance-guide-hero.webp";
+
+const tocItems = [
+  { id: "quick-answer", label: "What usually causes stutter" },
+  { id: "do-this-now", label: "Fix order (safe)" },
+  { id: "common-mistakes", label: "Mistakes that keep stutter" },
+  { id: "next-steps", label: "Next steps" },
+  { id: "faq", label: "FAQ" }
+];
+
+const faqItems = [
+  { q: "Is stuttering normal?", a: "Some hitching can happen, but constant stutter usually means a fixable bottleneck (storage/RAM/settings)." },
+  { q: "Do I need 32 GB RAM?", a: "Not strictly, but many players report smoother streaming with more headroom. If you stutter in busy areas, it’s a common upgrade target." },
+  { q: "Should I turn everything to Low?", a: "Start with the biggest levers first. Then tune for a balance you like." },
+  { q: "What’s the fastest single fix?", a: "Install and run the game from SSD/NVMe and keep free space available." },
+  { q: "Where do I find the best settings list?", a: "Use the performance guide’s “top levers” table and change one cluster at a time." }
+];
+---
+
+<BaseLayout
+  title="Fix Star Citizen Stuttering (SSD, RAM, Pagefile Checklist) | Star Citizen Beginner"
+  description="Stutter usually has a few repeatable causes. This checklist fixes the most common ones in a safe order (no patch-specific tweaks)."
+  canonicalPath="/satellites/fix-stuttering/"
+  ogImage={heroImg}
+  ogImageAlt="Fix Star Citizen Stuttering (SSD, RAM, Pagefile Checklist) hero image"
+  stickyCtaLabel="Create account + claim bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+  activeNav="guides"
+>
+  <main>
+    <section class="hero guideHero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Fix Star Citizen Stuttering (SSD, RAM, Pagefile Checklist)"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <h1 class="h1">Fix Star Citizen Stuttering (SSD, RAM, Pagefile Checklist)</h1>
+          <p class="lead" style="max-width: 820px;">Stutter usually has a few repeatable causes. This checklist fixes the most common ones in a safe order (no patch-specific tweaks).</p>
+
+          <div class="hero__cta">
+            <a class="btn primary" href="#quick-answer">Start here</a>
+          </div>
+        </div>
+
+        <OnThisPage variant="hero" title="On this page" items={tocItems} />
+      </div>
+    </section>
+
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000"
+      ctaLabel="Create account + claim bonus"
+      ctaHref={referralLink}
+      ctaExternal={true}
+    />
+
+    <section id="quick-answer" class="section">
+      <div class="container">
+        <h2 class="h2">Quick answer</h2>
+        <ul class="bullets">
+          <li>Most stutter comes from <b>streaming + storage</b> (HDD), <b>memory pressure</b> (low RAM), or <b>shader compilation</b> (first runs).</li>
+<li>Fix in a safe order: <b>SSD → free space → RAM headroom → pagefile → settings</b>.</li>
+<li>Verify your change in the same location to avoid placebo.</li>
+        </ul>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+          <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="do-this-now" class="section alt">
+      <div class="container">
+        <h2 class="h2">Do this now</h2>
+        <ol class="steps">
+          <li><b>Move Star Citizen to SSD/NVMe</b> — HDD is the classic stutter trigger for streaming-heavy areas.</li>
+<li><b>Keep enough free space</b> — Low free space can worsen caching/streaming behavior.</li>
+<li><b>Ensure RAM headroom</b> — More headroom reduces paging and hitching (rule-of-thumb: 32 GB feels smoother for many players).</li>
+<li><b>Keep Windows pagefile enabled</b> — Don’t disable it. Let Windows manage, or set a sensible fixed size if you know what you’re doing.</li>
+<li><b>Lower the biggest stutter levers</b> — Reduce heavy settings first (clouds/volumetrics/shadows) before micro-tweaks.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="common-mistakes" class="section">
+      <div class="container">
+        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What happens</th>
+                <th>Fix (exact)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Installing on HDD</b></td><td>Long loads + constant hitching.</td><td>SSD/NVMe is the single biggest win.</td></tr>
+<tr><td><b>Disabling the pagefile</b></td><td>You force crashes/hitches under memory pressure.</td><td>Leave it enabled; ensure enough disk space.</td></tr>
+<tr><td><b>Testing in different locations</b></td><td>You can’t tell what helped.</td><td>Retest in the same city/scene.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+          <li><a href="/star-citizen-performance-guide/">Full performance guide (requirements + best settings)</a></li>
+<li><a href="/satellites/cpu-vs-gpu-bottleneck-test/">CPU vs GPU bottleneck test (2 minutes)</a></li>
+<li><a href="/free-fly/">Free Fly guide (fair test session)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="h2">FAQ</h2>
+        <div class="faq" style="margin-top:12px;">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
+          <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+        </div>
+      </div>
+
+      <FaqSchema items={faqItems} />
+    </section>
+  </main>
+</BaseLayout>
