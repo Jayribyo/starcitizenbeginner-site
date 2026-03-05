@@ -256,12 +256,12 @@ li {
 }
 
 .brand img {
-  width: 50px;
-  height: 50px;
+  width: clamp(52px, 4vw, 64px);
+  height: clamp(52px, 4vw, 64px);
 }
 
 .brand span {
-  font-size: 26px;
+  font-size: clamp(22px, 2.2vw, 28px);
   line-height: 1;
 }
 
@@ -1000,7 +1000,7 @@ details[open].faq__item > .faq__q::after{
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid rgba(255,255,255,.10);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /*
@@ -1020,11 +1020,17 @@ details[open].faq__item > .faq__q::after{
 .table thead th{
   background: rgba(255,255,255,.06);
   font-weight: 900;
+  /* Prevent ugly letter-by-letter wraps like 'Your scor e' */
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .table tbody th{
   background: rgba(255,255,255,.03);
   font-weight: 900;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .table tbody tr:last-child th,

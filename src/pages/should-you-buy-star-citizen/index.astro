@@ -13,14 +13,14 @@ const heroImg = "/assets/img/should-you-buy-star-citizen/star-citizen-multiplaye
 const buyImg = "/assets/img/should-you-buy-star-citizen/star-citizen-buy-or-not.webp";
 
 const tocItems = [
-  { label: "TL;DR", href: "#tldr" },
+  { label: "Quick answer", href: "#tldr" },
   { label: "2-minute decision test", href: "#decision-test" },
   { label: "Decision table: who should buy?", href: "#decision-table" },
   { label: "What you actually get", href: "#what-you-get" },
-  { label: "Safest way to start (spend the minimum)", href: "#safe-start" },
-  { label: "Your first 60 minutes (do this now)", href: "#first-hour" },
-  { label: "Performance reality (don’t let FPS ruin it)", href: "#performance" },
-  { label: "Common mistakes (and fixes)", href: "#mistakes" },
+  { label: "Safest way to start: spend the minimum", href: "#safe-start" },
+  { label: "Your first 60 minutes: do this now", href: "#first-hour" },
+  { label: "Performance reality: don’t let FPS ruin it", href: "#performance" },
+  { label: "Common mistakes and fixes", href: "#mistakes" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -131,21 +131,13 @@ const howToJsonLd = {
           <div class="kicker"><span class="dot"></span> Buying Guide</div>
           <h1 class="h1">Should You Buy Star Citizen?</h1>
           <p class="lead" style="max-width: 920px;">
-            This is the <b>honest</b> decision page: who will love it, who will hate it, what you actually do in-game,
-            and the <b>safest way to start</b> without wasting money.
-            Take the 2-minute test — then start with a beginner-proof first session route.
+            A beginner-proof yes/no framework: what you actually do in-game, who will love it, and the safest way to start without wasting money.
           </p>
 
           <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href="#decision-test">Take the 2-minute test</a>
-            <a class="btn secondary" href="#safe-start">Safest way to start</a>
-          </div>
-
-          <div class="callout" style="margin-top: 12px;">
-            <b>New account?</b> You can claim a free signup bonus.
-            <a href="/star-citizen-referral-code/" style="margin-left: 8px;">How it works →</a>
-          </div>
-        </div>
+</div>
+</div>
       </div>
 
       <OnThisPage variant="hero" title="On this page" items={tocItems} />
@@ -155,16 +147,17 @@ const howToJsonLd = {
     <ReferralBanner
       code={referralCode}
       bonus={`${referralBonusUEC} UEC`}
-      ctaHref={referralLink}
+            ctaLabel="Claim your free start bonus"
+ctaHref={referralLink}
       howItWorksHref="/star-citizen-referral-code/#how-to-use"
       sublineHtml="If you decide to buy, use it during signup — it’s free, and you only get this <b>first signup moment</b> once."
       ariaLabel="Referral bonus callout"
     />
 
-    <!-- TL;DR -->
+    <!-- Quick answer -->
     <section id="tldr" class="section">
       <div class="card pad">
-        <h2 class="section__title">TL;DR: the shortest honest answer</h2>
+        <h2 class="section__title">Quick answer: the shortest honest answer</h2>
 
         <div class="grid2" style="margin-top: 10px;">
           <div>
@@ -180,14 +173,8 @@ const howToJsonLd = {
           </div>
 
           <div>
-            <div class="callout">
-              <b>Quick truth:</b> Star Citizen is a “make your own adventure” game. When it clicks, it’s unforgettable.
-              When it doesn’t, it can feel overwhelming. This page helps you decide <b>before</b> you spend.
-            </div>
-
-            <div class="btnrow" style="margin-top: 12px;">
-              <a class="btn secondary" href="#decision-table">See the decision table</a>
-              <a class="btn secondary" href="/make-money-fast/">Make money fast (beginner)</a>
+<div class="btnrow" style="margin-top: 12px;">
+<a class="btn secondary" href="/make-money-fast/">Make money fast (beginner)</a>
             </div>
           </div>
         </div>
@@ -205,20 +192,7 @@ const howToJsonLd = {
 
         <div class="grid2" style="margin-top: 12px; align-items: start;">
           <div>
-            <div class="callout">
-              <b>Score yourself:</b>
-              <ul class="list" style="margin-top: 8px;">
-                <li>✅ I enjoy sandbox games (I can set my own goals)</li>
-                <li>✅ I like learning systems (ships, navigation, missions)</li>
-                <li>✅ I can tolerate occasional rough edges without rage-quitting</li>
-                <li>✅ I will play at least 3–5 sessions before judging it</li>
-                <li>✅ I like slow-burn progression more than instant rewards</li>
-                <li>✅ I’m happy if my best moments come from emergent situations</li>
-                <li>✅ I’m okay asking questions / using guides</li>
-                <li>✅ My PC can handle a modern game (SSD is available)</li>
-              </ul>
-            </div>
-          </div>
+</div>
 
           <div>
             <div class="tableWrap">
@@ -249,12 +223,7 @@ const howToJsonLd = {
                 </tbody>
               </table>
             </div>
-
-            <div class="callout" style="margin-top: 12px;">
-              <b>Micro rule:</b> If you’re mostly excited but worried about performance, fix FPS first — it changes the entire first impression.
-              <a href="/star-citizen-performance-guide/" style="margin-left: 8px;">Fix stutter →</a>
-            </div>
-          </div>
+</div>
         </div>
       </div>
     </section>
@@ -267,6 +236,17 @@ const howToJsonLd = {
           This table is the heart of the page. Find your player type, read the honest trade-offs,
           then follow the recommended start.
         </p>
+
+
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaLabel="Get extra starting credits (free)"
+      ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="Planning to create an account? Use a referral code during signup — it adds a free credit boost to your first sessions."
+      ariaLabel="Referral bonus — extra starting credits"
+    />
 
         <div class="tableWrap" style="margin-top: 12px;">
           <table class="table">
@@ -324,12 +304,7 @@ const howToJsonLd = {
             </tbody>
           </table>
         </div>
-
-        <div class="callout" style="margin-top: 12px;">
-          <b>Beginner rule:</b> If you don’t have fun in your first 3–5 sessions, it’s usually because your first loop was too complex.
-          Use the first-hour route below and keep it simple.
-        </div>
-      </div>
+</div>
     </section>
 
     <!-- WHAT YOU GET -->
@@ -389,12 +364,7 @@ const howToJsonLd = {
                 </tbody>
               </table>
             </div>
-
-            <div class="callout" style="margin-top: 12px;">
-              <b>Reality check:</b> Your experience is heavily shaped by two things: (1) your first loop and (2) your performance.
-              Fix those early, and the game reads very differently.
-            </div>
-          </div>
+</div>
         </div>
       </div>
     </section>
@@ -402,11 +372,22 @@ const howToJsonLd = {
     <!-- SAFE START -->
     <section id="safe-start" class="section">
       <div class="card pad">
-        <h2 class="section__title">Safest way to start (spend the minimum)</h2>
+        <h2 class="section__title">Safest way to start: spend the minimum</h2>
         <p style="max-width: 980px;">
           This is a beginner funnel, but it’s also just good consumer advice: validate that you enjoy the loop
           before you upgrade anything.
         </p>
+
+
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaLabel="Get extra starting credits (free)"
+      ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="Planning to create an account? Use a referral code during signup — it adds a free credit boost to your first sessions."
+      ariaLabel="Referral bonus — extra starting credits"
+    />
 
         <div class="tableWrap" style="margin-top: 12px;">
           <table class="table">
@@ -442,31 +423,8 @@ const howToJsonLd = {
         </div>
 
         <div class="grid2" style="margin-top: 12px;">
-          <div class="callout">
-            <b>If you decide to buy:</b> do it correctly.
-            <ul class="list" style="margin-top: 8px;">
-              <li>Start with the <b>minimum</b> package.</li>
-              <li>Claim your free signup bonus first (optional).</li>
-              <li>Then follow the 60-minute route below to get your first win.</li>
-            </ul>
-            <div class="btnrow" style="margin-top: 10px;">
-              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Claim +{referralBonusUEC} UEC bonus</a>
-              <a class="btn secondary" href="/star-citizen-referral-code/">How referral works</a>
-            </div>
-          </div>
-
-          <div class="callout">
-            <b>Want to buy smarter?</b>
-            <ul class="list" style="margin-top: 8px;">
-              <li>Pick a starter that matches your first loop.</li>
-              <li>Avoid paying for roles you won’t play.</li>
-              <li>Upgrade only after you’ve earned your first aUEC reliably.</li>
-            </ul>
-            <div class="btnrow" style="margin-top: 10px;">
-              <a class="btn secondary" href="/star-citizen-starter-packs/">Best starter packs →</a>
-              <a class="btn secondary" href="/make-money-fast/">Make money fast →</a>
-            </div>
-          </div>
+</div>
+</div>
         </div>
       </div>
     </section>
@@ -474,7 +432,7 @@ const howToJsonLd = {
     <!-- FIRST HOUR -->
     <section id="first-hour" class="section">
       <div class="card pad">
-        <h2 class="section__title">Your first 60 minutes (do this now)</h2>
+        <h2 class="section__title">Your first 60 minutes: do this now</h2>
         <p style="max-width: 980px;">
           Most “Star Citizen is boring” experiences happen because the first session is chaotic.
           Follow this route once. It’s designed to give you a clean first win.
@@ -482,18 +440,7 @@ const howToJsonLd = {
 
         <div class="grid2" style="margin-top: 12px; align-items: start;">
           <div>
-            <div class="callout">
-              <b>Time:</b> 60 minutes
-              <ol class="list" style="margin-top: 8px;">
-                <li><b>Pick one goal:</b> complete one simple contract (nothing else).</li>
-                <li><b>Claim your ship</b> and fly carefully (don’t rush takeoff/landing).</li>
-                <li><b>Take one beginner contract</b> (courier/delivery is ideal).</li>
-                <li><b>Finish the loop</b> and confirm the payout.</li>
-                <li><b>Repeat once</b> to lock in the muscle memory.</li>
-                <li><b>Stop while it’s good:</b> end the session with a win, not frustration.</li>
-              </ol>
-            </div>
-          </div>
+</div>
 
           <div>
             <div class="tableWrap">
@@ -526,8 +473,7 @@ const howToJsonLd = {
             </div>
 
             <div class="btnrow" style="margin-top: 12px;">
-              <a class="btn secondary" href="/beginner-tips/">Beginner tips (next) →</a>
-              <a class="btn secondary" href="/make-money-fast/">First money loop →</a>
+<a class="btn secondary" href="/make-money-fast/">First money loop →</a>
             </div>
           </div>
         </div>
@@ -544,31 +490,8 @@ const howToJsonLd = {
         </p>
 
         <div class="grid2" style="margin-top: 12px;">
-          <div class="callout">
-            <b>High-impact basics:</b>
-            <ul class="list" style="margin-top: 8px;">
-              <li>Install the game on an <b>SSD</b> (not HDD).</li>
-              <li>Close overlays and background apps that hook the GPU.</li>
-              <li>Use the recommended in-game settings changes from our guide.</li>
-            </ul>
-            <div class="btnrow" style="margin-top: 10px;">
-              <a class="btn primary" href="/star-citizen-performance-guide/#do-now">Do the 10-minute fixes</a>
-              <a class="btn secondary" href="/star-citizen-performance-guide/">Full performance guide</a>
-            </div>
-          </div>
-
-          <div class="callout">
-            <b>If you’re on Free Fly:</b> treat it like a test drive.
-            <ul class="list" style="margin-top: 8px;">
-              <li>Pick one location and compare before/after fixes.</li>
-              <li>Don’t chase “perfect FPS” — chase “playable and smooth enough”.</li>
-              <li>Once it feels stable, judge the game on gameplay — not stutter.</li>
-            </ul>
-            <div class="btnrow" style="margin-top: 10px;">
-              <a class="btn secondary" href="/free-fly/">Free Fly guide →</a>
-              <a class="btn secondary" href="/make-money-fast/">Money loops →</a>
-            </div>
-          </div>
+</div>
+</div>
         </div>
       </div>
     </section>
@@ -616,11 +539,7 @@ const howToJsonLd = {
             </tbody>
           </table>
         </div>
-
-        <div class="callout" style="margin-top: 12px;">
-          <b>If you only do one thing:</b> keep your first loop simple and repeat it once. That single choice changes the entire first week.
-        </div>
-      </div>
+</div>
     </section>
 
     <!-- FAQ -->
@@ -629,7 +548,7 @@ const howToJsonLd = {
         <h2 class="section__title">FAQ</h2>
 
         <div class="faq" style="margin-top: 10px;">
-          <details open>
+          <details>
             <summary>Do I need a game package to play?</summary>
             <p>Yes. Free Fly is the exception: it lets you play temporarily without buying. Outside Free Fly, you need a starter package.</p>
           </details>
@@ -649,13 +568,33 @@ const howToJsonLd = {
             <summary>What if my performance is bad?</summary>
             <p>Do the high-impact basics first (SSD + a few key settings). Then judge the game. Use our performance checklist to fix stutter fast.</p>
           </details>
+
+          <details>
+            <summary>What’s the lowest-risk way to try it?</summary>
+            <p>Try a Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session route before spending anything else.</p>
+          </details>
+          <details>
+            <summary>Is Star Citizen pay-to-win?</summary>
+            <p>You can buy ships, but the smartest approach is still “start minimal, upgrade later if you keep playing.” Most early progress comes from learning the loop, not owning a big ship.</p>
+          </details>
+          <details>
+            <summary>How long until the game “clicks” for most beginners?</summary>
+            <p>Rule-of-thumb: give it 3–5 sessions. The first session is often setup-heavy; sessions 2–5 are where you learn the loop and decide if the sandbox style is for you.</p>
+          </details>
+          <details>
+            <summary>Should I buy extra ships immediately?</summary>
+            <p>No. Validate that you enjoy the core loop first. If you still play consistently after a few sessions, then upgrade based on your preferred role (combat, hauling, mining, exploring).</p>
+          </details>
+          <details>
+            <summary>Do I need friends or an org to enjoy it?</summary>
+            <p>No, but it helps. Solo play is totally viable, yet the game shines with other players. If you’re on the fence, try one or two social sessions before deciding.</p>
+          </details>
+
         </div>
 
         <div class="btnrow" style="margin-top: 14px;">
-          <a class="btn secondary" href="/star-citizen-referral-code/">Referral code: how it works</a>
-          <a class="btn secondary" href="/star-citizen-starter-packs/">Starter packs: buy smart</a>
-          <a class="btn secondary" href="/free-fly/">Try Free Fly</a>
-        </div>
+<a class="btn secondary" href="/star-citizen-starter-packs/">Starter packs: buy smart</a>
+</div>
       </div>
     </section>
   </main>

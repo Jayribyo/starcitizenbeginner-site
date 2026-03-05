@@ -16,6 +16,7 @@
 const {
   code = "STAR-FSRJ-5N7Z",
   bonus = "50,000 UEC",
+  ctaLabel = "Claim your start bonus",
   ctaHref = `https://www.robertsspaceindustries.com/enlist?referral=${code}`,
   howItWorksHref = "/star-citizen-referral-code/#how-to-use",
   sublineHtml = "Enter during signup — or within <b>24 hours</b> after account creation.",
@@ -36,7 +37,7 @@ const {
 
     <div class="refOffer__actions">
       <a class="btn primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
-        Get 50,000 UEC bonus
+        {ctaLabel}
       </a>
     </div>
   </div>

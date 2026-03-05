@@ -13,15 +13,15 @@ const heroImg = "/assets/img/make-money-fast/star-citizen-earn-auec-fast-mining-
 const tradeImg = "/assets/img/make-money-fast/star-citizen-trade-routes-profit-calculation.webp";
 
 const tocItems = [
-  { label: "TL;DR: fastest safe starts", href: "#tldr" },
-  { label: "Pick your money path (decision table)", href: "#paths" },
-  { label: "10-minute starter route (do this now)", href: "#do-now" },
+  { label: "Quick answer", href: "#tldr" },
+  { label: "Choose your money path", href: "#paths" },
+  { label: "Do this now: first 10 minutes", href: "#do-now" },
   { label: "Best beginner money loops", href: "#loops" },
   { label: "Trading: simple routes that work", href: "#trading" },
   { label: "Mining: stable income, low drama", href: "#mining" },
   { label: "Combat & FPS: fastest scaling", href: "#combat" },
   { label: "Piracy: high risk, high chaos", href: "#piracy" },
-  { label: "Common mistakes (and fixes)", href: "#mistakes" },
+  { label: "Common mistakes and fixes", href: "#mistakes" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -130,14 +130,8 @@ const howToJsonLd = {
 
           <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href="#do-now">Start the 10-minute route</a>
-            <a class="btn secondary" href="#paths">Pick your money path</a>
-          </div>
-
-          <div class="callout" style="margin-top:12px;">
-            <b>Free Fly / no game package?</b> You can still use this page: practice these loops during Free Fly, then buy smarter.
-            <a href="/free-fly/" style="margin-left:8px;">Free Fly guide →</a>
-          </div>
-        </div>
+</div>
+</div>
       </div>
 
       <OnThisPage variant="hero" title="On this page" items={tocItems} />
@@ -147,16 +141,17 @@ const howToJsonLd = {
     <ReferralBanner
       code={referralCode}
       bonus={`${referralBonusUEC} UEC`}
-      ctaHref={referralLink}
+            ctaLabel="Claim your free start bonus"
+ctaHref={referralLink}
       howItWorksHref="/star-citizen-referral-code/#how-to-use"
       sublineHtml="Use it during signup — it’s free, and you only get this <b>first signup moment</b> once."
       ariaLabel="Referral bonus callout"
     />
 
-    <!-- TL;DR -->
+    <!-- Quick answer -->
     <section id="tldr" class="section">
       <div class="card pad">
-        <h2 class="section__title">TL;DR: fastest safe starts</h2>
+        <h2 class="section__title">Quick answer</h2>
 
         <div class="grid2" style="margin-top:10px;">
           <div>
@@ -168,14 +163,8 @@ const howToJsonLd = {
             </ul>
           </div>
           <div>
-            <div class="callout">
-              <b>What is aUEC?</b> It’s the in-game money you earn and spend on ships, gear, and components.
-              Your goal as a beginner is simple: <b>repeat a safe loop</b> until you can upgrade without going broke.
-            </div>
-
-            <div class="btnrow" style="margin-top:12px;">
-              <a class="btn secondary" href="/star-citizen-performance-guide/">Fix stutter (earn more)</a>
-              <a class="btn secondary" href="/star-citizen-referral-code/">Claim signup bonus</a>
+<div class="btnrow" style="margin-top:12px;">
+<a class="btn secondary" href="/star-citizen-referral-code/">Claim signup bonus</a>
             </div>
           </div>
         </div>
@@ -185,7 +174,7 @@ const howToJsonLd = {
     <!-- PATHS -->
     <section id="paths" class="section">
       <div class="card pad">
-        <h2 class="section__title">Pick your money path (decision table)</h2>
+        <h2 class="section__title">Choose your money path</h2>
         <p style="max-width: 980px;">
           Choose the route that matches your risk tolerance and what you already have. If you’re new, start with a <b>safe loop</b>
           until you can afford mistakes.
@@ -255,17 +244,26 @@ const howToJsonLd = {
             </tbody>
           </table>
         </div>
-
-        <div class="callout" style="margin-top:12px;">
-          <b>Rule-of-thumb:</b> If you can’t afford to lose it twice, don’t bring it (cargo, gear, or upgrades).
-        </div>
-      </div>
+</div>
     </section>
+
+
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaLabel="Boost your bankroll with a free signup bonus"
+      ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="If you’re creating a new account, use a referral code at signup — it’s free and gives you extra starting credits to fund your first upgrades."
+      ariaLabel="Referral bonus — boost your starting bankroll"
+    />
+
+
 
     <!-- DO THIS NOW -->
     <section id="do-now" class="section">
       <div class="card pad">
-        <h2 class="section__title">10-minute starter route (do this now)</h2>
+        <h2 class="section__title">Do this now: first 10 minutes</h2>
         <p style="max-width: 980px;">
           This is the safest “first money” loop. Your goal is not to optimize — your goal is to <b>finish</b>, get paid,
           then repeat once or twice so you build confidence.
@@ -281,11 +279,7 @@ const howToJsonLd = {
               <li><b>Pick up the package</b> and immediately plot the dropoff.</li>
               <li><b>Deliver</b>, get paid, and repeat the same pattern 2–3 times.</li>
             </ol>
-
-            <div class="callout" style="margin-top:12px;">
-              <b>Verify:</b> You can complete this loop without dying, losing gear, or risking your wallet.
-            </div>
-          </div>
+</div>
 
           <div>
             <h3 class="h3">Do this instead if you want faster scaling</h3>
@@ -296,8 +290,7 @@ const howToJsonLd = {
             </ul>
 
             <div class="btnrow" style="margin-top:12px;">
-              <a class="btn secondary" href="#combat">Combat scaling</a>
-              <a class="btn secondary" href="#mining">Mining loop</a>
+<a class="btn secondary" href="#mining">Mining loop</a>
             </div>
           </div>
         </div>
@@ -357,12 +350,7 @@ const howToJsonLd = {
             </ul>
           </div>
         </div>
-
-        <div class="callout" style="margin-top:12px;">
-          <b>Shortcut:</b> If performance issues are slowing your money runs, fix stutter first.
-          <a href="/star-citizen-performance-guide/" style="margin-left:8px;">Performance guide →</a>
-        </div>
-      </div>
+</div>
     </section>
 
     <!-- TRADING -->
@@ -383,12 +371,7 @@ const howToJsonLd = {
               <li><b>Sell at major markets:</b> big city terminals tend to be the easiest sell points.</li>
               <li><b>Never go all-in:</b> one crash or pirate encounter should not delete your progress.</li>
             </ul>
-
-            <div class="callout" style="margin-top:12px;">
-              <b>Measured vs reality:</b> Prices and availability can change. Use these routes as a <b>starting template</b>,
-              then adjust based on what the terminals actually show you.
-            </div>
-          </div>
+</div>
 
           <div>
             <img
@@ -442,8 +425,7 @@ const howToJsonLd = {
         </div>
 
         <div class="btnrow" style="margin-top:12px;">
-          <a class="btn secondary" href="#mistakes">Avoid trading mistakes</a>
-          <a class="btn secondary" href="#do-now">Start with safe money first</a>
+<a class="btn secondary" href="#do-now">Start with safe money first</a>
         </div>
       </div>
     </section>
@@ -465,11 +447,7 @@ const howToJsonLd = {
               <li><b>Repeat in the same area</b> until your success rate is high.</li>
               <li><b>Upgrade only after consistency:</b> better tools/vehicle/ship later.</li>
             </ol>
-
-            <div class="callout" style="margin-top:12px;">
-              <b>Rule-of-thumb:</b> Your “profit” is not just the haul — it’s the number of clean runs you can repeat per session.
-            </div>
-          </div>
+</div>
 
           <div>
             <h3 class="h3">When mining is a bad idea</h3>
@@ -480,8 +458,7 @@ const howToJsonLd = {
             </ul>
 
             <div class="btnrow" style="margin-top:12px;">
-              <a class="btn secondary" href="/star-citizen-performance-guide/">Fix crashes/stutter</a>
-              <a class="btn secondary" href="#combat">Try combat scaling</a>
+<a class="btn secondary" href="#combat">Try combat scaling</a>
             </div>
           </div>
         </div>
@@ -558,17 +535,26 @@ const howToJsonLd = {
             </tbody>
           </table>
         </div>
-
-        <div class="callout" style="margin-top:12px;">
-          <b>Rule-of-thumb:</b> Don’t try piracy solo as a beginner. Learn the economy first, then experiment when losing a run doesn’t hurt.
-        </div>
-      </div>
+</div>
     </section>
+
+
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaLabel="Get free starting credits for your first ship upgrades"
+      ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="More credits early = faster quality-of-life upgrades. If you’re new, claim the free bonus during signup so your first money loops feel smoother."
+      ariaLabel="Referral bonus — fund early upgrades"
+    />
+
+
 
     <!-- MISTAKES -->
     <section id="mistakes" class="section">
       <div class="card pad">
-        <h2 class="section__title">Common mistakes (and fixes)</h2>
+        <h2 class="section__title">Common mistakes and fixes</h2>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
@@ -610,8 +596,7 @@ const howToJsonLd = {
         </div>
 
         <div class="btnrow" style="margin-top:12px;">
-          <a class="btn secondary" href="/star-citizen-performance-guide/">Performance fixes</a>
-          <a class="btn secondary" href="/star-citizen-referral-code/">Signup bonus steps</a>
+<a class="btn secondary" href="/star-citizen-referral-code/">Signup bonus steps</a>
         </div>
       </div>
     </section>
@@ -657,10 +642,31 @@ const howToJsonLd = {
           </p>
         </details>
 
+          <details>
+            <summary>What’s the safest “fast money” loop for absolute beginners?</summary>
+            <p>Courier-style jobs are the safest start: low risk, no gear loss, and they teach navigation. Once you can finish loops reliably, move into bounties or FPS for faster scaling.</p>
+          </details>
+          <details>
+            <summary>How do I avoid losing gear and wasting money?</summary>
+            <p>Don’t over-buy. Carry only what you’ll use, keep backup basics in storage, and avoid high-risk FPS missions until you can complete the safe loop consistently.</p>
+          </details>
+          <details>
+            <summary>What should I upgrade first with my first earnings?</summary>
+            <p>Quality-of-life first: upgrades that reduce downtime (faster travel, survivability basics) usually beat “cool” purchases. Buy small, verify you still enjoy the loop, then scale up.</p>
+          </details>
+          <details>
+            <summary>Is combat still worth it if my FPS is bad?</summary>
+            <p>Not at first. Poor performance makes combat harder and less profitable. Fix stutter first, then try low-risk bounties or group play before you push harder missions.</p>
+          </details>
+          <details>
+            <summary>Can I roleplay as a trader or pirate without expensive ships?</summary>
+            <p>Yes, but start with the beginner-safe version: small runs, low risk, and learn the routes. For piracy, teamwork and game knowledge matter more than a big ship — expect higher risk and chaos.</p>
+          </details>
+
+
         <div class="btnrow" style="margin-top:14px;">
           <a class="btn primary" href="/star-citizen-referral-code/">Claim your start bonus</a>
-          <a class="btn secondary" href="/star-citizen-starter-packs/">Pick a starter pack</a>
-        </div>
+</div>
       </div>
     </section>
 

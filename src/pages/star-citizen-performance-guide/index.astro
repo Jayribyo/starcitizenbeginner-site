@@ -13,7 +13,7 @@ const heroImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-se
 const sectionImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance.webp";
 
 const tocItems = [
-  { label: "Requirements (min / recommended / optimal)", href: "#requirements" },
+  { label: "Requirements: min / recommended / optimal", href: "#requirements" },
   { label: "2-minute readiness check", href: "#pc-ready" },
   { label: "Best settings for performance", href: "#settings" },
   { label: "Fix stutter & low FPS", href: "#stutter" },
@@ -136,8 +136,7 @@ const howToJsonLd = {
 
           <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href="#pc-ready">Run the 2-minute check</a>
-            <a class="btn secondary" href="#settings">Apply best settings</a>
-          </div>
+</div>
         </div>
       </div>
 
@@ -148,7 +147,8 @@ const howToJsonLd = {
     <ReferralBanner
       code={referralCode}
       bonus={`${referralBonusUEC} UEC`}
-      ctaHref={referralLink}
+            ctaLabel="Claim your start bonus (+UEC)"
+ctaHref={referralLink}
       howItWorksHref="/star-citizen-referral-code/#how-to-use"
       sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
       ariaLabel="Referral bonus callout"
@@ -157,7 +157,7 @@ const howToJsonLd = {
     <!-- REQUIREMENTS -->
     <section id="requirements" class="section">
       <div class="card pad">
-        <h2 class="section__title">Requirements (min / recommended / optimal)</h2>
+        <h2 class="section__title">Requirements: min / recommended / optimal</h2>
         <p>
           Star Citizen is a <strong>streaming-heavy</strong> game. If one pillar is weak, you’ll feel it even with a strong GPU:
           <strong>SSD</strong> (asset streaming), <strong>RAM + pagefile headroom</strong> (stutter/crash prevention), and <strong>CPU headroom</strong> (cities + big fights).
@@ -604,6 +604,19 @@ const howToJsonLd = {
       </div>
     </section>
 
+
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+      ctaLabel="Grab free start credits for your first upgrades"
+      ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="If you’re creating a new account, the referral bonus is a simple free win — it helps fund early quality-of-life upgrades."
+      ariaLabel="Referral bonus — fund early upgrades"
+    />
+
+
+
     <!-- UPGRADES -->
     <section id="upgrades" class="section">
       <div class="card pad">
@@ -611,16 +624,7 @@ const howToJsonLd = {
         <p>
           Want the biggest improvement per euro? Prioritize stability first (stutter/crashes), then chase resolution/visuals.
         </p>
-
-        <div class="callout" style="margin-top:12px;">
-          <b>New account?</b> Claim the free start bonus once, then spend your credits smarter.
-          <div class="btnrow" style="margin-top:10px;">
-            <a class="btn primary" href="/star-citizen-referral-code/">Referral code steps</a>
-            <a class="btn secondary" href={referralLink} target="_blank" rel="noopener noreferrer">
-              Claim +{referralBonusUEC} UEC
-            </a>
-          </div>
-        </div>
+</div>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
@@ -685,8 +689,7 @@ const howToJsonLd = {
             <div style="color: rgba(255,255,255,.74);">Use a referral code before signup, then pick a starter pack that fits your playstyle.</div>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn secondary" href="/star-citizen-referral-code/">Claim signup bonus</a>
-            <a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
+<a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
           </div>
         </div>
       </div>
