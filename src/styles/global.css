@@ -820,6 +820,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   transition: transform 220ms ease, filter 220ms ease;
 }
 
+}
+
 .tile:hover .tile__img {
   transform: scale(1.03);
   filter: brightness(1.02);
