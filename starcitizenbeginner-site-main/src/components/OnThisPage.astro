@@ -1,0 +1,68 @@
+---
+/**
+ * SCB OnThisPage (TOC) component
+ *
+ * Props:
+ *  - items: Array<{ label: string, href: string }>
+ *  - title: string
+ *  - ariaLabel: string
+ */
+const {
+  items = [],
+  title = "On this page",
+  ariaLabel = "On this page",
+  variant = "section", // "section" | "hero"
+} = Astro.props;
+---
+
+{variant === "hero" ? (
+  <div class="hero__toc" aria-label={ariaLabel}>
+    <div class="container">
+      <div class="card pad hero__tocCard">
+        <div class="kicker"><span class="dot"></span> {title}</div>
+        <div class="toc">
+          {items.map((it) => (
+            <a href={it.href}>{it.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+) : (
+  <section class="section" aria-label={ariaLabel}>
+    <div class="card pad">
+      <div class="kicker"><span class="dot"></span> {title}</div>
+      <div class="toc">
+        {items.map((it) => (
+          <a href={it.href}>{it.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 14px;
+    margin-top:10px;
+    font-weight:800;
+    font-size:13px;
+    opacity:.92;
+  }
+
+  .toc a{
+    border:1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.04);
+    padding:8px 10px;
+    border-radius:12px;
+    transition: background .15s ease, border-color .15s ease, transform .15s ease;
+  }
+
+  .toc a:hover{
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,255,255,.14);
+    transform: translateY(-1px);
+  }
+</style>

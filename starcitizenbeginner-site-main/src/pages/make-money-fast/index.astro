@@ -1,0 +1,716 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+import HowToSchema from "../../components/HowToSchema.astro";
+
+const referralCode = "STAR-FSRJ-5N7Z";
+const referralBonusUEC = "50,000";
+const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+
+const heroImg = "/assets/img/make-money-fast/star-citizen-earn-auec-fast-mining-trade-profit-hero.webp";
+const tradeImg = "/assets/img/make-money-fast/star-citizen-trade-routes-profit-calculation.webp";
+
+const tocItems = [
+  { label: "Quick answer", href: "#tldr" },
+  { label: "Choose your money path", href: "#paths" },
+  { label: "Do this now: first 10 minutes", href: "#do-now" },
+  { label: "Best beginner money loops", href: "#loops" },
+  { label: "Trading: simple routes that work", href: "#trading" },
+  { label: "Mining: stable income, low drama", href: "#mining" },
+  { label: "Combat & FPS: fastest scaling", href: "#combat" },
+  { label: "Piracy: high risk, high chaos", href: "#piracy" },
+  { label: "Common mistakes and fixes", href: "#mistakes" },
+  { label: "FAQ", href: "#faq" },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is aUEC in Star Citizen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "aUEC is the in-game currency you earn by completing contracts, trading, mining, or selling loot. You spend it on ships, gear, and components in the in-game shops."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make money during Free Fly without owning a game package?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. During Free Fly you can play and earn aUEC like normal. Your progress may not always carry over forever, but you can still use Free Fly to learn money loops and decide what starter pack to buy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the safest way to earn money as a beginner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with delivery/courier contracts and simple legal missions. They require little gear, teach navigation, and don’t risk your entire wallet like trading can."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a big cargo ship to earn good money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Many of the best beginner routes scale from small ships: you can start with delivery or low-tier bounties, then upgrade once you can afford it without going broke."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is trading good for beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trading can work, but it’s the easiest way to lose your bankroll early. If you trade, start with a small percentage of your wallet, keep routes short, and never go all-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do referral codes fit into making money fast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you’re creating a new account, a referral code is a free one-time signup bonus. It gives you extra starting credits so you can fund early upgrades without risking your wallet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s the safest fast money loop for absolute beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Courier/delivery contracts are the safest start: low risk, low gear loss, and they teach navigation. Once you can finish loops reliably, move into bounties or FPS for faster scaling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I avoid losing gear and wasting money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep your kit cheap early, carry only what you’ll use, and avoid high-risk FPS missions until you can complete the safe loop consistently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I upgrade first with my first earnings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Buy quality-of-life upgrades that reduce downtime first (faster travel, basic survivability). Verify you still enjoy the loop, then scale up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is combat worth it if my FPS is bad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at first. Poor performance makes combat harder and less profitable. Fix stutter first, then try low-risk bounties or group play before pushing harder missions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I roleplay as a trader or pirate without expensive ships?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but start with the beginner-safe version: small runs, low risk, and learn the routes. For piracy, teamwork and game knowledge matter more than a big ship."
+      }
+    }
+  ]
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "10-minute starter route to earn your first aUEC",
+  "description": "A beginner-safe loop that earns your first credits quickly: accept a simple courier contract, complete it, and repeat with minimal risk.",
+  "totalTime": "PT10M",
+  "step": [
+    { "@type": "HowToStep", "name": "Spawn and get ready", "text": "Equip a basic undersuit and helmet if you plan to leave the station. Keep your inventory light." },
+    { "@type": "HowToStep", "name": "Pick a simple courier contract", "text": "Choose a single-pickup, single-dropoff delivery. Avoid multi-stop runs for your first loops." },
+    { "@type": "HowToStep", "name": "Claim and fly your ship", "text": "Retrieve your ship, request takeoff, and fly to the pickup location." },
+    { "@type": "HowToStep", "name": "Pick up the package", "text": "Grab the package, return to your ship, and plot the dropoff." },
+    { "@type": "HowToStep", "name": "Deliver and repeat", "text": "Deliver the package, get paid, and repeat the same simple pattern 2–3 times before you branch out." }
+  ]
+};
+---
+
+<BaseLayout
+  title="Make Money Fast in Star Citizen: Beginner aUEC Routes, Trading, Mining & Best Contracts"
+  description="Make money fast in Star Citizen with beginner-proof, low-risk routes first: a 10-minute starter loop, a decision table for trading/mining/combat, and the common mistakes that lose your wallet."
+  canonicalPath="/make-money-fast/"
+  ogImage={heroImg}
+  ogImageAlt="Star Citizen make money fast guide hero image"
+  stickyCtaLabel="Claim +50k UEC start bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+  activeNav="guides"
+>
+  <link slot="head" rel="preload" as="image" href={heroImg} imagesrcset={`${heroImg} 1536w`} />
+
+  <FaqSchema json={faqJsonLd} />
+  <HowToSchema json={howToJsonLd} />
+
+  <main>
+    <!-- HERO -->
+    <section class="hero guideHero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Star Citizen economy scene representing fast aUEC routes (missions, trade, mining)"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <h1 class="h1">Make Money Fast in Star Citizen</h1>
+          <p class="lead" style="max-width: 900px;">
+            Earn your first aUEC with <b>beginner-safe loops</b> first — then scale into <b>trading</b>, <b>mining</b>, or <b>combat</b>.
+            No fluff: pick a path, run the 10-minute route, and avoid the wallet-killer mistakes.
+          </p>
+
+          <div class="btnrow" style="margin-top: 14px;">
+            <a class="btn primary" href="#do-now">Start the 10-minute route</a>
+</div>
+</div>
+      </div>
+
+      <OnThisPage variant="hero" title="On this page" items={tocItems} />
+    </section>
+
+    <!-- Referral banner (consistent site-wide) -->
+    <ReferralBanner
+      code={referralCode}
+      bonus={`${referralBonusUEC} UEC`}
+            ctaLabel="Claim your free start bonus"
+ctaHref={referralLink}
+      howItWorksHref="/star-citizen-referral-code/#how-to-use"
+      sublineHtml="Use it during signup — it’s free, and you only get this <b>first signup moment</b> once."
+      ariaLabel="Referral bonus callout"
+    />
+
+    <!-- Quick answer -->
+    <section id="tldr" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Quick answer</h2>
+
+        <div class="grid2" style="margin-top:10px;">
+          <div>
+            <ul class="list">
+              <li><b>Fastest zero-drama start:</b> simple courier/delivery loop (learn travel + get paid).</li>
+              <li><b>Fastest scaling route:</b> PvE bounties → upgrade ship/components → higher payout contracts.</li>
+              <li><b>Stable long-term income:</b> mining (learn the loop once, repeat safely).</li>
+              <li><b>Most risky for beginners:</b> trading “all-in” and piracy without a plan.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+              <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
+              <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply it →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATHS -->
+    <section id="paths" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Choose your money path</h2>
+        <p style="max-width: 980px;">
+          Choose the route that matches your risk tolerance and what you already have. If you’re new, start with a <b>safe loop</b>
+          until you can afford mistakes.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Path</th>
+                <th>Risk</th>
+                <th>What you need</th>
+                <th>Why beginners like it</th>
+                <th>First steps</th>
+                <th>Common pitfall</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Courier / Delivery</th>
+                <td>Low</td>
+                <td>Any starter ship</td>
+                <td>Fast to start, teaches navigation, low gear loss</td>
+                <td>Run 2–3 single-stop contracts</td>
+                <td>Taking multi-stop runs too early</td>
+              </tr>
+              <tr>
+                <th>PvE Bounties</th>
+                <td>Medium</td>
+                <td>Combat-capable ship + basic weapons</td>
+                <td>Scales fast with skill and upgrades</td>
+                <td>Start low tier → upgrade gradually</td>
+                <td>Chasing difficulty too soon</td>
+              </tr>
+              <tr>
+                <th>FPS / Bunkers</th>
+                <td>Medium</td>
+                <td>Helmet + med basics (keep it cheap)</td>
+                <td>Good payouts, fun progression</td>
+                <td>Take a simple bunker mission</td>
+                <td>Bringing expensive gear early</td>
+              </tr>
+              <tr>
+                <th>Mining</th>
+                <td>Low–Med</td>
+                <td>Time to learn a repeatable loop</td>
+                <td>Stable and predictable once learned</td>
+                <td>Start small → sell safely</td>
+                <td>Getting greedy with risky hauls</td>
+              </tr>
+              <tr>
+                <th>Trading</th>
+                <td>Medium–High</td>
+                <td>Some capital + cargo space</td>
+                <td>Can be great, but punishes mistakes</td>
+                <td>Short routes, small bankroll slice</td>
+                <td>Going all-in on one run</td>
+              </tr>
+              <tr>
+                <th>Piracy / Outlaw</th>
+                <td>High</td>
+                <td>Plan + crew (ideally)</td>
+                <td>High thrill, sometimes high payout</td>
+                <td>Learn law/risk first</td>
+                <td>Doing it solo with no exit plan</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+</div>
+    </section>
+
+    
+
+<!-- DO THIS NOW -->
+    <section id="do-now" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Do this now: first 10 minutes</h2>
+        <p style="max-width: 980px;">
+          This is the safest “first money” loop. Your goal is not to optimize — your goal is to <b>finish</b>, get paid,
+          then repeat once or twice so you build confidence.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div>
+            <h3 class="h3">Steps</h3>
+            <ol class="steps">
+              <li><b>Keep it cheap:</b> Wear a basic undersuit + helmet if you plan to leave the station.</li>
+              <li><b>Pick a simple courier contract:</b> single pickup + single dropoff. Avoid multi-stop runs.</li>
+              <li><b>Claim your ship</b> and fly to the pickup location.</li>
+              <li><b>Pick up the package</b> and immediately plot the dropoff.</li>
+              <li><b>Deliver</b>, get paid, and repeat the same pattern 2–3 times.</li>
+            </ol>
+</div>
+
+          <div>
+            <h3 class="h3">Do this instead if you want faster scaling</h3>
+            <ul class="list">
+              <li><b>Comfortable flying + aim?</b> Start low-tier bounties and upgrade slowly.</li>
+              <li><b>Enjoy FPS?</b> Do a basic bunker run but keep gear cheap.</li>
+              <li><b>Hate combat?</b> Stick to courier + mining — predictable progress wins.</li>
+            </ul>
+
+            <div class="btnrow" style="margin-top:12px;">
+<a class="btn secondary" href="#mining">Mining loop</a>
+            </div>
+
+            <!-- Contextual referral CTA (use buttons only; banner stays only once below the hero) -->
+            <div class="btnrow" style="margin-top:10px; flex-wrap: wrap;">
+              <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Start with +{referralBonusUEC} UEC (signup bonus)</a>
+              <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How the bonus works →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOPS -->
+    <section id="loops" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Best beginner money loops</h2>
+        <p style="max-width: 980px;">
+          Each loop below is a mini playbook: who it’s for, what you need, exact steps, scaling, and the mistake that kills it.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad" style="background:rgba(255,255,255,.03);">
+            <h3 class="h3">1) Courier / Delivery (low risk)</h3>
+            <ul class="list">
+              <li><b>For:</b> Free Fly, new players, anyone who crashes or gets lost</li>
+              <li><b>Need:</b> any starter ship</li>
+              <li><b>Steps:</b> single-stop contract → finish → repeat 2–3×</li>
+              <li><b>Scale:</b> chain similar routes; learn one area well</li>
+              <li><b>Mistake:</b> multi-stop runs before you’re consistent</li>
+            </ul>
+          </div>
+
+          <div class="card pad" style="background:rgba(255,255,255,.03);">
+            <h3 class="h3">2) PvE Bounties (fast scaling)</h3>
+            <ul class="list">
+              <li><b>For:</b> players who want faster progression</li>
+              <li><b>Need:</b> combat-capable ship (start small)</li>
+              <li><b>Steps:</b> low tier → keep distance → finish clean → repeat</li>
+              <li><b>Scale:</b> upgrade components, then increase tier</li>
+              <li><b>Mistake:</b> taking harder targets before upgrades/skill</li>
+            </ul>
+          </div>
+
+          <div class="card pad" style="background:rgba(255,255,255,.03);">
+            <h3 class="h3">3) FPS / Bunkers (fun + gear risk)</h3>
+            <ul class="list">
+              <li><b>For:</b> FPS enjoyers, loot lovers</li>
+              <li><b>Need:</b> helmet + a few med items (keep it cheap)</li>
+              <li><b>Steps:</b> enter slowly → clear corners → loot lightly → extract</li>
+              <li><b>Scale:</b> learn 1 bunker style and repeat</li>
+              <li><b>Mistake:</b> bringing expensive loadouts early</li>
+            </ul>
+          </div>
+
+          <div class="card pad" style="background:rgba(255,255,255,.03);">
+            <h3 class="h3">4) Mining (stable income)</h3>
+            <ul class="list">
+              <li><b>For:</b> players who want predictable progress</li>
+              <li><b>Need:</b> patience + a repeatable sell routine</li>
+              <li><b>Steps:</b> mine small → sell safely → repeat</li>
+              <li><b>Scale:</b> better tools/vehicle/ship once you’re consistent</li>
+              <li><b>Mistake:</b> getting greedy and losing the haul</li>
+            </ul>
+          </div>
+        </div>
+</div>
+    </section>
+
+    <!-- TRADING -->
+    <section id="trading" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Trading: simple routes that work (without going broke)</h2>
+        <p style="max-width: 980px;">
+          Trading is the classic “I got rich fast” dream — and also the classic beginner bankrupter.
+          Here’s how to do it like a professional: <b>short routes</b>, <b>small bankroll</b>, and <b>repeatable logistics</b>.
+        </p>
+
+        <div class="grid2" style="margin-top:12px; align-items:start;">
+          <div>
+            <h3 class="h3">The beginner-safe trading rules</h3>
+            <ul class="list">
+              <li><b>Rule-of-thumb:</b> risk only <b>10–20%</b> of your wallet per run until you’ve done 5 clean runs.</li>
+              <li><b>Keep it short:</b> fewer stops = fewer ways to lose time or cargo.</li>
+              <li><b>Sell at major markets:</b> big city terminals tend to be the easiest sell points.</li>
+              <li><b>Never go all-in:</b> one crash or pirate encounter should not delete your progress.</li>
+            </ul>
+</div>
+
+          <div>
+            <img
+              src={tradeImg}
+              alt="Trade route profit calculation and cargo planning"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+              style="width:100%;border-radius:18px;border:1px solid rgba(255,255,255,.08);"
+            />
+          </div>
+        </div>
+
+        <h3 class="h3" style="margin-top:14px;">Concrete starter routes (templates)</h3>
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Route type</th>
+                <th>Buy at</th>
+                <th>Sell at</th>
+                <th>Why it’s beginner-friendly</th>
+                <th>Risk control</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>City-to-city “legal basics”</th>
+                <td>Major city market</td>
+                <td>Another major city market</td>
+                <td>Easy navigation, predictable selling</td>
+                <td>Short hops, small bankroll slice</td>
+              </tr>
+              <tr>
+                <th>Moon outpost → city</th>
+                <td>Moon outpost commodity kiosk</td>
+                <td>Nearby major city market</td>
+                <td>Often better margins, still manageable</td>
+                <td>Don’t haul your whole wallet</td>
+              </tr>
+              <tr>
+                <th>“Test run” micro-cargo</th>
+                <td>Anywhere</td>
+                <td>Nearest major market</td>
+                <td>Learn the UI + logistics fast</td>
+                <td>Start tiny, scale after 3 clean runs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+          <a class="btn secondary" href="#do-now">Start with safe money first</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC to fund your first upgrades</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINING -->
+    <section id="mining" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Mining: stable income, low drama</h2>
+        <p style="max-width: 980px;">
+          Mining rewards consistency. If your goal is “steady progress without chaos”, this is the route.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div>
+            <h3 class="h3">Beginner mining loop (repeatable)</h3>
+            <ol class="steps">
+              <li><b>Start small:</b> focus on finishing the loop, not chasing rare finds.</li>
+              <li><b>Mine → secure → sell:</b> treat selling as part of the mission.</li>
+              <li><b>Repeat in the same area</b> until your success rate is high.</li>
+              <li><b>Upgrade only after consistency:</b> better tools/vehicle/ship later.</li>
+            </ol>
+</div>
+
+          <div>
+            <h3 class="h3">When mining is a bad idea</h3>
+            <ul class="list">
+              <li>If you hate repetition and want quick dopamine: pick bounties instead.</li>
+              <li>If you’re crashing often: fix performance first (mining wastes time if you lose runs).</li>
+              <li>If you keep getting greedy: scale down and tighten your sell routine.</li>
+            </ul>
+
+            <div class="btnrow" style="margin-top:12px;">
+<a class="btn secondary" href="#combat">Try combat scaling</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMBAT -->
+    <section id="combat" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Combat & FPS: fastest scaling (if you’re ready)</h2>
+        <p style="max-width: 980px;">
+          Combat pays well because it has failure states. If you want speed, you need a simple plan: start easy, upgrade slowly,
+          and don’t gamble on “one big run”.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div>
+            <h3 class="h3">PvE bounty scaling (safe version)</h3>
+            <ul class="list">
+              <li><b>Start low tier</b> until you win consistently.</li>
+              <li><b>Upgrade one thing at a time</b> (ship component or weapon), then re-test.</li>
+              <li><b>Only increase tier</b> when your average fights feel easy.</li>
+              <li><b>Stability first:</b> if your frames dip in cities, do bounties in space first.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="h3">FPS / bunkers (cheap loadout philosophy)</h3>
+            <ul class="list">
+              <li><b>Bring only what you can replace easily.</b></li>
+              <li><b>Med basics</b> beat fancy guns as a beginner.</li>
+              <li><b>Extract early</b> when you’re carrying value.</li>
+              <li><b>Practice one mission type</b> until it’s boring — then scale up.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIRACY -->
+    <section id="piracy" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Piracy: high risk, high chaos (read before you try)</h2>
+        <p style="max-width: 980px;">
+          Piracy can be profitable, but it’s the least beginner-friendly path: you need social coordination, patience, and an exit plan.
+          If you’re here for money, not drama, start with legal loops first.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>What you want</th>
+                <th>Reality check</th>
+                <th>Beginner-safe alternative</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Fast cash</th>
+                <td>Often inconsistent; you can spend an hour for nothing</td>
+                <td>PvE bounties (scales reliably)</td>
+              </tr>
+              <tr>
+                <th>Loot value</th>
+                <td>Requires extraction and selling logistics</td>
+                <td>FPS missions with cheap gear</td>
+              </tr>
+              <tr>
+                <th>Thrill & stories</th>
+                <td>This is the real payoff (not guaranteed profit)</td>
+                <td>Keep it as a side path</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+</div>
+    </section>
+
+    
+
+<!-- MISTAKES -->
+    <section id="mistakes" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Common mistakes and fixes</h2>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What happens</th>
+                <th>Fix (exact)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Switching activities every 10 minutes</th>
+                <td>No loop mastery → slow progress</td>
+                <td>Pick one safe loop and repeat it 3 times before you switch</td>
+              </tr>
+              <tr>
+                <th>Going all-in on trading</th>
+                <td>One loss deletes your bankroll</td>
+                <td>Risk 10–20% per run until you’ve completed 5 clean runs</td>
+              </tr>
+              <tr>
+                <th>Bringing expensive FPS gear early</th>
+                <td>You pay repeatedly for mistakes</td>
+                <td>Run cheap kit, extract early, scale after consistency</td>
+              </tr>
+              <tr>
+                <th>Ignoring performance issues</th>
+                <td>Crashes/stutter waste runs and time</td>
+                <td>Fix stutter/crashes first; test in the same location</td>
+              </tr>
+              <tr>
+                <th>Buying upgrades too early</th>
+                <td>Wallet gets stuck → no flexibility</td>
+                <td>Upgrade only when you can still afford 2–3 “mistake runs”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC (free signup bonus)</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">Exact steps →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    
+    <section id="related-answers" class="section alt">
+      <div class="container">
+        <h2 class="h2">Related answers</h2>
+        <ul class="bullets">
+            <li><a href="/best-beginner-mission-to-earn-credits/">Best beginner mission loop (safe start)</a></li>
+            <li><a href="/avoid-losing-gear-beginner/">Avoid losing gear (stop the money leak)</a></li>
+        </ul>
+      </div>
+    </section>
+
+<section id="faq" class="section">
+      <div class="card pad">
+        <h2 class="section__title">FAQ</h2>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__q">What is aUEC?</summary>
+            <div class="faq__a">aUEC is the in-game currency you earn and spend inside Star Citizen.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Can I earn money during Free Fly?</summary>
+            <div class="faq__a">Yes. You can run contracts, trade, and learn money loops during Free Fly. If you like the game, your next step is choosing a starter pack that matches the loop you enjoyed.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">What should I do first if I keep dying?</summary>
+            <div class="faq__a">Start with courier/delivery contracts and keep your gear cheap. If performance issues cause deaths/crashes, fix that first: <a href="/star-citizen-performance-guide/">Performance guide →</a></div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Is trading worth it early?</summary>
+            <div class="faq__a">It can be, but only if you control risk. Start with short routes and risk a small part of your wallet until you’ve proven your routine.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Where do referral codes fit into this?</summary>
+            <div class="faq__a">If you’re creating a new account, using a referral code is a free one-time bonus. The bonus only applies during signup.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">What’s the safest “fast money” loop for absolute beginners?</summary>
+            <div class="faq__a">Courier-style jobs are the safest start: low risk, low gear loss, and they teach navigation. Once you can finish loops reliably, move into bounties or FPS for faster scaling.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">How do I avoid losing gear and wasting money?</summary>
+            <div class="faq__a">Don’t over-buy. Carry only what you’ll use, keep backup basics in storage, and avoid high-risk FPS missions until you can complete the safe loop consistently.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">What should I upgrade first with my first earnings?</summary>
+            <div class="faq__a">Quality-of-life first: upgrades that reduce downtime (faster travel, survivability basics) usually beat “cool” purchases. Buy small, verify you still enjoy the loop, then scale up.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Is combat still worth it if my FPS is bad?</summary>
+            <div class="faq__a">Not at first. Poor performance makes combat harder and less profitable. Fix stutter first, then try low-risk bounties or group play before you push harder missions.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Can I roleplay as a trader or pirate without expensive ships?</summary>
+            <div class="faq__a">Yes, but start with the beginner-safe version: small runs, low risk, and learn the routes. For piracy, teamwork and game knowledge matter more than a big ship — expect higher risk and chaos.</div>
+          </details>
+        </div>
+
+        <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

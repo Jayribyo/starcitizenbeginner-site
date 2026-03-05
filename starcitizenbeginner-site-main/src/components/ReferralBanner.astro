@@ -1,0 +1,140 @@
+---
+/**
+ * SCB ReferralBanner (global)
+ *
+ * Uses existing refOffer design system (gold accent is handled by global.css).
+ * This component is intentionally static-first (no JS).
+ *
+ * Props:
+ *  - code: string
+ *  - bonus: string (e.g. "50,000 UEC" or `${referralBonusUEC} UEC`)
+ *  - ctaHref: string (prefilled RSI enlist link)
+ *  - howItWorksHref: string (internal anchor/link)
+ *  - sublineHtml: string (allows <b> emphasis)
+ *  - ariaLabel: string
+ */
+const {
+  code = "STAR-FSRJ-5N7Z",
+  bonus = "50,000 UEC",
+  ctaLabel = "Claim your start bonus",
+  ctaHref = `https://www.robertsspaceindustries.com/enlist?referral=${code}`,
+  howItWorksHref = "/star-citizen-referral-code/#how-to-use",
+  sublineHtml = "Enter during signup — or within <b>24 hours</b> after account creation.",
+  ariaLabel = "Referral bonus callout",
+} = Astro.props;
+---
+
+<section class="section section--heroWidth" aria-label={ariaLabel}>
+  <div class="refOffer">
+    <div class="refOffer__badge" aria-hidden="true">BONUS</div>
+
+    <div class="refOffer__main">
+      <div class="refOffer__title">
+        Use referral code <button class="refOffer__code js-copyCode" type="button" aria-label={`Copy referral code ${code} to clipboard`} title="Click to copy">{code}</button><span class="refOffer__copied js-copyStatus" role="status" aria-live="polite"></span> to start with <b>{bonus}</b>.
+      </div>
+      <div class="refOffer__sub" set:html={sublineHtml} />
+    </div>
+
+    <div class="refOffer__actions">
+      <a class="btn primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
+        {ctaLabel}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const nodes = document.querySelectorAll('.js-copyCode');
+  if (nodes && nodes.length) {
+    nodes.forEach((el) => {
+      el.addEventListener('click', async () => {
+        const code = (el.textContent || '').trim();
+        if (!code) return;
+
+        try {
+          await navigator.clipboard.writeText(code);
+          el.dataset.copied = 'true';
+          const status = el.parentElement?.querySelector('.js-copyStatus');
+          if (status) {
+            status.textContent = 'Copied ✓';
+            status.dataset.show = 'true';
+            window.clearTimeout(status.__t);
+            status.__t = window.setTimeout(() => {
+              status.textContent = '';
+              delete status.dataset.show;
+            }, 1200);
+          }
+          window.clearTimeout(el.__t);
+          el.__t = window.setTimeout(() => {
+            delete el.dataset.copied;
+          }, 1100);
+        } catch (e) {
+          // Fallback: prompt-style
+          window.prompt('Copy referral code:', code);
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  /* Alias classes (your repo's global.css styles the older __text/__headline/__meta names).
+     This keeps the banner stable without touching global.css. */
+  .refOffer__main{
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .refOffer__title{
+    font-weight: 850;
+    color: rgba(255,255,255,.92);
+    line-height: 1.25;
+  }
+
+  /* Make code look like a pill but behave like a button (copy-to-clipboard) */
+  .refOffer__code{
+    margin: 0 10px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(216,168,74,.38);
+    background: rgba(0,0,0,.28);
+    color: rgba(255,255,255,.92);
+    font-weight: 900;
+    letter-spacing: .06em;
+    cursor: pointer;
+  }
+
+  .refOffer__code[data-copied="true"]{
+    border-color: rgba(216,168,74,.7);
+    box-shadow: 0 0 0 2px rgba(216,168,74,.22);
+  }
+
+  .refOffer__sub{
+    font-size: 13px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.5;
+  }
+
+  .refOffer__copied{
+    margin-left: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(216,168,74,.45);
+    background: rgba(216,168,74,.16);
+    font-size: 0.85rem;
+    font-weight: 850;
+    letter-spacing: .04em;
+    color: rgba(216,168,74,0.98);
+    opacity: 0;
+    transform: translateY(-1px);
+    transition: opacity .18s ease, transform .18s ease;
+    white-space: nowrap;
+  }
+  .refOffer__copied[data-show="true"]{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+</style>
