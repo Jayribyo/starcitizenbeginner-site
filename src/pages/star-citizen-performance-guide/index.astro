@@ -604,20 +604,16 @@ ctaHref={referralLink}
       </div>
     </section>
 
+    <!-- Contextual referral CTA (banner stays only once, below hero) -->
+    <p style="margin-top: 14px; max-width: 980px;">
+      <b>New account?</b> A referral code gives you a free starting credit boost — only during signup.
+    </p>
+    <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
+      <a class="btn secondary" href={referralLink}>Claim your start bonus (+{referralBonusUEC} UEC)</a>
+      <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+    </div>
 
-    <ReferralBanner
-      code={referralCode}
-      bonus={`${referralBonusUEC} UEC`}
-      ctaLabel="Grab free start credits for your first upgrades"
-      ctaHref={referralLink}
-      howItWorksHref="/star-citizen-referral-code/#how-to-use"
-      sublineHtml="If you’re creating a new account, the referral bonus is a simple free win — it helps fund early quality-of-life upgrades."
-      ariaLabel="Referral bonus — fund early upgrades"
-    />
-
-
-
-    <!-- UPGRADES -->
+<!-- UPGRADES -->
     <section id="upgrades" class="section">
       <div class="card pad">
         <h2 class="section__title">Upgrades that matter (highest ROI first)</h2>
