@@ -75,6 +75,38 @@ const faqJsonLd = {
         "@type": "Answer",
         "text": "Start by confirming the game is installed on an SSD and apply a few high-impact settings changes. Our performance guide gives a concrete checklist and the fastest fixes first."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s the lowest-risk way to try Star Citizen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session route before spending anything else."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Star Citizen pay-to-win?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can buy ships, but the smartest approach is still to start minimal and upgrade later if you keep playing. Early progress comes from learning the loop, not owning a big ship."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until Star Citizen clicks for most beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rule-of-thumb: give it 3–5 sessions. Session 1 is often setup-heavy; sessions 2–5 are where you learn the loop and decide if the sandbox style is for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need friends or an org to enjoy it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, but it helps. Solo play is totally viable, yet the game shines with other players. If you’re on the fence, try one or two social sessions before deciding."
+      }
     }
   ]
 };
@@ -192,6 +224,27 @@ ctaHref={referralLink}
 
         <div class="grid2" style="margin-top: 12px; align-items: start;">
           <div>
+            <h3 class="h3">Check what’s true for you</h3>
+            <p style="margin-top:6px; color: rgba(255,255,255,.76);">
+              Count your <b>yes</b> answers. Don’t overthink it — this is about expectations, not skill.
+            </p>
+            <ul class="list" style="margin-top:10px;">
+              <li>☐ I enjoy sandbox games where I set my own goals.</li>
+              <li>☐ I can handle rough edges (bugs/friction) without rage-quitting.</li>
+              <li>☐ I’m willing to play <b>at least 3 sessions</b> before judging it.</li>
+              <li>☐ I like learning systems (ships, travel, missions, inventory) over time.</li>
+              <li>☐ I’m okay if one session sometimes goes sideways — I’ll try again.</li>
+              <li>☐ I’m excited by immersion and scale (even if it’s not “perfect”).</li>
+              <li>☐ I’m fine starting small (minimum package) and upgrading later.</li>
+              <li>☐ I have or can meet the basics: <b>SSD</b> + stable performance setup.
+                <a href="/star-citizen-performance-guide/" style="margin-left:6px;">Fix FPS fast →</a>
+              </li>
+            </ul>
+
+            <p style="margin-top:10px; color: rgba(255,255,255,.72);">
+              <b>Micro rule:</b> if you’re mostly excited but worried about performance, do the 10‑minute performance fixes
+              before you judge the game — it changes the entire first impression.
+            </p>
 </div>
 
           <div>
@@ -206,18 +259,18 @@ ctaHref={referralLink}
                 </thead>
                 <tbody>
                   <tr>
-                    <th>0–3</th>
+                    <th>0–2</th>
                     <td>Don’t buy yet. Watch gameplay and learn what the game actually is.</td>
                     <td><a href="#what-you-get">What you actually get →</a></td>
                   </tr>
                   <tr>
-                    <th>4–6</th>
+                    <th>3–5</th>
                     <td>Try Free Fly first. It’s the safest way to find out if the loop clicks for you.</td>
                     <td><a href="/free-fly/">Free Fly guide →</a></td>
                   </tr>
                   <tr>
-                    <th>7–8</th>
-                    <td>Buying the minimum starter package makes sense — start small, then upgrade later.</td>
+                    <th>6–8</th>
+                    <td>Buying the minimum starter package makes sense — start small, then upgrade only after a few sessions.</td>
                     <td><a href="#safe-start">Safest way to start →</a></td>
                   </tr>
                 </tbody>
@@ -239,11 +292,11 @@ ctaHref={referralLink}
 
     <!-- Contextual referral CTA (banner stays only once, below hero) -->
     <p style="margin-top: 14px; max-width: 980px;">
-      <b>New account?</b> A referral code gives you a free starting credit boost — only during signup.
+      <b>New account?</b> If you decide to buy, grab the free signup bonus first — it only applies during account creation.
     </p>
     <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
-      <a class="btn secondary" href={referralLink}>Claim your start bonus (+{referralBonusUEC} UEC)</a>
-      <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+      <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
+      <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply it →</a>
     </div>
 
 <div class="tableWrap" style="margin-top: 12px;">
@@ -543,54 +596,54 @@ ctaHref={referralLink}
       <div class="card pad">
         <h2 class="section__title">FAQ</h2>
 
-        <div class="faq" style="margin-top: 10px;">
-          <details>
-            <summary>Do I need a game package to play?</summary>
-            <p>Yes. Free Fly is the exception: it lets you play temporarily without buying. Outside Free Fly, you need a starter package.</p>
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__q">Do I need a game package to play?</summary>
+            <div class="faq__a">Yes. Free Fly is the exception: it lets you play temporarily without buying. Outside Free Fly, you need a starter package.</div>
           </details>
-          <details>
-            <summary>What’s the smartest first purchase?</summary>
-            <p>Start with the minimum starter package, then only upgrade once you’ve played enough sessions to know what you enjoy.</p>
+          <details class="faq__item">
+            <summary class="faq__q">What’s the smartest first purchase?</summary>
+            <div class="faq__a">Start with the minimum starter package, then only upgrade once you’ve played enough sessions to know what you enjoy.</div>
           </details>
-          <details>
-            <summary>Is Star Citizen worth it if I play solo?</summary>
-            <p>It can be, but it’s easier to feel lost. Solo players benefit most from a simple loop (courier → money → upgrades). Groups unlock the best emergent moments.</p>
+          <details class="faq__item">
+            <summary class="faq__q">Is Star Citizen worth it if I play solo?</summary>
+            <div class="faq__a">It can be, but it’s easier to feel lost. Solo players do best with one simple loop (a small contract → first payout → repeat). Groups unlock the best emergent moments.</div>
           </details>
-          <details>
-            <summary>Does a referral code cost money?</summary>
-            <p>No. It’s optional and free. If you’re creating a new account, applying it during signup gives you a small starting bonus.</p>
+          <details class="faq__item">
+            <summary class="faq__q">Does a referral code cost money?</summary>
+            <div class="faq__a">No. It’s optional and free. If you’re creating a new account, applying it during signup gives you a small starting bonus.</div>
           </details>
-          <details>
-            <summary>What if my performance is bad?</summary>
-            <p>Do the high-impact basics first (SSD + a few key settings). Then judge the game. Use our performance checklist to fix stutter fast.</p>
+          <details class="faq__item">
+            <summary class="faq__q">What if my performance is bad?</summary>
+            <div class="faq__a">Do the high-impact basics first (SSD + a few key settings). Then judge the game. Use our performance checklist to fix stutter fast: <a href="/star-citizen-performance-guide/">Performance guide →</a></div>
           </details>
-
-          <details>
-            <summary>What’s the lowest-risk way to try it?</summary>
-            <p>Try a Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session route before spending anything else.</p>
+          <details class="faq__item">
+            <summary class="faq__q">What’s the lowest-risk way to try it?</summary>
+            <div class="faq__a">Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session route before spending anything else.</div>
           </details>
-          <details>
-            <summary>Is Star Citizen pay-to-win?</summary>
-            <p>You can buy ships, but the smartest approach is still “start minimal, upgrade later if you keep playing.” Most early progress comes from learning the loop, not owning a big ship.</p>
+          <details class="faq__item">
+            <summary class="faq__q">Is Star Citizen pay-to-win?</summary>
+            <div class="faq__a">You can buy ships, but the smartest approach is still “start minimal, upgrade later if you keep playing.” Early progress comes from learning the loop, not owning a big ship.</div>
           </details>
-          <details>
-            <summary>How long until the game “clicks” for most beginners?</summary>
-            <p>Rule-of-thumb: give it 3–5 sessions. The first session is often setup-heavy; sessions 2–5 are where you learn the loop and decide if the sandbox style is for you.</p>
+          <details class="faq__item">
+            <summary class="faq__q">How long until the game “clicks” for most beginners?</summary>
+            <div class="faq__a"><b>Rule-of-thumb:</b> give it 3–5 sessions. Session 1 is often setup-heavy; sessions 2–5 are where you learn the loop and decide if the sandbox style is for you.</div>
           </details>
-          <details>
-            <summary>Should I buy extra ships immediately?</summary>
-            <p>No. Validate that you enjoy the core loop first. If you still play consistently after a few sessions, then upgrade based on your preferred role (combat, hauling, mining, exploring).</p>
+          <details class="faq__item">
+            <summary class="faq__q">Should I buy extra ships immediately?</summary>
+            <div class="faq__a">No. Validate that you enjoy the core loop first. If you still play consistently after a few sessions, then upgrade based on your preferred role (combat, hauling, mining, exploring).</div>
           </details>
-          <details>
-            <summary>Do I need friends or an org to enjoy it?</summary>
-            <p>No, but it helps. Solo play is totally viable, yet the game shines with other players. If you’re on the fence, try one or two social sessions before deciding.</p>
+          <details class="faq__item">
+            <summary class="faq__q">Do I need friends or an org to enjoy it?</summary>
+            <div class="faq__a">No, but it helps. Solo play is totally viable, yet the game shines with other players. If you’re on the fence, try one or two social sessions before deciding.</div>
           </details>
-
         </div>
 
-        <div class="btnrow" style="margin-top: 14px;">
-<a class="btn secondary" href="/star-citizen-starter-packs/">Starter packs: buy smart</a>
-</div>
+        <div class="btnrow" style="margin-top: 14px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create your account + get +{referralBonusUEC} UEC</a>
+          <a class="btn secondary" href="/star-citizen-starter-packs/">Starter packs: buy smart</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+        </div>
       </div>
     </section>
   </main>

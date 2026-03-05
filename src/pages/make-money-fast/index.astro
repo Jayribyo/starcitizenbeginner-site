@@ -68,6 +68,54 @@ const faqJsonLd = {
         "@type": "Answer",
         "text": "Trading can work, but it’s the easiest way to lose your bankroll early. If you trade, start with a small percentage of your wallet, keep routes short, and never go all-in."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do referral codes fit into making money fast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you’re creating a new account, a referral code is a free one-time signup bonus. It gives you extra starting credits so you can fund early upgrades without risking your wallet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s the safest fast money loop for absolute beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Courier/delivery contracts are the safest start: low risk, low gear loss, and they teach navigation. Once you can finish loops reliably, move into bounties or FPS for faster scaling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I avoid losing gear and wasting money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep your kit cheap early, carry only what you’ll use, and avoid high-risk FPS missions until you can complete the safe loop consistently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I upgrade first with my first earnings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Buy quality-of-life upgrades that reduce downtime first (faster travel, basic survivability). Verify you still enjoy the loop, then scale up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is combat worth it if my FPS is bad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at first. Poor performance makes combat harder and less profitable. Fix stutter first, then try low-risk bounties or group play before pushing harder missions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I roleplay as a trader or pirate without expensive ships?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but start with the beginner-safe version: small runs, low risk, and learn the routes. For piracy, teamwork and game knowledge matter more than a big ship."
+      }
     }
   ]
 };
@@ -163,8 +211,9 @@ ctaHref={referralLink}
             </ul>
           </div>
           <div>
-<div class="btnrow" style="margin-top:12px;">
-<a class="btn secondary" href="/star-citizen-referral-code/">Claim signup bonus</a>
+            <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+              <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
+              <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply it →</a>
             </div>
           </div>
         </div>
@@ -581,8 +630,9 @@ ctaHref={referralLink}
           </table>
         </div>
 
-        <div class="btnrow" style="margin-top:12px;">
-<a class="btn secondary" href="/star-citizen-referral-code/">Signup bonus steps</a>
+        <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC (free signup bonus)</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">Exact steps →</a>
         </div>
       </div>
     </section>
@@ -592,67 +642,62 @@ ctaHref={referralLink}
       <div class="card pad">
         <h2 class="section__title">FAQ</h2>
 
-        <details class="faq">
-          <summary>What is aUEC?</summary>
-          <p>aUEC is the in-game currency you earn and spend inside Star Citizen.</p>
-        </details>
-
-        <details class="faq">
-          <summary>Can I earn money during Free Fly?</summary>
-          <p>
-            Yes. You can run contracts, trade, and learn money loops during Free Fly. If you like the game, your next step is
-            choosing a starter pack that matches the loop you enjoyed.
-          </p>
-        </details>
-
-        <details class="faq">
-          <summary>What should I do first if I keep dying?</summary>
-          <p>
-            Start with courier/delivery contracts and keep your gear cheap. If performance issues cause deaths/crashes, fix that first:
-            <a href="/star-citizen-performance-guide/">Performance guide</a>.
-          </p>
-        </details>
-
-        <details class="faq">
-          <summary>Is trading worth it early?</summary>
-          <p>
-            It can be, but only if you control risk. Start with short routes and risk a small part of your wallet until you’ve proven your routine.
-          </p>
-        </details>
-
-        <details class="faq">
-          <summary>Where do referral codes fit into this?</summary>
-          <p>
-            If you’re creating a new account, using a referral code is a free one-time bonus. Here’s the exact step-by-step:
-            <a href="/star-citizen-referral-code/">Star Citizen referral code guide</a>.
-          </p>
-        </details>
-
-          <details>
-            <summary>What’s the safest “fast money” loop for absolute beginners?</summary>
-            <p>Courier-style jobs are the safest start: low risk, no gear loss, and they teach navigation. Once you can finish loops reliably, move into bounties or FPS for faster scaling.</p>
-          </details>
-          <details>
-            <summary>How do I avoid losing gear and wasting money?</summary>
-            <p>Don’t over-buy. Carry only what you’ll use, keep backup basics in storage, and avoid high-risk FPS missions until you can complete the safe loop consistently.</p>
-          </details>
-          <details>
-            <summary>What should I upgrade first with my first earnings?</summary>
-            <p>Quality-of-life first: upgrades that reduce downtime (faster travel, survivability basics) usually beat “cool” purchases. Buy small, verify you still enjoy the loop, then scale up.</p>
-          </details>
-          <details>
-            <summary>Is combat still worth it if my FPS is bad?</summary>
-            <p>Not at first. Poor performance makes combat harder and less profitable. Fix stutter first, then try low-risk bounties or group play before you push harder missions.</p>
-          </details>
-          <details>
-            <summary>Can I roleplay as a trader or pirate without expensive ships?</summary>
-            <p>Yes, but start with the beginner-safe version: small runs, low risk, and learn the routes. For piracy, teamwork and game knowledge matter more than a big ship — expect higher risk and chaos.</p>
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__q">What is aUEC?</summary>
+            <div class="faq__a">aUEC is the in-game currency you earn and spend inside Star Citizen.</div>
           </details>
 
+          <details class="faq__item">
+            <summary class="faq__q">Can I earn money during Free Fly?</summary>
+            <div class="faq__a">Yes. You can run contracts, trade, and learn money loops during Free Fly. If you like the game, your next step is choosing a starter pack that matches the loop you enjoyed.</div>
+          </details>
 
-        <div class="btnrow" style="margin-top:14px;">
-          <a class="btn primary" href="/star-citizen-referral-code/">Claim your start bonus</a>
-</div>
+          <details class="faq__item">
+            <summary class="faq__q">What should I do first if I keep dying?</summary>
+            <div class="faq__a">Start with courier/delivery contracts and keep your gear cheap. If performance issues cause deaths/crashes, fix that first: <a href="/star-citizen-performance-guide/">Performance guide →</a></div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Is trading worth it early?</summary>
+            <div class="faq__a">It can be, but only if you control risk. Start with short routes and risk a small part of your wallet until you’ve proven your routine.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Where do referral codes fit into this?</summary>
+            <div class="faq__a">If you’re creating a new account, using a referral code is a free one-time bonus. The bonus only applies during signup.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">What’s the safest “fast money” loop for absolute beginners?</summary>
+            <div class="faq__a">Courier-style jobs are the safest start: low risk, low gear loss, and they teach navigation. Once you can finish loops reliably, move into bounties or FPS for faster scaling.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">How do I avoid losing gear and wasting money?</summary>
+            <div class="faq__a">Don’t over-buy. Carry only what you’ll use, keep backup basics in storage, and avoid high-risk FPS missions until you can complete the safe loop consistently.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">What should I upgrade first with my first earnings?</summary>
+            <div class="faq__a">Quality-of-life first: upgrades that reduce downtime (faster travel, survivability basics) usually beat “cool” purchases. Buy small, verify you still enjoy the loop, then scale up.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Is combat still worth it if my FPS is bad?</summary>
+            <div class="faq__a">Not at first. Poor performance makes combat harder and less profitable. Fix stutter first, then try low-risk bounties or group play before you push harder missions.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Can I roleplay as a trader or pirate without expensive ships?</summary>
+            <div class="faq__a">Yes, but start with the beginner-safe version: small runs, low risk, and learn the routes. For piracy, teamwork and game knowledge matter more than a big ship — expect higher risk and chaos.</div>
+          </details>
+        </div>
+
+        <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+        </div>
       </div>
     </section>
 
