@@ -134,6 +134,30 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
       window.addEventListener("resize", setVisibility, { passive: true });
       setVisibility();
 
+      // ===== SCB: Zaraz tracking (live domain only) =====
+      const SCB_LIVE_HOSTS = new Set(["starcitizenbeginner.com", "www.starcitizenbeginner.com"]);
+      const scbIsLiveHost = SCB_LIVE_HOSTS.has(window.location.hostname);
+
+      const scbPlacement = (el) => {
+        if (!el || !el.closest) return "unknown";
+        if (el.closest("#stickyCta")) return "sticky_cta";
+        if (el.closest(".refOffer")) return "referral_banner";
+        if (el.closest(".hero")) return "hero";
+        if (el.closest('[data-scb-component="referral-cta"]')) return "referral_cta_box";
+        if (el.closest(".topNav") || el.closest(".mobileNav")) return "nav";
+        return "body";
+      };
+
+      const scbTrack = (eventName, props = {}) => {
+        if (!scbIsLiveHost) return;
+        try {
+          if (window.zaraz && typeof window.zaraz.track === "function") {
+            window.zaraz.track(eventName, props);
+          }
+        } catch (_) {}
+      };
+
+
       if (btn) {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -205,21 +229,61 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
             const value = (btn.getAttribute("data-copy") || btn.textContent || FALLBACK_CODE).trim();
             const ok = await copyText(value);
 
-            const status = btn.parentElement?.querySelector?.(".js-copyStatus");
-            if (status) {
-              status.textContent = ok ? "COPIED" : "COPY FAILED";
-              status.classList.add("is-visible");
-              status.setAttribute("data-show", "true");
-              window.setTimeout(() => {
-                status.textContent = "";
-                status.classList.remove("is-visible");
-                status.removeAttribute("data-show");
-              }, 1100);
-            }
-
             showToast(ok ? "Copied referral code" : "Copy failed");
+
+            if (ok) {
+              scbTrack("referral_code_copy", {
+                path: window.location.pathname,
+                placement: scbPlacement(btn),
+                code: value,
+              });
+            }
           },
           { passive: true }
+
+
+        // Track key referral funnel clicks (gold RSI signup CTAs + "how to use" helpers)
+        document.addEventListener(
+          "click",
+          (e) => {
+            const a = e.target?.closest?.("a");
+            if (!a) return;
+
+            const href = (a.getAttribute("href") || "").trim();
+            if (!href) return;
+
+            const label = (a.textContent || "").trim().slice(0, 80);
+            const placement = scbPlacement(a);
+
+            const isRsiEnlistReferral =
+              href.includes("robertsspaceindustries.com/enlist") && href.includes("referral=");
+
+            if (isRsiEnlistReferral) {
+              scbTrack("referral_cta_click", {
+                path: window.location.pathname,
+                href,
+                label,
+                placement,
+              });
+              return;
+            }
+
+            // "Where to paste / how to use" internal helper links
+            const isHowToUse =
+              href === "#how-to-use" ||
+              (href.includes("/star-citizen-referral-code") && href.includes("#how-to-use"));
+
+            if (isHowToUse) {
+              scbTrack("referral_help_click", {
+                path: window.location.pathname,
+                href,
+                label,
+                placement,
+              });
+            }
+          },
+          { passive: true }
+        );
         );
       })();
     </script>
