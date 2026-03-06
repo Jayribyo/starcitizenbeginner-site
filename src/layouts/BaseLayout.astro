@@ -51,8 +51,7 @@ const ogLocaleMap = {
 };
 const ogLocale = ogLocaleMap[lang] ?? "en_US";
 
-
-// Cloudflare Web Analytics (RUM) token (public; injected into client)
+// Cloudflare Web Analytics (RUM) token (public)
 const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
 ---
 
@@ -64,19 +63,20 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
 
     <title>{title}</title>
     <meta name="description" content={desc} />
-    <meta name="robots" content={rob
-    {CF_WA_TOKEN && (
+    <meta name="robots" content={robots} />
+
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
+
+    {CF_WA_TOKEN ? (
       <script
         defer
         src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon={JSON.stringify({ token: CF_WA_TOKEN })}
       />
-    )}
-ots} />
+    ) : null}
 
-    <link rel="canonical" href={canonical} />
-
-    <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
