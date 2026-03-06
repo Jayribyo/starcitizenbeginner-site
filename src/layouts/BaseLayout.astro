@@ -50,6 +50,10 @@ const ogLocaleMap = {
   zh: "zh_CN",
 };
 const ogLocale = ogLocaleMap[lang] ?? "en_US";
+
+
+// Cloudflare Web Analytics (RUM) token (public; injected into client)
+const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
 ---
 
 <!doctype html>
@@ -60,7 +64,15 @@ const ogLocale = ogLocaleMap[lang] ?? "en_US";
 
     <title>{title}</title>
     <meta name="description" content={desc} />
-    <meta name="robots" content={robots} />
+    <meta name="robots" content={rob
+    {CF_WA_TOKEN && (
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token: CF_WA_TOKEN })}
+      />
+    )}
+ots} />
 
     <link rel="canonical" href={canonical} />
 
