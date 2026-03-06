@@ -8,10 +8,49 @@
  *
  * Keep the JSON-LD payload strict (no HTML) for best compatibility.
  */
-const { json } = Astro.props;
+const { json, items } = Astro.props;
+
+// Satellites historically pass `items` (q/a pairs) while core pages pass `json`.
+// Support both to keep the project stable and prevent missing FAQ schema.
+function toText(v) {
+  if (v == null) return "";
+  // Ensure strict JSON-LD payload (no HTML).
+  return String(v).replace(/<[^>]*>/g, "").trim();
+}
+
+function buildFromItems(list) {
+  if (!Array.isArray(list) || list.length === 0) return null;
+
+  const mainEntity = list
+    .map((it) => {
+      const q = toText(it?.q ?? it?.question);
+      const a = toText(it?.a ?? it?.answer);
+      if (!q || !a) return null;
+      return {
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: a,
+        },
+      };
+    })
+    .filter(Boolean);
+
+  if (mainEntity.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity,
+  };
+}
+
+const derived = json ?? buildFromItems(items);
 
 // Allow passing either an object or a pre-stringified JSON.
-const payload = typeof json === "string" ? json : JSON.stringify(json);
+const payload =
+  typeof derived === "string" ? derived : derived ? JSON.stringify(derived) : "";
 ---
 
 <script type="application/ld+json" set:html={payload}></script>
