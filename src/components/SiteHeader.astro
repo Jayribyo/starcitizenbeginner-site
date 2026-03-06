@@ -1,6 +1,11 @@
 ---
 const { active = "" } = Astro.props;
 
+// ENV toggle (Cloudflare Pages):
+// - Production: PUBLIC_SHOW_LANG_SWITCHER=0
+// - Preview/Dev: PUBLIC_SHOW_LANG_SWITCHER=1 (or unset)
+const SHOW_LANG = import.meta.env.PUBLIC_SHOW_LANG_SWITCHER !== "0";
+
 const guides = [
   { href: "/beginner-tips/", label: "Beginner Tips" },
   { href: "/star-citizen-starter-packs/", label: "Best Starter Packs" },
@@ -59,20 +64,22 @@ const currentLang = "EN";
       </a>
 
       <!-- Languages dropdown (hover/focus) -->
-      <div class="topNav__dd topNav__dd--right">
-        <button class="topNav__link topNav__trigger" type="button" aria-haspopup="true">
-          Languages <span class="topNav__pill">{currentLang}</span>
-          <span class="topNav__chev" aria-hidden="true">▾</span>
-        </button>
-        <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
-          {languages.map((l) => (
-            <a class="topNav__item" role="menuitem" href={l.href}>
-              <span class="topNav__langCode">{l.code}</span>
-              <span>{l.label}</span>
-            </a>
-          ))}
+      {SHOW_LANG && (
+        <div class="topNav__dd topNav__dd--right">
+          <button class="topNav__link topNav__trigger" type="button" aria-haspopup="true">
+            Languages <span class="topNav__pill">{currentLang}</span>
+            <span class="topNav__chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
+            {languages.map((l) => (
+              <a class="topNav__item" role="menuitem" href={l.href}>
+                <span class="topNav__langCode">{l.code}</span>
+                <span>{l.label}</span>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </nav>
 
     <!-- Mobile burger (new; desktop unaffected) -->
@@ -111,17 +118,19 @@ const currentLang = "EN";
         </div>
       </details>
 
-      <details class="mobileNav__details">
-        <summary class="mobileNav__summary">Languages</summary>
-        <div class="mobileNav__panel">
-          {languages.map((l) => (
-            <a class="mobileNav__langlink" href={l.href} data-close-on-nav>
-              <span class="topNav__langCode">{l.code}</span>
-              <span>{l.label}</span>
-            </a>
-          ))}
-        </div>
-      </details>
+      {SHOW_LANG && (
+        <details class="mobileNav__details">
+          <summary class="mobileNav__summary">Languages</summary>
+          <div class="mobileNav__panel">
+            {languages.map((l) => (
+              <a class="mobileNav__langlink" href={l.href} data-close-on-nav>
+                <span class="topNav__langCode">{l.code}</span>
+                <span>{l.label}</span>
+              </a>
+            ))}
+          </div>
+        </details>
+      )}
     </nav>
   </aside>
 
