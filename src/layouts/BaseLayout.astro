@@ -62,21 +62,22 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{title}</title>
+       <title>{title}</title>
     <meta name="description" content={desc} />
-    <meta name="robots" content={rob
-    {CF_WA_TOKEN && (
+    <meta name="robots" content={robots} />
+
+    {CF_WA_TOKEN ? (
       <script
         defer
         src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon={JSON.stringify({ token: CF_WA_TOKEN })}
       />
-    )}
-ots} />
+    ) : null}
 
     <link rel="canonical" href={canonical} />
 
     <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
+
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
