@@ -2,7 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
-import FAQ from "../../components/FAQ.astro";
 import JsonLd from "../../components/JsonLd.astro";
 
 const REF_CODE = "STAR-FSRJ-5N7Z";
@@ -403,8 +402,14 @@ const howToLd = {
   <!-- ===================== FAQ ===================== -->
   <section id="faq" class="section">
     <div class="card pad">
-      <h2 class="section__title">FAQ</h2>
-      <FAQ items={faqs} />
+      <h2 class="section__title">FAQ</h2>      <div class="faq" style="margin-top:12px;">
+        {faqs.map((item) => (
+          <details class="faq__item">
+            <summary class="faq__q">{item.q}</summary>
+            <div class="faq__a" set:html={item.a} />
+          </details>
+        ))}
+      </div>
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
         <a class="btn primary" href={`https://www.robertsspaceindustries.com/enlist?referral=${REF_CODE}`} target="_blank" rel="nofollow noopener noreferrer">Create account + claim signup bonus</a>
         <a class="btn ghost" href="/star-citizen-starter-packs/">Starter packs →</a>
