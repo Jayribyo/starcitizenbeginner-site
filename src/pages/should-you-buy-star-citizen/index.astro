@@ -18,6 +18,7 @@ const tocItems = [
   { label: "2-minute decision test", href: "#decision-test" },
   { label: "Decision table: who should buy?", href: "#decision-table" },
   { label: "What you actually get", href: "#what-you-get" },
+  { label: "Buying guide: how to buy", href: "#buying-guide" },
   { label: "Safest way to start: spend the minimum", href: "#safe-start" },
   { label: "Your first 60 minutes: do this now", href: "#first-hour" },
   { label: "Performance reality: don’t let FPS ruin it", href: "#performance" },
@@ -425,6 +426,95 @@ ctaHref={referralLink}
         </div>
       </div>
     </section>
+
+    <!-- BUYING GUIDE (how to buy) -->
+    <section id="buying-guide" class="section">
+  <div class="card pad">
+    <h2 class="section__title">Buying guide: how to buy without wasting money</h2>
+    <p style="max-width: 980px;">
+      If you decided “yes”, keep it simple: buy the minimum starter pack that lets you play, apply the signup bonus
+      during account creation, and only upgrade after you’ve completed a few clean sessions.
+    </p>
+
+    <div class="tableWrap" style="margin-top:12px;">
+      <table class="table table--steps">
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Do this</th>
+            <th>Why it matters</th>
+            <th>Common mistake</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>
+              Create your RSI account and enter referral code <b>{referralCode}</b> during signup.
+              <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
+                <a class="btn secondary" href={referralLink}>Claim +{referralBonusUEC} UEC start bonus</a>
+                <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">Where to paste it →</a>
+              </div>
+            </td>
+            <td>
+              The bonus only applies during account creation. It doesn’t change your price — it just adds starting credits.
+            </td>
+            <td>Creating the account first, then trying to add the code later.</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>
+              Choose a starter pack that matches your first loop (delivery / light combat / general).
+              <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
+                <a class="btn secondary" href="/star-citizen-starter-packs/">Pick a starter pack (no fluff) →</a>
+              </div>
+            </td>
+            <td>
+              Starter packs include game access + a ship. Buying extra ships early is the #1 regret pattern.
+            </td>
+            <td>Buying based on looks or “big ship” hype, then bouncing after a rough first session.</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>
+              Install and run one structured first session (60 minutes max) before you judge the game.
+              <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
+                <a class="btn secondary" href="/first-session/">First session checklist →</a>
+                <a class="btn secondary" href="/star-citizen-performance-guide/">If it stutters: 10‑minute fix →</a>
+              </div>
+            </td>
+            <td>
+              Most “this game is awful” experiences are actually performance / setup / expectation issues.
+            </td>
+            <td>Quitting after one bad spawn / laggy server without trying a clean route.</td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>
+              Keep your spend minimal for your first week. Upgrade only after repeatable wins.
+            </td>
+            <td>
+              Your real goal is one stable loop you enjoy. Once that’s true, upgrades are safer.
+            </td>
+            <td>“All‑in” spending before you even know your playstyle.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="pad">
+        <div class="kicker"><span class="dot"></span>Decision rule</div>
+        <p style="margin:0;">
+          If you can complete <b>one full contract loop</b> (spawn → ship → contract → payout → safe log out)
+          without rage‑quitting, you’re past the “first session trap”. That’s the point where buying upgrades makes sense.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
     <!-- SAFE START -->
     <section id="safe-start" class="section">
