@@ -1,0 +1,21 @@
+---
+import LangSwitcher from "./LangSwitcher.astro";
+
+const { brand, lang, paths } = Astro.props;
+
+// ENV toggle (Cloudflare Pages):
+// - Production: PUBLIC_SHOW_LANG_SWITCHER=0
+// - Preview/Dev: PUBLIC_SHOW_LANG_SWITCHER=1 (or unset)
+const SHOW_LANG = import.meta.env.PUBLIC_SHOW_LANG_SWITCHER !== "0";
+---
+<header class="container" style="padding-bottom: 10px;">
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:34px;height:34px;border-radius:10px;background:rgba(43,108,255,.18);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-weight:900;">
+        SCB
+      </div>
+      <div style="font-weight:900; letter-spacing:.2px;">{brand}</div>
+    </div>
+    {SHOW_LANG && <LangSwitcher lang={lang} paths={paths} />}
+  </div>
+</header>
