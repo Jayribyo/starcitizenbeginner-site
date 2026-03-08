@@ -2,9 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
 
-import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE } from "../../config/site";
 
 const paths = DEFAULT_LANGUAGE_PATHS;
+const referralCode = REFERRAL_CODE;
 
 const t = {
   title: "Star Citizen Anfänger Guide | Quick Start + Referral Bonus",
@@ -28,57 +29,73 @@ const t = {
 };
 ---
 <BaseLayout lang="de" title={t.title} description={t.desc} canonicalPath="/de/" brand="Star Citizen Beginner" paths={paths}>
-  <main>
-    <div class="grid">
-      <section class="card">
-        <div class="kicker">{t.heroKicker}</div>
-        <h1 class="h1">{t.heroH1}</h1>
-        <p class="lead">{t.heroLead}</p>
+  <main class="langPage">
+    <section class="section section--heroWidth">
+      <div class="grid">
+        <section class="card langPage__heroCard">
+          <div class="kicker">{t.heroKicker}</div>
+          <h1 class="h1">{t.heroH1}</h1>
+          <p class="lead">{t.heroLead}</p>
 
-        <div class="badge">Referral Code: <strong style="color:#fff;">STAR-FSRJ-5N7Z</strong></div>
+          <div class="badge">Referral-Code: <strong style="color:#fff;">{referralCode}</strong></div>
 
-        <hr class="sep" />
+          <hr class="sep" />
 
-        <div id="quickstart">
-          <h2 style="margin:0 0 10px;">{t.qsTitle}</h2>
-          <ol style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
-            <li>{t.qs1}</li><li>{t.qs2}</li><li>{t.qs3}</li>
-          </ol>
+          <div id="quickstart" class="langPage__stack">
+            <div>
+              <h2 class="section__title">{t.qsTitle}</h2>
+              <ol class="steps muted">
+                <li>{t.qs1}</li>
+                <li>{t.qs2}</li>
+                <li>{t.qs3}</li>
+              </ol>
+            </div>
+
+            <div>
+              <h2 class="section__title">{t.poiTitle}</h2>
+              <p class="lead">{t.poiLead}</p>
+              <ul class="bullets muted">
+                {t.poi.map(x => <li>{x}</li>)}
+              </ul>
+            </div>
+          </div>
+
+          <div class="miniNote">
+            {t.disclaimer}
+          </div>
+        </section>
+
+        <aside class="langPage__asideStack">
+          <ReferralCTA
+            title={"Bonus beim Account-Start"}
+            blurb={"Wenn du neu registrierst, gibt dir ein Referral-Code/Link den Bonus. Hier bleibt der Fokus auf echtem Mehrwert für Anfänger."}
+            ctaPrimary={"Account erstellen (Referral aktiv)"}
+            ctaSecondary={"Quick Start lesen"}
+          />
+
+          <div class="card pad">
+            <div class="kicker">Nächster Schritt</div>
+            <h2 class="section__title">Starter packs & performance</h2>
+            <p class="muted">Als Nächstes lohnt sich ein sauberer Starter-Pack-Vergleich und ein Performance-Guide — das sind die stärksten nächsten Schritte für neue Spieler.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card pad">
+        <h2 class="section__title">{t.faqTitle}</h2>
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__q">{t.faq1q}</summary>
+            <div class="faq__a"><p>{t.faq1a}</p></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">{t.faq2q}</summary>
+            <div class="faq__a"><p>{t.faq2a}</p></div>
+          </details>
         </div>
-
-        <hr class="sep" />
-
-        <h2 style="margin:0 0 10px;">{t.poiTitle}</h2>
-        <p class="lead" style="margin-top:0;">{t.poiLead}</p>
-        <ul style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
-          {t.poi.map(x => <li>{x}</li>)}
-        </ul>
-
-        <footer><p style="margin:16px 0 0;">{t.disclaimer}</p></footer>
-      </section>
-
-      <aside>
-        <ReferralCTA
-          title="Bonus beim Account-Start"
-          blurb="Wenn du neu registrierst, gibt dir ein Referral-Code/Link den Bonus. Hier bleibt der Fokus auf echtem Mehrwert für Anfänger."
-          ctaPrimary="Account erstellen (Referral aktiv)"
-          ctaSecondary="Quick Start lesen"
-        />
-      </aside>
-    </div>
-
-    <div style="height:18px;"></div>
-
-    <section class="card">
-      <h2 style="margin:0 0 10px;">{t.faqTitle}</h2>
-      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer; font-weight:800;">{t.faq1q}</summary>
-        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq1a}</p>
-      </details>
-      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer; font-weight:800;">{t.faq2q}</summary>
-        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq2a}</p>
-      </details>
+      </div>
     </section>
   </main>
 </BaseLayout>
