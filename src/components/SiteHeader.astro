@@ -1,5 +1,7 @@
 ---
-const { active = "" } = Astro.props;
+import { DEFAULT_LANGUAGE_PATHS, LANGUAGE_LABELS, SITE_NAME } from "../config/site";
+
+const { active = "", lang = "en", brand = SITE_NAME, paths = DEFAULT_LANGUAGE_PATHS } = Astro.props;
 
 // ENV toggle (Cloudflare Pages):
 // - Production: PUBLIC_SHOW_LANG_SWITCHER=0
@@ -15,17 +17,13 @@ const guides = [
   { href: "/how-to-buy-star-citizen/", label: "How to Buy Star Citizen" },
 ];
 
-// Languages: RU removed; order fixed as requested
-const languages = [
-  { href: "/", label: "English", code: "EN" },
-  { href: "/de/", label: "Deutsch", code: "DE" },
-  { href: "/fr/", label: "Français", code: "FR" },
-  { href: "/es/", label: "Español", code: "ES" },
-  { href: "/zh/", label: "中文", code: "中文" },
-];
+const languageOrder = ["en", "de", "fr", "es", "zh"];
+const languagePaths = { ...DEFAULT_LANGUAGE_PATHS, ...(paths ?? {}) };
+const languages = languageOrder
+  .filter((key) => languagePaths[key])
+  .map((key) => ({ href: languagePaths[key], ...LANGUAGE_LABELS[key] }));
 
-// For now static; later can be computed globally from Astro.url.pathname (no page edits needed).
-const currentLang = "EN";
+const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
 ---
 
 <header class="siteHeader" data-siteheader>
@@ -33,7 +31,7 @@ const currentLang = "EN";
     <!-- SCB logo stays top-left as Home button -->
     <a class="brand" href="/" aria-label="Star Citizen Beginner Home">
       <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" />
-      <span>Star Citizen Beginner</span>
+      <span>{brand}</span>
     </a>
 
     <!-- Desktop nav (unchanged structure/classes for CSS compatibility) -->

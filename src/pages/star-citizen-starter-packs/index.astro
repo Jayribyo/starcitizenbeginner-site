@@ -5,10 +5,11 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralBonusUEC = "50,000";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralCode = REFERRAL_CODE;
+const referralBonusUEC = REFERRAL_BONUS_UEC;
+const referralLink = REFERRAL_LINK;
 
 const officialPacksUrl = "https://robertsspaceindustries.com/en/store/pledge/browse/game-packages";
 
@@ -432,7 +433,7 @@ const howToJsonLd = {
                 <th>1</th>
                 <td>
                   Create your RSI account. During signup, enter referral code
-                  <button class="codePill js-copyCode" type="button" aria-label="Copy referral code STAR-FSRJ-5N7Z to clipboard" title="Click to copy" data-copy="STAR-FSRJ-5N7Z">STAR-FSRJ-5N7Z</button>.
+                  <button class="codePill js-copyCode" type="button" aria-label="Copy referral code STAR-FSRJ-5N7Z to clipboard" title="Click to copy" data-copy={referralCode}>{referralCode}</button>.
                   <div class="muted" style="margin-top:6px;">
                     <a href="/how-to-buy-star-citizen/#referral-code">Exact signup steps →</a>
                   </div>

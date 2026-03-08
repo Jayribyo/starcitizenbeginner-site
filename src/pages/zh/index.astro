@@ -2,7 +2,9 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
 
-const paths = { en:"/", de:"/de/", es:"/es/", fr:"/fr/", ru:"/ru/", zh:"/zh/" };
+import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+
+const paths = DEFAULT_LANGUAGE_PATHS;
 
 const t = {
   title: "Star Citizen 新手指南 | 快速上手 + 推荐码奖励",

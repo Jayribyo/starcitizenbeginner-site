@@ -1,6 +1,7 @@
 ---
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = "https://www.robertsspaceindustries.com/enlist?referral=STAR-FSRJ-5N7Z";
+import { REFERRAL_CODE, REFERRAL_LINK } from "../config/site";
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
 
 const { title, blurb, ctaPrimary, ctaSecondary, ctaSecondaryHref = "#quickstart" } = Astro.props;
 ---

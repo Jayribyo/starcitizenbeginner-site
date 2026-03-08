@@ -1,4 +1,5 @@
 ---
+import { REFERRAL_BONUS_LABEL, REFERRAL_CODE, REFERRAL_LINK } from "../config/site";
 /**
  * SCB ReferralBanner (global)
  *
@@ -9,16 +10,14 @@
  *  - code: string
  *  - bonus: string (e.g. "50,000 UEC" or `${referralBonusUEC} UEC`)
  *  - ctaHref: string (prefilled RSI enlist link)
- *  - howItWorksHref: string (internal anchor/link)
  *  - sublineHtml: string (allows <b> emphasis)
  *  - ariaLabel: string
  */
 const {
-  code = "STAR-FSRJ-5N7Z",
-  bonus = "50,000 UEC",
+  code = REFERRAL_CODE,
+  bonus = REFERRAL_BONUS_LABEL,
   ctaLabel = "Claim your start bonus",
-  ctaHref = `https://www.robertsspaceindustries.com/enlist?referral=${code}`,
-  howItWorksHref = "/star-citizen-referral-code/#how-to-use",
+  ctaHref = REFERRAL_LINK,
   sublineHtml = "Enter during signup — or within <b>24 hours</b> after account creation.",
   ariaLabel = "Referral bonus callout",
 } = Astro.props;

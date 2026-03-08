@@ -5,10 +5,11 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralBonusUEC = "50,000";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralCode = REFERRAL_CODE;
+const referralBonusUEC = REFERRAL_BONUS_UEC;
+const referralLink = REFERRAL_LINK;
 
 const heroImg = "/assets/img/should-you-buy-star-citizen/star-citizen-multiplayer-fleet-hero.webp";
 const buyImg = "/assets/img/should-you-buy-star-citizen/star-citizen-buy-or-not.webp";

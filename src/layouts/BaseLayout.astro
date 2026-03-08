@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
+import { REFERRAL_CODE, SITE_NAME } from "../config/site";
 
 const {
   showFooter = true,
@@ -15,6 +16,8 @@ const {
   stickyCtaLabel = "",
   stickyCtaHref = "",
   stickyCtaExternal = false,
+  brand = SITE_NAME,
+  paths = undefined,
 } = Astro.props;
 
 /* We assume `site` is correctly set in astro.config.mjs */
@@ -83,7 +86,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
 
 
     <!-- Open Graph -->
-    <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
@@ -104,7 +107,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
   <body>
     <div id="top" aria-hidden="true"></div>
 
-    <SiteHeader active={activeNav} />
+    <SiteHeader active={activeNav} lang={lang} brand={brand} paths={paths} />
 
     <slot />
 
@@ -198,9 +201,9 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
   
     <div id="copyToast" class="copyToast" role="status" aria-live="polite">Copied</div>
 
-    <script>
+    <script define:vars={{ scbFallbackCode: REFERRAL_CODE }}>
       (() => {
-        const FALLBACK_CODE = "STAR-FSRJ-5N7Z";
+        const FALLBACK_CODE = scbFallbackCode;
         const toast = document.getElementById("copyToast");
         let t;
 
@@ -255,7 +258,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
               });
             }
           },
-          { passive: true }
+          
         );
 
 
@@ -299,7 +302,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
               });
             }
           },
-          { passive: true }
+          
         );
       })();
     </script>

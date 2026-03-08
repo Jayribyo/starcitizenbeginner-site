@@ -5,9 +5,10 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
@@ -625,7 +626,7 @@ const faqJsonLd = {
         </p>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top: 12px;">
-          <button class="refOffer__code js-copyCode" type="button" aria-label="Copy referral code STAR-FSRJ-5N7Z to clipboard" title="Click to copy">STAR-FSRJ-5N7Z</button>
+          <button class="refOffer__code js-copyCode" type="button" aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
           <span class="refOffer__copied js-copyStatus" role="status" aria-live="polite"></span>
         </div>
 
