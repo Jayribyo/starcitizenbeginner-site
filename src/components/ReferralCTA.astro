@@ -1,24 +1,29 @@
 ---
-import { REFERRAL_CODE, REFERRAL_LINK } from "../config/site";
+import { REFERRAL_CODE, REFERRAL_HELP_PATH, REFERRAL_LINK } from "../config/site";
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
 
-const { title, blurb, ctaPrimary, ctaSecondary, ctaSecondaryHref = "#quickstart" } = Astro.props;
+const { title, blurb, ctaPrimary, ctaSecondary = "Where to paste it", ctaSecondaryHref = REFERRAL_HELP_PATH } = Astro.props;
 ---
-<div class="card pad referralCta" data-scb-component="referral-cta">
+<div class="card pad referralCtaBox" data-scb-component="referral-cta">
   <div class="kicker">Referral bonus</div>
-  <h2 class="referralCta__title">{title}</h2>
-  <p class="referralCta__body">{blurb}</p>
+  <h2 class="referralCtaBox__title">{title}</h2>
+  <p class="referralCtaBox__blurb">{blurb}</p>
 
-  <div class="referralCta__meta">
-    <span class="badge">
-      Code: <strong class="referralCta__code">{referralCode}</strong>
-    </span>
-    <button class="btn secondary js-copyCode" type="button" data-copy={referralCode}>Copy code</button>
+  <div class="codePillRow">
+    <button class="codePill js-copyCode" type="button" data-copy={referralCode} aria-label={`Copy referral code ${referralCode}`}>
+      {referralCode}
+    </button>
+    <span class="copyStatus" aria-hidden="true">One click copy</span>
+    <span class="badge">No price change · new accounts only</span>
   </div>
 
-  <div class="referralCta__actions">
+  <div class="btnrow referralCtaBox__actions">
     <a class="btn primary" data-scb-role="referral-cta" href={referralLink} rel="nofollow noopener" target="_blank">{ctaPrimary}</a>
-    <a class="btn secondary" href={ctaSecondaryHref}>{ctaSecondary}</a>
+    <a class="btn ghost" href={ctaSecondaryHref}>{ctaSecondary}</a>
   </div>
+
+  <p class="referralCtaBox__trust">
+    The safest path is still simple: copy the code, open the official signup page, and paste it before you finish account creation.
+  </p>
 </div>

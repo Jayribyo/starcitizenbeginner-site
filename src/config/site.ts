@@ -7,6 +7,7 @@ export const REFERRAL_BONUS_UEC = "50,000";
 export const REFERRAL_BONUS_LABEL = `${REFERRAL_BONUS_UEC} UEC`;
 export const REFERRAL_LINK = `https://www.robertsspaceindustries.com/enlist?referral=${REFERRAL_CODE}`;
 export const REFERRAL_INFO_PATH = "/star-citizen-referral-code/";
+export const REFERRAL_HELP_PATH = `${REFERRAL_INFO_PATH}#how-to-use`;
 
 export const FLY_FREE_URL = "https://robertsspaceindustries.com/en/flyfree";
 
