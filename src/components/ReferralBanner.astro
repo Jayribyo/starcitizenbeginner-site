@@ -30,7 +30,7 @@ const {
 
     <div class="refOffer__main">
       <div class="refOffer__title">
-        Use referral code <button class="refOffer__code js-copyCode" type="button" aria-label={`Copy referral code ${code} to clipboard`} title="Click to copy">{code}</button> to start with <b>{bonus}</b>.
+        Use referral code <button class="refOffer__code js-copyCode" type="button" data-copy-referral={code} aria-label={`Copy referral code ${code} to clipboard`} title="Click to copy">{code}</button> to start with <b>{bonus}</b>.
       </div>
       <div class="refOffer__sub" set:html={sublineHtml} />
     </div>
@@ -40,7 +40,7 @@ const {
         {ctaLabel}
       </a>
       <div class="refOffer__helper">
-        <a class="refOffer__link" href={howItWorksHref}>Where to paste it</a>
+        <a class="refOffer__link" href={howItWorksHref} data-scb-role="where-to-paste">Where to paste it</a>
         <span class="refOffer__sep" aria-hidden="true">•</span>
         <span class="refOffer__micro">New accounts only</span>
       </div>

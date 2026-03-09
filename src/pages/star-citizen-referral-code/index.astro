@@ -174,6 +174,7 @@ const faqJsonLd = {
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
               Claim your start bonus
             </a>
+            <a class="btn ghost" href="#how-to-use" data-scb-role="where-to-paste">See where to paste it</a>
           </div>
         </div>
       </div>
@@ -655,7 +656,7 @@ const faqJsonLd = {
         </p>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top: 12px;">
-          <button class="refOffer__code js-copyCode" type="button" aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+          <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
           <span class="refOffer__copied js-copyStatus" role="status" aria-live="polite"></span>
         </div>
 

@@ -247,16 +247,33 @@ const organizationSchema = {
         document.addEventListener(
           "click",
           async (e) => {
-            const trigger = e.target.closest("[data-copy-referral]");
+            const trigger = e.target.closest("[data-copy-referral], [data-copy], .js-copyCode");
             if (!trigger) return;
 
             const code =
               trigger.getAttribute("data-copy-referral") ||
+              trigger.getAttribute("data-copy") ||
+              trigger.textContent?.trim() ||
               document.documentElement.getAttribute("data-referral-code") ||
               FALLBACK_CODE;
 
             const ok = await copyText(code);
             showToast(ok ? "Copied" : "Copy failed");
+
+            if (ok) {
+              trigger.setAttribute("data-copied", "true");
+              window.setTimeout(() => trigger.removeAttribute("data-copied"), 1200);
+            }
+
+            const status =
+              trigger.parentElement?.querySelector?.(".copyStatus, .js-copyStatus") ||
+              trigger.closest?.(".refOffer, [data-scb-component='referral-cta'], .card")?.querySelector?.(".copyStatus, .js-copyStatus");
+
+            if (status) {
+              status.textContent = ok ? "Copied" : "Copy failed";
+              status.setAttribute("data-show", ok ? "true" : "false");
+              window.setTimeout(() => status.removeAttribute("data-show"), 1200);
+            }
 
             scbTrack("referral_code_copied", {
               code,
@@ -285,7 +302,12 @@ const organizationSchema = {
               });
             }
 
-            if (href.includes("#how-to-enter") || href.includes("where-to-enter-referral-code")) {
+            if (
+              a.matches('[data-scb-role="where-to-paste"]') ||
+              href.includes("#how-to-enter") ||
+              href.includes("#how-to-use") ||
+              href.includes("where-to-enter-referral-code")
+            ) {
               scbTrack("where_to_paste_click", {
                 href,
                 placement,
