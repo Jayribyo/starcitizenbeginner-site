@@ -124,7 +124,7 @@ const howToLd = {
           <h1 class="h1">How to buy Star Citizen</h1>
           <p class="lead">The exact RSI signup + purchase steps: pick your handle, apply the referral bonus during signup, and choose a starter pack without wasting money.</p>
           <div class="btnrow">
-            <a class="btn primary" href="#do-this-now">Start the buying steps</a>
+            <a class="btn primary" href="#do-this-now" data-scb-role="how-to-buy-start-steps">Start the buying steps</a>
             <a class="btn ghost" href="#account">Account setup details →</a>
           </div>
         </div>
@@ -229,7 +229,7 @@ const howToLd = {
               <td>
                 <b>Create your RSI account</b> and enter referral code <b>{REF_CODE}</b> during signup.
                 <div style="margin-top:8px;">
-                  <a class="btn primary" href={REF_LINK} target="_blank" rel="noopener noreferrer">
+                  <a class="btn primary" href={REF_LINK} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">
                     Create account + claim bonus
                   </a>
                 </div>
@@ -406,7 +406,7 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer">
+        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
           Create account + claim signup bonus
         </a>
         <a class="btn ghost" href="/star-citizen-starter-packs/">Which starter pack should you buy? →</a>
@@ -488,7 +488,7 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer">
+        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
           Create account + claim signup bonus
         </a>
         <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
