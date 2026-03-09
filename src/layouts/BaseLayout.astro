@@ -271,7 +271,7 @@ const organizationSchema = {
 
     <script>
       (() => {
-        const FALLBACK_CODE = "STAR-FSRJ-5N7Z";
+        const referralCode = document.body?.getAttribute("data-referral-code") || "";
         const toast = document.getElementById("copyToast");
         let t;
 
@@ -318,7 +318,8 @@ const organizationSchema = {
               trigger.getAttribute("data-copy") ||
               trigger.textContent?.trim() ||
               document.body?.getAttribute("data-referral-code") ||
-              FALLBACK_CODE;
+              referralCode ||
+              "";
 
             const ok = await copyText(code);
             showToast(ok ? "Copied" : "Copy failed");
@@ -344,7 +345,6 @@ const organizationSchema = {
               trigger_role: trigger.getAttribute("data-scb-role") || "copy_referral",
             });
           },
-          { passive: true }
         );
 
         document.addEventListener(
@@ -390,7 +390,6 @@ const organizationSchema = {
               });
             }
           },
-          { passive: true }
         );
       })();
     </script>
