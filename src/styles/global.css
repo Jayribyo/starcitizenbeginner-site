@@ -127,6 +127,95 @@ li {
   }
 }
 
+/* ========== Global utility patterns ========== */
+.grid,
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: 16px;
+}
+
+.grid,
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.link,
+.card p a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link),
+.card li a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link),
+.card td a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link),
+.card th a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link),
+.callout a:not(.btn),
+.miniNote a:not(.btn) {
+  color: rgba(226, 180, 84, 0.98);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: rgba(226, 180, 84, 0.58);
+  text-underline-offset: 0.16em;
+  cursor: pointer;
+}
+
+.link:hover,
+.link:focus-visible,
+.card p a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):hover,
+.card p a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):focus-visible,
+.card li a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):hover,
+.card li a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):focus-visible,
+.card td a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):hover,
+.card td a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):focus-visible,
+.card th a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):hover,
+.card th a:not(.btn):not(.refOffer__code):not(.codePill):not(.crumbs__link):focus-visible,
+.callout a:not(.btn):hover,
+.callout a:not(.btn):focus-visible,
+.miniNote a:not(.btn):hover,
+.miniNote a:not(.btn):focus-visible {
+  color: rgba(240, 198, 109, 1);
+  text-decoration-color: rgba(240, 198, 109, 0.9);
+}
+
+.list,
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.list li,
+.bullets li {
+  margin: 8px 0;
+}
+
+.miniNote {
+  border-radius: 16px;
+  border: 1px solid rgba(216, 168, 74, 0.2);
+  background: linear-gradient(180deg, rgba(216, 168, 74, 0.12), rgba(216, 168, 74, 0.05));
+  padding: 12px 14px;
+  color: rgba(255, 244, 218, 0.9);
+}
+
+.guideHero__content {
+  max-width: 760px;
+  padding: 24px 0;
+}
+
 /* ========== Common UI ========== */
 .card {
   border-radius: 18px;
@@ -284,6 +373,60 @@ li {
 .imgRounded {
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.decisionGrid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.decisionCard{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+  padding: 14px;
+}
+
+.decisionCard__kicker{
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(216,168,74,.92);
+  margin-bottom: 8px;
+}
+
+.decisionCard__title{
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 6px;
+}
+
+.decisionCard__body{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.74);
+}
+
+.referralCtaBox__steps{
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,.82);
+}
+
+.referralCtaBox__steps li{
+  margin: 6px 0;
+}
+
+@media (min-width: 840px){
+  .decisionGrid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* ========== Topbar (legacy - keep for safety) ========== */
@@ -701,7 +844,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 .mobileNav__sublink:hover,
 .mobileNav__langlink:hover{ background: rgba(255,255,255,.05); }
 
-@media (max-width: 860px){
+@media (max-width: 1023px){
   /* Keep header single-row; show burger; hide desktop nav */
   .siteHeader__inner{
     flex-direction: row;

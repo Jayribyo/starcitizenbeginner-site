@@ -16,11 +16,11 @@ const buyImg = "/assets/img/should-you-buy-star-citizen/star-citizen-buy-or-not.
 
 const tocItems = [
   { label: "Quick answer", href: "#tldr" },
-  { label: "2-minute decision test", href: "#decision-test" },
-  { label: "Decision table: who should buy?", href: "#decision-table" },
+  { label: "2-minute buy check", href: "#decision-test" },
+  { label: "Who usually enjoys it", href: "#decision-table" },
   { label: "What you actually get", href: "#what-you-get" },
   { label: "Buying guide: how to buy", href: "#buying-guide" },
-  { label: "Safest way to start: spend the minimum", href: "#safe-start" },
+  { label: "Easiest way to start", href: "#safe-start" },
   { label: "Your first 60 minutes: do this now", href: "#first-hour" },
   { label: "Performance reality: don’t let FPS ruin it", href: "#performance" },
   { label: "Common mistakes and fixes", href: "#mistakes" },
@@ -49,7 +49,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "What’s the safest way to start without wasting money?",
+      "name": "What’s the easiest way to start without overspending?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Try Free Fly first if available. If you buy, start with the minimum starter package, play a few sessions, and only upgrade after you know what you enjoy."
@@ -84,7 +84,7 @@ const faqJsonLd = {
       "name": "What’s the lowest-risk way to try Star Citizen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session route before spending anything else."
+        "text": "Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session checklist before spending anything else."
       }
     },
     {
@@ -117,8 +117,8 @@ const faqJsonLd = {
 const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "Your first 60 minutes in Star Citizen (beginner-safe route)",
-  "description": "A beginner-safe first session route: get your ship, fly a simple contract, earn your first credits, and log out without losing your momentum.",
+  "name": "Your first 60 minutes in Star Citizen",
+  "description": "A simple first session: get your ship, fly an easy contract, earn your first credits, and log out feeling like the game makes more sense.",
   "totalTime": "PT60M",
   "step": [
     { "@type": "HowToStep", "name": "Set expectations and keep it simple", "text": "Pick one small goal for your first session: one contract completed. Avoid shopping and distractions until you get your first payout." },
@@ -131,8 +131,8 @@ const howToJsonLd = {
 ---
 
 <BaseLayout
-  title="Should You Buy Star Citizen? Honest Worth-It Guide (Costs, Fun Factor, Performance, Free Fly)"
-  description="A no-fluff decision guide: who will love Star Citizen, who should skip it, what you actually get, the safest way to start, and a 2-minute test to decide."
+  title="Should You Buy Star Citizen? Honest Beginner Guide"
+  description="Not sure if Star Citizen is for you? Take the 2-minute buy test, see who should wait, and learn the easiest way to start without overspending."
   canonicalPath="/should-you-buy-star-citizen/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen fleet scene representing the buying decision"
@@ -167,10 +167,10 @@ const howToJsonLd = {
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Buying Guide</div>
           <h1 class="h1">Should You Buy Star Citizen?</h1>
-          <p class="lead" style="max-width: 920px;">Not sure if you’ll actually enjoy Star Citizen? Get a fast, honest yes/no — plus the safest first steps so your first session doesn’t ruin the decision.</p>
+          <p class="lead" style="max-width: 920px;">Not sure if you will actually enjoy Star Citizen? This page gives you a fast, honest answer and shows how to try it without making one rough session decide everything for you.</p>
 
           <div class="btnrow" style="margin-top: 14px;">
-            <a class="btn primary" href="#decision-test">Take the 2-minute test</a>
+            <a class="btn primary" href="#decision-test" data-scb-role="decision-test-start">Take the 2-minute buy check</a>
 </div>
 </div>
       </div>
@@ -185,14 +185,32 @@ const howToJsonLd = {
             ctaLabel="Claim your free start bonus"
 ctaHref={referralLink}
       howItWorksHref="/star-citizen-referral-code/#how-to-use"
-      sublineHtml="If you decide to buy, use it during signup — it’s free, and you only get this <b>first signup moment</b> once."
+      sublineHtml="If you decide to buy, use it during signup. It is free, simple, and easiest to do right away."
       ariaLabel="Referral bonus callout"
     />
 
     <!-- Quick answer -->
     <section id="tldr" class="section">
       <div class="card pad">
-        <h2 class="section__title">Quick answer: the shortest honest answer</h2>
+        <h2 class="section__title">Quick answer: the honest short version</h2>
+
+        <div class="decisionGrid" style="margin-top:14px; margin-bottom:14px;">
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Buy now</div>
+            <div class="decisionCard__title">You enjoy sandboxes and self-directed play</div>
+            <p class="decisionCard__body">You are okay learning a few systems and making your own momentum instead of expecting the game to guide every step.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Try first</div>
+            <div class="decisionCard__title">You are curious but not sold yet</div>
+            <p class="decisionCard__body">Use Free Fly or start with the minimum package. That gives you a fair feel for the game before you commit further.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Skip for now</div>
+            <div class="decisionCard__title">You want polished guidance every session</div>
+            <p class="decisionCard__body">You will probably notice the friction faster than the magic, especially if you do not enjoy experimentation and repetition.</p>
+          </div>
+        </div>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
@@ -228,17 +246,17 @@ ctaHref={referralLink}
             <ul class="list">
               <li><b>Safest paid start:</b> buy the <b>minimum starter package</b>, not the dream ship.</li>
               <li><b>Do not overspend early:</b> upgrade only after a few sessions when you know your actual playstyle.</li>
-              <li><b>Performance matters:</b> install on an SSD and do the 10-minute fixes before judging the game.
+              <li><b>Performance matters:</b> install on an SSD and do the 10-minute fixes before you decide how the game really feels.
                 <a href="/star-citizen-performance-guide/" style="margin-left: 6px;">Performance guide →</a>
               </li>
             </ul>
-            <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+            <p class="muted" style="margin-top:10px;">Need a term explained? <a class="link" href="/satellites/glossary/">Open the beginner glossary</a>.</p>
           </div>
 
           <div class="callout">
             <div class="kicker"><span class="dot"></span> Best beginner sequence</div>
             <ol class="list" style="margin-top:8px; padding-left:18px;">
-              <li>Run the 2-minute decision test.</li>
+              <li>Run the 2-minute buy check.</li>
               <li>Try Free Fly if it is available.</li>
               <li>If you buy, buy one starter pack only.</li>
               <li>Judge the game after 3–5 sessions, not one messy spawn.</li>
@@ -254,9 +272,9 @@ ctaHref={referralLink}
     <!-- DECISION TEST -->
     <section id="decision-test" class="section">
       <div class="card pad">
-        <h2 class="section__title">2-minute decision test (be honest)</h2>
+        <h2 class="section__title">2-minute buy check</h2>
         <p style="max-width: 980px;">
-          Check the boxes that describe you. Then use the score to pick the safest next step.
+          Check the boxes that sound like you. Then use the score to choose the next step that fits you best.
           This is designed for <b>beginners</b> and <b>Free Fly</b> players who don’t want to waste time or money.
         </p>
 
@@ -303,13 +321,13 @@ ctaHref={referralLink}
                   </tr>
                   <tr>
                     <th>3–5</th>
-                    <td>Try Free Fly first. It’s the safest way to find out if the loop clicks for you.</td>
+                    <td>Try Free Fly first. It is the easiest way to find out if the game really clicks for you.</td>
                     <td><a href="/free-fly/">Free Fly guide →</a></td>
                   </tr>
                   <tr>
                     <th>6–8</th>
                     <td>Buying the minimum starter package makes sense — start small, then upgrade only after a few sessions.</td>
-                    <td><a href="#safe-start">Safest way to start →</a></td>
+                    <td><a href="#safe-start">Easiest way to start →</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -322,7 +340,7 @@ ctaHref={referralLink}
     <!-- DECISION TABLE -->
     <section id="decision-table" class="section">
       <div class="card pad">
-        <h2 class="section__title">Decision table: who should buy Star Citizen?</h2>
+        <h2 class="section__title">Who usually enjoys it, and who usually doesn’t</h2>
         <p style="max-width: 980px;">
           This table is the heart of the page. Find your player type, read the honest trade-offs,
           then follow the recommended start.
@@ -333,7 +351,7 @@ ctaHref={referralLink}
       <b>New account?</b> If you decide to buy, grab the free signup bonus first — it only applies during account creation.
     </p>
     <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
-      <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
+      <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create account + get +{referralBonusUEC} UEC</a>
       <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply it →</a>
     </div>
 
@@ -371,7 +389,7 @@ ctaHref={referralLink}
                 <td>Ship combat, bounty progression, skill improvement</td>
                 <td>Long travel and prep if you want “quick matches”</td>
                 <td><b>Depends</b> (time-to-fun matters)</td>
-                <td>Start low tier, scale gradually</td>
+                <td>Start small and build from there</td>
                 <td><a href="/star-citizen-performance-guide/">FPS & settings →</a></td>
               </tr>
               <tr>
@@ -461,7 +479,7 @@ ctaHref={referralLink}
     <!-- BUYING GUIDE (how to buy) -->
     <section id="buying-guide" class="section">
   <div class="card pad">
-    <h2 class="section__title">Buying guide: how to buy without wasting money</h2>
+    <h2 class="section__title">Buying guide: how to buy without overdoing it</h2>
     <p style="max-width: 980px;">
       If you decided “yes”, keep it simple: buy the minimum starter pack that lets you play, apply the signup bonus
       during account creation, and only upgrade after you’ve completed a few clean sessions.
@@ -508,7 +526,7 @@ ctaHref={referralLink}
           <tr>
             <th>3</th>
             <td>
-              Install and run one structured first session (60 minutes max) before you judge the game.
+              Install and run one simple first session (60 minutes max) before you judge the game.
               <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
                 <a class="btn secondary" href="/first-session/">First session checklist →</a>
                 <a class="btn secondary" href="/star-citizen-performance-guide/">If it stutters: 10‑minute fix →</a>
@@ -517,7 +535,7 @@ ctaHref={referralLink}
             <td>
               Most “this game is awful” experiences are actually performance / setup / expectation issues.
             </td>
-            <td>Quitting after one bad spawn / laggy server without trying a clean route.</td>
+            <td>Quitting after one bad spawn or laggy server before you have tried one calmer session.</td>
           </tr>
           <tr>
             <th>4</th>
@@ -525,7 +543,7 @@ ctaHref={referralLink}
               Keep your spend minimal for your first week. Upgrade only after repeatable wins.
             </td>
             <td>
-              Your real goal is one stable loop you enjoy. Once that’s true, upgrades are safer.
+              Your real goal is one simple loop you enjoy. Once that is true, upgrades are much easier to judge.
             </td>
             <td>“All‑in” spending before you even know your playstyle.</td>
           </tr>
@@ -550,7 +568,7 @@ ctaHref={referralLink}
     <!-- SAFE START -->
     <section id="safe-start" class="section">
       <div class="card pad">
-        <h2 class="section__title">Safest way to start: spend the minimum</h2>
+        <h2 class="section__title">Easiest way to start: spend the minimum</h2>
         <p style="max-width: 980px;">
           This is a beginner funnel, but it’s also just good consumer advice: validate that you enjoy the loop
           before you upgrade anything.
@@ -611,7 +629,7 @@ ctaHref={referralLink}
         <h2 class="section__title">Your first 60 minutes: do this now</h2>
         <p style="max-width: 980px;">
           Most “Star Citizen is boring” experiences happen because the first session is chaotic.
-          Follow this route once. It’s designed to give you a clean first win.
+          Use this once for your first session. It is meant to give you one clear first win.
         </p>
 
         <div class="grid2" style="margin-top: 12px; align-items: start;">
@@ -659,7 +677,7 @@ ctaHref={referralLink}
     <!-- PERFORMANCE -->
     <section id="performance" class="section">
       <div class="card pad">
-        <h2 class="section__title">Performance reality (don’t let FPS ruin the decision)</h2>
+        <h2 class="section__title">Performance reality (don’t let FPS ruin your first impression)</h2>
         <p style="max-width: 980px;">
           Your first impression is fragile. If your game stutters badly, you’ll judge the loop unfairly.
           Fix the high-impact basics first.
@@ -700,7 +718,7 @@ ctaHref={referralLink}
               <tr>
                 <th>Judging after one bad session</th>
                 <td>You quit before the “click”</td>
-                <td>Do the first-hour route + performance basics, then decide</td>
+                <td>Do the first-hour checklist + performance basics, then decide</td>
               </tr>
               <tr>
                 <th>Trying 10 systems at once</th>
@@ -739,7 +757,7 @@ ctaHref={referralLink}
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
             <li><a href="/satellites/try-star-citizen-without-buying/">Try without buying (Free Fly path)</a></li>
-            <li><a href="/satellites/first-session-checklist/">First session checklist (beginner-proof route)</a></li>
+            <li><a href="/satellites/first-session-checklist/">First session checklist (easy first hour)</a></li>
             <li><a href="/satellites/free-fly-what-do-i-keep/">Free Fly: what you keep (clear expectations)</a></li>
             <li><a href="/satellites/what-starter-ship-should-i-choose/">Starter ship choice (simple pick)</a></li>
             <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code (signup step)</a></li>
@@ -775,7 +793,7 @@ ctaHref={referralLink}
           </details>
           <details class="faq__item">
             <summary class="faq__q">What’s the lowest-risk way to try it?</summary>
-            <div class="faq__a">Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session route before spending anything else.</div>
+            <div class="faq__a">Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session checklist before spending anything else.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Is Star Citizen pay-to-win?</summary>
@@ -796,7 +814,7 @@ ctaHref={referralLink}
         </div>
 
         <div class="btnrow" style="margin-top: 14px; flex-wrap: wrap;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create your account + get +{referralBonusUEC} UEC</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create your account + get +{referralBonusUEC} UEC</a>
           <a class="btn secondary" href="/star-citizen-starter-packs/">Starter packs: buy smart</a>
           <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
         </div>

@@ -20,14 +20,14 @@ const toc = [
   { label: "Your goal", href: "#goal" },
   { label: "How to start", href: "#how-to-start" },
   { label: "Download & install", href: "#download-install" },
-  { label: "First 60 minutes route", href: "#first-60" },
+  { label: "First 60 minutes", href: "#first-60" },
   { label: "Controls & interaction quirks", href: "#controls" },
   { label: "Inventory, storage & death", href: "#inventory" },
   { label: "Flight basics", href: "#flight" },
   { label: "Pick one mission loop first", href: "#mission-loop" },
   { label: "Risk budget", href: "#risk" },
   { label: "CrimeStat: avoid beginner traps", href: "#crimestat" },
-  { label: "Bug recovery playbook", href: "#bugs" },
+  { label: "Quick bug fixes", href: "#bugs" },
   { label: "When to rent, when to buy", href: "#economy" },
   { label: "Next steps", href: "#next" },
   { label: "FAQ", href: "#faq" },
@@ -44,11 +44,11 @@ const faqItems = [
   },
   {
     q: "Why do beginners lose so much money?",
-    a: "Most losses come from downtime: failed travel, getting stranded, dying with an expensive kit, or chasing multiple objectives in one session. A smaller, repeatable route beats ambitious wandering every time.",
+    a: "Most losses come from downtime: failed travel, getting stranded, dying with an expensive kit, or trying to do too much in one session. A smaller routine beats ambitious wandering every time.",
   },
   {
-    q: "What is the safest first mission loop?",
-    a: "Local delivery contracts are the safest way to learn navigation, landing, and ‘contract flow’. If you want combat, do controlled bunker missions in the same region and keep your loadout cheap until you stop dying to surprise angles and AI spikes.",
+    q: "What is the best first mission for a new player?",
+    a: "Local delivery contracts are the easiest way to learn navigation, landing, and how missions work. If you want combat, do controlled bunker missions in the same region and keep your loadout cheap until you stop dying to surprise angles and AI spikes.",
   },
   {
     q: "Can I add a referral code later?",
@@ -56,7 +56,7 @@ const faqItems = [
   },
   {
     q: "Should I rush ship upgrades?",
-    a: "Not early. Upgrades are only worth it once your loop is stable enough that the upgrade reduces downtime (fuel, repairs, time-to-complete). First build a reliable habit loop; then optimize.",
+    a: "Not early. Upgrades are only worth it once your regular session feels stable enough that the upgrade saves time or frustration. First get comfortable with the basics, then optimize.",
   },
 ];
 
@@ -76,7 +76,7 @@ const faqJsonLd = {
 
 <BaseLayout
   title="Star Citizen Beginner Tips – First 60 Minutes Route, Safe Mission Loops & Gear Rules"
-  description="Star Citizen beginner tips that actually help: a first‑60‑minutes route, safe mission loop picks, gear and risk rules, CrimeStat traps, bug recovery, and how to claim the 50,000 UEC referral bonus."
+  description="Star Citizen beginner tips that actually help: what to do first, what to ignore for now, how to avoid common mistakes, and how to get through your first hours with less confusion."
   canonicalPath="/beginner-tips/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen beginner route planning and structured start strategy"
@@ -106,7 +106,7 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Beginner guide</div>
           <h1 class="h1">Star Citizen Beginner Tips</h1>
 
-          <p class="lead" style="max-width: 760px;">New pilot? Here’s the no‑overwhelm starter checklist: what to do first, what to ignore, and the mistakes that waste your first hours.</p>
+          <p class="lead" style="max-width: 760px;">New pilot? Start here for a calmer first few hours: what to do first, what can wait, and which mistakes are easiest to avoid.</p>
 
           <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">
@@ -128,7 +128,7 @@ const faqJsonLd = {
 
         <p>
           Star Citizen overwhelms beginners because it doesn’t gently funnel you forward — it drops you into a huge sandbox and expects you to cope with the friction.
-          The fastest path to confidence is to stop trying to “see everything” and instead build one small routine you can execute reliably.
+          The easiest way to feel comfortable is to stop trying to “see everything” and instead keep one small routine until it feels natural.
         </p>
 
         <div class="tableWrap">
@@ -221,7 +221,7 @@ const faqJsonLd = {
               <tr>
                 <td><b>5</b></td>
                 <td>
-                  Run one low-risk contract end-to-end — then repeat the same type once in the same area.
+                  Run one simple contract from start to finish — then repeat the same kind once in the same area.
                 </td>
                 <td>Overwhelm and long travel downtime before you’ve built a reliable routine.</td>
               </tr>
@@ -307,7 +307,7 @@ const faqJsonLd = {
     {/* ========= First 60 minutes ========= */}
     <section id="first-60" class="section">
       <div class="card pad">
-        <h2 class="section__title">The first 60 minutes: a step-by-step route you can repeat</h2>
+        <h2 class="section__title">The first 60 minutes: a step-by-step first hour you can repeat</h2>
 
         <p>
           Your first session should feel calm and deliberate — like a short practice run, not a scavenger hunt. The outcome is simple: you know where your stuff
@@ -351,9 +351,9 @@ const faqJsonLd = {
               </tr>
               <tr>
                 <td><b>5</b></td>
-                <td>Accept one local delivery or other low-risk contract and complete it fully.</td>
+                <td>Accept one local delivery or another easy contract and complete it fully.</td>
                 <td>You learn the full loop: accept → travel → objective → return → payment.</td>
-                <td>If you get stranded, your next move is ship claim + take a simpler contract.</td>
+                <td>If you get stranded, claim the ship and take an easier contract next.</td>
               </tr>
             </tbody>
           </table>
@@ -361,7 +361,7 @@ const faqJsonLd = {
 
         <div class="miniNote" style="margin-top:12px;">
           <b>Success metric:</b> complete the same contract type twice in one session without rage-quitting.
-          If you can do that, you can scale. If you can’t, do not change planets — reduce complexity.
+          If you can do that, you are ready for a little more. If you can’t, do not change planets yet — keep things smaller.
         </div>
       </div>
     </section>
@@ -450,7 +450,7 @@ const faqJsonLd = {
               <tr>
                 <td><b>Corpse / loot</b></td>
                 <td>Items on your body after death (if recoverable).</td>
-                <td>Only attempt recovery when the area is safe and you know the route.</td>
+                <td>Only try to recover your gear when the area is calm and you know the way back.</td>
                 <td>“I must recover my gear” → turns into an hour-long death spiral.</td>
               </tr>
             </tbody>
@@ -492,7 +492,7 @@ const faqJsonLd = {
               </tr>
               <tr>
                 <td class="nowrap"><b>Travel</b></td>
-                <td>Quantum to a known point. Keep your route short and local.</td>
+                <td>Quantum to a known point. Keep the trip short and local.</td>
                 <td>Learn basic map usage and how to reorient when lost.</td>
               </tr>
               <tr>
@@ -517,7 +517,7 @@ const faqJsonLd = {
           <div class="card pad">
             <h3 style="margin:0 0 8px;">Travel discipline</h3>
             <ul class="bullets">
-              <li>Keep contracts in one region until you understand stations and recovery routes.</li>
+              <li>Keep contracts in one region until stations and recovery spots start to feel familiar.</li>
               <li>Avoid “multi-hop” objectives early (multiple planets, multiple deliveries).</li>
               <li>If you’re confused, return to your known station and reset the session.</li>
             </ul>
@@ -535,7 +535,7 @@ const faqJsonLd = {
           <p class="miniLead">Why most beginners stall: they change plans mid-session and bleed time on travel and recovery.</p>
 
           <p>
-            The game rewards patience more than bravado. A beginner who plans a simple route and sticks to it
+            The game rewards patience more than bravado. A beginner who keeps a simple plan and sticks to it
             will out-earn a beginner who chases “best money per hour” videos and changes their plan every 15 minutes.
           </p>
 
@@ -547,7 +547,7 @@ const faqJsonLd = {
 
           <ul class="bullets">
             <li><b>Choose one region.</b> One planet + nearby moons.</li>
-            <li><b>Choose one loop.</b> Delivery OR bunker OR another beginner-safe loop.</li>
+            <li><b>Choose one loop.</b> Delivery OR bunker OR another simple beginner loop.</li>
             <li><b>Choose one fallback.</b> If the mission bugs, you know what to do next.</li>
             <li><b>Define a stop rule.</b> “If I die twice, I switch to a cheaper loop and reset.”</li>
           </ul>
@@ -564,7 +564,7 @@ const faqJsonLd = {
             height="1024"
           />
           <div class="miniNote" style="margin-top:10px;">
-            A good session plan fits on one screen: <b>goal</b> → <b>loop</b> → <b>fallback</b> → <b>stop rule</b>.
+            A good session plan fits on one screen: <b>goal</b> → <b>main activity</b> → <b>backup option</b> → <b>stop rule</b>.
           </div>
         </div>
       </div>
@@ -622,11 +622,11 @@ const faqJsonLd = {
 
         <div class="grid2" style="margin-top:12px;">
           <div class="card pad">
-            <h3 style="margin:0 0 8px;">Loop selection heuristic (fast decision)</h3>
+            <h3 style="margin:0 0 8px;">How to choose your first loop</h3>
             <ul class="bullets">
               <li>If landing stresses you out → start with <b>delivery</b> and practice two landings per run.</li>
               <li>If you want action but keep dying → do <b>controlled bunker</b> and reduce gear value.</li>
-              <li>If you enjoy slow systems learning → do <b>salvage practice</b> and optimize for calm sessions.</li>
+              <li>If you enjoy slow systems learning → do <b>salvage practice</b> and keep the session calm and simple.</li>
             </ul>
           </div>
 
@@ -742,7 +742,7 @@ const faqJsonLd = {
     {/* ========= Bug recovery ========= */}
     <section id="bugs" class="section">
       <div class="card pad">
-        <h2 class="section__title">Bug recovery playbook: fix common “session killers” fast</h2>
+        <h2 class="section__title">Quick bug fixes for the most common session killers</h2>
 
         <p>
           Star Citizen is famously buggy. Authority-level play is not “never encountering bugs” — it’s having a calm
@@ -840,7 +840,7 @@ const faqJsonLd = {
         </div>
 
         <div class="miniNote" style="margin-top:12px;">
-          Want a clean money path next? Use the companion guide:
+          Want help with credits next? Use the companion guide:
           <a href="/make-money-fast/"><b>Earn aUEC Fast</b></a>.
           For performance stability (FPS, stutter), use:
           <a href="/star-citizen-performance-guide/"><b>Best Settings</b></a>.
@@ -890,13 +890,13 @@ const faqJsonLd = {
         </div>
 
         <div class="card pad">
-          <h2 class="section__title">High-value links (the authority path)</h2>
+          <h2 class="section__title">Best next reads</h2>
           <ul class="bullets">
             <li><a href="/free-fly/"><b>Free Fly guide</b></a> — if you’re trialing the game, here’s what to test before buying.</li>
             <li><a href={referralPage}><b>Referral code guide</b></a> — how the bonus works and when to enter it (don’t miss the window).</li>
             <li><a href="/star-citizen-starter-packs/"><b>Starter pack guide</b></a> — choose a pack based on your loop, not hype.</li>
             <li><a href="/star-citizen-performance-guide/"><b>Best settings</b></a> — stabilize FPS and input latency so learning is easier.</li>
-            <li><a href="/make-money-fast/"><b>Earn aUEC fast</b></a> — once you have a stable loop, scale income the smart way.</li>
+            <li><a href="/make-money-fast/"><b>Earn aUEC fast</b></a> — once your first loop feels comfortable, this helps you build income from there.</li>
           </ul>
 
           <ReferralCTA

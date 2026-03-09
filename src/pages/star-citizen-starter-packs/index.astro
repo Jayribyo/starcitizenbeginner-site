@@ -46,7 +46,7 @@ const faqItems = [
   },
   {
     q: "Which starter pack is best for most beginners?",
-    a: "A balanced starter (the kind that can do delivery + light combat without drama) is the safest first buy. If you’re unsure, start with the cheapest pack, then upgrade once you feel a real limitation.",
+    a: "A balanced starter (the kind that can do delivery + light combat without drama) is usually the easiest first buy. If you’re unsure, start with the cheapest pack, then upgrade once you feel a real limitation.",
   },
   {
     q: "Can I upgrade my starter ship later?",
@@ -70,7 +70,7 @@ const faqItems = [
   },
   {
     q: "What if I pick the wrong starter ship?",
-    a: "Don’t panic. Upgrades exist: you can usually upgrade by paying the price difference. That’s why starting cheap is beginner-safe — it keeps your options open.",
+    a: "Don’t panic. Upgrades exist: you can usually upgrade by paying the price difference. That is why starting cheap works so well — it keeps your options open.",
   },
 
 
@@ -95,7 +95,7 @@ const howToJsonLd = {
   "@type": "HowTo",
   name: "How to buy a Star Citizen starter pack",
   description:
-    "A beginner-safe checklist to buy the right starter pack: claim your referral bonus, pick the pack, complete checkout, and launch the game.",
+    "A simple checklist to buy the right starter pack: claim your referral bonus, pick the pack, complete checkout, and launch the game.",
   step: [
     {
       "@type": "HowToStep",
@@ -110,8 +110,8 @@ const howToJsonLd = {
     },
     {
       "@type": "HowToStep",
-      name: "Pick a beginner-safe starter pack",
-      text: "Choose a pack that matches your first mission loop (balanced is usually safest).",
+      name: "Pick a starter pack that suits a new player",
+      text: "Choose a pack that matches the way you want to start (balanced is usually the easiest place to begin).",
     },
     {
       "@type": "HowToStep",
@@ -123,8 +123,8 @@ const howToJsonLd = {
 ---
 
 <BaseLayout
-  title = "Best Star Citizen Starter Packs (Starter Ship Guide)"
-  description = "Best Star Citizen starter packs (game packages): what you get, which starter ship fits delivery/combat/utility, how upgrades work, and what wastes money."
+  title = "Best Star Citizen Starter Packs – Which Starter Ship to Buy First"
+  description = "Trying to choose your first Star Citizen starter pack? This guide keeps it simple: compare the beginner-friendly ships, avoid overpriced early picks, and buy the package that fits how you want to start."
   canonicalPath="/star-citizen-starter-packs/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen starter pack guide hero image"
@@ -156,10 +156,10 @@ const howToJsonLd = {
         <div class="kicker">Starter Guides</div>
         <h1>Best Star Citizen Starter Packs</h1>
         <p class="lead packsHero__lead">
-          Pick a starter pack with one simple rule: match your first loop, start cheap, and upgrade later — with clear picks and the traps to avoid.
+          Pick your first starter pack with one simple rule: choose something that fits how you want to start, keep it modest, and upgrade later if you still want more.
         </p>
         <div class="btnrow packsHero__buttons">
-          <a class="btn primary" href="#best">See top picks</a>
+          <a class="btn primary" href="#best" data-scb-role="starter-packs-top-picks">See top picks</a>
         </div>
       </div>
     </div>
@@ -172,7 +172,7 @@ const howToJsonLd = {
       bonus={`${referralBonusUEC} UEC`}
       ctaHref={referralLink}
       howItWorksHref="/star-citizen-referral-code/#how-to-use"
-      sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
+      sublineHtml="Use it during signup so you do not have to think about timing later."
       ariaLabel="Referral bonus callout"
     />
 
@@ -261,6 +261,57 @@ const howToJsonLd = {
             <li><strong>Upgrades are easier than regrets.</strong> Starting cheap keeps your options open.</li>
           </ul>
         </div>
+
+        <div class="card pad" style="margin-top:12px;">
+          <div class="kicker"><span class="dot"></span> Starter ship cheat sheet</div>
+          <h3 style="margin:0 0 10px; font-size:clamp(1.5rem,2.7vw,2.2rem); line-height:1.1;">If you buy after Free Fly: pick by loop, not by hype</h3>
+          <p class="muted" style="margin:0 0 12px;">
+            These are the common “true starter” options people actually keep. Treat this as a fast comparison, not a permanent spec sheet.
+          </p>
+          <div class="tableWrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Ship</th>
+                  <th>Cargo</th>
+                  <th>Bed</th>
+                  <th>Why beginners like it</th>
+                  <th>Best for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Aurora MR</th>
+                  <td>~3 SCU</td>
+                  <td>Yes</td>
+                  <td>Cheap + functional. Small interior means fewer “where is my stuff?” moments.</td>
+                  <td>First delivery loops, learning travel</td>
+                </tr>
+                <tr>
+                  <th>Mustang Alpha</th>
+                  <td>~4 SCU</td>
+                  <td>No</td>
+                  <td>Great cockpit view + fun handling. Less “live in the ship” convenience.</td>
+                  <td>Flying practice, light combat</td>
+                </tr>
+                <tr>
+                  <th>Cutter</th>
+                  <td>~4 SCU</td>
+                  <td>Yes</td>
+                  <td>Beginner-friendly interior and vibe. Easy “I can do a bit of everything” starter.</td>
+                  <td>Delivery/utility, casual exploration</td>
+                </tr>
+                <tr>
+                  <th>Avenger Titan</th>
+                  <td>~8 SCU</td>
+                  <td>Yes</td>
+                  <td>The easiest “keep it” starter: cargo + interior + combat-capable without feeling flimsy.</td>
+                  <td>Best all-rounder (delivery + combat)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -280,7 +331,7 @@ const howToJsonLd = {
                 <th>Your goal</th>
                 <th>Best starter type</th>
                 <th>What to look for</th>
-                <th>Beginner-safe example ships</th>
+                <th>Good beginner picks</th>
                 <th>Common pitfall</th>
               </tr>
             </thead>
@@ -329,7 +380,7 @@ const howToJsonLd = {
           <div class="card pad">
             <h3 style="margin:0 0 8px;">Rule of thumb</h3>
             <p style="margin:0;">
-              Don’t optimize for the endgame on day one. Optimize for <strong>your first 10–20 hours</strong>: learning controls, completing missions, and staying mobile.
+              Don’t think about the endgame on day one. Think about <strong>your first 10–20 hours</strong>: learning controls, completing missions, and staying mobile.
               You can always upgrade later.
             </p>
           </div>
@@ -340,7 +391,7 @@ const howToJsonLd = {
             <strong>Buying rule that prevents regret</strong>
             <div style="color: rgba(255,255,255,.74);">Start cheap. Upgrade only when a limitation is real and repeatable.</div>
           </div>
-          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">See current packs on RSI</a>
+          <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer" data-scb-role="official-packs-browse">See current packs on RSI</a>
         </div>
       </div>
     </section>
@@ -365,7 +416,7 @@ const howToJsonLd = {
       <div class="card pad">
         <h2 class="section__title">Best starter packs for beginners</h2>
         <p>
-          Starter packs rotate in the RSI store, but the <strong>beginner-safe choices</strong> stay consistent: pick a ship with strong early usability and broad mission access.
+          Starter packs rotate in the RSI store, but the best beginner picks stay fairly consistent: choose a ship that feels easy to live with in the first hours and can handle a few different mission types.
           These are <strong>common starter ships</strong> that are frequently available as starter packs. If one isn’t available today, pick the closest equivalent.
         </p>
 
@@ -412,7 +463,7 @@ const howToJsonLd = {
             <div style="color: rgba(255,255,255,.74);">If you’re creating a new account, claim the signup bonus first.</div>
           </div>
           <div class="btnrow" style="margin:0;">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Use referral code at signup</a>
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Use referral code at signup</a>
             <a class="btn" href="/star-citizen-referral-code/#how-to-use">How it works</a>
           </div>
         </div>
@@ -422,7 +473,7 @@ const howToJsonLd = {
     <!-- HOW TO BUY -->
     <section id="how-to-buy" class="section">
       <div class="card pad">
-        <h2 class="section__title">How to buy the right starter pack (without wasting money)</h2>
+        <h2 class="section__title">How to buy the right starter pack (without overbuying)</h2>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table table--steps">
@@ -477,9 +528,9 @@ const howToJsonLd = {
               <tr>
                 <th>4</th>
                 <td>
-                  Install, then run one structured first session (60 minutes max) before you judge the game.
+                  Install, then run one simple first session (60 minutes max) before you judge the game.
                   <div class="muted" style="margin-top:6px;">
-                    <a href="/beginner-tips/#first-session">First session route →</a> ·
+                    <a href="/beginner-tips/#first-session">First session guide →</a> ·
                     <a href="/star-citizen-performance-guide/#do-this-now">10‑minute performance fix →</a>
                   </div>
                 </td>
@@ -494,7 +545,7 @@ const howToJsonLd = {
                   Keep spend minimal for your first week. Upgrade only after repeatable wins.
                 </td>
                 <td>
-                  Your real goal is one stable loop you enjoy. Once that’s true, upgrades are safer.
+                  Your real goal is one simple loop you enjoy. Once that is true, upgrades are easier to judge.
                 </td>
               </tr>
             </tbody>
@@ -532,7 +583,7 @@ const howToJsonLd = {
           <div class="card pad">
             <h3 style="margin:0 0 8px;">Beginner strategy</h3>
             <ul class="bullets">
-              <li>Start with a safe baseline starter pack.</li>
+              <li>Start with a simple baseline starter pack.</li>
               <li>Play enough to learn what you actually enjoy.</li>
               <li>Upgrade only when you feel a real limitation.</li>
               <li>Prefer versatile ships before niche specialists.</li>
@@ -608,7 +659,7 @@ const howToJsonLd = {
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
             <li><a href="/satellites/what-starter-ship-should-i-choose/">Starter ship choice (simple pick)</a></li>
-            <li><a href="/satellites/first-session-checklist/">First session checklist (beginner-proof route)</a></li>
+            <li><a href="/satellites/first-session-checklist/">First session checklist (easy first hour)</a></li>
             <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code (signup step)</a></li>
             <li><a href="/satellites/does-referral-code-change-price/">Referral code: does it change the price? (no)</a></li>
 </ul>
@@ -634,8 +685,8 @@ const howToJsonLd = {
             <div style="color: rgba(255,255,255,.74);">If you’re creating a new account, claim the signup bonus first — then buy your pack.</div>
           </div>
           <div class="btnrow" style="margin:0;">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer">Create account + claim bonus</a>
-            <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer">Browse official packs</a>
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus</a>
+            <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer" data-scb-role="official-packs-browse">Browse official packs</a>
           </div>
         </div>
       </div>

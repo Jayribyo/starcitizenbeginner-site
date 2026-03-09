@@ -11,7 +11,7 @@ const { title, blurb, ctaPrimary, ctaSecondary = "Where to paste it", ctaSeconda
   <p class="referralCtaBox__blurb">{blurb}</p>
 
   <div class="codePillRow">
-    <button class="codePill js-copyCode" type="button" data-copy={referralCode} aria-label={`Copy referral code ${referralCode}`}>
+    <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} data-copy={referralCode} aria-label={`Copy referral code ${referralCode}`}>
       {referralCode}
     </button>
     <span class="copyStatus" aria-hidden="true">One click copy</span>
@@ -19,11 +19,17 @@ const { title, blurb, ctaPrimary, ctaSecondary = "Where to paste it", ctaSeconda
   </div>
 
   <div class="btnrow referralCtaBox__actions">
-    <a class="btn primary" data-scb-role="referral-cta" href={referralLink} rel="nofollow noopener" target="_blank">{ctaPrimary}</a>
-    <a class="btn ghost" href={ctaSecondaryHref}>{ctaSecondary}</a>
+    <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank" data-scb-role="referral-signup">{ctaPrimary}</a>
+    <a class="btn ghost" href={ctaSecondaryHref} data-scb-role="where-to-paste">{ctaSecondary}</a>
   </div>
 
+  <ol class="referralCtaBox__steps">
+    <li>Copy the code.</li>
+    <li>Open the official RSI signup page.</li>
+    <li>Paste it into the referral field while you create your account.</li>
+  </ol>
+
   <p class="referralCtaBox__trust">
-    The safest path is still simple: copy the code, open the official signup page, and paste it before you finish account creation.
+    That is really all there is to it: copy the code, open the official signup page, and paste it before you finish creating your account.
   </p>
 </div>

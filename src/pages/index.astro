@@ -11,7 +11,7 @@ const referralLink = REFERRAL_LINK;
 const referralPage = REFERRAL_INFO_PATH;
 
 const homeFaqItems = [
-  { q: "Can I try Star Citizen without buying?", a: "Yes. Use Free Fly to test the game first and follow a structured first session plan." },
+  { q: "Can I try Star Citizen without buying?", a: "Yes. Use Free Fly to test the game first and follow a simple first-session plan." },
   { q: "What’s the smartest first thing to do in-game?", a: "Run one simple contract loop and repeat it two or three times. It teaches travel, UI, and mission flow without heavy risk." },
   { q: "Do I need a strong PC?", a: "You need a solid baseline and the right settings. If the game stutters, fix performance first with a targeted performance guide." },
   { q: "What starter pack should I buy?", a: "Pick a pack that matches your first loop and buy the minimum viable starter package." },
@@ -38,14 +38,14 @@ const tiles = [
     href: "/star-citizen-starter-packs/",
     img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
     title: "Starter Packs",
-    desc: "Pick a starter without wasting money. Clear decision path.",
+    desc: "Pick a starter pack without overbuying early. Simple comparisons, clear picks.",
     pill: "Buy smart",
   },
   {
     href: "/make-money-fast/",
     img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
     title: "Make Money Fast",
-    desc: "Beginner-proof money loops. Safe routes first, scaling paths next.",
+    desc: "Simple money loops for new players. Start small, then build from there.",
     pill: "Credits",
   },
   {
@@ -59,15 +59,15 @@ const tiles = [
     href: "/should-you-buy-star-citizen/",
     img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
     title: "Should You Buy?",
-    desc: "2-minute decision test + beginner-proof first session route.",
+    desc: "A simple yes-or-no guide for new players, plus what to do first if you decide to jump in.",
     pill: "Decision",
   },
 ];
 ---
 
 <BaseLayout
-  title="Star Citizen Beginner Guide – Start Smart, Avoid Mistakes, Enjoy Your First Session"
-  description="Star Citizen beginner guide: pick the right starter pack, fix stutter/FPS fast, and follow a first-session route that actually works (plus safe money loops)."
+  title="Star Citizen Beginner Guide – Start Simple, Avoid Common Mistakes, Enjoy Your First Session"
+  description="New to Star Citizen? Start here with simple beginner help: try Free Fly, choose the right starter pack, fix stutter fast, and get through your first session without the usual confusion."
   canonicalPath="/"
   stickyCtaLabel="Claim signup bonus (+50k UEC)"
   stickyCtaHref={referralLink}
@@ -96,10 +96,10 @@ const tiles = [
         <div class="homeHero__content">
           <div style="max-width:720px; padding: 26px 0;">
             <h1 class="h1">Star Citizen Beginner Guide</h1>
-          <p class="lead">New to Star Citizen? This is your beginner playbook: buy smart, set up right, and get a first session that clicks.</p>
+          <p class="lead">New to Star Citizen? Start simple: try the game first, buy only what fits you, and get through your first session without the usual confusion.</p>
 
             <div class="btnrow">
-              <a class="btn primary" href="#first-session">Start the 10-minute beginner route</a>
+              <a class="btn primary" href="#first-session" data-scb-role="hero-start-route">See what to do in your first session</a>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ const tiles = [
         title="On this page"
         items={[
           { label: "Quick answer", href: "#quick-answer" },
-          { label: "Pick your path", href: "#pick-your-path" },
+          { label: "Where to start", href: "#pick-your-path" },
           { label: "First 60 minutes", href: "#first-session" },
           { label: "Go deeper", href: "#guides" },
           { label: "Common mistakes", href: "#mistakes" },
@@ -126,27 +126,46 @@ const tiles = [
       bonus="50,000 UEC"
       ctaHref={referralLink}
       howItWorksHref={`${referralPage}#how-to-use`}
-      sublineHtml="Optional. No cost. Doesn’t change your price — it just adds the signup bonus."
+      sublineHtml="Optional, free, and easy to use during signup. It does not change your price — it just adds the signup bonus."
       ariaLabel="Referral bonus callout"
     />
 
     <!-- ===================== QUICK ANSWER ===================== -->
     <section id="quick-answer" class="section">
       <div class="card pad">
-        <h2 class="section__title">Quick answer</h2>
-        <p style="max-width:980px;">This site is built for one thing: helping brand-new players make the <b>next correct decision</b> without wasting money, time, or patience.</p>
+        <h2 class="section__title">Quick answer: keep it simple at the start</h2>
+        <p style="max-width:980px;">This site is here to make your start easier: less random clicking, less second-guessing, and a much better chance of having a good first session.</p>
+
+
+        <div class="decisionGrid" style="margin-top:14px;">
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Best place to start</div>
+            <div class="decisionCard__title">Pick one thing for today</div>
+            <p class="decisionCard__body">Pick one goal: try Free Fly, choose a starter pack, fix performance, or run one easy money loop. That is enough for day one.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">What trips people up</div>
+            <div class="decisionCard__title">Trying to learn everything at once</div>
+            <p class="decisionCard__body">Too many menus, too many ships, too many settings, and one rough session that makes the game feel harder than it really is.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">What you want</div>
+            <div class="decisionCard__title">One good session and one easy next step</div>
+            <p class="decisionCard__body">You leave each page knowing what to do next, what can wait, and how to keep your first hours feeling manageable.</p>
+          </div>
+        </div>
 
         <div>
             <ul class="list">
 
-              <li><b>Not sure if you should buy?</b> Start with <a href="/free-fly/">Free Fly →</a> or take the <a href="/should-you-buy-star-citizen/">2‑minute decision test →</a>.</li>
-              <li><b>Buying anyway?</b> Pick a <a href="/star-citizen-starter-packs/">starter pack without wasting money →</a> (upgrade later only if you keep playing).</li>
-              <li><b>Game runs badly?</b> Do the <a href="/star-citizen-performance-guide/">10‑minute performance fix →</a> before judging the game.</li>
-              <li><b>Need credits fast?</b> Use a <a href="/make-money-fast/">beginner-proof money loop →</a> (safe first, scaling second).</li>
+              <li><b>Not sure if you should buy?</b> Start with <a href="/free-fly/" data-scb-role="internal-free-fly-guide">Free Fly →</a> or take the <a href="/should-you-buy-star-citizen/">2‑minute buy check →</a>.</li>
+              <li><b>Buying anyway?</b> Pick a <a href="/star-citizen-starter-packs/">starter pack that fits your first hours →</a> (upgrade later only if you keep playing).</li>
+              <li><b>Game runs badly?</b> Do the <a href="/star-citizen-performance-guide/">10‑minute performance fix →</a> before you decide how the game really feels.</li>
+              <li><b>Need credits fast?</b> Use a <a href="/make-money-fast/">simple beginner money guide →</a> and start with the easiest loops first.</li>
               <li><b>Already know you will create an account?</b> Claim the referral bonus during signup — then ignore bigger purchase decisions until the basics click.</li>
             </ul>
 
-        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+        <p class="muted" style="margin-top:10px;">Need a term explained? <a class="link" href="/satellites/glossary/">Open the beginner glossary</a>.</p>
 
           </div>
       </div>
@@ -155,9 +174,9 @@ const tiles = [
     <!-- ===================== PICK YOUR PATH ===================== -->
     <section id="pick-your-path" class="section">
       <div class="card pad">
-        <h2 class="section__title">Pick your path (60‑second decision)</h2>
+        <h2 class="section__title">Where to start (60 seconds)</h2>
         <p style="max-width: 980px;">
-          Don’t start random. Choose the path that matches where you are right now — then follow the next link and execute.
+          If you are not sure where to begin, use the row that sounds most like you and follow that page first.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -177,7 +196,7 @@ const tiles = [
                 <td>Try the game first (avoid overwhelm)</td>
                 <td><a href="/free-fly/">Free Fly guide →</a></td>
                 <td>Judging the game from one bad session</td>
-                <td>Run the first‑session route + fix performance first</td>
+                <td>Use the first-session checklist + fix performance first</td>
               </tr>
               <tr>
                 <th>I’m deciding whether to buy</th>
@@ -202,7 +221,7 @@ const tiles = [
               </tr>
               <tr>
                 <th>I need credits</th>
-                <td>Run a safe loop 2–3 times</td>
+                <td>Run one simple loop 2–3 times</td>
                 <td><a href="/make-money-fast/">Make money fast →</a></td>
                 <td>Trading “all-in” too early</td>
                 <td>Start small → scale only after repeatable wins</td>
@@ -212,7 +231,7 @@ const tiles = [
         </div>
 
         <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Buying soon? Claim the signup bonus</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Buying soon? Claim the signup bonus</a>
           <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
         </div>
       </div>
@@ -221,9 +240,9 @@ const tiles = [
     <!-- ===================== FIRST SESSION ROUTE ===================== -->
     <section id="first-session" class="section">
       <div class="card pad">
-        <h2 class="section__title">First 60 minutes (beginner-proof route)</h2>
+        <h2 class="section__title">First 60 minutes: what to do first</h2>
         <p style="max-width: 980px;">
-          Your goal is simple: one clean loop you can repeat. This route minimizes confusion and maximizes “okay, I get it now.”
+          Your goal is simple: finish one easy loop you can repeat. That is usually the moment when the game starts to make sense.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -253,7 +272,7 @@ const tiles = [
                 <th>3</th>
                 <td>Run a simple courier/delivery contract</td>
                 <td>Teaches travel + navigation with low risk</td>
-                <td><a href="/make-money-fast/#do-this-now">Use the 10‑minute money route →</a></td>
+                <td><a href="/make-money-fast/#do-this-now">Use the 10‑minute money guide →</a></td>
               </tr>
               <tr>
                 <th>4</th>
@@ -274,7 +293,7 @@ const tiles = [
         <div class="card" style="margin-top:14px;">
           <div class="pad">
             <div class="kicker"><span class="dot"></span> Verify</div>
-            <p style="margin:0;">You should complete <b>one full contract loop</b> in your first session. If you can’t, fix performance first — then retry the same route.</p>
+            <p style="margin:0;">Try to complete <b>one full contract loop</b> in your first session. If that still feels rough, fix performance first and then try the same simple session again.</p>
           </div>
         </div>
       </div>
@@ -285,7 +304,7 @@ const tiles = [
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Beginner Guides</div>
         <h2 class="section__title">Go deeper (choose one next step)</h2>
-        <p class="lead">Use these pages as specialized tools. Pick one, execute, then come back.</p>
+        <p class="lead">Use these pages when you need them. Pick one, solve that problem, then come back here.</p>
       </div>
 
       <div class="tiles">
@@ -368,7 +387,7 @@ const tiles = [
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-            <li><a href="/first-session/">First session checklist (beginner route)</a></li>
+            <li><a href="/first-session/">First session checklist (easy first hour)</a></li>
             <li><a href="/referral-bonus-checklist/">Referral bonus checklist (don’t miss the window)</a></li>
             <li><a href="/satellites/get-a-star-citizen-referral-code/">Where to get a referral code (fast answer)</a></li>
             <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code</a></li>
@@ -384,7 +403,7 @@ const tiles = [
         <div class="faq" style="margin-top:12px;">
           <details class="faq__item">
             <summary class="faq__q">Can I try Star Citizen without buying?</summary>
-            <div class="faq__a">Yes. Use <a href="/free-fly/">Free Fly →</a> to test the game first and follow a structured first session plan.</div>
+            <div class="faq__a">Yes. Use <a href="/free-fly/" data-scb-role="internal-free-fly-guide">Free Fly →</a> to test the game first and follow a structured first session plan.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">What’s the smartest first thing to do in-game?</summary>
@@ -404,19 +423,19 @@ const tiles = [
           </details>
           <details class="faq__item">
             <summary class="faq__q">Can I use these guides during Free Fly?</summary>
-            <div class="faq__a">Yes. The same first-session route and money loops work — you’re just testing before buying.</div>
+            <div class="faq__a">Yes. The same first-session checklist and money tips still help — you are just trying the game before buying.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">How do I make money fast as a beginner?</summary>
-            <div class="faq__a">Start with safe delivery loops, then scale into bounties or mining. Full playbooks here: <a href="/make-money-fast/">Make money fast →</a></div>
+            <div class="faq__a">Start with simple delivery loops, then branch out into bounties or mining. Full guide here: <a href="/make-money-fast/">Make money fast →</a></div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">What should I avoid in my first hours?</summary>
             <div class="faq__a">Avoid all-in trading, expensive gear runs, and changing 20 settings at once. Build one repeatable loop first.</div>
           </details>
           <details class="faq__item">
-            <summary class="faq__q">I’m overwhelmed. What’s the simplest route?</summary>
-            <div class="faq__a">Follow the <a href="#first-session">First 60 minutes route</a> on this page and ignore everything else until you complete one full loop.</div>
+            <summary class="faq__q">I’m overwhelmed. What is the easiest way to start?</summary>
+            <div class="faq__a">Follow the <a href="#first-session">First 60 minutes section</a> on this page and ignore the rest until you finish one full loop.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Where do I enter the referral code?</summary>
@@ -425,7 +444,7 @@ const tiles = [
         </div>
 
         <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + claim signup bonus</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create account + claim signup bonus</a>
           <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
         </div>
       </div>

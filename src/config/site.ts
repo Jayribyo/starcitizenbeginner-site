@@ -11,6 +11,11 @@ export const REFERRAL_HELP_PATH = `${REFERRAL_INFO_PATH}#how-to-use`;
 
 export const FLY_FREE_URL = "https://robertsspaceindustries.com/en/flyfree";
 
+export const FREE_FLY_HUB_PATH = "/free-fly/";
+export const SHOULD_YOU_BUY_PATH = "/should-you-buy-star-citizen/";
+export const STARTER_PACKS_PATH = "/star-citizen-starter-packs/";
+export const PERFORMANCE_GUIDE_PATH = "/star-citizen-performance-guide/";
+
 export const DEFAULT_LANGUAGE_PATHS = {
   en: "/",
   de: "/de/",
@@ -26,3 +31,11 @@ export const LANGUAGE_LABELS = {
   es: { code: "ES", label: "Español" },
   zh: { code: "中文", label: "中文" },
 } as const;
+
+
+export const LANGUAGE_OPTIONS = Object.entries(LANGUAGE_LABELS).map(([key, value]) => ({
+  key,
+  code: value.code,
+  label: value.label,
+  href: DEFAULT_LANGUAGE_PATHS[key as keyof typeof DEFAULT_LANGUAGE_PATHS],
+}));

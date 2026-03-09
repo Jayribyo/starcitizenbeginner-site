@@ -12,9 +12,9 @@ const REF_LINK = REFERRAL_LINK;
 const REF_BONUS = REFERRAL_BONUS_LABEL;
 
 // Evergreen title (no years/patches)
-const title = "How to Buy Star Citizen – Account Setup, Handle, Referral Bonus, Starter Pack";
+const title = "How to Buy Star Citizen – Step-by-Step Signup, Referral Code, and Starter Pack";
 const description =
-  `Step-by-step: create your RSI account, pick a public handle, enter referral code ${REF_CODE} for +${REF_BONUS}, buy a starter pack, install & launch.`;
+  `A simple step-by-step Star Citizen buying guide: create your RSI account, enter the referral code during signup, choose a starter pack, install the launcher, and get into the game without extra confusion.`;
 
 const crumbs = [
   { label: "Home", href: "/" },
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "I bought a pack — what’s next?",
-    a: "Install the RSI Launcher, log in, download the game to an SSD if possible, and run one structured first session so you don’t judge the game on a bad first spawn.",
+    a: "Install the RSI Launcher, log in, download the game to an SSD if possible, and run one simple first session so you do not judge the game on one messy spawn.",
   },
 ];
 
@@ -82,7 +82,7 @@ const howToLd = {
     {
       "@type": "HowToStep",
       name: "Install launcher and run a clean first session",
-      text: "Install the RSI Launcher, download the game, and follow a structured first session route.",
+      text: "Install the RSI Launcher, download the game, and follow a simple first-session checklist.",
     },
   ],
 };
@@ -122,10 +122,9 @@ const howToLd = {
       <div class="homeHero__content">
         <div style="max-width:720px; padding: 26px 0;">
           <h1 class="h1">How to buy Star Citizen</h1>
-          <p class="lead">The exact RSI signup + purchase steps: pick your handle, apply the referral bonus during signup, and choose a starter pack without wasting money.</p>
+          <p class="lead">We walk you through the RSI signup and purchase steps in plain English: pick your handle, add the referral bonus during signup, and choose a starter pack without overthinking day one.</p>
           <div class="btnrow">
-            <a class="btn primary" href="#do-this-now">Start the buying steps</a>
-            <a class="btn ghost" href="#account">Account setup details →</a>
+            <a class="btn primary" href="#do-this-now" data-scb-role="how-to-buy-start-steps">Start the buying steps</a>
           </div>
         </div>
       </div>
@@ -159,29 +158,46 @@ const howToLd = {
   <!-- ===================== QUICK ANSWER ===================== -->
   <section id="quick-answer" class="section">
     <div class="card pad">
-      <h2 class="section__title">Quick answer</h2>
+      <h2 class="section__title">Quick answer: this is easier than it looks</h2>
       <ul class="list">
         <li>
-          <b>Signup:</b> Create your RSI account and enter referral code <b>{REF_CODE}</b> during signup to start with <b>+{REF_BONUS}</b>.
+          <b>Signup:</b> Create your RSI account and enter referral code <b>{REF_CODE}</b> while you sign up so you start with <b>+{REF_BONUS}</b>.
         </li>
         <li>
           <b>Name choice:</b> Your <b>handle</b> (aka moniker/account name) is public. Your login is your email.
         </li>
         <li>
-          <b>Purchase:</b> Buy <b>one starter pack</b> (game access + a ship). Extra ships are a “week 3” decision, not a “day 1” decision.
+          <b>Purchase:</b> Buy <b>one starter pack</b> (game access + a ship). Extra ships can wait until you know you actually want them.
         </li>
         <li>
-          <b>Install:</b> Use the RSI Launcher and install to an <b>SSD</b> if you can. Then run one structured first session.
+          <b>Install:</b> Use the RSI Launcher and install to an <b>SSD</b> if you can. Then run one simple first session.
         </li>
       </ul>
       <p class="muted" style="margin-top:10px;">
-        Still deciding if it’s worth it for you? Use the <a href="/should-you-buy-star-citizen/">2‑minute decision guide →</a>
+        Still deciding if it’s worth it for you? Use the <a href="/should-you-buy-star-citizen/">2‑minute buy guide →</a>
       </p>
+      <div class="decisionGrid" style="margin-top:14px;">
+        <div class="decisionCard">
+          <div class="decisionCard__kicker">Step 1</div>
+          <div class="decisionCard__title">Set up the account once, the easy way</div>
+          <p class="decisionCard__body">Use the referral code during signup, pick a handle you are happy to keep publicly, and finish account creation once.</p>
+        </div>
+        <div class="decisionCard">
+          <div class="decisionCard__kicker">Step 2</div>
+          <div class="decisionCard__title">Buy one starter pack</div>
+          <p class="decisionCard__body">Do not turn day one into a fleet-planning project. Buy the starter pack that fits the way you want to start and leave the rest for later.</p>
+        </div>
+        <div class="decisionCard">
+          <div class="decisionCard__kicker">Step 3</div>
+          <div class="decisionCard__title">See how the game feels after one good session</div>
+          <p class="decisionCard__body">Install on SSD, play one simple first session, and only then decide whether you want to spend more time or money.</p>
+        </div>
+      </div>
       <div class="callout" style="margin-top:12px;">
-        <div class="kicker"><span class="dot"></span> Lowest-risk path</div>
+        <div class="kicker"><span class="dot"></span> Keep it simple</div>
         <p class="muted" style="margin:6px 0 0;">
-          Separate the decision into three parts: <b>create the account correctly</b>, <b>buy one starter pack only</b>, then <b>judge the game after one clean first session</b>.
-          Most beginner regret comes from mixing those three decisions together and overspending before the basics click.
+          Break it into three parts: <b>create the account</b>, <b>buy one starter pack</b>, then <b>see how the game feels after one good first session</b>.
+          Most beginner regret comes from trying to solve all three at once and spending too much too early.
         </p>
       </div>
 
@@ -193,7 +209,7 @@ const howToLd = {
     <div class="card pad">
       <h2 class="section__title">Buying steps (do this in order)</h2>
       <p style="max-width: 980px;">
-        This is the clean path: account → handle → referral bonus → starter pack → install → first session. Don’t skip step 1 — that’s where the bonus lives.
+        Keep it simple: account → handle → referral bonus → starter pack → install → first session. Do it in that order and it stays easy.
       </p>
 
       <div class="tableWrap" style="margin-top:12px;">
@@ -212,12 +228,12 @@ const howToLd = {
               <td>
                 <b>Create your RSI account</b> and enter referral code <b>{REF_CODE}</b> during signup.
                 <div style="margin-top:8px;">
-                  <a class="btn primary" href={REF_LINK} target="_blank" rel="noopener noreferrer">
+                  <a class="btn primary" href={REF_LINK} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">
                     Create account + claim bonus
                   </a>
                 </div>
               </td>
-              <td>This is the only fully reliable moment to lock in the bonus. It does not change your price — it just adds starting credits.</td>
+              <td>This is when the field is right in front of you. It does not change the price — it just adds starting credits.</td>
               <td>Creating the account first, then trying to add the code later.</td>
             </tr>
             <tr>
@@ -242,14 +258,14 @@ const howToLd = {
             <tr>
               <th>4</th>
               <td>
-                Install the RSI Launcher, download the game, and run one structured first session before you judge it.
+                Install the RSI Launcher, download the game, and run one simple first session before you judge it.
                 <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
                   <a class="btn ghost" href="/first-session/">First session checklist →</a>
                   <a class="btn ghost" href="/star-citizen-performance-guide/#do-this-now">If it stutters: 10‑minute fix →</a>
                 </div>
               </td>
               <td>A bad first hour is often a setup problem, not a final verdict on the game.</td>
-              <td>Quitting after one bad spawn / laggy server without trying a clean route.</td>
+              <td>Quitting after one bad spawn or laggy server before you have tried one calmer session.</td>
             </tr>
           </tbody>
         </table>
@@ -367,7 +383,7 @@ const howToLd = {
           </thead>
           <tbody>
             <tr>
-              <th>Learn the basics safely</th>
+              <th>Learn the basics comfortably</th>
               <td>General starter (balanced)</td>
               <td>Forgiving “first loop” ship.</td>
               <td>“I’ll buy a huge ship so it’s easier.”</td>
@@ -389,7 +405,7 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer">
+        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
           Create account + claim signup bonus
         </a>
         <a class="btn ghost" href="/star-citizen-starter-packs/">Which starter pack should you buy? →</a>
@@ -430,7 +446,7 @@ const howToLd = {
             </tr>
             <tr>
               <th>3</th>
-              <td>Launch once, then follow a structured first session route.</td>
+              <td>Launch once, then follow a simple first-session checklist.</td>
               <td>Prevents overwhelm and “random wandering”.</td>
               <td><a href="/first-session/">First session checklist →</a></td>
             </tr>
@@ -471,7 +487,7 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer">
+        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
           Create account + claim signup bonus
         </a>
         <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>

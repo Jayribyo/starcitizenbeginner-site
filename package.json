@@ -6,7 +6,12 @@
     "dev": "astro dev",
     "build": "astro build && node ./scripts/generate-sitemap.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "validate:links": "node ./scripts/validate-internal-links.mjs",
+    "validate:site": "node ./scripts/validate-site-config.mjs",
+    "validate:free-fly": "node ./scripts/validate-free-fly-cluster.mjs",
+    "ci:check": "astro check && pnpm run validate:links && pnpm run validate:site && pnpm run validate:free-fly && pnpm run validate:public",
+    "validate:public": "node ./scripts/validate-public-artifacts.mjs"
   },
   "dependencies": {
     "astro": "^4.16.0"

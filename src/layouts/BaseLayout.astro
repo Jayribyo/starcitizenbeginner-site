@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
+import { REFERRAL_CODE } from "../config/site";
 
 const {
   showFooter = true,
@@ -44,6 +45,25 @@ const alternateEntries = paths && typeof paths === "object"
   ? Object.entries(paths).filter(([, href]) => typeof href === "string" && href.startsWith("/"))
   : [];
 
+const pageType = (() => {
+  if (safePath === "/") return "home";
+  if (safePath === "/free-fly/") return "free_fly";
+  if (safePath === "/how-to-buy-star-citizen/") return "how_to_buy";
+  if (safePath === "/star-citizen-referral-code/") return "referral";
+  if (safePath === "/star-citizen-starter-packs/") return "starter_packs";
+  if (safePath === "/should-you-buy-star-citizen/") return "should_you_buy";
+  if (safePath === "/beginner-tips/") return "beginner_tips";
+  if (safePath === "/make-money-fast/") return "make_money_fast";
+  if (safePath === "/star-citizen-performance-guide/") return "performance_guide";
+  if (safePath.startsWith("/satellites/")) return "satellite";
+  if (["/de/", "/fr/", "/es/", "/zh/"].includes(safePath)) return "language_entry";
+  return "other";
+})();
+
+const pageTier = new Set(["home", "free_fly", "how_to_buy", "referral", "starter_packs", "should_you_buy"]).has(pageType)
+  ? "tier_1"
+  : (pageType === "satellite" ? "satellite" : "support");
+
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -86,12 +106,15 @@ const organizationSchema = {
       <link rel="alternate" hreflang={locale} href={new URL(href, site).toString()} />
     ))}
     {alternateEntries.length > 0 && (
-      <link rel="alternate" hreflang="x-default" href={new URL(paths.en ?? "/", site).toString()} />
+      <link rel="alternate" hreflang="x-default" href={new URL((paths?.en && typeof paths.en === "string" ? paths.en : "/"), site).toString()} />
     )}
 
-    <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/global/scb-logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
     <link rel="apple-touch-icon" sizes="96x96" href="/assets/img/global/scb-logo.png" />
+    <meta name="theme-color" content="#06080f" />
 
     <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
     <meta property="og:title" content={title} />
@@ -113,10 +136,10 @@ const organizationSchema = {
     <slot name="head" />
   </head>
 
-  <body>
+  <body data-referral-code={REFERRAL_CODE} data-scb-page-type={pageType} data-scb-page-tier={pageTier}>
     <div id="top" aria-hidden="true"></div>
 
-    <SiteHeader active={activeNav} currentPath={safePath} />
+    <SiteHeader active={activeNav} currentPath={safePath} lang={lang} paths={paths} />
 
     <slot />
 
@@ -138,6 +161,7 @@ const organizationSchema = {
         <a
           class="btn primary stickyCta__btn"
           href={stickyCtaHref}
+          data-scb-role="sticky-cta"
           {...(stickyCtaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         >
           {stickyCtaLabel}
@@ -163,6 +187,10 @@ const organizationSchema = {
 
       const SCB_LIVE_HOSTS = new Set(["starcitizenbeginner.com", "www.starcitizenbeginner.com"]);
       const scbIsLiveHost = SCB_LIVE_HOSTS.has(window.location.hostname);
+      const scbPageType = document.body?.getAttribute("data-scb-page-type") || "other";
+      const scbPageTier = document.body?.getAttribute("data-scb-page-tier") || "support";
+      const scbPath = window.location.pathname;
+      const scbSeenDepths = new Set();
 
       const scbPlacement = (el) => {
         if (!el || !el.closest) return "unknown";
@@ -171,15 +199,33 @@ const organizationSchema = {
         if (el.closest(".hero")) return "hero";
         if (el.closest('[data-scb-component="referral-cta"]')) return "referral_cta_box";
         if (el.closest(".topNav") || el.closest(".mobileNav")) return "nav";
+        if (el.closest(".tableWrap")) return "table";
+        if (el.closest(".card")) return "card";
         return "body";
       };
 
       const scbTrack = (eventName, props = {}) => {
         if (!scbIsLiveHost) return;
+        const payload = {
+          page_type: scbPageType,
+          page_tier: scbPageTier,
+          path: scbPath,
+          ...props,
+        };
+
         try {
           if (window.zaraz && typeof window.zaraz.track === "function") {
-            window.zaraz.track(eventName, props);
+            window.zaraz.track(eventName, payload);
           }
+        } catch (_) {}
+
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: eventName, ...payload });
+        } catch (_) {}
+
+        try {
+          window.dispatchEvent(new CustomEvent("scb:track", { detail: { event: eventName, ...payload } }));
         } catch (_) {}
       };
 
@@ -202,13 +248,33 @@ const organizationSchema = {
       window.addEventListener("scroll", setSticky, { passive: true });
       window.addEventListener("resize", setSticky, { passive: true });
       setSticky();
+
+      const scbTrackDepth = () => {
+        const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const percent = Math.min(100, Math.round((window.scrollY / scrollable) * 100));
+        [25, 50, 75, 90].forEach((threshold) => {
+          if (percent >= threshold && !scbSeenDepths.has(threshold)) {
+            scbSeenDepths.add(threshold);
+            scbTrack("scb_scroll_depth", { depth: threshold });
+          }
+        });
+      };
+
+      scbTrack("scb_page_view", {
+        title: document.title,
+        referrer_host: document.referrer ? (() => {
+          try { return new URL(document.referrer).hostname || "direct"; } catch (_) { return "direct"; }
+        })() : "direct",
+      });
+      window.addEventListener("scroll", scbTrackDepth, { passive: true });
+      scbTrackDepth();
     </script>
 
     <div id="copyToast" class="copyToast" role="status" aria-live="polite">Copied</div>
 
     <script>
       (() => {
-        const FALLBACK_CODE = "STAR-FSRJ-5N7Z";
+        const referralCode = document.body?.getAttribute("data-referral-code") || "";
         const toast = document.getElementById("copyToast");
         let t;
 
@@ -247,53 +313,86 @@ const organizationSchema = {
         document.addEventListener(
           "click",
           async (e) => {
-            const trigger = e.target.closest("[data-copy-referral]");
+            const trigger = e.target.closest("[data-copy-referral], [data-copy], .js-copyCode");
             if (!trigger) return;
 
             const code =
               trigger.getAttribute("data-copy-referral") ||
-              document.documentElement.getAttribute("data-referral-code") ||
-              FALLBACK_CODE;
+              trigger.getAttribute("data-copy") ||
+              trigger.textContent?.trim() ||
+              document.body?.getAttribute("data-referral-code") ||
+              referralCode ||
+              "";
 
             const ok = await copyText(code);
             showToast(ok ? "Copied" : "Copy failed");
 
+            if (ok) {
+              trigger.setAttribute("data-copied", "true");
+              window.setTimeout(() => trigger.removeAttribute("data-copied"), 1200);
+            }
+
+            const status =
+              trigger.parentElement?.querySelector?.(".copyStatus, .js-copyStatus") ||
+              trigger.closest?.(".refOffer, [data-scb-component='referral-cta'], .card")?.querySelector?.(".copyStatus, .js-copyStatus");
+
+            if (status) {
+              status.textContent = ok ? "Copied" : "Copy failed";
+              status.setAttribute("data-show", ok ? "true" : "false");
+              window.setTimeout(() => status.removeAttribute("data-show"), 1200);
+            }
+
             scbTrack("referral_code_copied", {
               code,
               placement: scbPlacement(trigger),
-              path: window.location.pathname,
+              trigger_role: trigger.getAttribute("data-scb-role") || "copy_referral",
             });
           },
-          { passive: true }
         );
 
         document.addEventListener(
           "click",
           (e) => {
-            const a = e.target.closest("a[href]");
-            if (!a) return;
+            const clickable = e.target.closest("a[href], button[data-scb-role], [data-scb-role][href]");
+            if (!clickable) return;
 
-            const href = a.getAttribute("href") || "";
-            const placement = scbPlacement(a);
+            const href = clickable.getAttribute("href") || "";
+            const placement = scbPlacement(clickable);
+            const role = clickable.getAttribute("data-scb-role") || "generic";
+            const text = (clickable.textContent || "").trim().replace(/\s+/g, " ").slice(0, 120);
+            const isOutboundRsi = href.includes("robertsspaceindustries.com") || href.includes("cloudimperiumgames.com");
 
-            if (href.includes("robertsspaceindustries.com") || href.includes("cloudimperiumgames.com")) {
+            if (clickable.hasAttribute("data-scb-role")) {
+              scbTrack("scb_cta_click", {
+                role,
+                href,
+                placement,
+                text,
+              });
+            }
+
+            if (isOutboundRsi) {
               scbTrack("outbound_rsi_click", {
                 href,
                 placement,
-                path: window.location.pathname,
-                text: (a.textContent || "").trim().slice(0, 120),
+                role,
+                text,
               });
             }
 
-            if (href.includes("#how-to-enter") || href.includes("where-to-enter-referral-code")) {
+            if (
+              role === "where-to-paste" ||
+              href.includes("#how-to-enter") ||
+              href.includes("#how-to-use") ||
+              href.includes("where-to-enter-referral-code")
+            ) {
               scbTrack("where_to_paste_click", {
                 href,
                 placement,
-                path: window.location.pathname,
+                role,
               });
             }
           },
-          { passive: true }
         );
       })();
     </script>
