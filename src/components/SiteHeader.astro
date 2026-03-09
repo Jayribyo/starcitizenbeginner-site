@@ -1,5 +1,5 @@
 ---
-const { active = "", currentPath = "/" } = Astro.props;
+const { active = "", currentPath = "/", lang = "en", paths = null } = Astro.props;
 
 const SHOW_LANG = import.meta.env.PUBLIC_SHOW_LANG_SWITCHER !== "0";
 
@@ -12,15 +12,35 @@ const guides = [
   { href: "/how-to-buy-star-citizen/", label: "How to Buy Star Citizen" },
 ];
 
-const languages = [
-  { href: "/", label: "English", code: "EN" },
-  { href: "/de/", label: "Deutsch", code: "DE" },
-  { href: "/fr/", label: "Français", code: "FR" },
-  { href: "/es/", label: "Español", code: "ES" },
-  { href: "/zh/", label: "中文", code: "中文" },
+const languageDefaults = {
+  en: "/",
+  de: "/de/",
+  fr: "/fr/",
+  es: "/es/",
+  zh: "/zh/",
+};
+
+const languageCatalog = [
+  { key: "en", label: "English", code: "EN" },
+  { key: "de", label: "Deutsch", code: "DE" },
+  { key: "fr", label: "Français", code: "FR" },
+  { key: "es", label: "Español", code: "ES" },
+  { key: "zh", label: "中文", code: "中文" },
 ];
 
-const currentLang = languages.find((item) => currentPath === item.href || currentPath.startsWith(item.href))?.code ?? "EN";
+const normalizedLang = typeof lang === "string" && lang ? lang : "en";
+const currentLang = languageCatalog.find((item) => item.key === normalizedLang)?.code ?? "EN";
+
+const languages = languageCatalog
+  .map((item) => {
+    const explicitHref = paths && typeof paths === "object" ? paths[item.key] : null;
+    const href = typeof explicitHref === "string" && explicitHref.startsWith("/")
+      ? explicitHref
+      : languageDefaults[item.key];
+
+    return { ...item, href };
+  })
+  .filter((item) => typeof item.href === "string" && item.href.startsWith("/"));
 ---
 
 <header class="siteHeader" data-siteheader>
@@ -47,7 +67,7 @@ const currentLang = languages.find((item) => currentPath === item.href || curren
       <a class:list={["topNav__link", active === "referral" && "is-active"]} href="/star-citizen-referral-code/">Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
       <a class:list={["topNav__link", active === "free-fly" && "is-active"]} href="/free-fly/">Free Fly</a>
 
-      {SHOW_LANG && (
+      {SHOW_LANG && languages.length > 1 && (
         <div class="topNav__dd topNav__dd--right">
           <button class="topNav__link topNav__trigger" type="button" aria-haspopup="true">
             Languages <span class="topNav__pill">{currentLang}</span>
@@ -55,7 +75,7 @@ const currentLang = languages.find((item) => currentPath === item.href || curren
           </button>
           <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
             {languages.map((l) => (
-              <a class="topNav__item" role="menuitem" href={l.href} aria-current={currentLang === l.code ? "page" : undefined}>
+              <a class="topNav__item" role="menuitem" href={l.href} aria-current={normalizedLang === l.key ? "page" : undefined}>
                 <span class="topNav__langCode">{l.code}</span>
                 <span>{l.label}</span>
               </a>
@@ -92,12 +112,12 @@ const currentLang = languages.find((item) => currentPath === item.href || curren
         </div>
       </details>
 
-      {SHOW_LANG && (
+      {SHOW_LANG && languages.length > 1 && (
         <details class="mobileNav__details">
           <summary class="mobileNav__summary">Languages</summary>
           <div class="mobileNav__panel">
             {languages.map((l) => (
-              <a class="mobileNav__langlink" href={l.href} data-close-on-nav aria-current={currentLang === l.code ? "page" : undefined}>
+              <a class="mobileNav__langlink" href={l.href} data-close-on-nav aria-current={normalizedLang === l.key ? "page" : undefined}>
                 <span class="topNav__langCode">{l.code}</span>
                 <span>{l.label}</span>
               </a>

@@ -86,7 +86,7 @@ const organizationSchema = {
       <link rel="alternate" hreflang={locale} href={new URL(href, site).toString()} />
     ))}
     {alternateEntries.length > 0 && (
-      <link rel="alternate" hreflang="x-default" href={new URL(paths.en ?? "/", site).toString()} />
+      <link rel="alternate" hreflang="x-default" href={new URL((paths?.en && typeof paths.en === "string" ? paths.en : "/"), site).toString()} />
     )}
 
     <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
@@ -116,7 +116,7 @@ const organizationSchema = {
   <body>
     <div id="top" aria-hidden="true"></div>
 
-    <SiteHeader active={activeNav} currentPath={safePath} />
+    <SiteHeader active={activeNav} currentPath={safePath} lang={lang} paths={paths} />
 
     <slot />
 
