@@ -1,11 +1,6 @@
 ---
-import { DEFAULT_LANGUAGE_PATHS, LANGUAGE_LABELS, SITE_NAME } from "../config/site";
+const { active = "", currentPath = "/" } = Astro.props;
 
-const { active = "", lang = "en", brand = SITE_NAME, paths = DEFAULT_LANGUAGE_PATHS } = Astro.props;
-
-// ENV toggle (Cloudflare Pages):
-// - Production: PUBLIC_SHOW_LANG_SWITCHER=0
-// - Preview/Dev: PUBLIC_SHOW_LANG_SWITCHER=1 (or unset)
 const SHOW_LANG = import.meta.env.PUBLIC_SHOW_LANG_SWITCHER !== "0";
 
 const guides = [
@@ -17,28 +12,27 @@ const guides = [
   { href: "/how-to-buy-star-citizen/", label: "How to Buy Star Citizen" },
 ];
 
-const languageOrder = ["en", "de", "fr", "es", "zh"];
-const languagePaths = { ...DEFAULT_LANGUAGE_PATHS, ...(paths ?? {}) };
-const languages = languageOrder
-  .filter((key) => languagePaths[key])
-  .map((key) => ({ href: languagePaths[key], ...LANGUAGE_LABELS[key] }));
+const languages = [
+  { href: "/", label: "English", code: "EN" },
+  { href: "/de/", label: "Deutsch", code: "DE" },
+  { href: "/fr/", label: "Français", code: "FR" },
+  { href: "/es/", label: "Español", code: "ES" },
+  { href: "/zh/", label: "中文", code: "中文" },
+];
 
-const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
+const currentLang = languages.find((item) => currentPath === item.href || currentPath.startsWith(item.href))?.code ?? "EN";
 ---
 
 <header class="siteHeader" data-siteheader>
   <div class="container siteHeader__inner">
-    <!-- SCB logo stays top-left as Home button -->
     <a class="brand" href="/" aria-label="Star Citizen Beginner Home">
-      <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" width="40" height="40" decoding="async" />
-      <span>{brand}</span>
+      <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" width="32" height="32" />
+      <span>Star Citizen Beginner</span>
     </a>
 
-    <!-- Desktop nav (unchanged structure/classes for CSS compatibility) -->
     <nav class="topNav topNav--desktop" aria-label="Primary navigation">
       <a class:list={["topNav__link", active === "home" && "is-active"]} href="/">Home</a>
 
-      <!-- Guides dropdown (hover/focus) -->
       <div class:list={["topNav__dd", active === "guides" && "is-active"]}>
         <a class="topNav__link topNav__trigger" href="/beginner-tips/" aria-haspopup="true">
           Starter Guides <span class="topNav__chev" aria-hidden="true">▾</span>
@@ -50,19 +44,9 @@ const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
         </div>
       </div>
 
-      <a
-        class:list={["topNav__link", active === "referral" && "is-active"]}
-        href="/star-citizen-referral-code/"
-      >Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
+      <a class:list={["topNav__link", active === "referral" && "is-active"]} href="/star-citizen-referral-code/">Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
+      <a class:list={["topNav__link", active === "free-fly" && "is-active"]} href="/free-fly/">Free Fly</a>
 
-      <a
-        class:list={["topNav__link", active === "free-fly" && "is-active"]}
-        href="/free-fly/"
-      >
-        Free Fly
-      </a>
-
-      <!-- Languages dropdown (hover/focus) -->
       {SHOW_LANG && (
         <div class="topNav__dd topNav__dd--right">
           <button class="topNav__link topNav__trigger" type="button" aria-haspopup="true">
@@ -71,7 +55,7 @@ const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
           </button>
           <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
             {languages.map((l) => (
-              <a class="topNav__item" role="menuitem" href={l.href}>
+              <a class="topNav__item" role="menuitem" href={l.href} aria-current={currentLang === l.code ? "page" : undefined}>
                 <span class="topNav__langCode">{l.code}</span>
                 <span>{l.label}</span>
               </a>
@@ -81,20 +65,11 @@ const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
       )}
     </nav>
 
-    <!-- Mobile burger (new; desktop unaffected) -->
-    <button
-      class="navBurger"
-      type="button"
-      aria-label="Open menu"
-      aria-controls="mobileDrawer"
-      aria-expanded="false"
-      data-navburger
-    >
+    <button class="navBurger" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false" data-navburger>
       <span class="navBurger__lines" aria-hidden="true"></span>
     </button>
   </div>
 
-  <!-- Mobile drawer (new) -->
   <div class="mobileNavBackdrop" data-mobilebackdrop hidden></div>
 
   <aside class="mobileNavDrawer" id="mobileDrawer" data-mobiledrawer hidden aria-label="Mobile navigation">
@@ -106,7 +81,6 @@ const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
     <nav class="mobileNav" aria-label="Mobile primary">
       <a class="mobileNav__link" href="/" data-close-on-nav>Home</a>
       <a class="mobileNav__link" href="/star-citizen-referral-code/" data-close-on-nav>Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
-      <a class="mobileNav__link" href="/satellites/where-to-enter-referral-code/" data-close-on-nav>Where to paste the code</a>
       <a class="mobileNav__link" href="/free-fly/" data-close-on-nav>Free Fly</a>
 
       <details class="mobileNav__details">
@@ -123,7 +97,7 @@ const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
           <summary class="mobileNav__summary">Languages</summary>
           <div class="mobileNav__panel">
             {languages.map((l) => (
-              <a class="mobileNav__langlink" href={l.href} data-close-on-nav>
+              <a class="mobileNav__langlink" href={l.href} data-close-on-nav aria-current={currentLang === l.code ? "page" : undefined}>
                 <span class="topNav__langCode">{l.code}</span>
                 <span>{l.label}</span>
               </a>
@@ -142,35 +116,32 @@ const currentLang = LANGUAGE_LABELS[lang]?.code ?? LANGUAGE_LABELS.en.code;
       const closeBtn = document.querySelector('[data-mobilenavclose]');
       if (!burger || !drawer || !backdrop || !closeBtn) return;
 
-  const open = () => {
-  drawer.hidden = false;
-  backdrop.hidden = false;
+      const open = () => {
+        drawer.hidden = false;
+        backdrop.hidden = false;
+        document.body.classList.add('nav-open');
 
-  // body scroll lock
-  document.body.classList.add('nav-open');
+        requestAnimationFrame(() => {
+          drawer.classList.add('is-open');
+          backdrop.classList.add('is-open');
+          burger.setAttribute('aria-expanded', 'true');
+          burger.classList.add('is-active');
+        });
+      };
 
-  requestAnimationFrame(() => {
-    drawer.classList.add('is-open');
-    backdrop.classList.add('is-open');
-    burger.setAttribute('aria-expanded', 'true');
-    burger.classList.add('is-active'); // for burger animation
-  });
-};
+      const close = () => {
+        drawer.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.classList.remove('is-active');
+        document.body.classList.remove('nav-open');
 
-const close = () => {
-  drawer.classList.remove('is-open');
-  backdrop.classList.remove('is-open');
-  burger.setAttribute('aria-expanded', 'false');
-  burger.classList.remove('is-active');
+        window.setTimeout(() => {
+          drawer.hidden = true;
+          backdrop.hidden = true;
+        }, 160);
+      };
 
-  // remove body scroll lock
-  document.body.classList.remove('nav-open');
-
-  window.setTimeout(() => {
-    drawer.hidden = true;
-    backdrop.hidden = true;
-  }, 160);
-};
       burger.addEventListener('click', () => {
         const expanded = burger.getAttribute('aria-expanded') === 'true';
         expanded ? close() : open();
@@ -190,6 +161,3 @@ const close = () => {
     })();
   </script>
 </header>
-
-
-

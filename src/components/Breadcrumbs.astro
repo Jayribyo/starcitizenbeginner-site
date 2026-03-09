@@ -1,25 +1,23 @@
 ---
 const { items = [] } = Astro.props;
-const site = Astro.site?.toString()?.replace(/\/$/, "") ?? "";
-
-const schema =
-  items?.length > 0 && site
-    ? JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: items.map((it, idx) => ({
-          "@type": "ListItem",
-          position: idx + 1,
-          name: it.label,
-          item: new URL(it.href, site).toString(),
-        })),
-      })
-    : "";
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
+const breadcrumbSchema = items.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.label,
+        item: site && item.href ? new URL(item.href, site).toString() : undefined,
+      })),
+    }
+  : null;
 ---
 
 {items?.length > 0 && (
   <>
-    <script type="application/ld+json" set:html={schema}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
     <nav class="crumbs" aria-label="Breadcrumb">
       <div class="container">
         <ol class="crumbs__list">
