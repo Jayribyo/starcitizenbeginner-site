@@ -5,7 +5,7 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ReferralCTA from "../../components/ReferralCTA.astro";
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL, SHOULD_YOU_BUY_PATH, STARTER_PACKS_PATH, PERFORMANCE_GUIDE_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralBonusUEC = REFERRAL_BONUS_UEC;
@@ -617,11 +617,11 @@ const faqJsonLd = {
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-            <li><a href="/satellites/free-fly-first-session/">Run a beginner-safe first Free Fly session</a></li>
-            <li><a href="/should-you-buy-star-citizen/">Take the 2-minute buy test</a></li>
-            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
-            <li><a href="/star-citizen-performance-guide/">Fix stutter + FPS</a></li>
-            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+            <li><a href="/satellites/free-fly-first-session/" data-scb-role="free-fly-next-first-session">Run a beginner-safe first Free Fly session</a></li>
+            <li><a href={SHOULD_YOU_BUY_PATH} data-scb-role="free-fly-next-buy-test">Take the 2-minute buy test</a></li>
+            <li><a href={STARTER_PACKS_PATH} data-scb-role="free-fly-next-starter-packs">Pick a starter pack</a></li>
+            <li><a href={PERFORMANCE_GUIDE_PATH} data-scb-role="free-fly-next-performance">Fix stutter + FPS</a></li>
+            <li><a href={REFERRAL_INFO_PATH} data-scb-role="free-fly-next-referral-guide">Referral code: where to paste it</a></li>
         </ul>
       </div>
     </section>

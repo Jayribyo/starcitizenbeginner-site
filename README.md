@@ -60,3 +60,13 @@ pnpm run ci:check
 ## Quality gates
 
 Run `pnpm run ci:check` before deploys. This now includes public-artifact validation to catch accidental source files in `public/` and accidental static `public/sitemap.xml` regressions.
+
+
+## Free Fly cluster rule
+
+`/free-fly/` is a Tier-1 page. Free Fly satellites must:
+- link back to the `/free-fly/` hub
+- offer the buy-test path
+- offer the referral guide path for brand-new account creation
+
+Run `pnpm run validate:free-fly` after editing the Free Fly hub or its satellites.

@@ -10,7 +10,7 @@ const HEADERS_FILE = path.join(ROOT, 'public', '_headers');
 const checks = [
   {
     file: SITE_CONFIG,
-    mustInclude: ['REFERRAL_CODE', 'REFERRAL_LINK', 'LANGUAGE_PATHS'],
+    mustInclude: ['REFERRAL_CODE', 'REFERRAL_LINK', 'DEFAULT_LANGUAGE_PATHS', 'FREE_FLY_HUB_PATH'],
   },
   {
     file: BASE_LAYOUT,
