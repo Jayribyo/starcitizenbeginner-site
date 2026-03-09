@@ -51,6 +51,17 @@ function filePathToUrl(filePath) {
 const htmlFiles = collectHtmlFiles(DIST_DIR);
 
 const urls = htmlFiles
+  .filter((filePath) => {
+    const rel = path.relative(DIST_DIR, filePath).replace(/\/g, "/");
+    if (rel === "404/index.html" || rel === "404.html") return false;
+
+    try {
+      const html = fs.readFileSync(filePath, "utf8");
+      return !/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(html);
+    } catch {
+      return true;
+    }
+  })
   .map(filePathToUrl)
   .filter(Boolean);
 
