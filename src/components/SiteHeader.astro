@@ -1,4 +1,6 @@
 ---
+import { DEFAULT_LANGUAGE_PATHS, LANGUAGE_OPTIONS, REFERRAL_BONUS_UEC } from "../config/site";
+
 const { active = "", currentPath = "/", lang = "en", paths = null } = Astro.props;
 
 const SHOW_LANG = import.meta.env.PUBLIC_SHOW_LANG_SWITCHER !== "0";
@@ -12,31 +14,15 @@ const guides = [
   { href: "/how-to-buy-star-citizen/", label: "How to Buy Star Citizen" },
 ];
 
-const languageDefaults = {
-  en: "/",
-  de: "/de/",
-  fr: "/fr/",
-  es: "/es/",
-  zh: "/zh/",
-};
-
-const languageCatalog = [
-  { key: "en", label: "English", code: "EN" },
-  { key: "de", label: "Deutsch", code: "DE" },
-  { key: "fr", label: "Français", code: "FR" },
-  { key: "es", label: "Español", code: "ES" },
-  { key: "zh", label: "中文", code: "中文" },
-];
-
 const normalizedLang = typeof lang === "string" && lang ? lang : "en";
-const currentLang = languageCatalog.find((item) => item.key === normalizedLang)?.code ?? "EN";
+const currentLang = LANGUAGE_OPTIONS.find((item) => item.key === normalizedLang)?.code ?? "EN";
 
-const languages = languageCatalog
+const languages = LANGUAGE_OPTIONS
   .map((item) => {
     const explicitHref = paths && typeof paths === "object" ? paths[item.key] : null;
     const href = typeof explicitHref === "string" && explicitHref.startsWith("/")
       ? explicitHref
-      : languageDefaults[item.key];
+      : DEFAULT_LANGUAGE_PATHS[item.key];
 
     return { ...item, href };
   })
@@ -45,27 +31,27 @@ const languages = languageCatalog
 
 <header class="siteHeader" data-siteheader>
   <div class="container siteHeader__inner">
-    <a class="brand" href="/" aria-label="Star Citizen Beginner Home">
+    <a class="brand" href="/" aria-label="Star Citizen Beginner Home" data-scb-role="brand-home">
       <img src="/assets/img/global/scb-logo.svg" alt="SCB logo" width="32" height="32" />
       <span>Star Citizen Beginner</span>
     </a>
 
     <nav class="topNav topNav--desktop" aria-label="Primary navigation">
-      <a class:list={["topNav__link", active === "home" && "is-active"]} href="/">Home</a>
+      <a class:list={["topNav__link", active === "home" && "is-active"]} href="/" data-scb-role="nav-home">Home</a>
 
       <div class:list={["topNav__dd", active === "guides" && "is-active"]}>
-        <a class="topNav__link topNav__trigger" href="/beginner-tips/" aria-haspopup="true">
+        <a class="topNav__link topNav__trigger" href="/beginner-tips/" aria-haspopup="true" data-scb-role="nav-starter-guides">
           Starter Guides <span class="topNav__chev" aria-hidden="true">▾</span>
         </a>
         <div class="topNav__menu" role="menu" aria-label="Starter Guides">
           {guides.map((g) => (
-            <a class="topNav__item" role="menuitem" href={g.href}>{g.label}</a>
+            <a class="topNav__item" role="menuitem" href={g.href} data-scb-role="nav-guide-link">{g.label}</a>
           ))}
         </div>
       </div>
 
-      <a class:list={["topNav__link", active === "referral" && "is-active"]} href="/star-citizen-referral-code/">Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
-      <a class:list={["topNav__link", active === "free-fly" && "is-active"]} href="/free-fly/">Free Fly</a>
+      <a class:list={["topNav__link", active === "referral" && "is-active"]} href="/star-citizen-referral-code/" data-scb-role="nav-referral">Referral Code <span class="topNav__pill topNav__pill--bonus">+{REFERRAL_BONUS_UEC} UEC</span></a>
+      <a class:list={["topNav__link", active === "free-fly" && "is-active"]} href="/free-fly/" data-scb-role="nav-free-fly">Free Fly</a>
 
       {SHOW_LANG && languages.length > 1 && (
         <div class="topNav__dd topNav__dd--right">
@@ -75,7 +61,7 @@ const languages = languageCatalog
           </button>
           <div class="topNav__menu topNav__menu--right" role="menu" aria-label="Languages">
             {languages.map((l) => (
-              <a class="topNav__item" role="menuitem" href={l.href} aria-current={normalizedLang === l.key ? "page" : undefined}>
+              <a class="topNav__item" role="menuitem" href={l.href} data-scb-role="nav-language-link" aria-current={normalizedLang === l.key ? "page" : undefined}>
                 <span class="topNav__langCode">{l.code}</span>
                 <span>{l.label}</span>
               </a>
@@ -99,15 +85,15 @@ const languages = languageCatalog
     </div>
 
     <nav class="mobileNav" aria-label="Mobile primary">
-      <a class="mobileNav__link" href="/" data-close-on-nav>Home</a>
-      <a class="mobileNav__link" href="/star-citizen-referral-code/" data-close-on-nav>Referral Code <span class="topNav__pill topNav__pill--bonus">+50K UEC</span></a>
-      <a class="mobileNav__link" href="/free-fly/" data-close-on-nav>Free Fly</a>
+      <a class="mobileNav__link" href="/" data-close-on-nav data-scb-role="mobile-nav-home">Home</a>
+      <a class="mobileNav__link" href="/star-citizen-referral-code/" data-close-on-nav data-scb-role="mobile-nav-referral">Referral Code <span class="topNav__pill topNav__pill--bonus">+{REFERRAL_BONUS_UEC} UEC</span></a>
+      <a class="mobileNav__link" href="/free-fly/" data-close-on-nav data-scb-role="mobile-nav-free-fly">Free Fly</a>
 
       <details class="mobileNav__details">
         <summary class="mobileNav__summary">Starter Guides</summary>
         <div class="mobileNav__panel">
           {guides.map((g) => (
-            <a class="mobileNav__sublink" href={g.href} data-close-on-nav>{g.label}</a>
+            <a class="mobileNav__sublink" href={g.href} data-close-on-nav data-scb-role="mobile-nav-guide-link">{g.label}</a>
           ))}
         </div>
       </details>
@@ -117,7 +103,7 @@ const languages = languageCatalog
           <summary class="mobileNav__summary">Languages</summary>
           <div class="mobileNav__panel">
             {languages.map((l) => (
-              <a class="mobileNav__langlink" href={l.href} data-close-on-nav aria-current={normalizedLang === l.key ? "page" : undefined}>
+              <a class="mobileNav__langlink" href={l.href} data-close-on-nav data-scb-role="mobile-nav-language-link" aria-current={normalizedLang === l.key ? "page" : undefined}>
                 <span class="topNav__langCode">{l.code}</span>
                 <span>{l.label}</span>
               </a>

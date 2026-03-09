@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const SITE_CONFIG = path.join(ROOT, 'src', 'config', 'site.ts');
 const BASE_LAYOUT = path.join(ROOT, 'src', 'layouts', 'BaseLayout.astro');
 const HEADER = path.join(ROOT, 'src', 'components', 'SiteHeader.astro');
+const HEADERS_FILE = path.join(ROOT, 'public', '_headers');
 
 const checks = [
   {
@@ -17,7 +18,11 @@ const checks = [
   },
   {
     file: HEADER,
-    mustInclude: ['lang=', 'paths='],
+    mustInclude: ['lang =', 'paths =', 'DEFAULT_LANGUAGE_PATHS', 'LANGUAGE_OPTIONS'],
+  },
+  {
+    file: HEADERS_FILE,
+    mustInclude: ['X-Content-Type-Options', 'Cache-Control'],
   },
 ];
 

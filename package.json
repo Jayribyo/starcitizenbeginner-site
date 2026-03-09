@@ -9,7 +9,8 @@
     "check": "astro check",
     "validate:links": "node ./scripts/validate-internal-links.mjs",
     "validate:site": "node ./scripts/validate-site-config.mjs",
-    "ci:check": "astro check && pnpm run validate:links && pnpm run validate:site"
+    "ci:check": "astro check && pnpm run validate:links && pnpm run validate:site && pnpm run validate:public",
+    "validate:public": "node ./scripts/validate-public-artifacts.mjs"
   },
   "dependencies": {
     "astro": "^4.16.0"

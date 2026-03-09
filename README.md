@@ -55,3 +55,8 @@ pnpm run ci:check
 - Prefer global rules and shared components over page-specific patches.
 - Any new internal link should either resolve to a real route or have a matching redirect.
 - Any referral interaction should stay trustworthy, beginner-safe, and measurable.
+
+
+## Quality gates
+
+Run `pnpm run ci:check` before deploys. This now includes public-artifact validation to catch accidental source files in `public/` and accidental static `public/sitemap.xml` regressions.

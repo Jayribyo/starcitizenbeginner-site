@@ -26,3 +26,11 @@ export const LANGUAGE_LABELS = {
   es: { code: "ES", label: "Español" },
   zh: { code: "中文", label: "中文" },
 } as const;
+
+
+export const LANGUAGE_OPTIONS = Object.entries(LANGUAGE_LABELS).map(([key, value]) => ({
+  key,
+  code: value.code,
+  label: value.label,
+  href: DEFAULT_LANGUAGE_PATHS[key as keyof typeof DEFAULT_LANGUAGE_PATHS],
+}));
