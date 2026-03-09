@@ -1126,6 +1126,54 @@ details[open].faq__item > .faq__q::after{
   }
 }
 
+
+/* ========== Referral CTA box ========== */
+.referralCtaBox{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.referralCtaBox__title{
+  margin:2px 0 0;
+  font-size:20px;
+  line-height:1.2;
+}
+
+.referralCtaBox__blurb{
+  margin:0;
+  color: rgba(255,255,255,.78);
+}
+
+.referralCtaBox__actions{
+  margin-top: 2px;
+}
+
+.referralCtaBox__trust{
+  margin:0;
+  font-size:13px;
+  line-height:1.5;
+  color: rgba(255,255,255,.70);
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  font-size:12px;
+  font-weight:800;
+  color: rgba(255,255,255,.82);
+}
+
+.btn.ghost{
+  background: rgba(255,255,255,.02);
+  border-color: rgba(255,255,255,.14);
+}
+
 /* ========== Premium referral offer banner ========== */
 .refBar {
   margin-top: 14px;
@@ -1317,6 +1365,33 @@ details[open].faq__item > .faq__q::after{
   border-radius: 18px;
   padding: 14px 16px;
   font-size: 13px;
+}
+
+.stickyCta__helper{
+  margin-top:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.stickyCta__micro{
+  appearance:none;
+  border:0;
+  background:transparent;
+  padding:0;
+  font:inherit;
+  color: rgba(255,255,255,.80);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+  cursor:pointer;
+}
+
+.stickyCta__sep{
+  color: rgba(255,255,255,.40);
+  font-size:12px;
 }
 
 @media (min-width: 1024px) {

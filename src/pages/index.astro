@@ -3,10 +3,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ReferralBanner from "../components/ReferralBanner.astro";
 import OnThisPage from "../components/OnThisPage.astro";
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqSchema from "../components/FaqSchema.astro";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
-const referralPage = "/star-citizen-referral-code/";
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
+const referralPage = REFERRAL_INFO_PATH;
+
+const homeFaqItems = [
+  { q: "Can I try Star Citizen without buying?", a: "Yes. Use Free Fly to test the game first and follow a structured first session plan." },
+  { q: "What’s the smartest first thing to do in-game?", a: "Run one simple contract loop and repeat it two or three times. It teaches travel, UI, and mission flow without heavy risk." },
+  { q: "Do I need a strong PC?", a: "You need a solid baseline and the right settings. If the game stutters, fix performance first with a targeted performance guide." },
+  { q: "What starter pack should I buy?", a: "Pick a pack that matches your first loop and buy the minimum viable starter package." },
+  { q: "Is the referral code mandatory?", a: "No. It is optional and does not change your price. If you want the signup bonus, enter it during account creation." },
+  { q: "Where do I enter the referral code?", a: "On the RSI signup page during account creation. The referral guide shows the exact place." },
+];
 
 const tiles = [
   {
@@ -63,6 +74,7 @@ const tiles = [
   stickyCtaExternal={true}
  activeNav="home">
 <link slot="head" rel="preload" as="image" href="/assets/img/home/scb-home-hero.webp" fetchpriority="high" />
+  <FaqSchema items={homeFaqItems} />
   <main>
 
     <Breadcrumbs items={[{ label: 'Home', href: '/' }]} />
@@ -122,6 +134,7 @@ const tiles = [
     <section id="quick-answer" class="section">
       <div class="card pad">
         <h2 class="section__title">Quick answer</h2>
+        <p style="max-width:980px;">This site is built for one thing: helping brand-new players make the <b>next correct decision</b> without wasting money, time, or patience.</p>
 
         <div>
             <ul class="list">
@@ -130,6 +143,7 @@ const tiles = [
               <li><b>Buying anyway?</b> Pick a <a href="/star-citizen-starter-packs/">starter pack without wasting money →</a> (upgrade later only if you keep playing).</li>
               <li><b>Game runs badly?</b> Do the <a href="/star-citizen-performance-guide/">10‑minute performance fix →</a> before judging the game.</li>
               <li><b>Need credits fast?</b> Use a <a href="/make-money-fast/">beginner-proof money loop →</a> (safe first, scaling second).</li>
+              <li><b>Already know you will create an account?</b> Claim the referral bonus during signup — then ignore bigger purchase decisions until the basics click.</li>
             </ul>
 
         <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>

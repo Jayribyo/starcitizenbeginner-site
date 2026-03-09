@@ -4,9 +4,10 @@ import ReferralBanner from "../../../components/ReferralBanner.astro";
 import OnThisPage from "../../../components/OnThisPage.astro";
 import FaqSchema from "../../../components/FaqSchema.astro";
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
 
 const heroImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-pack-guide-ship-selection-hero.webp";
 
@@ -152,7 +153,7 @@ const faqItems = [
           ))}
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
-  <a class="btn primary" href="https://www.robertsspaceindustries.com/enlist?referral=STAR-FSRJ-5N7Z" rel="nofollow noopener" target="_blank">Create account + claim signup bonus</a>
+  <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim signup bonus</a>
   <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
 </div>
       </div>

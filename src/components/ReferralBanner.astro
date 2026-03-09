@@ -1,4 +1,5 @@
 ---
+import { REFERRAL_BONUS_LABEL, REFERRAL_CODE, REFERRAL_HELP_PATH, REFERRAL_LINK } from "../config/site";
 /**
  * SCB ReferralBanner (global)
  *
@@ -9,17 +10,16 @@
  *  - code: string
  *  - bonus: string (e.g. "50,000 UEC" or `${referralBonusUEC} UEC`)
  *  - ctaHref: string (prefilled RSI enlist link)
- *  - howItWorksHref: string (internal anchor/link)
  *  - sublineHtml: string (allows <b> emphasis)
  *  - ariaLabel: string
  */
 const {
-  code = "STAR-FSRJ-5N7Z",
-  bonus = "50,000 UEC",
+  code = REFERRAL_CODE,
+  bonus = REFERRAL_BONUS_LABEL,
   ctaLabel = "Claim your start bonus",
-  ctaHref = `https://www.robertsspaceindustries.com/enlist?referral=${code}`,
-  howItWorksHref = "/star-citizen-referral-code/#how-to-use",
-  sublineHtml = "Enter during signup — or within <b>24 hours</b> after account creation.",
+  ctaHref = REFERRAL_LINK,
+  howItWorksHref = REFERRAL_HELP_PATH,
+  sublineHtml = "Use it during signup for the safest path. <b>No price change</b> — just the starter bonus.",
   ariaLabel = "Referral bonus callout",
 } = Astro.props;
 ---
@@ -39,6 +39,11 @@ const {
       <a class="btn primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
         {ctaLabel}
       </a>
+      <div class="refOffer__helper">
+        <a class="refOffer__link" href={howItWorksHref}>Where to paste it</a>
+        <span class="refOffer__sep" aria-hidden="true">•</span>
+        <span class="refOffer__micro">New accounts only</span>
+      </div>
     </div>
   </div>
 </section>
@@ -101,6 +106,36 @@ const {
   .refOffer__copied[data-show="true"]{
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .refOffer__actions{
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .refOffer__helper{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .refOffer__micro,
+  .refOffer__sep{
+    font-size:12px;
+    color: rgba(255,255,255,.64);
+  }
+
+  @media (max-width: 720px){
+    .refOffer__actions{
+      align-items:flex-start;
+    }
+
+    .refOffer__helper{
+      justify-content:flex-start;
+    }
   }
 
 </style>

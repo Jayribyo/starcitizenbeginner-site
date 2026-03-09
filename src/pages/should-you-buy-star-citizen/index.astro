@@ -5,10 +5,11 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralBonusUEC = "50,000";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralCode = REFERRAL_CODE;
+const referralBonusUEC = REFERRAL_BONUS_UEC;
+const referralLink = REFERRAL_LINK;
 
 const heroImg = "/assets/img/should-you-buy-star-citizen/star-citizen-multiplayer-fleet-hero.webp";
 const buyImg = "/assets/img/should-you-buy-star-citizen/star-citizen-buy-or-not.webp";
@@ -193,25 +194,57 @@ ctaHref={referralLink}
       <div class="card pad">
         <h2 class="section__title">Quick answer: the shortest honest answer</h2>
 
-        <div class="grid2" style="margin-top: 10px;">
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>If this sounds like you</th>
+                <th>Best call</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>You like sandboxes, self-made goals, and learning through repetition</th>
+                <td><b>Buy</b></td>
+                <td>The game is strongest when you enjoy building your own momentum rather than following a tight script.</td>
+              </tr>
+              <tr>
+                <th>You want a polished, guided campaign-like experience every session</th>
+                <td><b>Skip for now</b></td>
+                <td>You are more likely to notice friction than magic.</td>
+              </tr>
+              <tr>
+                <th>You are curious, but not yet convinced</th>
+                <td><b>Try Free Fly first</b></td>
+                <td>It lets you test the feel of the game before you spend money.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid2" style="margin-top:12px;">
           <div>
             <ul class="list">
-              <li><b>Buy</b> if you like sandboxes, self-made goals, and long-term progression.</li>
-              <li><b>Skip</b> if you want a polished, guided campaign experience every session.</li>
-              <li><b>Safest start:</b> try <a href="/free-fly/"><b>Free Fly</b></a> first (when available). If you buy, start with the <b>minimum starter package</b>.</li>
-              <li><b>Don’t overspend early:</b> upgrade only after a few sessions when you know your playstyle.</li>
+              <li><b>Safest paid start:</b> buy the <b>minimum starter package</b>, not the dream ship.</li>
+              <li><b>Do not overspend early:</b> upgrade only after a few sessions when you know your actual playstyle.</li>
               <li><b>Performance matters:</b> install on an SSD and do the 10-minute fixes before judging the game.
                 <a href="/star-citizen-performance-guide/" style="margin-left: 6px;">Performance guide →</a>
               </li>
             </ul>
-
-        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
-
+            <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
           </div>
 
-          <div>
-<div class="btnrow" style="margin-top: 12px;">
-<a class="btn secondary" href="/make-money-fast/">Make money fast beginner</a>
+          <div class="callout">
+            <div class="kicker"><span class="dot"></span> Best beginner sequence</div>
+            <ol class="list" style="margin-top:8px; padding-left:18px;">
+              <li>Run the 2-minute decision test.</li>
+              <li>Try Free Fly if it is available.</li>
+              <li>If you buy, buy one starter pack only.</li>
+              <li>Judge the game after 3–5 sessions, not one messy spawn.</li>
+            </ol>
+            <div class="btnrow" style="margin-top: 12px;">
+              <a class="btn secondary" href="/make-money-fast/">What to do after buying →</a>
             </div>
           </div>
         </div>

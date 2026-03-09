@@ -5,10 +5,11 @@ import ReferralCTA from "../../components/ReferralCTA.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
-const referralPage = "/star-citizen-referral-code/";
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
+const referralPage = REFERRAL_INFO_PATH;
 
 const heroImg =
   "/assets/img/beginner-tips/star-citizen-beginner-tips-structured-route-hero.webp";
@@ -840,9 +841,9 @@ const faqJsonLd = {
 
         <div class="miniNote" style="margin-top:12px;">
           Want a clean money path next? Use the companion guide:
-          <a href="/earn-auec-fast/"><b>Earn aUEC Fast</b></a>.
+          <a href="/make-money-fast/"><b>Earn aUEC Fast</b></a>.
           For performance stability (FPS, stutter), use:
-          <a href="/best-settings/"><b>Best Settings</b></a>.
+          <a href="/star-citizen-performance-guide/"><b>Best Settings</b></a>.
         </div>
       </div>
     </section>
@@ -893,9 +894,9 @@ const faqJsonLd = {
           <ul class="bullets">
             <li><a href="/free-fly/"><b>Free Fly guide</b></a> — if you’re trialing the game, here’s what to test before buying.</li>
             <li><a href={referralPage}><b>Referral code guide</b></a> — how the bonus works and when to enter it (don’t miss the window).</li>
-            <li><a href="/starter-pack-guide/"><b>Starter pack guide</b></a> — choose a pack based on your loop, not hype.</li>
-            <li><a href="/best-settings/"><b>Best settings</b></a> — stabilize FPS and input latency so learning is easier.</li>
-            <li><a href="/earn-auec-fast/"><b>Earn aUEC fast</b></a> — once you have a stable loop, scale income the smart way.</li>
+            <li><a href="/star-citizen-starter-packs/"><b>Starter pack guide</b></a> — choose a pack based on your loop, not hype.</li>
+            <li><a href="/star-citizen-performance-guide/"><b>Best settings</b></a> — stabilize FPS and input latency so learning is easier.</li>
+            <li><a href="/make-money-fast/"><b>Earn aUEC fast</b></a> — once you have a stable loop, scale income the smart way.</li>
           </ul>
 
           <ReferralCTA
@@ -919,9 +920,9 @@ const faqJsonLd = {
 
         <div class="faq">
           {faqItems.map((item) => (
-            <details class="faqItem">
-              <summary class="faqQ">{item.q}</summary>
-              <div class="faqA">
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">
                 <p>{item.a}</p>
               </div>
             </details>

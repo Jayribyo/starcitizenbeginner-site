@@ -5,12 +5,16 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 
-const REF_CODE = "STAR-FSRJ-5N7Z";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_LABEL } from "../../config/site";
+
+const REF_CODE = REFERRAL_CODE;
+const REF_LINK = REFERRAL_LINK;
+const REF_BONUS = REFERRAL_BONUS_LABEL;
 
 // Evergreen title (no years/patches)
 const title = "How to Buy Star Citizen – Account Setup, Handle, Referral Bonus, Starter Pack";
 const description =
-  `Step-by-step: create your RSI account, pick a public handle, enter referral code ${REF_CODE} for +50,000 UEC, buy a starter pack, install & launch.`;
+  `Step-by-step: create your RSI account, pick a public handle, enter referral code ${REF_CODE} for +${REF_BONUS}, buy a starter pack, install & launch.`;
 
 const crumbs = [
   { label: "Home", href: "/" },
@@ -20,7 +24,7 @@ const crumbs = [
 const faqs = [
   {
     q: "Where do I enter the Star Citizen referral code?",
-    a: `During RSI account creation (signup) — that’s the only time the signup bonus applies. Use ${REF_CODE} to start with +50,000 UEC.`,
+    a: `During RSI account creation (signup) — that’s the only time the signup bonus applies. Use ${REF_CODE} to start with +${REF_BONUS}.`,
   },
   {
     q: "What’s the difference between login email and handle/moniker?",
@@ -63,7 +67,7 @@ const howToLd = {
     {
       "@type": "HowToStep",
       name: "Create RSI account (enter referral code during signup)",
-      text: `Create your RSI account and enter referral code ${REF_CODE} during signup to get +50,000 UEC.`,
+      text: `Create your RSI account and enter referral code ${REF_CODE} during signup to get +${REF_BONUS}.`,
     },
     {
       "@type": "HowToStep",
@@ -93,7 +97,7 @@ const howToLd = {
   ogImageAlt="Star Citizen pilot signing in on the RSI website"
   robots="index,follow"
   stickyCtaLabel={`Create account + claim bonus (+50k UEC)`}
-  stickyCtaHref={`https://www.robertsspaceindustries.com/enlist?referral=${REF_CODE}`}
+  stickyCtaHref={REF_LINK}
   stickyCtaExternal={true}
 >
   <HowToSchema json={howToLd} />
@@ -146,10 +150,10 @@ const howToLd = {
   </section>
 
   <ReferralBanner
-    title={`Use referral code ${REF_CODE} to start with 50,000 UEC.`}
+    title={`Use referral code ${REF_CODE} to start with ${REF_BONUS}.`}
     sub="Optional. No cost. Doesn’t change your price — it just adds the signup bonus during account creation."
     ctaLabel="Create account + claim your start bonus"
-    ctaHref={`https://www.robertsspaceindustries.com/enlist?referral=${REF_CODE}`}
+    ctaHref={REF_LINK}
   />
 
   <!-- ===================== QUICK ANSWER ===================== -->
@@ -158,7 +162,7 @@ const howToLd = {
       <h2 class="section__title">Quick answer</h2>
       <ul class="list">
         <li>
-          <b>Signup:</b> Create your RSI account and enter referral code <b>{REF_CODE}</b> during signup to start with <b>+50,000 UEC</b>.
+          <b>Signup:</b> Create your RSI account and enter referral code <b>{REF_CODE}</b> during signup to start with <b>+{REF_BONUS}</b>.
         </li>
         <li>
           <b>Name choice:</b> Your <b>handle</b> (aka moniker/account name) is public. Your login is your email.
@@ -173,6 +177,14 @@ const howToLd = {
       <p class="muted" style="margin-top:10px;">
         Still deciding if it’s worth it for you? Use the <a href="/should-you-buy-star-citizen/">2‑minute decision guide →</a>
       </p>
+      <div class="callout" style="margin-top:12px;">
+        <div class="kicker"><span class="dot"></span> Lowest-risk path</div>
+        <p class="muted" style="margin:6px 0 0;">
+          Separate the decision into three parts: <b>create the account correctly</b>, <b>buy one starter pack only</b>, then <b>judge the game after one clean first session</b>.
+          Most beginner regret comes from mixing those three decisions together and overspending before the basics click.
+        </p>
+      </div>
+
     </div>
   </section>
 
@@ -200,12 +212,12 @@ const howToLd = {
               <td>
                 <b>Create your RSI account</b> and enter referral code <b>{REF_CODE}</b> during signup.
                 <div style="margin-top:8px;">
-                  <a class="btn primary" href={`https://www.robertsspaceindustries.com/enlist?referral=${REF_CODE}`} target="_blank" rel="noopener noreferrer">
+                  <a class="btn primary" href={REF_LINK} target="_blank" rel="noopener noreferrer">
                     Create account + claim bonus
                   </a>
                 </div>
               </td>
-              <td>The signup bonus only applies during account creation. It doesn’t change your price — it just adds starting credits.</td>
+              <td>This is the only fully reliable moment to lock in the bonus. It does not change your price — it just adds starting credits.</td>
               <td>Creating the account first, then trying to add the code later.</td>
             </tr>
             <tr>
@@ -224,7 +236,7 @@ const howToLd = {
                   <a class="btn ghost" href="/star-citizen-starter-packs/">Pick a starter pack (no fluff) →</a>
                 </div>
               </td>
-              <td>Starter packs include game access + a ship. Buying extra ships early is the #1 regret pattern.</td>
+              <td>Starter packs include game access + a ship. One pack is enough to validate whether the game actually works for you.</td>
               <td>Buying based on looks or “big ship” hype.</td>
             </tr>
             <tr>
@@ -236,7 +248,7 @@ const howToLd = {
                   <a class="btn ghost" href="/star-citizen-performance-guide/#do-this-now">If it stutters: 10‑minute fix →</a>
                 </div>
               </td>
-              <td>Most “this game is awful” experiences are actually performance / setup / expectation issues.</td>
+              <td>A bad first hour is often a setup problem, not a final verdict on the game.</td>
               <td>Quitting after one bad spawn / laggy server without trying a clean route.</td>
             </tr>
           </tbody>
@@ -377,7 +389,7 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={`https://www.robertsspaceindustries.com/enlist?referral=${REF_CODE}`} target="_blank" rel="nofollow noopener noreferrer">
+        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer">
           Create account + claim signup bonus
         </a>
         <a class="btn ghost" href="/star-citizen-starter-packs/">Which starter pack should you buy? →</a>
@@ -459,7 +471,7 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={`https://www.robertsspaceindustries.com/enlist?referral=${REF_CODE}`} target="_blank" rel="nofollow noopener noreferrer">
+        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer">
           Create account + claim signup bonus
         </a>
         <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>

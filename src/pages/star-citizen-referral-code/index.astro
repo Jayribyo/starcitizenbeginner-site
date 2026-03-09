@@ -5,9 +5,11 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_LABEL, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
-const referralCode = "STAR-FSRJ-5N7Z";
-const referralLink = `https://www.robertsspaceindustries.com/enlist?referral=${referralCode}`;
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
+const referralBonusLabel = REFERRAL_BONUS_LABEL;
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
@@ -200,10 +202,10 @@ const faqJsonLd = {
     <div id="referral-code">
       <ReferralBanner
         code={referralCode}
-        bonus="50,000 UEC"
+        bonus={referralBonusLabel}
         ctaHref={referralLink}
         howItWorksHref="#how-to-use"
-        sublineHtml="Enter during signup — or within <b>24 hours</b> after account creation."
+        sublineHtml="Safest move: enter it during signup. Do <b>not</b> rely on adding it later."
         ariaLabel="Referral bonus offer"
       />
     </div>
@@ -218,9 +220,17 @@ const faqJsonLd = {
         <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
 
         <p>
-          A Star Citizen referral code is a free signup code from the official referral program. Enter it during account creation (or within
-          about <b>24 hours</b> after signup) to receive a starter bonus once your account becomes active.
+          A Star Citizen referral code is a free signup code from the official referral program. The only <b>safe beginner rule</b> is this:
+          enter it <b>during account creation</b>, not later. That keeps you out of edge cases, mixed support advice, and missed-bonus frustration.
         </p>
+        <div class="callout" style="margin-top:12px;">
+          <div class="kicker"><span class="dot"></span> Official guidance note</div>
+          <p class="muted" style="margin:6px 0 0;">
+            RSI support currently points in two directions: the Referral Program FAQ says a new account can often add a code within 24 hours,
+            while the account-creation guide says the code cannot be added retroactively once the account is created. Treat <b>signup itself</b>
+            as the only reliable moment and you avoid the ambiguity.
+          </p>
+        </div>
         <div class="tableWrap" style="margin-top: 14px;">
           <table class="table">
             <thead>
@@ -239,8 +249,8 @@ const faqJsonLd = {
               </tr>
               <tr>
                 <th>Account already created</th>
-                <td>Try to add it within the short window, then move on</td>
-                <td>After the window, it usually can’t be applied</td>
+                <td>Check immediately whether your account page still offers the field — but do not build your plan around this fallback</td>
+                <td>Official support messaging is mixed, so signup remains the only risk-free moment</td>
               </tr>
             </tbody>
           </table>
@@ -263,8 +273,8 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Step-by-step</div>
           <h2 class="section__title">How to use the Star Citizen referral code</h2>
           <p>
-            The easiest way is to use the referral code <b>during account creation</b>. If you already created an account, you may still be able to
-            add it within the limited window — but doing it during signup is always the safest option.
+            The clean path is simple: open the official signup page, paste the code, create the account, verify your email, and only then think
+            about packs or Free Fly. That order protects the bonus and keeps your first purchase decision separate from account setup.
           </p>
 
           <div class="tableWrap" style="margin-top: 12px;">
@@ -408,21 +418,41 @@ const faqJsonLd = {
     <section id="24-hour-rule" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Timing</div>
-        <h2 class="section__title">The 24-hour rule (can you add a code later?)</h2>
+        <h2 class="section__title">Can you add a code later? Here’s the beginner-safe answer</h2>
         <p>
-          Many players sign up first and only realize later that they forgot the referral code. In many cases you can still add it — but only
-          within a limited window (commonly around <b>24 hours</b> after account creation). After that, it usually cannot be applied.
+          Do not plan around “adding it later.” One official RSI support article says new accounts often have a 24-hour grace window, while the
+          account-creation article tells players the code cannot be added retroactively after creation. That contradiction is exactly why the
+          beginner-safe move is to enter the code during signup and treat any later option as a fallback only.
         </p>
 
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">If you haven’t bought yet</h3>
-            <ul class="bullets">
-              <li><b>Create the account now</b> (30 seconds). Add the referral code during signup.</li>
-              <li>Not sure? Try <a class="link" href="/free-fly/">Free Fly</a> first so you don’t spend blindly.</li>
-              <li>When you do buy: start with a cheap starter pack, then upgrade later if you stick with the game.</li>
-            </ul>
-          </div>
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Your situation</th>
+                <th>Do this</th>
+                <th>Why this is the safest move</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>You have not created the account yet</th>
+                <td>Use the referral code during signup.</td>
+                <td>No ambiguity. You lock in the bonus at the cleanest possible moment.</td>
+              </tr>
+              <tr>
+                <th>You created the account a few minutes ago</th>
+                <td>Check the account area immediately for a referral field, but assume this may fail.</td>
+                <td>You may still have a chance, but official guidance is inconsistent.</td>
+              </tr>
+              <tr>
+                <th>You already bought / progressed and the field is gone</th>
+                <td>Move on and do not waste more time on support loops.</td>
+                <td>Support explicitly says they cannot manually add a code after account creation once that grace path is gone.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -625,7 +655,7 @@ const faqJsonLd = {
         </p>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top: 12px;">
-          <button class="refOffer__code js-copyCode" type="button" aria-label="Copy referral code STAR-FSRJ-5N7Z to clipboard" title="Click to copy">STAR-FSRJ-5N7Z</button>
+          <button class="refOffer__code js-copyCode" type="button" aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
           <span class="refOffer__copied js-copyStatus" role="status" aria-live="polite"></span>
         </div>
 

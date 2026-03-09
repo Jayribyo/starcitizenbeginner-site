@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
 
-const paths = { en:"/", de:"/de/", es:"/es/", fr:"/fr/", ru:"/ru/", zh:"/zh/" };
+import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE } from "../../config/site";
+
+const paths = DEFAULT_LANGUAGE_PATHS;
+const referralCode = REFERRAL_CODE;
 
 const t = {
   title: "Guía para Principiantes de Star Citizen | Inicio rápido + Bonus de referral",
@@ -29,75 +33,81 @@ const t = {
   faq2a: "Durante la creación de la cuenta en la web de RSI. Si usas el enlace de referral, se aplica automáticamente.",
   disclaimer: "Guía comunitaria no oficial. No está afiliada a Cloud Imperium Games ni a Roberts Space Industries."
 };
+const faqItems = [
+  { q: t.faq1q, a: t.faq1a },
+  { q: t.faq2q, a: t.faq2a },
+];
+
 ---
 <BaseLayout lang="es" title={t.title} description={t.desc} canonicalPath="/es/" brand="Star Citizen Beginner" paths={paths}>
-  <main>
-    <div class="grid">
-      <section class="card">
-        <div class="kicker">{t.heroKicker}</div>
-        <h1 class="h1">{t.heroH1}</h1>
-        <p class="lead">{t.heroLead}</p>
+  <FaqSchema items={faqItems} />
+  <main class="langPage">
+    <section class="section section--heroWidth">
+      <div class="grid">
+        <section class="card langPage__heroCard">
+          <div class="kicker">{t.heroKicker}</div>
+          <h1 class="h1">{t.heroH1}</h1>
+          <p class="lead">{t.heroLead}</p>
 
-        <div class="badge">Código de Referral: <strong style="color:#fff;">STAR-FSRJ-5N7Z</strong></div>
+          <div class="badge">Código de Referral: <strong style="color:#fff;">{referralCode}</strong></div>
 
-        <hr class="sep" />
+          <hr class="sep" />
 
-        <div id="quickstart">
-          <h2 style="margin:0 0 10px;">{t.qsTitle}</h2>
-          <ol style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
-            <li>{t.qs1}</li>
-            <li>{t.qs2}</li>
-            <li>{t.qs3}</li>
-          </ol>
+          <div id="quickstart" class="langPage__stack">
+            <div>
+              <h2 class="section__title">{t.qsTitle}</h2>
+              <ol class="steps muted">
+                <li>{t.qs1}</li>
+                <li>{t.qs2}</li>
+                <li>{t.qs3}</li>
+              </ol>
+            </div>
+
+            <div>
+              <h2 class="section__title">{t.poiTitle}</h2>
+              <p class="lead">{t.poiLead}</p>
+              <ul class="bullets muted">
+                {t.poi.map(x => <li>{x}</li>)}
+              </ul>
+            </div>
+          </div>
+
+          <div class="miniNote">
+            {t.disclaimer}
+          </div>
+        </section>
+
+        <aside class="langPage__asideStack">
+          <ReferralCTA
+            title={"Activa el bonus de registro"}
+            blurb={"Si vas a crear una cuenta nueva, usar un código/enlace de referral activa el bonus. Aquí lo explicamos claro y seguimos centrados en ayudar a principiantes."}
+            ctaPrimary={"Crear cuenta (referral aplicado)"}
+            ctaSecondary={"Leer inicio rápido"}
+          />
+
+          <div class="card pad">
+            <div class="kicker">Siguiente paso</div>
+            <h2 class="section__title">Starter packs & rendimiento</h2>
+            <p class="muted">Después, una comparación clara de starter packs y una guía de rendimiento son las mejores siguientes lecturas.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card pad">
+        <h2 class="section__title">{t.faqTitle}</h2>
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__q">{t.faq1q}</summary>
+            <div class="faq__a"><p>{t.faq1a}</p></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">{t.faq2q}</summary>
+            <div class="faq__a"><p>{t.faq2a}</p></div>
+          </details>
         </div>
-
-        <hr class="sep" />
-
-        <h2 style="margin:0 0 10px;">{t.poiTitle}</h2>
-        <p class="lead" style="margin-top:0;">{t.poiLead}</p>
-        <ul style="margin:0; padding-left: 18px; color: rgba(255,255,255,.82);">
-          {t.poi.map(x => <li>{x}</li>)}
-        </ul>
-
-        <footer>
-          <p style="margin:16px 0 0;">{t.disclaimer}</p>
-        </footer>
-      </section>
-
-      <aside>
-        <ReferralCTA
-          title="Activa el bonus de registro"
-          blurb="Si vas a crear una cuenta nueva, usar un código/enlace de referral activa el bonus. Aquí lo explicamos claro y seguimos centrados en ayudar a principiantes."
-          ctaPrimary="Crear cuenta (referral aplicado)"
-          ctaSecondary="Leer inicio rápido"
-        />
-
-        <div style="height:14px;"></div>
-
-        <div class="card">
-          <div class="kicker">Siguiente paso</div>
-          <h2 style="margin:10px 0 8px; font-size: 20px;">Starter packs & rendimiento</h2>
-          <p style="margin:0; color: rgba(255,255,255,.78);">
-            Añadiremos una comparación limpia de starter packs y una guía de rendimiento/configuración (muy buena para SEO).
-          </p>
-        </div>
-      </aside>
-    </div>
-
-    <div style="height:18px;"></div>
-
-    <section class="card">
-      <h2 style="margin:0 0 10px;">{t.faqTitle}</h2>
-
-      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer; font-weight:800;">{t.faq1q}</summary>
-        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq1a}</p>
-      </details>
-
-      <details style="padding:10px 0; border-top:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer; font-weight:800;">{t.faq2q}</summary>
-        <p style="margin:8px 0 0; color: rgba(255,255,255,.78);">{t.faq2a}</p>
-      </details>
+      </div>
     </section>
   </main>
 </BaseLayout>
