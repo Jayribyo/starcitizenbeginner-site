@@ -464,7 +464,7 @@ const howToJsonLd = {
           </div>
           <div class="btnrow" style="margin:0;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Use referral code at signup</a>
-            <a class="btn" href="/star-citizen-referral-code/#how-to-use">How it works</a>
+            <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
           </div>
         </div>
       </div>

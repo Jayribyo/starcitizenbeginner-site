@@ -636,7 +636,7 @@ ctaHref={referralLink}
         </p>
         <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus +{referralBonusUEC} UEC</a>
-          <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+          <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
         </div>
       </div>
     </section>
@@ -742,7 +742,7 @@ ctaHref={referralLink}
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus +{referralBonusUEC} UEC</a>
-            <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+            <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
           </div>
         </div>
       </div>
