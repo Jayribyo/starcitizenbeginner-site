@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../../components/ReferralBanner.astro";
+import OnThisPage from "../../../components/OnThisPage.astro";
+import FaqSchema from "../../../components/FaqSchema.astro";
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../../config/site";
+
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
+
+const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
+
+const tocItems = [
+  { id: "quick-answer", label: "Quick answer" },
+  { id: "do-this-now", label: "Do this now" },
+  { id: "common-mistakes", label: "Common mistakes" },
+  { id: "next-steps", label: "Next steps" },
+  { id: "faq", label: "FAQ" }
+];
+
+const faqItems = [
+  { q: "Can I move the game later?", a: "Yes, but it’s easiest to install to SSD from the start." },
+  { q: "Does SSD really matter that much?", a: "For many players, yes — it’s a top cause of stutter and long loads." },
+  { q: "Do I need a special launcher setting?", a: "No. Focus on storage and completing the install cleanly." },
+  { q: "What if the launcher fails repeatedly?", a: "Restart it and avoid background downloads; if it persists, reinstall to a clean folder." },
+  { q: "Where do I go after install?", a: "Use the Free Fly first-session checklist and run one short loop." }
+];
+---
+
+<BaseLayout
+  title="Free Fly Download and Install Checklist | Star Citizen Beginner"
+  description="Free Fly install checklist: where to install, what to check before launch, and the fastest way to avoid a bad first session caused by setup mistakes."
+  canonicalPath="/satellites/free-fly-download-install-checklist/"
+  ogImage={heroImg}
+  ogImageAlt="Free Fly Download & Install Checklist (Avoid Common Setup Traps)"
+  stickyCtaLabel="Create account + claim bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+  activeNav="guides"
+>
+  <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/free-fly-download-install-checklist/' }]} />
+    <section class="hero guideHero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="Free Fly Download & Install Checklist (Avoid Common Setup Traps)"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <h1 class="h1">Free Fly download and install checklist</h1>
+          <p class="lead" style="max-width: 820px;">Answer: Before you judge Free Fly, make sure the install itself is not sabotaging the experience. This checklist gets you to a clean first launch fast.</p>
+
+          <div class="hero__cta">
+            <a class="btn primary" href="#quick-answer">Start here</a>
+          </div>
+        </div>
+
+        <OnThisPage variant="hero" title="On this page" items={tocItems} />
+      </div>
+    </section>
+
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000"
+      ctaLabel="Claim your start bonus"
+      ctaHref={referralLink}
+      ctaExternal={true}
+    />
+
+    <section id="quick-answer" class="section">
+      <div class="container">
+        <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">Your first impression is often decided by installation choices: SSD, free space, and a clean launcher install.</p>
+        </div>
+
+        <ul class="bullets">
+          <li>A clean SSD install matters more than tweaking ten settings before the game even opens.</li>
+          <li>Your first impression is often decided by installation choices: <b>SSD</b>, free space, and a clean launcher install.</li>
+<li>If you install to HDD or run out of space, you’ll get long loads and stutter that looks like “bad game performance”.</li>
+<li>Use this checklist to get to a playable first session fast.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="do-this-now" class="section alt">
+      <div class="container">
+        <h2 class="h2">Do this now</h2>
+        <ol class="steps">
+          <li><b>Install to SSD/NVMe</b> (not HDD).</li>
+<li><b>Keep free space</b> on the drive so caching doesn’t choke.</li>
+<li><b>Run the launcher once</b> and let it finish without interruptions.</li>
+<li><b>If downloads fail</b>, restart the launcher and avoid parallel heavy downloads.</li>
+<li><b>Verify by launching into menu</b> before you plan a full session.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="common-mistakes" class="section">
+      <div class="container">
+        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What happens</th>
+                <th>Fix (exact)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Installing on HDD</b></td><td>Long loads + constant streaming hitching.</td><td>Move install to SSD/NVMe.</td></tr>
+<tr><td><b>Running out of disk space</b></td><td>Patch/install loops, corrupted files.</td><td>Free space; reinstall if needed.</td></tr>
+<tr><td><b>Starting a session before install is stable</b></td><td>You spend time troubleshooting mid-session.</td><td>Do a menu launch first to confirm stability.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+          <li><a href="/free-fly/">Open the full Free Fly guide</a></li>
+<li><a href="/satellites/free-fly-first-session/">Install done? Run this first-session plan next</a></li>
+<li><a href="/star-citizen-performance-guide/">If the game still feels rough after install, check performance next</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="h2">FAQ</h2>
+        <div class="faq" style="margin-top:12px;">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+        
+      </div>
+
+      <FaqSchema items={faqItems} />
+    </section>
+  </main>
+</BaseLayout>
