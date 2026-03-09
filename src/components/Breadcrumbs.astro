@@ -1,23 +1,38 @@
 ---
 const { items = [] } = Astro.props;
-// items: [{ label: string, href: string }]
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
+const breadcrumbSchema = items.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.label,
+        item: site && item.href ? new URL(item.href, site).toString() : undefined,
+      })),
+    }
+  : null;
 ---
 
 {items?.length > 0 && (
-  <nav class="crumbs" aria-label="Breadcrumb">
-    <div class="container">
-      <ol class="crumbs__list">
-        {items.map((it, idx) => (
-          <li class="crumbs__item">
-            {idx < items.length - 1 ? (
-              <a class="crumbs__link" href={it.href}>{it.label}</a>
-            ) : (
-              <span class="crumbs__current" aria-current="page">{it.label}</span>
-            )}
-            {idx < items.length - 1 && <span class="crumbs__sep" aria-hidden="true">›</span>}
-          </li>
-        ))}
-      </ol>
-    </div>
-  </nav>
+  <>
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol class="crumbs__list">
+          {items.map((it, idx) => (
+            <li class="crumbs__item">
+              {idx < items.length - 1 ? (
+                <a class="crumbs__link" href={it.href}>{it.label}</a>
+              ) : (
+                <span class="crumbs__current" aria-current="page">{it.label}</span>
+              )}
+              {idx < items.length - 1 && <span class="crumbs__sep" aria-hidden="true">›</span>}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </nav>
+  </>
 )}

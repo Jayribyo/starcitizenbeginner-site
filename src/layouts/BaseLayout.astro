@@ -15,33 +15,20 @@ const {
   stickyCtaLabel = "",
   stickyCtaHref = "",
   stickyCtaExternal = false,
+  paths = null,
 } = Astro.props;
 
-/* We assume `site` is correctly set in astro.config.mjs */
 const site = Astro.site.toString().replace(/\/$/, "");
-
-// Ensure canonicalPath always starts with /
-const safePath = canonicalPath?.startsWith("/")
-  ? canonicalPath
-  : `/${canonicalPath ?? ""}`;
-
-// Build absolute canonical URL
+const safePath = canonicalPath?.startsWith("/") ? canonicalPath : `/${canonicalPath ?? ""}`;
 const canonical = new URL(safePath, site).toString();
-
-// Absolute OG image URL
 const ogImageAbs = ogImage?.startsWith("http")
   ? ogImage
-  : new URL(
-      ogImage.startsWith("/") ? ogImage : `/${ogImage}`,
-      site
-    ).toString();
+  : new URL(ogImage.startsWith("/") ? ogImage : `/${ogImage}`, site).toString();
 
-// Fallback description
 const desc =
   description?.trim() ||
   "Structured Star Citizen beginner guides: referral code bonus, Free Fly events, starter packs, early aUEC loops, and performance tips.";
 
-// OG locale mapping
 const ogLocaleMap = {
   en: "en_US",
   de: "de_DE",
@@ -51,9 +38,29 @@ const ogLocaleMap = {
 };
 const ogLocale = ogLocaleMap[lang] ?? "en_US";
 
-
-// Cloudflare Web Analytics (RUM) token (public; injected into client)
 const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
+
+const alternateEntries = paths && typeof paths === "object"
+  ? Object.entries(paths).filter(([, href]) => typeof href === "string" && href.startsWith("/"))
+  : [];
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Star Citizen Beginner",
+  alternateName: "SCB",
+  url: site,
+  inLanguage: lang,
+  description: desc,
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Star Citizen Beginner",
+  url: site,
+  logo: new URL("/assets/img/global/scb-logo.png", site).toString(),
+};
 ---
 
 <!doctype html>
@@ -62,7 +69,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-       <title>{title}</title>
+    <title>{title}</title>
     <meta name="description" content={desc} />
     <meta name="robots" content={robots} />
 
@@ -75,14 +82,17 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
     ) : null}
 
     <link rel="canonical" href={canonical} />
+    {alternateEntries.map(([locale, href]) => (
+      <link rel="alternate" hreflang={locale} href={new URL(href, site).toString()} />
+    ))}
+    {alternateEntries.length > 0 && (
+      <link rel="alternate" hreflang="x-default" href={new URL(paths.en ?? "/", site).toString()} />
+    )}
 
-    <!-- Favicons (SVG + PNG for better SERP/device compatibility) -->
     <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/global/scb-logo.png" />
     <link rel="apple-touch-icon" sizes="96x96" href="/assets/img/global/scb-logo.png" />
 
-
-    <!-- Open Graph -->
     <meta property="og:site_name" content="Star Citizen Beginner (SCB)" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
@@ -92,11 +102,13 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:image:alt" content={ogImageAlt} />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={desc} />
     <meta name="twitter:image" content={ogImageAbs} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
 
     <slot name="head" />
   </head>
@@ -104,7 +116,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
   <body>
     <div id="top" aria-hidden="true"></div>
 
-    <SiteHeader active={activeNav} />
+    <SiteHeader active={activeNav} currentPath={safePath} />
 
     <slot />
 
@@ -133,7 +145,6 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
       </div>
     )}
 
-
     <a class="backToTop" id="backToTop" href="#top" aria-label="Back to top">
       ↑
     </a>
@@ -150,7 +161,6 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
       window.addEventListener("resize", setVisibility, { passive: true });
       setVisibility();
 
-      // ===== SCB: Zaraz tracking (live domain only) =====
       const SCB_LIVE_HOSTS = new Set(["starcitizenbeginner.com", "www.starcitizenbeginner.com"]);
       const scbIsLiveHost = SCB_LIVE_HOSTS.has(window.location.hostname);
 
@@ -173,7 +183,6 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
         } catch (_) {}
       };
 
-
       if (btn) {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -181,12 +190,11 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
         });
       }
 
-      // Sticky CTA (mobile only)
       const sticky = document.getElementById("stickyCta");
       const setSticky = () => {
         if (!sticky) return;
         const isMobile = window.matchMedia("(max-width: 1023px)").matches;
-        const show = isMobile && window.scrollY > (window.innerHeight * 0.30);
+        const show = isMobile && window.scrollY > window.innerHeight * 0.3;
         sticky.classList.toggle("is-visible", show);
         sticky.setAttribute("aria-hidden", show ? "false" : "true");
       };
@@ -195,7 +203,7 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
       window.addEventListener("resize", setSticky, { passive: true });
       setSticky();
     </script>
-  
+
     <div id="copyToast" class="copyToast" role="status" aria-live="polite">Copied</div>
 
     <script>
@@ -239,63 +247,49 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
         document.addEventListener(
           "click",
           async (e) => {
-            const btn = e.target?.closest?.(".js-copyCode");
-            if (!btn) return;
+            const trigger = e.target.closest("[data-copy-referral]");
+            if (!trigger) return;
 
-            const value = (btn.getAttribute("data-copy") || btn.textContent || FALLBACK_CODE).trim();
-            const ok = await copyText(value);
+            const code =
+              trigger.getAttribute("data-copy-referral") ||
+              document.documentElement.getAttribute("data-referral-code") ||
+              FALLBACK_CODE;
 
-            showToast(ok ? "Copied referral code" : "Copy failed");
+            const ok = await copyText(code);
+            showToast(ok ? "Copied" : "Copy failed");
 
-            if (ok) {
-              scbTrack("referral_code_copy", {
-                path: window.location.pathname,
-                placement: scbPlacement(btn),
-                code: value,
-              });
-            }
+            scbTrack("referral_code_copied", {
+              code,
+              placement: scbPlacement(trigger),
+              path: window.location.pathname,
+            });
           },
           { passive: true }
         );
 
-
-        // Track key referral funnel clicks (gold RSI signup CTAs + "how to use" helpers)
         document.addEventListener(
           "click",
           (e) => {
-            const a = e.target?.closest?.("a");
+            const a = e.target.closest("a[href]");
             if (!a) return;
 
-            const href = (a.getAttribute("href") || "").trim();
-            if (!href) return;
-
-            const label = (a.textContent || "").trim().slice(0, 80);
+            const href = a.getAttribute("href") || "";
             const placement = scbPlacement(a);
 
-            const isRsiEnlistReferral =
-              href.includes("robertsspaceindustries.com/enlist") && href.includes("referral=");
-
-            if (isRsiEnlistReferral) {
-              scbTrack("referral_cta_click", {
-                path: window.location.pathname,
+            if (href.includes("robertsspaceindustries.com") || href.includes("cloudimperiumgames.com")) {
+              scbTrack("outbound_rsi_click", {
                 href,
-                label,
                 placement,
+                path: window.location.pathname,
+                text: (a.textContent || "").trim().slice(0, 120),
               });
-              return;
             }
 
-            // "Where to paste / how to use" internal helper links
-            const isHowToUse =
-              href === "#how-to-use" ||
-              (href.includes("/star-citizen-referral-code") && href.includes("#how-to-use"));
-
-            if (isHowToUse) {
-              scbTrack("referral_help_click", {
-                path: window.location.pathname,
+            if (href.includes("#how-to-enter") || href.includes("where-to-enter-referral-code")) {
+              scbTrack("where_to_paste_click", {
                 href,
-                label,
                 placement,
+                path: window.location.pathname,
               });
             }
           },
@@ -303,5 +297,5 @@ const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
         );
       })();
     </script>
-</body>
+  </body>
 </html>
