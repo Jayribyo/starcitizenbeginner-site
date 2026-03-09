@@ -137,8 +137,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Star Citizen Referral Code – Get 50,000 UEC Bonus (Official Guide)"
-  description="Star Citizen referral code STAR-FSRJ-5N7Z: get +50,000 UEC on signup. Where to paste it, the 24-hour window, and mistakes that make you miss the bonus."
+  title="Star Citizen Referral Code – Where to Enter It and Get the 50,000 UEC Bonus"
+  description="Use a Star Citizen referral code during signup to claim the 50,000 UEC bonus. Here is where to enter it, what the field looks like, and the safest way to avoid missing it."
   canonicalPath="/star-citizen-referral-code/"
   stickyCtaLabel="Claim your start bonus"
   stickyCtaHref={referralLink}
@@ -217,11 +217,29 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> What it is</div>
         <h2 class="section__title">Quick answer: claim the 50,000 UEC signup bonus</h2>
 
-        <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
+        <div class="decisionGrid" style="margin-top:14px;">
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">1 · Copy</div>
+            <div class="decisionCard__title">Copy the code first</div>
+            <p class="decisionCard__body">Use the banner above to copy <b>{referralCode}</b> so you do not rely on typing it manually.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">2 · Paste</div>
+            <div class="decisionCard__title">Enter it during signup</div>
+            <p class="decisionCard__body">Look for the field labeled <b>“Referral Code (optional)”</b> while creating the RSI account.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">3 · Finish</div>
+            <div class="decisionCard__title">Complete account creation</div>
+            <p class="decisionCard__body">Treat signup itself as the only fully reliable moment. That is the clean beginner path.</p>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:12px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
 
         <p>
-          A Star Citizen referral code is a free signup code from the official referral program. The only <b>safe beginner rule</b> is this:
-          enter it <b>during account creation</b>, not later. That keeps you out of edge cases, mixed support advice, and missed-bonus frustration.
+          A Star Citizen referral code is a free signup code from the official referral program. The safest beginner rule is simple:
+          <b>enter it during account creation</b>, not later.
         </p>
         <div class="callout" style="margin-top:12px;">
           <div class="kicker"><span class="dot"></span> Official guidance note</div>
@@ -300,11 +318,15 @@ const faqJsonLd = {
         <div class="card pad">
           <h3 style="margin:0 0 8px;">Where to enter the code</h3>
           <p style="margin:0 0 12px;">
-            During signup, look for the field labeled <b>“Referral Code (optional)”</b>. Copy/paste the code to avoid typos.
+            During signup, look for the field labeled <b>“Referral Code (optional)”</b>. The screenshot below is an example of the field location — the actual code to copy is the live button here:
           </p>
+          <div class="miniNote" style="margin:0 0 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+            <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+            <span class="muted">Copy this button, then paste it into the signup field shown in the image.</span>
+          </div>
           <img src={signupFieldImg} alt="Star Citizen signup form showing the referral code field" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.12);" />
           <p style="margin-top: 12px; color: rgba(255,255,255,.78);">
-            Tip: copy the code from the <a href="#referral-code">bonus banner above</a> to avoid typos.
+            Tip: the screenshot is <b>not</b> the thing to click. Copy the live code button above or use the <a href="#referral-code">bonus banner</a> to avoid typos.
           </p>
         </div>
       </div>
