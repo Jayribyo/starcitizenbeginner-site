@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
 
 import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE } from "../../config/site";
 
@@ -32,8 +33,14 @@ const t = {
   faq2a: "Durante la creación de la cuenta en la web de RSI. Si usas el enlace de referral, se aplica automáticamente.",
   disclaimer: "Guía comunitaria no oficial. No está afiliada a Cloud Imperium Games ni a Roberts Space Industries."
 };
+const faqItems = [
+  { q: t.faq1q, a: t.faq1a },
+  { q: t.faq2q, a: t.faq2a },
+];
+
 ---
 <BaseLayout lang="es" title={t.title} description={t.desc} canonicalPath="/es/" brand="Star Citizen Beginner" paths={paths}>
+  <FaqSchema items={faqItems} />
   <main class="langPage">
     <section class="section section--heroWidth">
       <div class="grid">

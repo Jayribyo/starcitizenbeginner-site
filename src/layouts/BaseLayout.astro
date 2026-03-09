@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
-import { REFERRAL_CODE, REFERRAL_HELP_PATH, SITE_NAME } from "../config/site";
+import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE, REFERRAL_HELP_PATH, SITE_NAME, SITE_URL } from "../config/site";
 
 const {
   showFooter = true,
@@ -54,6 +54,26 @@ const ogLocaleMap = {
 };
 const ogLocale = ogLocaleMap[lang] ?? "en_US";
 
+const languagePaths = { ...DEFAULT_LANGUAGE_PATHS, ...(paths ?? {}) };
+const hreflangs = Object.entries(languagePaths)
+  .filter(([, href]) => typeof href === "string" && href.startsWith("/"))
+  .map(([code, href]) => ({ code, href: new URL(href, site).toString() }));
+
+const websiteSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: Object.keys(languagePaths),
+});
+
+const organizationSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: new URL("/assets/img/global/scb-logo.png", site).toString(),
+});
 
 // Cloudflare Web Analytics (RUM) token (public; injected into client)
 const CF_WA_TOKEN = import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
@@ -79,6 +99,8 @@ const stickyHasReferralHelper = typeof stickyCtaHref === "string" && stickyCtaHr
     ) : null}
 
     <link rel="canonical" href={canonical} />
+    {hreflangs.map((item) => (<link rel="alternate" hreflang={item.code} href={item.href} />))}
+    <link rel="alternate" hreflang="x-default" href={new URL(languagePaths.en ?? "/", site).toString()} />
 
     <!-- Favicons (SVG + PNG for better SERP/device compatibility) -->
     <link rel="icon" type="image/svg+xml" href="/assets/img/global/scb-logo.svg" />
@@ -95,6 +117,9 @@ const stickyHasReferralHelper = typeof stickyCtaHref === "string" && stickyCtaHr
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:image:alt" content={ogImageAlt} />
+
+    <script type="application/ld+json" set:html={websiteSchema}></script>
+    <script type="application/ld+json" set:html={organizationSchema}></script>
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
