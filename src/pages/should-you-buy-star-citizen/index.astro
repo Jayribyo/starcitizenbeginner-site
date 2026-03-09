@@ -16,11 +16,11 @@ const buyImg = "/assets/img/should-you-buy-star-citizen/star-citizen-buy-or-not.
 
 const tocItems = [
   { label: "Quick answer", href: "#tldr" },
-  { label: "2-minute buy check", href: "#decision-test" },
+  { label: "Quick buy check", href: "#decision-test" },
   { label: "Who usually enjoys it", href: "#decision-table" },
   { label: "What you actually get", href: "#what-you-get" },
   { label: "Buying guide: how to buy", href: "#buying-guide" },
-  { label: "Easiest way to start", href: "#safe-start" },
+  { label: "The easiest way to start", href: "#safe-start" },
   { label: "Your first 60 minutes: do this now", href: "#first-hour" },
   { label: "Performance reality: don’t let FPS ruin it", href: "#performance" },
   { label: "Common mistakes and fixes", href: "#mistakes" },
@@ -81,7 +81,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "What’s the lowest-risk way to try Star Citizen?",
+      "name": "What’s the easiest way to try Star Citizen first?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Try Free Fly first if one is available. If not, buy the minimum starter package only, then follow a simple first-session checklist before spending anything else."
@@ -132,7 +132,7 @@ const howToJsonLd = {
 
 <BaseLayout
   title="Should You Buy Star Citizen? Honest Beginner Guide"
-  description="Not sure if Star Citizen is for you? Take the 2-minute buy test, see who should wait, and learn the easiest way to start without overspending."
+  description="Not sure if Star Citizen is for you? Use this quick buy guide, see who should wait, and learn the easiest way to start without overspending."
   canonicalPath="/should-you-buy-star-citizen/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen fleet scene representing the buying decision"
@@ -170,7 +170,7 @@ const howToJsonLd = {
           <p class="lead" style="max-width: 920px;">Not sure if you will actually enjoy Star Citizen? This page gives you a fast, honest answer and shows how to try it without making one rough session decide everything for you.</p>
 
           <div class="btnrow" style="margin-top: 14px;">
-            <a class="btn primary" href="#decision-test" data-scb-role="decision-test-start">Take the 2-minute buy check</a>
+            <a class="btn primary" href="#decision-test" data-scb-role="decision-test-start">Use the quick buy check</a>
 </div>
 </div>
       </div>
@@ -207,8 +207,8 @@ ctaHref={referralLink}
           </div>
           <div class="decisionCard">
             <div class="decisionCard__kicker">Skip for now</div>
-            <div class="decisionCard__title">You want polished guidance every session</div>
-            <p class="decisionCard__body">You will probably notice the friction faster than the magic, especially if you do not enjoy experimentation and repetition.</p>
+            <div class="decisionCard__title">You want a smoother, more guided game every session</div>
+            <p class="decisionCard__body">You will probably notice the friction faster than the magic, especially if you do not enjoy figuring things out as you go.</p>
           </div>
         </div>
 
@@ -244,7 +244,8 @@ ctaHref={referralLink}
         <div class="grid2" style="margin-top:12px;">
           <div>
             <ul class="list">
-              <li><b>Safest paid start:</b> buy the <b>minimum starter package</b>, not the dream ship.</li>
+              <li><b>Paid start:</b> buy the <b>minimum game package</b>, not the dream ship.</li>
+              <li><b>You do not need a subscription:</b> one game package is enough to start playing outside Free Fly.</li>
               <li><b>Do not overspend early:</b> upgrade only after a few sessions when you know your actual playstyle.</li>
               <li><b>Performance matters:</b> install on an SSD and do the 10-minute fixes before you decide how the game really feels.
                 <a href="/star-citizen-performance-guide/" style="margin-left: 6px;">Performance guide →</a>
@@ -256,14 +257,15 @@ ctaHref={referralLink}
           <div class="callout">
             <div class="kicker"><span class="dot"></span> Best beginner sequence</div>
             <ol class="list" style="margin-top:8px; padding-left:18px;">
-              <li>Run the 2-minute buy check.</li>
+              <li>Run the Quick buy check.</li>
               <li>Try Free Fly if it is available.</li>
-              <li>If you buy, buy one starter pack only.</li>
+              <li>If you buy, buy one game package only.</li>
               <li>Judge the game after 3–5 sessions, not one messy spawn.</li>
             </ol>
             <div class="btnrow" style="margin-top: 12px;">
               <a class="btn secondary" href="/make-money-fast/">What to do after buying →</a>
             </div>
+            <p class="muted" style="margin-top:10px;">A fair beginner test is simple: install on an SSD, run one easy session, then decide after a few tries instead of one messy spawn.</p>
           </div>
         </div>
       </div>
@@ -272,10 +274,10 @@ ctaHref={referralLink}
     <!-- DECISION TEST -->
     <section id="decision-test" class="section">
       <div class="card pad">
-        <h2 class="section__title">2-minute buy check</h2>
+        <h2 class="section__title">Quick buy check</h2>
         <p style="max-width: 980px;">
           Check the boxes that sound like you. Then use the score to choose the next step that fits you best.
-          This is designed for <b>beginners</b> and <b>Free Fly</b> players who don’t want to waste time or money.
+          This is designed for <b>beginners</b> and <b>Free Fly</b> players who want a clear answer without turning the first week into a huge commitment.
         </p>
 
         <div class="grid2" style="margin-top: 12px; align-items: start;">
@@ -327,7 +329,7 @@ ctaHref={referralLink}
                   <tr>
                     <th>6–8</th>
                     <td>Buying the minimum starter package makes sense — start small, then upgrade only after a few sessions.</td>
-                    <td><a href="#safe-start">Easiest way to start →</a></td>
+                    <td><a href="#safe-start">The easiest way to start →</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -352,7 +354,7 @@ ctaHref={referralLink}
     </p>
     <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
       <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create account + get +{referralBonusUEC} UEC</a>
-      <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply it →</a>
+      <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
     </div>
 
 <div class="tableWrap" style="margin-top: 12px;">
@@ -481,7 +483,7 @@ ctaHref={referralLink}
   <div class="card pad">
     <h2 class="section__title">Buying guide: how to buy without overdoing it</h2>
     <p style="max-width: 980px;">
-      If you decided “yes”, keep it simple: buy the minimum starter pack that lets you play, apply the signup bonus
+      If you decided “yes”, keep it simple: buy one game package that lets you play, apply the signup bonus
       during account creation, and only upgrade after you’ve completed a few clean sessions.
     </p>
 
@@ -502,7 +504,7 @@ ctaHref={referralLink}
               Create your RSI account and enter referral code <b>{referralCode}</b> during signup.
               <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
                 <a class="btn secondary" href={referralLink}>Claim +{referralBonusUEC} UEC start bonus</a>
-                <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">Where to paste it →</a>
+                <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
               </div>
             </td>
             <td>
@@ -528,7 +530,7 @@ ctaHref={referralLink}
             <td>
               Install and run one simple first session (60 minutes max) before you judge the game.
               <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
-                <a class="btn secondary" href="/first-session/">First session checklist →</a>
+                <a class="btn secondary" href="/satellites/first-session/">First session checklist →</a>
                 <a class="btn secondary" href="/star-citizen-performance-guide/">If it stutters: 10‑minute fix →</a>
               </div>
             </td>
@@ -568,7 +570,7 @@ ctaHref={referralLink}
     <!-- SAFE START -->
     <section id="safe-start" class="section">
       <div class="card pad">
-        <h2 class="section__title">Easiest way to start: spend the minimum</h2>
+        <h2 class="section__title">The easiest way to start: spend the minimum</h2>
         <p style="max-width: 980px;">
           This is a beginner funnel, but it’s also just good consumer advice: validate that you enjoy the loop
           before you upgrade anything.
@@ -580,7 +582,7 @@ ctaHref={referralLink}
     </p>
     <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
       <a class="btn secondary" href={referralLink}>Claim your start bonus +{referralBonusUEC} UEC</a>
-      <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+      <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
     </div>
 
 <div class="tableWrap" style="margin-top: 12px;">
@@ -816,7 +818,7 @@ ctaHref={referralLink}
         <div class="btnrow" style="margin-top: 14px; flex-wrap: wrap;">
           <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create your account + get +{referralBonusUEC} UEC</a>
           <a class="btn secondary" href="/star-citizen-starter-packs/">Starter packs: buy smart</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+          <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
         </div>
       </div>
     </section>

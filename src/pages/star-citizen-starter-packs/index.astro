@@ -42,7 +42,7 @@ const faqItems = [
   },
   {
     q: "Should I use a referral code before buying a starter pack?",
-    a: "Yes. Use a referral code during RSI account creation (or within the limited post-signup window) to claim the new-player bonus, then buy your starter pack normally.",
+    a: "Yes. Use a referral code during RSI account creation to claim the new-player bonus, then buy your starter pack normally.",
   },
   {
     q: "Which starter pack is best for most beginners?",
@@ -58,7 +58,11 @@ const faqItems = [
   },
   {
     q: "What’s the smartest first purchase strategy?",
-    a: "Spend the minimum to validate fun. Your goal is a good first 10–20 hours: learn controls, complete a few missions, and see if the loop clicks — then upgrade intentionally.",
+    a: "Spend the minimum to get into the game. One game package is enough to start, and you can change direction later after a few sessions.",
+  },
+  {
+    q: "Do I need a subscription to play?",
+    a: "No. A subscription is optional. To play outside Free Fly, you only need one game package on your account.",
   },
   {
     q: "Do I need to buy extra ships to progress?",
@@ -156,7 +160,7 @@ const howToJsonLd = {
         <div class="kicker">Starter Guides</div>
         <h1>Best Star Citizen Starter Packs</h1>
         <p class="lead packsHero__lead">
-          Pick your first starter pack with one simple rule: choose something that fits how you want to start, keep it modest, and upgrade later if you still want more.
+          Pick your first starter pack with one simple rule: choose something that fits how you want to start, keep it modest, and only upgrade later if you still want more.
         </p>
         <div class="btnrow packsHero__buttons">
           <a class="btn primary" href="#best" data-scb-role="starter-packs-top-picks">See top picks</a>
@@ -198,8 +202,8 @@ const howToJsonLd = {
           <div class="card pad">
             <h3 style="margin:0 0 8px;">What people assume (but shouldn’t)</h3>
             <ul class="bullets">
-              <li><strong>“More money = more fun.”</strong> Not true in your first sessions.</li>
-              <li><strong>“I need a big ship.”</strong> You need a repeatable loop first.</li>
+              <li><strong>“More money = more fun.”</strong> Usually not in your first sessions.</li>
+              <li><strong>“I need a big ship.”</strong> You need one starter pack and a few good sessions first.</li>
               <li><strong>“Squadron 42 comes with it.”</strong> Usually not — check the package listing.</li>
             </ul>
           </div>
@@ -246,6 +250,7 @@ const howToJsonLd = {
         <h2 class="section__title">Quick answer</h2>
         <ul class="bullets">
           <li><strong>A starter pack = a game package.</strong> It includes <strong>Star Citizen access + a starter ship</strong>.</li>
+          <li><strong>One game package is enough to start.</strong> You do not need extra ships or a subscription.</li>
           <li><strong>Squadron 42 is separate.</strong> It’s not included unless the package explicitly says it includes Squadron 42.</li>
           <li><strong>If you’re unsure which ship:</strong> pick by your first loop (delivery / light combat / general), not by hype or “future potential.” <a href="#choose">Use the 60‑second picker below →</a></li>
           <li><strong>If you just want the purchase steps (account → checkout):</strong> use <a href="/how-to-buy-star-citizen/">How to buy Star Citizen →</a></li>
@@ -253,13 +258,36 @@ const howToJsonLd = {
         <div class="callout" style="margin-top:12px;">
           <div class="kicker"><span class="dot"></span> Rule of thumb</div>
           <p class="muted" style="margin:6px 0 0;">
-            Buy the <strong>minimum pack</strong> that lets you run one clean beginner loop. Upgrade later only after you’ve repeated that loop a few times.
+            Buy the <strong>minimum game package</strong> that lets you run one clean beginner loop. Upgrade later only after you’ve repeated that loop a few times.
           </p>
           <ul class="bullets" style="margin-top:10px;">
             <li><strong>Optimize for learning speed, not ship fantasy.</strong></li>
             <li><strong>One pack is enough</strong> to validate whether the game works for you.</li>
+            <li><strong>No subscription needed.</strong> Outside Free Fly, one game package is the thing that matters.</li>
             <li><strong>Upgrades are easier than regrets.</strong> Starting cheap keeps your options open.</li>
           </ul>
+        </div>
+
+        <div class="card pad" style="margin-top:12px;">
+          <div class="kicker"><span class="dot"></span> After you buy</div>
+          <div class="grid2" style="margin-top:10px;">
+            <div>
+              <h3 style="margin:0 0 8px;">1) Check My Hangar</h3>
+              <p class="muted" style="margin:0;">Your game package should appear in <b>My Hangar</b>. That is the fastest way to confirm that you really own the game now.</p>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px;">2) Download the launcher</h3>
+              <p class="muted" style="margin:0;">Install the RSI Launcher, log in with the same account, and install the game on an SSD if you can.</p>
+            </div>
+            <div>
+              <h3 style="margin:18px 0 8px;">3) Expect a simple first login</h3>
+              <p class="muted" style="margin:0;">You will choose a home location, create your character, and retrieve your ship. That is normal — you have not missed a hidden setup step.</p>
+            </div>
+            <div>
+              <h3 style="margin:18px 0 8px;">4) Judge the pack after one calm session</h3>
+              <p class="muted" style="margin:0;">Give the ship one clean beginner loop before you decide whether it feels limiting. One rough spawn tells you almost nothing.</p>
+            </div>
+          </div>
         </div>
 
         <div class="card pad" style="margin-top:12px;">
@@ -464,7 +492,7 @@ const howToJsonLd = {
           </div>
           <div class="btnrow" style="margin:0;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Use referral code at signup</a>
-            <a class="btn" href="/star-citizen-referral-code/#how-to-use">How it works</a>
+            <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
           </div>
         </div>
       </div>

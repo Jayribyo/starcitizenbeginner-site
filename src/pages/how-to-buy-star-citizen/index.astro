@@ -12,9 +12,9 @@ const REF_LINK = REFERRAL_LINK;
 const REF_BONUS = REFERRAL_BONUS_LABEL;
 
 // Evergreen title (no years/patches)
-const title = "How to Buy Star Citizen – Step-by-Step Signup, Referral Code, and Starter Pack";
+const title = "How to Buy Star Citizen – Simple Step-by-Step Signup and Starter Pack Guide";
 const description =
-  `A simple step-by-step Star Citizen buying guide: create your RSI account, enter the referral code during signup, choose a starter pack, install the launcher, and get into the game without extra confusion.`;
+  `A simple step-by-step Star Citizen buying guide: create your RSI account, verify your email, buy one game package, check your hangar, install the launcher, and get into the game without making day one harder than it needs to be.`;
 
 const crumbs = [
   { label: "Home", href: "/" },
@@ -40,7 +40,15 @@ const faqs = [
   },
   {
     q: "I bought a pack — what’s next?",
-    a: "Install the RSI Launcher, log in, download the game to an SSD if possible, and run one simple first session so you do not judge the game on one messy spawn.",
+    a: "Open My Hangar to make sure the pack is on your account, then install the RSI Launcher, download the game to an SSD if possible, and run one simple first session.",
+  },
+  {
+    q: "Do I need a subscription to play?",
+    a: "No. A subscription is optional. Once you own one game package, you can keep playing outside Free Fly.",
+  },
+  {
+    q: "What should my first login look like?",
+    a: "Choose your home location, create your character, retrieve your ship at an ASOP terminal, and finish one simple contract before you try anything more ambitious.",
   },
 ];
 
@@ -122,7 +130,7 @@ const howToLd = {
       <div class="homeHero__content">
         <div style="max-width:720px; padding: 26px 0;">
           <h1 class="h1">How to buy Star Citizen</h1>
-          <p class="lead">We walk you through the RSI signup and purchase steps in plain English: pick your handle, add the referral bonus during signup, and choose a starter pack without overthinking day one.</p>
+          <p class="lead">We walk you through the RSI signup and purchase steps in plain English: create the account, verify your email, buy one game package, check your hangar, and get into the game without overthinking day one.</p>
           <div class="btnrow">
             <a class="btn primary" href="#do-this-now" data-scb-role="how-to-buy-start-steps">Start the buying steps</a>
           </div>
@@ -167,14 +175,20 @@ const howToLd = {
           <b>Name choice:</b> Your <b>handle</b> (aka moniker/account name) is public. Your login is your email.
         </li>
         <li>
-          <b>Purchase:</b> Buy <b>one starter pack</b> (game access + a ship). Extra ships can wait until you know you actually want them.
+          <b>Purchase:</b> Buy <b>one game package</b> (game access + a ship). Extra ships can wait until you know you actually want them.
         </li>
         <li>
-          <b>Install:</b> Use the RSI Launcher and install to an <b>SSD</b> if you can. Then run one simple first session.
+          <b>After checkout:</b> Open <b>My Hangar</b> once. If your package is there, your game access is in place.
+        </li>
+        <li>
+          <b>Install:</b> Download the RSI Launcher, install to an <b>SSD</b> if you can, and run one simple first session.
+        </li>
+        <li>
+          <b>You do not need:</b> A subscription, extra ships, or a complicated upgrade plan to get started.
         </li>
       </ul>
       <p class="muted" style="margin-top:10px;">
-        Still deciding if it’s worth it for you? Use the <a href="/should-you-buy-star-citizen/">2‑minute buy guide →</a>
+        Still deciding if it is worth it for you? Use the <a href="/should-you-buy-star-citizen/">quick buy guide →</a>
       </p>
       <div class="decisionGrid" style="margin-top:14px;">
         <div class="decisionCard">
@@ -185,12 +199,12 @@ const howToLd = {
         <div class="decisionCard">
           <div class="decisionCard__kicker">Step 2</div>
           <div class="decisionCard__title">Buy one starter pack</div>
-          <p class="decisionCard__body">Do not turn day one into a fleet-planning project. Buy the starter pack that fits the way you want to start and leave the rest for later.</p>
+          <p class="decisionCard__body">Do not turn day one into a fleet-planning project. Buy the starter pack that fits the way you want to start and leave everything else for later.</p>
         </div>
         <div class="decisionCard">
           <div class="decisionCard__kicker">Step 3</div>
-          <div class="decisionCard__title">See how the game feels after one good session</div>
-          <p class="decisionCard__body">Install on SSD, play one simple first session, and only then decide whether you want to spend more time or money.</p>
+          <div class="decisionCard__title">Confirm the purchase, then play one good first session</div>
+          <p class="decisionCard__body">Check My Hangar once, install on SSD, and play one simple first session before you worry about anything else.</p>
         </div>
       </div>
       <div class="callout" style="margin-top:12px;">
@@ -209,7 +223,7 @@ const howToLd = {
     <div class="card pad">
       <h2 class="section__title">Buying steps (do this in order)</h2>
       <p style="max-width: 980px;">
-        Keep it simple: account → handle → referral bonus → starter pack → install → first session. Do it in that order and it stays easy.
+        Keep it simple: account → verify email → one game package → check My Hangar → launcher → first session. Do it in that order and it stays easy.
       </p>
 
       <div class="tableWrap" style="margin-top:12px;">
@@ -247,20 +261,28 @@ const howToLd = {
             <tr>
               <th>3</th>
               <td>
-                Buy <b>one starter pack</b> that fits your first loop (delivery / light combat / general).
+                Buy <b>one game package</b> that fits your first loop (delivery / light combat / general).
                 <div style="margin-top:8px;">
                   <a class="btn ghost" href="/star-citizen-starter-packs/">Pick a starter pack (no fluff) →</a>
                 </div>
               </td>
-              <td>Starter packs include game access + a ship. One pack is enough to validate whether the game actually works for you.</td>
+              <td>Game packages include game access + a ship. One package is enough to validate whether the game actually works for you.</td>
               <td>Buying based on looks or “big ship” hype.</td>
             </tr>
             <tr>
               <th>4</th>
               <td>
-                Install the RSI Launcher, download the game, and run one simple first session before you judge it.
+                Open <b>My Hangar</b> once after checkout and make sure the package is there.
+              </td>
+              <td>This is the fastest “yes, I really own the game now” check.</td>
+              <td>Closing the store tab and wondering later whether the purchase actually landed on the account.</td>
+            </tr>
+            <tr>
+              <th>5</th>
+              <td>
+                Download the RSI Launcher, install the game, and run one simple first session before you judge it.
                 <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
-                  <a class="btn ghost" href="/first-session/">First session checklist →</a>
+                  <a class="btn ghost" href="/satellites/first-session/">First session checklist →</a>
                   <a class="btn ghost" href="/star-citizen-performance-guide/#do-this-now">If it stutters: 10‑minute fix →</a>
                 </div>
               </td>
@@ -269,6 +291,30 @@ const howToLd = {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <div class="pad">
+          <div class="kicker"><span class="dot"></span>After you buy</div>
+          <div class="grid2" style="margin-top:10px;">
+            <div>
+              <h3 style="margin:0 0 8px;">1) Check My Hangar</h3>
+              <p class="muted" style="margin:0;">Go to <b>My Hangar</b> and make sure your game package is listed there. If it is, your purchase went through correctly.</p>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px;">2) Download the launcher</h3>
+              <p class="muted" style="margin:0;">Install the RSI Launcher, log in with the same account, and install the game on an SSD if you can.</p>
+            </div>
+            <div>
+              <h3 style="margin:18px 0 8px;">3) Give the install room</h3>
+              <p class="muted" style="margin:0;">Leave plenty of free space and let the install finish cleanly. A cramped drive is an easy way to turn setup into a bad first impression.</p>
+            </div>
+            <div>
+              <h3 style="margin:18px 0 8px;">4) Keep the first login small</h3>
+              <p class="muted" style="margin:0;">Choose a home location, retrieve your ship, and finish one simple contract. That is enough for day one.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="card" style="margin-top:14px;">
@@ -448,7 +494,7 @@ const howToLd = {
               <th>3</th>
               <td>Launch once, then follow a simple first-session checklist.</td>
               <td>Prevents overwhelm and “random wandering”.</td>
-              <td><a href="/first-session/">First session checklist →</a></td>
+              <td><a href="/satellites/first-session/">First session checklist →</a></td>
             </tr>
             <tr>
               <th>4</th>
@@ -458,6 +504,18 @@ const howToLd = {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <div class="pad">
+          <div class="kicker"><span class="dot"></span>What your first login usually looks like</div>
+          <ul class="list" style="margin-top:10px;">
+            <li><b>Choose your home location</b> carefully. That becomes your first base and where many starting items live.</li>
+            <li><b>Create your character</b> and keep moving. You can refine details later.</li>
+            <li><b>Retrieve your ship at an ASOP terminal</b> instead of wandering the spaceport guessing.</li>
+            <li><b>Run one simple contract</b> before you judge the whole game. That first clean loop matters more than any menu tour.</li>
+          </ul>
+        </div>
       </div>
 
       <div class="card" style="margin-top:14px;">

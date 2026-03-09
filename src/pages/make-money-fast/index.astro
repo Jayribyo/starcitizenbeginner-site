@@ -139,8 +139,8 @@ const howToJsonLd = {
 ---
 
 <BaseLayout
-  title="Make Money Fast in Star Citizen: Beginner aUEC Guide, Trading, Mining & Best Contracts"
-  description="Make money fast in Star Citizen with simple beginner loops first: a 10-minute starter guide, clear trading/mining/combat advice, and the common mistakes that drain your wallet."
+  title="Make Money Fast in Star Citizen – Beginner aUEC Guide and Best Early Loops"
+  description="Make money fast in Star Citizen with simple beginner loops first: a 10-minute starter guide, clear trading, mining, and combat advice, and the mistakes that waste your early credits."
   canonicalPath="/make-money-fast/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen make money fast guide hero image"
@@ -208,7 +208,7 @@ ctaHref={referralLink}
               <li><b>Fastest zero-drama start:</b> simple courier/delivery loop (learn travel + get paid).</li>
               <li><b>Fastest way to build income:</b> PvE bounties → upgrade ship/components → higher payout contracts.</li>
               <li><b>Stable long-term income:</b> mining (learn the loop once, repeat safely).</li>
-              <li><b>Most risky for beginners:</b> trading “all-in” and piracy without a plan.</li>
+              <li><b>Most risky for beginners:</b> going all-in on trading and trying piracy too early.</li>
             </ul>
 
         <p class="muted" style="margin-top:10px;">New to the terms? <a class="link" href="/satellites/glossary/">Beginner glossary</a>.</p>
@@ -217,7 +217,7 @@ ctaHref={referralLink}
           <div>
             <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
               <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
-              <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply it →</a>
+              <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
             </div>
           </div>
         </div>
@@ -229,8 +229,8 @@ ctaHref={referralLink}
       <div class="card pad">
         <h2 class="section__title">Pick the kind of money loop you want</h2>
         <p style="max-width: 980px;">
-          Choose the loop that matches what feels fun and manageable with what you already have. If you’re new, start with a <b>simple loop</b>
-          until you can afford mistakes.
+          Choose the loop that feels fun and manageable with what you already have. If you’re new, start with a <b>simple loop</b>
+          until mistakes do not hurt your wallet much.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -338,7 +338,7 @@ ctaHref={referralLink}
             <!-- Contextual referral CTA (use buttons only; banner stays only once below the hero) -->
             <div class="btnrow" style="margin-top:10px; flex-wrap: wrap;">
               <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Start with +{referralBonusUEC} UEC signup bonus</a>
-              <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How the bonus works →</a>
+              <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
             </div>
           </div>
         </div>
@@ -350,7 +350,7 @@ ctaHref={referralLink}
       <div class="card pad">
         <h2 class="section__title">Best beginner money loops</h2>
         <p style="max-width: 980px;">
-          Each section below shows who the loop fits, what you need, how it works, and the common mistake that makes it feel worse than it is.
+          Each section below shows who the loop fits, what you need, how it works, and the common mistake that makes it feel worse than it is. For most beginners, the best money loop is the one you can finish twice in a row without drama.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -362,6 +362,7 @@ ctaHref={referralLink}
               <li><b>Steps:</b> single-stop contract → finish → repeat 2–3×</li>
               <li><b>Then do more of the same:</b> chain similar runs and learn one area well</li>
               <li><b>Mistake:</b> multi-stop runs before you’re consistent</li>
+              <li><b>What your first clean result looks like:</b> you finish two or three simple contracts without getting lost or dying for preventable reasons.</li>
             </ul>
           </div>
 
@@ -373,6 +374,7 @@ ctaHref={referralLink}
               <li><b>Steps:</b> low tier → keep distance → finish clean → repeat</li>
               <li><b>Scale:</b> upgrade components, then increase tier</li>
               <li><b>Mistake:</b> taking harder targets before upgrades/skill</li>
+              <li><b>Reality check:</b> if basic bounties already feel messy, stay there a bit longer instead of forcing the next tier.</li>
             </ul>
           </div>
 
@@ -384,6 +386,7 @@ ctaHref={referralLink}
               <li><b>Steps:</b> enter slowly → clear corners → loot lightly → extract</li>
               <li><b>Scale:</b> learn 1 bunker style and repeat</li>
               <li><b>Mistake:</b> bringing expensive loadouts early</li>
+              <li><b>Reality check:</b> a cheap, clean bunker run teaches you more than one flashy run that wipes your wallet.</li>
             </ul>
           </div>
 
@@ -395,6 +398,7 @@ ctaHref={referralLink}
               <li><b>Steps:</b> mine small → sell safely → repeat</li>
               <li><b>Scale:</b> better tools/vehicle/ship once you’re consistent</li>
               <li><b>Mistake:</b> getting greedy and losing the haul</li>
+              <li><b>Reality check:</b> the best early mining loop is the one you can repeat calmly, not the one that looks biggest on paper.</li>
             </ul>
           </div>
         </div>
@@ -475,7 +479,7 @@ ctaHref={referralLink}
         <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
           <a class="btn secondary" href="#do-now">Start with the easy money loop</a>
           <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC to fund your first upgrades</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+          <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
         </div>
       </div>
     </section>
@@ -636,7 +640,7 @@ ctaHref={referralLink}
 
         <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
           <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Get +{referralBonusUEC} UEC free signup bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">Exact steps →</a>
+          <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
         </div>
       </div>
     </section>
@@ -728,7 +732,7 @@ ctaHref={referralLink}
 
         <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
           <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + get +{referralBonusUEC} UEC</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/#how-to-use">How to apply the code →</a>
+          <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
         </div>
       </div>
     </section>

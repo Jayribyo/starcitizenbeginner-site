@@ -24,12 +24,12 @@ const faqItems = [
   { q: "What if both feel bad?", a: "Fix storage/RAM/pagefile first, then retest. Stutter can mask the true bottleneck." },
   { q: "Why does lowering resolution not help sometimes?", a: "Because the CPU (or server load) is limiting frame production, not the GPU." },
   { q: "Should I upgrade CPU or GPU first?", a: "Run the test. If resolution changes FPS a lot → GPU. If not → CPU or system bottleneck." },
-  { q: "Where’s the full settings list?", a: "Use the performance guide’s “top levers” table and decision rules." }
+  { q: "Where’s the full settings list?", a: "Use the performance guide’s top-levers table and the simple next-step checks there." }
 ];
 ---
 
 <BaseLayout
-  title="CPU vs GPU Bottleneck Test (2 Minutes) (Beginner checklist) | Star Citizen Beginner"
+  title="CPU vs GPU Bottleneck Test | Star Citizen Beginner"
   description="CPU or GPU bottleneck? Fast in-game tests and Windows checks to see what limits your FPS - and which settings actually matter."
   canonicalPath="/satellites/cpu-vs-gpu-bottleneck-test/"
   ogImage={heroImg}
@@ -58,7 +58,7 @@ const faqItems = [
       <div class="hero__content">
         <div class="guideHero__content">
           <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">CPU vs GPU Bottleneck Test (2 Minutes)</h1>
+          <h1 class="h1">CPU vs GPU bottleneck test</h1>
           <p class="lead" style="max-width: 820px;">Answer: Not sure what to upgrade or which settings matter? This 2‑minute test tells you if you’re CPU‑bound or GPU‑bound — then gives the right next step.</p>
 
           <div class="hero__cta">
@@ -88,6 +88,7 @@ const faqItems = [
         </div>
 
         <ul class="bullets">
+          <li>Run the same test twice before blaming the wrong part of your PC.</li>
           <li>If you’re <b>CPU‑bound</b>, lowering resolution won’t help much — you need CPU-friendly settings and smoother server/time choices.</li>
 <li>If you’re <b>GPU‑bound</b>, resolution and GPU-heavy settings are your main levers.</li>
 <li>This test is about <b>direction</b>: what to tweak first and what to ignore.</li>
@@ -142,6 +143,8 @@ const faqItems = [
           <li><a href="/star-citizen-performance-guide/">Performance guide (best levers + requirements)</a></li>
 <li><a href="/satellites/fix-stuttering/">Fix stuttering checklist</a></li>
 <li><a href="/star-citizen-starter-packs/">Only buying? start minimum, upgrade later</a></li>
+        
+          <li><a href="/star-citizen-performance-guide/">Need the full performance guide after the test? Start here</a></li>
         </ul>
       </div>
     </section>

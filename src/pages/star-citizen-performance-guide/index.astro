@@ -117,7 +117,7 @@ const howToJsonLd = {
 
 <BaseLayout
   title="Star Citizen Performance Guide: Requirements, Best Settings & FPS Fixes"
-  description="Concrete Star Citizen performance help: official min/recommended specs, practical PC builds, best settings for smoother frame-times, and a clear stutter/crash fix checklist."
+  description="Concrete Star Citizen performance help: practical PC targets, the settings that matter most, and a clear checklist for stutter and crash problems."
   canonicalPath="/star-citizen-performance-guide/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen performance guide hero image"
@@ -636,7 +636,7 @@ ctaHref={referralLink}
         </p>
         <div class="btnrow" style="margin-top: 10px; flex-wrap: wrap;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus +{referralBonusUEC} UEC</a>
-          <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+          <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
         </div>
       </div>
     </section>
@@ -667,7 +667,7 @@ ctaHref={referralLink}
               <tr>
                 <th>RAM headroom</th>
                 <td>High</td>
-                <td>If you’re on 16 GB, upgrade to <b>32 GB</b>. If you multitask/stream, consider <b>64 GB</b>.</td>
+                <td>If you’re on 16 GB, <b>32 GB</b> is the first upgrade that usually changes the experience the most. Go higher only if you already know you need it for your wider PC setup.</td>
               </tr>
               <tr>
                 <th>CPU headroom</th>
@@ -742,7 +742,7 @@ ctaHref={referralLink}
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="/star-citizen-starter-packs/">See starter packs</a>
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener">Create account with bonus +{referralBonusUEC} UEC</a>
-            <a class="btn secondary" href="/star-citizen-referral-code/#how-to-use">How it works →</a>
+            <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
           </div>
         </div>
       </div>
