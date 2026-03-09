@@ -221,7 +221,10 @@ const faqJsonLd = {
           <div class="decisionCard">
             <div class="decisionCard__kicker">1 · Copy</div>
             <div class="decisionCard__title">Copy the code first</div>
-            <p class="decisionCard__body">Use the copy button above and you are ready to go.</p>
+            <div class="decisionCard__body">
+              <p style="margin:0 0 10px;">Copy the code here, then keep going.</p>
+              <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+            </div>
           </div>
           <div class="decisionCard">
             <div class="decisionCard__kicker">2 · Paste</div>
@@ -273,9 +276,11 @@ const faqJsonLd = {
         </div>
 
 
-        <p style="margin-top: 12px; color: rgba(255,255,255,.78);">
-          Want the code right now? Copy it from the <a href="#referral-code">bonus banner above</a>, then paste it during signup.
-        </p>
+        <div class="miniNote" style="margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <span class="muted">Want to grab the code now?</span>
+          <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+          <span class="muted">Paste it into the referral field while you create the account.</span>
+        </div>
 
         <div class="btnrow" style="margin-top: 16px;">
           <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus +50,000 UEC</a>
@@ -299,7 +304,7 @@ const faqJsonLd = {
               </thead>
               <tbody>
                 <tr><th>1</th><td>Open the official account creation page.</td></tr>
-              <tr><th>2</th><td>Paste the referral code (copy it from the <a href="#referral-code">bonus banner above</a>).</td></tr>
+              <tr><th>2</th><td>Paste the referral code into the optional referral field.</td></tr>
                 <tr><th>3</th><td>Create your account and verify your email.</td></tr>
                 <tr><th>4</th><td>When you’re ready to keep playing, purchase a starter pack to activate the account.</td></tr>
                 <tr><th>5</th><td>Start playing with the referral bonus credited once the account becomes active.</td></tr>
@@ -315,15 +320,15 @@ const faqJsonLd = {
         <div class="card pad">
           <h3 style="margin:0 0 8px;">Where to enter the code</h3>
           <p style="margin:0 0 12px;">
-            During signup, look for the field labeled <b>“Referral Code (optional)”</b>. The screenshot below only shows you what the field looks like. To copy the real code, use the button here:
+            During signup, look for the field labeled <b>“Referral Code (optional)”</b>. The image below just shows you where that field sits on the page.
           </p>
           <div class="miniNote" style="margin:0 0 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
             <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
-            <span class="muted">Copy this button, then paste it into the referral field during signup.</span>
+            <span class="muted">Copy this code here, then paste it into the referral field.</span>
           </div>
           <img src={signupFieldImg} alt="Star Citizen signup form showing the referral code field" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.12);" />
           <p style="margin-top: 12px; color: rgba(255,255,255,.78);">
-            This image is only an example. The real code is the live button above, and that is the one you should copy.
+            The image is only there to show the field. Use the code button above it when you want to copy the code.
           </p>
         </div>
       </div>
@@ -496,7 +501,7 @@ const faqJsonLd = {
           <div class="card pad">
             <h3 style="margin:0 0 8px;">Make it effortless</h3>
             <p style="margin:0; color: rgba(255,255,255,.78);">
-              Copy the code from the <a href="#referral-code">bonus banner above</a>, paste it during signup, and you’re done.
+              Copy the code here, paste it during signup, and you’re done.
             </p>
           </div>
         </div>
@@ -608,8 +613,12 @@ const faqJsonLd = {
         </div>
 
         <p style="margin-top: 14px; color: rgba(255,255,255,.72);">
-          Need to copy it again? Use the <a href="#referral-code">bonus banner</a> above.
+          Need the code again? Copy it right here:
         </p>
+        <div class="miniNote" style="margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+          <span class="muted">Paste it into the referral field while you sign up.</span>
+        </div>
       </div>
     </section>
 
