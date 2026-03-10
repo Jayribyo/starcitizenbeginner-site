@@ -7,6 +7,7 @@ const PAGES_DIR = path.join(SRC_DIR, 'pages');
 const REDIRECTS_FILE = path.join(ROOT, 'public', '_redirects');
 const FILE_EXTS = ['.astro', '.md', '.mdx'];
 const SKIP_PREFIXES = ['http://', 'https://', 'mailto:', 'tel:', '#'];
+const ASSET_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif', '.ico', '.avif', '.mp4', '.webm', '.pdf', '.txt', '.xml', '.json', '.js', '.css', '.woff', '.woff2']);
 
 function walk(dir) {
   const out = [];
@@ -29,6 +30,14 @@ function parseRedirectSources(file) {
     if (src?.startsWith('/')) sources.add(src);
   }
   return sources;
+}
+
+
+function isStaticAsset(urlPath) {
+  const clean = urlPath.split('#')[0].split('?')[0];
+  const ext = path.extname(clean).toLowerCase();
+  if (ASSET_EXTENSIONS.has(ext)) return true;
+  return fs.existsSync(path.join(ROOT, 'public', clean.replace(/^\//, '')));
 }
 
 function routeCandidates(urlPath) {
@@ -59,6 +68,7 @@ for (const file of files) {
     if (!href.startsWith('/')) continue;
 
     const normalized = href.split('#')[0].split('?')[0] || '/';
+    if (isStaticAsset(normalized)) continue;
     const exists = routeCandidates(normalized).some((candidate) => fs.existsSync(candidate));
     const redirected = redirects.has(normalized) || redirects.has(`${normalized}/`) || redirects.has(normalized.replace(/\/$/, ''));
 

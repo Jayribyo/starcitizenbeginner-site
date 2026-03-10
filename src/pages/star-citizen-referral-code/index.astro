@@ -102,7 +102,7 @@ const howToJsonLd = {
     {
       "@type": "HowToStep",
       "name": "Enter the referral code",
-      "text": "Enter referral code STAR-FSRJ-5N7Z in the optional referral field."
+      "text": `Enter referral code ${referralCode} in the optional referral field.`
     },
     {
       "@type": "HowToStep",
@@ -138,7 +138,7 @@ const faqJsonLd = {
 
 <BaseLayout
   title="Star Citizen Referral Code – Where to Enter It and Get the 50,000 UEC Bonus"
-  description="Use a Star Citizen referral code during signup to get the 50,000 UEC bonus. This guide shows where the field is, what it looks like, and how to use it without making it more complicated than it is."
+  description={`Use referral code ${referralCode} during account creation to start with 50,000 UEC, see where to enter it, and avoid the common signup mistakes new players make.`}
   canonicalPath="/star-citizen-referral-code/"
   stickyCtaLabel="Claim your start bonus"
   stickyCtaHref={referralLink}
@@ -167,7 +167,7 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Referral Code Guide</div>
           <h1 class="h1">Star Citizen Referral Code</h1>
           <p class="lead">
-            Where to enter the code, what you get, and how to use it without making signup feel more complicated than it is.
+            Use referral code {referralCode} during account creation to start with 50,000 UEC, see where to enter it, and avoid the common signup mistakes new players make.
           </p>
 
           <div class="btnrow" style="margin-top: 14px;">
@@ -215,7 +215,7 @@ const faqJsonLd = {
     <section id="quick-answer" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> What it is</div>
-        <h2 class="section__title">Quick answer: add the code while you create your account</h2>
+        <h2 class="section__title">Quick answer: use STAR-FSRJ-5N7Z while you create your account</h2>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">

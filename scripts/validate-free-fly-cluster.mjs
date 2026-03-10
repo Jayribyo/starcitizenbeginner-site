@@ -15,19 +15,29 @@ const SATELLITES = [
 let failed = false;
 
 const hubText = fs.readFileSync(HUB, "utf8");
-for (const token of ["free-fly-next-first-session", "free-fly-next-buy-test", "free-fly-next-referral-guide"]) {
+for (const token of [
+  "free-fly-next-first-session",
+  "free-fly-next-buy-test",
+  "free-fly-next-referral-guide",
+]) {
   if (!hubText.includes(token)) {
     console.error(`[validate-free-fly-cluster] Missing token "${token}" in src/pages/free-fly/index.astro`);
     failed = true;
   }
 }
 
+const satelliteExpectations = [
+  { token: '/free-fly/', label: 'back link to free-fly hub' },
+  { token: '/should-you-buy-star-citizen/', label: 'buy-test link' },
+  { token: '/star-citizen-performance-guide/', label: 'performance guide link' },
+];
+
 for (const file of SATELLITES) {
   const rel = path.relative(ROOT, file);
   const text = fs.readFileSync(file, "utf8");
-  for (const token of ["free-fly-satellite-back-to-hub", "free-fly-satellite-buy-test", "free-fly-satellite-referral-guide"]) {
+  for (const { token, label } of satelliteExpectations) {
     if (!text.includes(token)) {
-      console.error(`[validate-free-fly-cluster] Missing token "${token}" in ${rel}`);
+      console.error(`[validate-free-fly-cluster] Missing ${label} (${token}) in ${rel}`);
       failed = true;
     }
   }
