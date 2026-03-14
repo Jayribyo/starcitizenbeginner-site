@@ -32,10 +32,6 @@ const faqItems = [
     a: "RSI’s current referral FAQ says brand-new accounts have a 24-hour grace window to add a code after creation. You should still treat that as a backup, not the plan.",
   },
   {
-    q: "Can I change the referral code later?",
-    a: "No. Once an account is associated with a referral code, RSI says it cannot be changed.",
-  },
-  {
     q: "Does using a referral code cost money?",
     a: "No. A referral code is free to use and does not add anything to your order total.",
   },
@@ -60,8 +56,8 @@ const faqItems = [
     a: "No. It is optional. But if you are creating a brand-new account anyway, using one is the easy way to pick up the free starter bonus.",
   },
   {
-    q: "When does the 50,000 UEC bonus show up?",
-    a: "RSI says adding the code during account creation is the best way to have the bonus added immediately. If you rely on the short post-signup grace window instead, there may be a delay.",
+    q: "Do I need to buy a game package right away?",
+    a: "No. You can create the account with the referral code first, use that same account for Free Fly when it is available, and only buy a game package later if you decide to keep playing.",
   },
 ];
 
@@ -313,7 +309,7 @@ const faqJsonLd = {
           </table>
         </div>
 
-        <p class="muted" style="margin-top:12px;">One small but important detail: RSI’s referral FAQ now mentions a 24-hour grace window after account creation, while the general account-creation help still tells players to treat signup as the only safe moment. For a new player, the practical answer is simple: use the code during signup and treat the grace window as backup only. Once that part is done, you can decide whether to try <a href="/free-fly/">Free Fly</a> first or move straight into the full <a href="/how-to-buy-star-citizen/">buying flow</a>.</p>
+        <p class="muted" style="margin-top:12px;">The practical version is simple: use the code during signup and treat the 24-hour grace window as a fallback, not your plan. That keeps the whole step clean. After that, you can decide whether to try <a href="/free-fly/">Free Fly</a> first or move straight into the full <a href="/how-to-buy-star-citizen/">buying flow</a>.</p>
       </div>
     </section>
 
@@ -355,9 +351,6 @@ const faqJsonLd = {
           <p style="margin-top: 12px; color: rgba(255,255,255,.78);">
             Once the code is in the field, you can finish signup normally. There is no price change and no special store step you need to unlock first.
           </p>
-          <div class="btnrow" style="margin-top: 16px;">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Claim your start bonus</a>
-          </div>
         </div>
       </div>
     </section>
@@ -367,7 +360,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Backup window</div>
         <h2 class="section__title">Already created the account? Check the short backup window right away</h2>
         <p>
-          The safest move is still simple: add the code while you create the account. If you already finished signup a few minutes ago, check immediately whether your new account still gives you the short referral entry option RSI describes in its current FAQ. Think of that as a backup only, not the plan.
+          The clean move is still the same: add the code while you create the account. If you already finished signup a few minutes ago, check right away whether your new account still shows the short referral entry option RSI mentions in its current FAQ. Treat that as a last-chance backup, not something to rely on.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -388,12 +381,12 @@ const faqJsonLd = {
               <tr>
                 <th>You created the account very recently</th>
                 <td>Log in, click your user icon, and check the bottom of the account summary panel for the referral entry box.</td>
-                <td>RSI’s current FAQ says there is a 24-hour grace window, but it is still a last-chance fix rather than the intended flow.</td>
+                <td>RSI’s current FAQ mentions a 24-hour grace window, but it is still a last-chance fix rather than the normal flow.</td>
               </tr>
               <tr>
                 <th>The account is older and the field is gone</th>
                 <td>Move on and use the account as-is.</td>
-                <td>RSI also says support agents cannot add a code after the account is created, so there is no point treating this like a normal support fix. At that stage, the useful move is simply deciding whether to keep testing with <a href="/free-fly/">Free Fly</a> or continue with the normal <a href="/how-to-buy-star-citizen/">buying path</a>.</td>
+                <td>RSI also says support cannot add a code after the account is created, so it is better to stop chasing a fix and simply decide whether to keep testing with <a href="/free-fly/">Free Fly</a> or continue with the normal <a href="/how-to-buy-star-citizen/">buying path</a>.</td>
               </tr>
             </tbody>
           </table>
@@ -406,7 +399,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Value</div>
         <h2 class="section__title">What the bonus actually helps with</h2>
         <p>
-          The extra 50,000 UEC is not life-changing money, but it does make the first stretch of Star Citizen more forgiving. Community guides keep coming back to the same point: it is enough to smooth out early gear buys, basic supplies, and the small mistakes new players make in their first sessions. If you are still deciding whether Star Citizen is even a good fit for you, pair this with the <a href="/should-you-buy-star-citizen/">quick buy guide</a> before you spend money.
+          The extra 50,000 UEC is not meant to transform your whole account. What it really does is make the first stretch of Star Citizen a little less punishing. It gives you more room for basic gear, early supplies, and a couple of small mistakes while you are still learning how the game works. If you are still deciding whether Star Citizen is even a good fit for you, pair this with the <a href="/should-you-buy-star-citizen/">quick buy guide</a> before you spend money.
         </p>
 
         <div class="tableWrap" style="margin-top: 12px;">
@@ -425,14 +418,14 @@ const faqJsonLd = {
                 <td>No signup bonus</td>
               </tr>
               <tr>
-                <th>What changes at checkout</th>
-                <td>No extra charge and no price change</td>
-                <td>No extra charge and no price change</td>
+                <th>What changes</th>
+                <td>A little more room for early gear, medpens, ammo, and small mistakes</td>
+                <td>You start with less breathing room</td>
               </tr>
               <tr>
-                <th>What you still need later</th>
-                <td>One game package to play outside Free Fly</td>
-                <td>One game package to play outside Free Fly</td>
+                <th>What stays the same</th>
+                <td>You still pick your package normally when you are ready to buy</td>
+                <td>You still pick your package normally when you are ready to buy</td>
               </tr>
             </tbody>
           </table>
@@ -443,9 +436,8 @@ const faqJsonLd = {
             <h3 style="margin:0 0 8px;">Good early uses</h3>
             <ul class="bullets">
               <li>Basic gear, med supplies, ammo, and other small early buys.</li>
-              <li>Recovering a bit faster after mistakes, deaths, or lost equipment.</li>
-              <li>Trying the early game with slightly less pressure on every small purchase.</li>
-              <li>Giving yourself a little breathing room before your first money routine clicks.</li>
+              <li>A little recovery room after early mistakes, deaths, or lost equipment.</li>
+              <li>Less pressure on every tiny purchase while you are still learning the game.</li>
             </ul>
           </div>
           <div class="card pad">
@@ -545,7 +537,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> What to do next</div>
         <h2 class="section__title">After signup, keep the rest simple</h2>
         <p>
-          Once the account is created, the hard part of this page is over. Verify your email, decide whether you want to try <a href="/free-fly/">Free Fly</a> or buy a <a href="/star-citizen-starter-packs/">starter pack</a>, and keep using the same RSI account for the rest of the process.
+          Once the account is created, keep the rest simple. Verify your email, decide whether you want to try <a href="/free-fly/">Free Fly</a> first or move on to a <a href="/star-citizen-starter-packs/">starter pack</a>, and use that same RSI account for everything that follows.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -557,7 +549,7 @@ const faqJsonLd = {
               <li>Come back to <a href="/star-citizen-starter-packs/">starter packs</a> only after you know you actually want to keep playing.</li>
             </ul>
             <div class="btnrow" style="margin-top: 14px;">
-              <a class="btn secondary" href="/free-fly/" data-scb-role="internal-free-fly-guide">Try before buying</a>
+              <a class="btn secondary" href="/free-fly/" data-scb-role="internal-free-fly-guide">Check Free Fly status</a>
             </div>
           </div>
           <div class="card pad">
