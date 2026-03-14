@@ -24,7 +24,7 @@ const faqItems = [
   { q: "Does it cost money?", a: "No. Entering a code is free." },
   { q: "Does it change the price of a starter pack?", a: "No. It doesn’t affect store pricing." },
   { q: "Can I use it during Free Fly?", a: "Yes — create the account first (with the code), then play Free Fly later." },
-  { q: "What if I already created my account?", a: "In practice, you should assume it won’t apply later. Use Free Fly or the buying guide and keep moving instead of chasing the bonus." }
+  { q: "What if I already created my account?", a: "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but it is still better to treat signup as the real moment and use the main referral guide if you need that backup path." }
 ];
 ---
 
@@ -96,7 +96,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Main referral guide →</a>
         </div>
       </div>
     </section>
@@ -139,12 +139,12 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-referral-code/">Full referral code guide (benefits, mistakes, FAQ)</a></li>
+          <li><a href={REFERRAL_INFO_PATH}>Full referral guide</a> — benefits, backup window, mistakes, and FAQ in one place.</li>
+<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the fastest way to avoid the dead-end version of this problem.</li>
 <li><a href="/satellites/does-referral-code-change-price/">Does a referral code change the price? (no)</a></li>
 <li><a href="/free-fly/">Try Star Citizen without buying (Free Fly guide)</a></li>
 <li><a href="/star-citizen-starter-packs/">If you buy: starter packs guide</a></li>
-        
-          <li><a href="/how-to-buy-star-citizen/">Done with signup prep? Here is the clean buying flow next</a></li>
+<li><a href="/how-to-buy-star-citizen/">Done with signup prep? Here is the clean buying flow next</a></li>
         </ul>
       </div>
     </section>
@@ -163,7 +163,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
         </div>
       </div>
 

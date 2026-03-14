@@ -24,7 +24,7 @@ const tocItems = [
 const faqItems = [
   { q: "Where can I find a referral code?", a: "You can use any valid referral code during signup to claim the bonus. Use the code shown on this page so you don’t miss the signup window." },
   { q: "Does it cost me anything?", a: "No. A referral code is optional and does not add fees. It only applies a signup bonus when entered during account creation." },
-  { q: "Can I enter it after I created my account?", a: "Usually no. Treat it as a one-time signup field: enter it during account creation so you don’t rely on exceptions." },
+  { q: "Can I enter it after I created my account?", a: "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but you should still treat account creation as the real referral step." },
   { q: "Does it change what I can buy?", a: "No. It doesn’t change pricing or what’s in the store. It just affects the signup bonus." },
   { q: "What should I do if I am not buying yet?", a: "Create the account now (with the code), then try Free Fly or watch guides before buying a starter pack." },
   { q: "What if the code field is missing?", a: "You’re likely not on the account-creation form. Use the official enlist/signup page and look for the Referral Code field before finalizing your account." }
@@ -94,12 +94,13 @@ const faqItems = [
           <li>Grab the code before you start signup so the account creation stays simple from start to finish.</li>
           <li>Use a valid referral code during signup so you don’t miss the signup bonus.</li>
           <li>Enter the code <b>during account creation</b> (that window is the whole point).</li>
+          <li>If you want the exact field, the fallback window, and the full FAQ in one place, use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
           <li>It’s optional and doesn’t change your price—just your starting bonus.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Full referral guide →</a>
         </div>
       </div>
     </section>
@@ -163,7 +164,8 @@ const faqItems = [
         <h2 class="h2">Next steps</h2>
 
         <ul class="bullets">
-          <li><a href="/star-citizen-referral-code/">Referral code guide</a> — where to paste it, when it counts, and the common mistakes.</li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — where to paste it, the short backup window, and the full signup FAQ.</li>
+          <li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — capture the window before you overthink the rest.</li>
           <li><a href="/free-fly/">Free Fly first session</a> — try the game without buying, then decide with real experience.</li>
           <li><a href="/star-citizen-starter-packs/">Starter packs</a> — spend the minimum and avoid beginner purchase traps.</li>
         </ul>
@@ -184,7 +186,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
         </div>
       </div>
 

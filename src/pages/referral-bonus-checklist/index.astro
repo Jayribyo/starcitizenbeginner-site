@@ -26,7 +26,7 @@ const faqItems = [
   },
   {
     "q": "Can I add it later?",
-    "a": "Usually no. Enter it during signup so you don’t rely on exceptions."
+    "a": "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but you should still treat signup as the real moment that matters."
   },
   {
     "q": "Does it change my price?",
@@ -50,7 +50,7 @@ const faqItems = [
   },
   {
     "q": "How do I verify it worked?",
-    "a": "After signup the field is gone; you captured the window. Then check the referral guide for details."
+    "a": "Using the referral link is the easiest way because it opens signup with the code already there. If you just created the account, the main referral guide explains the short backup window and where RSI says to check next."
   },
   {
     "q": "What’s the biggest mistake?",
@@ -106,7 +106,7 @@ const faqItems = [
         <ul class="bullets">
           <li>Optional: it doesn’t change pricing. It’s just a signup bonus.</li>
           <li>Do it once, then stop thinking about it.</li>
-          <li>Full guide: <a class="link" href="/star-citizen-referral-code/">Referral code page</a>.</li>
+          <li>Need the exact field, the 24-hour backup window, or the full FAQ? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
         </ul>
       </div>
     </section>
@@ -135,7 +135,7 @@ const faqItems = [
                 <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
                 <a class="btn" href="/satellites/where-to-enter-referral-code/">Where to paste it</a>
               </div>
-              <p class="muted" style="margin-top:10px;">Not buying yet? Create the account now, decide later.</p>
+              <p class="muted" style="margin-top:10px;">Not buying yet? Create the account now, then use <a class="link" href="/free-fly/">Free Fly</a> or the <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> when you are ready.</p>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn" href="/star-citizen-referral-code/">Referral guide</a>
+          <a class="btn" href={REFERRAL_INFO_PATH}>Referral guide</a>
         </div>
       </div>
     </section>
