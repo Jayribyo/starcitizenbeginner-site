@@ -20,7 +20,7 @@ const tocItems = [
 ];
 
 const faqItems = [
-  { q: "I entered the code but don’t see anything — what now?", a: "First verify timing and the exact code. Then check your RSI account status. If the code wasn’t entered at signup, assume it won’t apply later." },
+  { q: "I entered the code but don’t see anything — what now?", a: "First verify timing and the exact code. Then check your RSI account status. If the account is brand-new, RSI’s current referral FAQ also mentions a short backup window in the account summary." },
   { q: "Does the referral bonus reduce store prices?", a: "No." },
   { q: "Can I fix it by buying a starter pack?", a: "Buying later doesn’t retroactively apply the signup bonus." },
   { q: "Should I contact support?", a: "If you entered the code during signup and can show it didn’t apply, support may clarify. If you did not enter it during signup, support usually can’t retroactively add it." },
@@ -88,15 +88,15 @@ const faqItems = [
         </div>
 
         <ul class="bullets">
-          <li>If it was missed at signup, stop troubleshooting loops and move forward with the same account.</li>
+          <li>If the account is brand-new, check the RSI account summary right away because the current referral FAQ mentions a short backup window there.</li>
           <li>Most “not working” cases are one of three things: <b>code entered after signup</b>, <b>typo/spacing</b>, or <b>expecting an instant in‑game change</b>.</li>
 <li>Fix by verifying <b>timing → correctness → account status</b> in that order.</li>
-<li>If the account was created without a code, assume it won’t apply retroactively — focus on the beginner path instead.</li>
+<li>If the field is already gone, stop troubleshooting loops and focus on the normal beginner path instead.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Where to paste the referral code →</a>
         </div>
       </div>
     </section>
@@ -105,9 +105,9 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
-          <li><b>Confirm when you entered the code</b> — If it was not during account creation, it likely won’t apply.</li>
+          <li><b>Confirm when you entered the code</b> — If it was not during account creation, the normal signup path was already missed.</li>
 <li><b>Confirm the exact code</b> — Copy/paste. No extra spaces. Correct characters.</li>
-<li><b>Check your RSI account page</b> — Look for referral / signup bonus status if available.</li>
+<li><b>Check your RSI account summary</b> — If the account is still brand-new, look for the short referral entry option RSI mentions in the current FAQ.</li>
 <li><b>Manage expectations</b> — The bonus is a signup credit. It doesn’t affect store pricing or instantly change gameplay.</li>
         </ol>
       </div>
@@ -139,11 +139,11 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-referral-code/">Referral code guide: exact steps + FAQ</a></li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — exact steps, backup window, and FAQ.</li>
+<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest path for avoiding this problem next time.</li>
 <li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add it after signup? (short answer)</a></li>
 <li><a href="/should-you-buy-star-citizen/">Quick reality check (buy vs try)</a></li>
-        
-          <li><a href="/how-to-buy-star-citizen/">Moving on without the bonus? Use the buying guide from here</a></li>
+<li><a href="/how-to-buy-star-citizen/">Moving on without the bonus? Use the buying guide from here</a></li>
         </ul>
       </div>
     </section>
@@ -162,7 +162,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
         </div>
       </div>
 

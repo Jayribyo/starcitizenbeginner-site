@@ -20,7 +20,7 @@ const tocItems = [
 ];
 
 const faqItems = [
-  { q: "Can I add a referral code after I created my account?", a: "In the reliable case, no — enter it during account creation. If your account is already created, check your RSI account status, but don’t expect a retroactive bonus." },
+  { q: "Can I add a referral code after I created my account?", a: "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but signup is still the real moment to plan around. If the field is gone, do not expect a later retroactive fix." },
   { q: "Should I make a new account just for the bonus?", a: "Usually no. It’s rarely worth splitting purchases and access. Only create a new account if you truly haven’t started and haven’t bought anything yet." },
   { q: "Does buying a starter pack apply the bonus later?", a: "No. The referral bonus is tied to the account creation step, not to the purchase step." },
   { q: "How do I avoid missing it next time?", a: "Use the signup page referral field before you submit the form. Then verify your account once you are inside RSI." },
@@ -89,14 +89,14 @@ const faqItems = [
 
         <ul class="bullets">
           <li>If the account already exists, stop chasing workarounds and decide whether you want to keep using that account.</li>
-          <li><b>In practice, you should enter the referral code during account creation.</b> That’s the reliable way to receive the signup bonus.</li>
-<li>If your account is already created, <b>don’t create a second account</b> just for the bonus. First, check the official referral status in your RSI account.</li>
-<li>If the code wasn’t entered at signup, your best move is usually: <b>keep playing</b> and use SCB’s buying path (Free Fly → buying guide → starter pack) without chasing the bonus.</li>
+          <li><b>The clean plan is still simple:</b> enter the referral code during account creation and avoid the problem entirely.</li>
+<li>If you just created the account, check your RSI account summary right away because the current referral FAQ mentions a short 24-hour backup window for brand-new accounts.</li>
+<li>If the field is already gone, your best move is usually to <b>keep playing</b> and use SCB’s buying path (<a class="link" href="/free-fly/">Free Fly</a> → <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> → <a class="link" href="/star-citizen-starter-packs/">starter pack</a>) without chasing the bonus.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Where to paste the referral code →</a>
         </div>
       </div>
     </section>
@@ -106,9 +106,9 @@ const faqItems = [
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
           <li><b>If you haven’t created your RSI account yet</b> — Use the signup page and enter the referral code before you submit the form.</li>
-<li><b>If you already created the account</b> — Log into RSI → check your account referral / recruitment status (if visible).</li>
-<li><b>If you see the bonus applied</b> — Proceed normally. Buy only if the game is fun after a few sessions (starter pack guide).</li>
-<li><b>If you don’t see it applied</b> — Assume it won’t apply later. Focus on Free Fly or your first-session checklist instead of re-registering.</li>
+<li><b>If you already created the account</b> — Log into RSI, open your account summary, and check right away whether the referral entry option is still there.</li>
+<li><b>If you still see the field</b> — Use the short backup window immediately, then proceed normally.</li>
+<li><b>If the field is gone</b> — Assume it won’t apply later. Focus on <a class="link" href="/free-fly/">Free Fly</a> or your first-session checklist instead of re-registering.</li>
         </ol>
       </div>
     </section>
@@ -139,12 +139,12 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-referral-code/">Referral code: exact signup steps (no fluff)</a></li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the exact signup rule, backup window, and FAQ in one place.</li>
+<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — use this if you want the shortest no-mistakes path.</li>
 <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the code (field shown)</a></li>
 <li><a href="/should-you-buy-star-citizen/">Not sure yet? Read the quick reality check</a></li>
 <li><a href="/star-citizen-starter-packs/">If you buy: pick a starter pack without wasting money</a></li>
-        
-          <li><a href="/how-to-buy-star-citizen/">Still moving forward? Use the buying guide from here</a></li>
+<li><a href="/how-to-buy-star-citizen/">Still moving forward? Use the buying guide from here</a></li>
         </ul>
       </div>
     </section>
@@ -163,7 +163,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
         </div>
       </div>
 
