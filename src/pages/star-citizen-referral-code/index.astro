@@ -5,108 +5,121 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import HowToSchema from "../../components/HowToSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import {
-  REFERRAL_CODE,
-  REFERRAL_LINK,
-  REFERRAL_BONUS_LABEL,
-  REFERRAL_BONUS_UEC,
-  FLY_FREE_URL,
-} from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_LABEL, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
 const referralBonusLabel = REFERRAL_BONUS_LABEL;
-const referralBonusUEC = REFERRAL_BONUS_UEC;
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
 
-const tocItems = [
-  { label: "Quick answer", href: "#quick-answer" },
-  { label: "Official rules", href: "#official-rules" },
-  { label: "Where to paste it", href: "#how-to-use" },
-  { label: "Already created the account?", href: "#already-created" },
-  { label: "Common mistakes", href: "#common-mistakes" },
-  { label: "Free Fly", href: "#free-fly" },
-  { label: "What to do next", href: "#starter-pack" },
-  { label: "FAQ", href: "#faq" },
-];
-
+// FAQ content is also used to generate FAQPage JSON-LD for SEO.
 const faqItems = [
   {
     q: "What is a Star Citizen referral code?",
-    a: "A Star Citizen referral code is a free code from the official referral program. You enter it while creating a brand-new RSI account so that account starts with the new-player bonus.",
+    a: "A referral code is a free signup code from Star Citizen’s official referral program. New accounts can enter a code during account creation to receive the starter bonus.",
   },
   {
-    q: `What do I get for using a referral code?`,
-    a: `A new account starts with the standard enlistment bonus of ${referralBonusLabel} once the account becomes active. It does not change store pricing or give you a discount.`,
+    q: "What do I get for using a referral code?",
+    a: "A brand-new account receives an enlistment bonus credited as starting UEC once the account becomes active. The standard signup bonus is 50,000 UEC.",
   },
   {
     q: "When should I enter the referral code?",
-    a: "Enter it during signup. That is the safe path and the one every new player should plan around.",
+    a: "Enter it during signup. That is the easiest way to make sure the bonus is attached from the start.",
   },
   {
     q: "Can I add a referral code after creating my account?",
-    a: "Sometimes there is a short backup window after account creation, but you should not rely on that. The right move is still to enter the code during signup.",
+    a: "Maybe, but do not count on it. The simple way is to enter it while you create your account.",
   },
   {
-    q: "Does a Star Citizen referral code cost money or change the price?",
-    a: "No. Using a referral code is free, and it does not lower or increase starter pack pricing. It only adds the signup bonus to a new account.",
+    q: "Does using a referral code cost money?",
+    a: "No. Entering a referral code is free.",
+  },
+  {
+    q: "Does the referral code change starter pack pricing?",
+    a: "No. It doesn’t change what you can buy or the price. It only adds the signup bonus for new accounts.",
+  },
+  {
+    q: "Do I need a referral code to play?",
+    a: "No, it’s optional. But if you’re creating a new account anyway, using one is a free upside.",
   },
   {
     q: "Does it work during Free Fly?",
-    a: "Yes. You can create the RSI account with the referral code first, try Free Fly without buying anything, and decide on a starter pack later.",
+    a: "Yes. You can create your account with the referral code first, try Free Fly, and buy a starter pack later if you decide to keep playing.",
   },
   {
     q: "Where do I enter the referral code?",
-    a: "During RSI account creation, look for the field labeled “Referral Code (optional)” and paste the code before you finish signup.",
+    a: "During account creation, look for the field labeled “Referral Code (optional)” and paste it before completing signup.",
   },
   {
     q: "How do I confirm the code was applied?",
-    a: "During signup you should see a confirmation that the code was applied. The easiest way to avoid mistakes is to use the referral signup link or copy and paste the code instead of typing it manually.",
+    a: "During signup you should see a confirmation message. After creation, your account typically shows that the referral was applied.",
+  },
+  {
+    q: "Can I change the referral code later?",
+    a: "Usually no. Referral codes are typically locked once the account is created (or once the limited window closes).",
+  },
+  {
+    q: "Do bonuses stack if I use multiple codes?",
+    a: "No. Only one referral code can be applied per account.",
+  },
+  {
+    q: "What are common mistakes?",
+    a: "The most common mistakes are forgetting to enter the code or planning to do it later. Copy it first, then paste it during signup.",
+  },
+  {
+    q: "Will I get banned for using a referral code?",
+    a: "No. Using a referral code is an intended part of the official program. Avoid creating extra accounts to game the system.",
   },
 ];
+
 
 const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to use a Star Citizen referral code",
-  description: "How to enter a Star Citizen referral code during signup so a new account starts with the bonus.",
-  totalTime: "PT2M",
-  supply: [
+  "name": "How to use a Star Citizen referral code",
+  "description": "How to enter a Star Citizen referral code during signup to receive the starter bonus, in a few simple steps.",
+  "totalTime": "PT2M",
+  "supply": [
     {
       "@type": "HowToSupply",
-      name: "Star Citizen referral code",
-    },
+      "name": "Star Citizen referral code"
+    }
   ],
-  tool: [
+  "tool": [
     {
       "@type": "HowToTool",
-      name: "RSI account creation page",
-    },
+      "name": "RSI account creation page"
+    }
   ],
-  step: [
+  "step": [
     {
       "@type": "HowToStep",
-      name: "Open account creation",
-      text: "Open the official RSI account creation page.",
+      "name": "Open account creation",
+      "text": "Open the official Star Citizen (RSI) account creation page."
     },
     {
       "@type": "HowToStep",
-      name: "Enter the referral code",
-      text: `Paste referral code ${referralCode} into the optional referral field.`,
+      "name": "Enter the referral code",
+      "text": `Enter referral code ${referralCode} in the optional referral field.`
     },
     {
       "@type": "HowToStep",
-      name: "Finish signup",
-      text: "Complete account creation and verify your email.",
+      "name": "Create your account",
+      "text": "Complete account creation and verify your email."
     },
     {
       "@type": "HowToStep",
-      name: "Play Free Fly or buy later",
-      text: "You can try Free Fly first or buy a starter pack later when you want full access outside Free Fly.",
+      "name": "Activate the account",
+      "text": "When you are ready to play outside Free Fly, purchase a starter pack to activate your account."
     },
-  ],
+    {
+      "@type": "HowToStep",
+      "name": "Receive the bonus",
+      "text": "Once the account becomes active, the starter bonus is credited to your account."
+    }
+  ]
 };
 
 const faqJsonLd = {
@@ -117,37 +130,36 @@ const faqJsonLd = {
     name: item.q,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.a,
-    },
-  })),
+      text: item.a
+    }
+  }))
 };
 ---
 
 <BaseLayout
   title="Star Citizen Referral Code – Where to Enter It and Get the 50,000 UEC Bonus"
-  description={`Use referral code ${referralCode} during account creation to start with ${referralBonusLabel}, see exactly where to enter it, and avoid the signup mistakes that make new players miss the bonus.`}
+  description={`Use referral code ${referralCode} during account creation to start with 50,000 UEC, see where to enter it, and avoid the common signup mistakes new players make.`}
   canonicalPath="/star-citizen-referral-code/"
   stickyCtaLabel="Claim your start bonus"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
-  activeNav="referral"
->
+ activeNav="referral">
   <link slot="head" rel="preload" as="image" href={heroImg} fetchpriority="high" />
-
   <main>
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Referral code', href: '/star-citizen-referral-code/' }]} />
 
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Referral code', href: '/star-citizen-referral-code/' }]} />
+    <!-- HERO (reduced, no redundant 50,000 repetition) -->
     <section class="hero refHero">
-      <img
-        class="hero__img refHero__img"
-        src={heroImg}
-        alt="Two Star Citizen pilots introducing the referral system with subtle referral program UI"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1536"
-        height="1024"
-      />
+<img
+  class="hero__img refHero__img"
+  src={heroImg}
+  alt="Two Star Citizen pilots introducing the referral system with subtle referral program UI"
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  width="1536"
+  height="1024"
+/>
       <div class="hero__overlay refHero__overlay"></div>
 
       <div class="hero__content">
@@ -155,172 +167,134 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Referral Code Guide</div>
           <h1 class="h1">Star Citizen Referral Code</h1>
           <p class="lead">
-            Use referral code {referralCode} while you create your RSI account so the account starts with {referralBonusLabel}. The safest path is simple: use the prefilled signup link or paste the code before you finish signup.
+            Use referral code {referralCode} during account creation to start with 50,000 UEC, see where to enter it, and avoid the common signup mistakes new players make.
           </p>
 
-          <div class="btnrow" style="margin-top: 16px;">
+          <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">
-              Claim 50,000 UEC
+              Claim your start bonus
             </a>
           </div>
         </div>
       </div>
 
-      <OnThisPage variant="hero" title="On this page" items={tocItems} />
+      <OnThisPage
+        variant="hero"
+        title="On this page"
+        items={[
+          { label: "Quick answer", href: "#quick-answer" },
+          { label: "Step-by-step", href: "#how-to-use" },
+          { label: "Where to paste it", href: "#how-to-use" },
+          { label: "Is it legit?", href: "#is-it-legit" },
+          { label: "What you get", href: "#what-you-get" },
+          { label: "Add it later: 24-hour rule", href: "#24-hour-rule" },
+          { label: "Free Fly", href: "#free-fly" },
+          { label: "Starter packs", href: "#starter-pack" },
+          { label: "When you receive the bonus", href: "#how-it-works" },
+          { label: "Common mistakes", href: "#common-mistakes" },
+                    { label: "Next steps", href: "#next-steps" },
+          { label: "Related answers", href: "#related-answers" },
+{ label: "FAQ", href: "#faq" },
+        ]}
+      />
     </section>
 
     <div id="referral-code">
       <ReferralBanner
         code={referralCode}
         bonus={referralBonusLabel}
-        ctaLabel="Claim 50,000 UEC"
         ctaHref={referralLink}
         howItWorksHref="#how-to-use"
-        sublineHtml="Use the referral signup link if you want the easy option. If you would rather do it manually, copy the code and paste it into the signup field before you finish creating the account."
+        sublineHtml="Use it during signup. That is the easiest way to keep this simple."
         ariaLabel="Referral bonus offer"
       />
     </div>
 
+
+    <!-- QUICK ANSWER -->
     <section id="quick-answer" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Quick answer</div>
-        <h2 class="section__title">Use the code before you finish creating the account</h2>
-        <p>
-          This page only needs to solve one thing: help you use the referral code correctly the first time. The easiest option is to open the RSI signup page with the code already filled in. If you would rather do it manually, copy the code below and paste it into the <b>“Referral Code (optional)”</b> field while you create the account.
-        </p>
+        <div class="kicker"><span class="dot"></span> What it is</div>
+        <h2 class="section__title">Quick answer: use STAR-FSRJ-5N7Z while you create your account</h2>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
-            <div class="decisionCard__kicker">Best option</div>
-            <div class="decisionCard__title">Use the referral link</div>
-            <p class="decisionCard__body">Open the signup page with the code already filled in. That way you can move on without worrying about typos.</p>
-          </div>
-          <div class="decisionCard">
-            <div class="decisionCard__kicker">Manual option</div>
-            <div class="decisionCard__title">Copy and paste the code</div>
+            <div class="decisionCard__kicker">1 · Copy</div>
+            <div class="decisionCard__title">Copy the code first</div>
             <div class="decisionCard__body">
-              <p style="margin:0 0 10px;">Copy it here, then paste it into the referral field.</p>
+              <p style="margin:0 0 10px;">Copy the code here, then keep going.</p>
               <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
             </div>
           </div>
           <div class="decisionCard">
-            <div class="decisionCard__kicker">Do not do this</div>
-            <div class="decisionCard__title">Do not plan on adding it later</div>
-            <p class="decisionCard__body">There may be a short backup window after signup, but it is much better to handle the code during account creation.</p>
+            <div class="decisionCard__kicker">2 · Paste</div>
+            <div class="decisionCard__title">Paste it during signup</div>
+            <p class="decisionCard__body">Look for the field labeled <b>“Referral Code (optional)”</b> while creating the RSI account.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">3 · Finish</div>
+            <div class="decisionCard__title">Finish creating the account</div>
+            <p class="decisionCard__body">Once the code is in the field, just finish creating the account.</p>
           </div>
         </div>
 
+        <p class="muted" style="margin-top:12px;">Need a term explained? <a class="link" href="/satellites/glossary/">Open the beginner glossary</a>.</p>
+
+        <p>
+          A Star Citizen referral code is just a free signup code. If you are creating a new account anyway, it is easy to add.
+          <b>Paste it while you are creating the account</b> and then move on with the rest of signup.
+        </p>
+        <div class="callout" style="margin-top:12px;">
+          <div class="kicker"><span class="dot"></span> Keep it simple</div>
+          <p class="muted" style="margin:6px 0 0;">
+            The simple answer is to use the code during signup and be done with it. That way you do not have to come back and think about it later.
+          </p>
+        </div>
         <div class="tableWrap" style="margin-top: 14px;">
           <table class="table">
             <thead>
-              <tr><th>Your situation</th><th>Best move</th><th>Why</th></tr>
+              <tr><th>Your situation</th><th>Do this</th><th>Why it helps</th></tr>
             </thead>
             <tbody>
               <tr>
-                <th>You have not created the account yet</th>
-                <td>Use the referral code during signup</td>
-                <td>That is the simplest way to get it right the first time.</td>
+                <th>Brand‑new account</th>
+                <td>Enter the code during signup (best)</td>
+                <td>You can’t “miss” the bonus window</td>
               </tr>
               <tr>
-                <th>You want to try Free Fly first</th>
-                <td>Create the account now with the code, buy later if you like the game</td>
-                <td>You lock in the bonus path without spending anything.</td>
+                <th>Playing Free Fly first</th>
+                <td>Create the account now with the code, buy later</td>
+                <td>You lock in the bonus without spending anything</td>
               </tr>
               <tr>
-                <th>You already created the account</th>
-                <td>Check immediately whether the account still offers a referral field</td>
-                <td>There may be a short backup window, but you should not rely on it.</td>
+                <th>Account already created</th>
+                <td>Check right away whether your account page still shows the field — but do not count on it</td>
+                <td>Official support messaging is mixed, so using it during signup is the easiest way to keep this simple</td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+
+        <div class="miniNote" style="margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <span class="muted">Want to grab the code now?</span>
+          <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+          <span class="muted">Paste it into the referral field while you create the account.</span>
         </div>
 
         <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Claim 50,000 UEC</a>
-        </div>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus +50,000 UEC</a>
+</div>
       </div>
     </section>
 
-    <section id="official-rules" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Official rules</div>
-        <h2 class="section__title">The rules new players actually need to know</h2>
-        <p>
-          Most of the confusion comes from people mixing up account creation, Free Fly, starter packs, and what happens later. If you are new, the rules below are the ones that actually matter right now.
-        </p>
-
-        <div class="tableWrap" style="margin-top:12px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Simple answer</th>
-                <th>Why it matters</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>What do you get?</th>
-                <td><b>{referralBonusLabel}</b> for a brand-new account</td>
-                <td>The code is worth using if you are creating the account anyway.</td>
-              </tr>
-              <tr>
-                <th>When should you enter it?</th>
-                <td><b>During signup</b></td>
-                <td>This is the easiest way to avoid missing the bonus.</td>
-              </tr>
-              <tr>
-                <th>Can you add it later?</th>
-                <td>Sometimes there is a short <b>24-hour backup window</b></td>
-                <td>Good to know about, but not something you should plan around.</td>
-              </tr>
-              <tr>
-                <th>Does it change the price?</th>
-                <td>No</td>
-                <td>A referral code is not a discount code.</td>
-              </tr>
-              <tr>
-                <th>Do you need to buy a package immediately?</th>
-                <td>No</td>
-                <td>You can create the account now, use Free Fly if available, and decide on a package later.</td>
-              </tr>
-              <tr>
-                <th>What is still required to play outside Free Fly?</th>
-                <td>One <b>game package</b></td>
-                <td>The referral code does not replace game access.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">What the code does</h3>
-            <ul class="bullets">
-              <li>Adds the new-player bonus to a brand-new account.</li>
-              <li>Works fine before Free Fly, during Free Fly, or before buying later.</li>
-              <li>Keeps the signup decision simple if you use it immediately.</li>
-            </ul>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">What the code does not do</h3>
-            <ul class="bullets">
-              <li>It does <b>not</b> reduce starter pack prices.</li>
-              <li>It does <b>not</b> replace a game package outside Free Fly.</li>
-              <li>It does <b>not</b> need to complicate anything if you use it before finishing signup.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-to-use" class="section">
+<section id="how-to-use" class="section">
       <div class="grid2">
         <div class="card pad">
           <div class="kicker"><span class="dot"></span> Step-by-step</div>
-          <h2 class="section__title">Where to paste the Star Citizen referral code</h2>
+          <h2 class="section__title">How to use the Star Citizen referral code</h2>
           <p>
-            If you are doing it manually instead of using the referral signup link, the process is short: open the signup page, paste the code into the referral field, finish account creation, verify your email, and then decide whether you want to try Free Fly or buy a starter pack later.
+            The simple version is this: open the signup page, paste the code, create your account, verify your email, and then decide what you want to do next.
           </p>
 
           <div class="tableWrap" style="margin-top: 12px;">
@@ -329,44 +303,149 @@ const faqJsonLd = {
                 <tr><th>Step</th><th>Action</th></tr>
               </thead>
               <tbody>
-                <tr><th>1</th><td>Open the official RSI account creation page.</td></tr>
-                <tr><th>2</th><td>Find the field labeled <b>“Referral Code (optional)”</b>.</td></tr>
-                <tr><th>3</th><td>Paste the code instead of typing it manually.</td></tr>
-                <tr><th>4</th><td>Finish creating the account and verify your email.</td></tr>
-                <tr><th>5</th><td>Use that same account for Free Fly or buy one game package later when you are ready.</td></tr>
+                <tr><th>1</th><td>Open the official account creation page.</td></tr>
+              <tr><th>2</th><td>Paste the referral code into the optional referral field.</td></tr>
+                <tr><th>3</th><td>Create your account and verify your email.</td></tr>
+                <tr><th>4</th><td>When you’re ready to keep playing, purchase a starter pack to activate the account.</td></tr>
+                <tr><th>5</th><td>Start playing with the referral bonus credited once the account becomes active.</td></tr>
               </tbody>
             </table>
           </div>
 
-          <div class="miniNote" style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-            <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
-            <span class="muted">Copy here, then paste it into the referral field during signup.</span>
-          </div>
-
           <div class="btnrow" style="margin-top: 16px;">
-            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Use signup link</a>
-          </div>
+            <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Open signup page bonus ready</a>
+</div>
         </div>
 
         <div class="card pad">
-          <h3 style="margin:0 0 8px;">What the field looks like</h3>
+          <h3 style="margin:0 0 8px;">Where to enter the code</h3>
           <p style="margin:0 0 12px;">
-            During signup, look for the field labeled <b>“Referral Code (optional)”</b>. This screenshot only exists to show you exactly where that field sits.
+            During signup, look for the field labeled <b>“Referral Code (optional)”</b>. The image below just shows you where that field sits on the page.
           </p>
+          <div class="miniNote" style="margin:0 0 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+            <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+            <span class="muted">Copy this code here, then paste it into the referral field.</span>
+          </div>
           <img src={signupFieldImg} alt="Star Citizen signup form showing the referral code field" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.12);" />
           <p style="margin-top: 12px; color: rgba(255,255,255,.78);">
-            If you used the referral signup link, the field should already be filled. If you did it manually, paste the code before you submit the form.
+            The image just shows you where the field sits. Copy the code here, then paste it into that field while you sign up.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="already-created" class="section">
+    <!-- 24 HOUR RULE -->
+    
+
+
+
+    <!-- TRUST / LEGITIMACY -->
+    <section id="is-it-legit" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Already signed up?</div>
-        <h2 class="section__title">If you already created the account, act immediately</h2>
+        <div class="kicker"><span class="dot"></span> Trust</div>
+        <h2 class="section__title">Is this referral code legitimate?</h2>
         <p>
-          The official support guidance that matters here is simple: the best option is always to enter the code during signup. If you already created the account, check right away whether your account still gives you a short window to add the code. Some support guidance mentions about 24 hours, but that should only be seen as a fallback.
+          Yes. Referral codes are part of Star Citizen’s <b>official</b> referral program. Every player receives a code that can be shared with
+          new players during signup. Using a code is optional — it simply adds a starter bonus for brand‑new accounts.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What a referral code does</h3>
+            <ul class="bullets">
+              <li><b>Adds a starter bonus</b> once your account becomes active.</li>
+              <li><b>Doesn’t change pricing</b> or what you can buy.</li>
+              <li><b>Costs nothing</b> — it doesn’t change pricing or purchases.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What it does not do</h3>
+            <ul class="bullets">
+              <li><b>No discounts.</b> It doesn’t reduce starter pack prices.</li>
+              <li><b>No “special access”.</b> It doesn’t skip progression systems.</li>
+              <li><b>No risk.</b> It’s an intended feature of the signup flow.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="btnrow" style="margin-top: 16px;">
+<a class="btn secondary" href="/free-fly">Check Free Fly status</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section id="what-you-get" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Value</div>
+        <h2 class="section__title">What you get with a referral code</h2>
+        <p>
+          For new players, the referral bonus is basically a small “starter buffer”. It won’t replace learning the game — but it can make your
+          first sessions smoother by giving you extra room for gear, rentals, and inevitable beginner mistakes.
+        </p>
+
+        <div class="tableWrap" style="margin-top: 12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>With a referral code</th>
+                <th>Without a referral code</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Starting credits</th>
+                <td><b>+50,000 UEC</b> once your account becomes active</td>
+                <td>No bonus</td>
+              </tr>
+              <tr>
+                <th>When to enter</th>
+                <td>During signup (best) or within about <b>24 hours</b></td>
+                <td>Not applicable</td>
+              </tr>
+              <tr>
+            <th>Extra cost</th>
+            <td>No extra cost</td>
+            <td>No extra cost</td>
+          </tr>
+              <tr>
+                <th>Starter pack</th>
+                <td>Still required to play outside Free Fly</td>
+                <td>Still required to play outside Free Fly</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Good early uses</h3>
+            <ul class="bullets">
+              <li>Basic equipment (multitool, med supplies, ammo).</li>
+              <li>Short-term ship rentals to test different roles.</li>
+              <li>Transportation costs and “recovery” after bad runs.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">If you haven’t bought yet</h3>
+            <ul class="bullets">
+              <li><b>Create the account now</b> (30 seconds). Add the referral code during signup.</li>
+              <li>Not sure? Try <a class="link" href="/free-fly/">Free Fly</a> first so you don’t spend blindly.</li>
+              <li>When you do buy: start with a cheap starter pack, then upgrade later if you stick with the game.</li>
+            </ul>
+          </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE -->
+    <section id="24-hour-rule" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Timing</div>
+        <h2 class="section__title">Can you add a code later? Here is the simple answer</h2>
+        <p>
+          Do not plan around “adding it later.” One official RSI support article says new accounts often have a short grace window, while the
+          account-creation article says the code cannot be added after creation. That is why the simplest answer is still the same: enter it during signup and treat any later option as a backup only.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -374,25 +453,25 @@ const faqJsonLd = {
             <thead>
               <tr>
                 <th>Your situation</th>
-                <th>Do this now</th>
-                <th>What not to expect</th>
+                <th>Do this</th>
+                <th>Why this helps</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>Account created a few minutes ago</th>
-                <td>Check the account area immediately for a referral option.</td>
-                <td>Do not assume the window will stay open long.</td>
-              </tr>
-              <tr>
-                <th>No field visible anymore</th>
-                <td>Stop chasing workarounds and move on.</td>
-                <td>Do not expect support to rescue a missed signup step later.</td>
-              </tr>
-              <tr>
                 <th>You have not created the account yet</th>
-                <td>Ignore all of this and just use the code during signup.</td>
-                <td>That is the easiest way to avoid this problem completely.</td>
+                <td>Use the referral code during signup.</td>
+                <td>No ambiguity. You add the code while the field is right in front of you.</td>
+              </tr>
+              <tr>
+                <th>You created the account a few minutes ago</th>
+                <td>Check the account area immediately for a referral field, but assume this may fail.</td>
+                <td>You may still have a chance, but it is much simpler not to rely on that.</td>
+              </tr>
+              <tr>
+                <th>You already bought / progressed and the field is gone</th>
+                <td>Move on and do not waste more time on support loops.</td>
+                <td>Support says they cannot manually add a code after account creation once that short window is gone.</td>
               </tr>
             </tbody>
           </table>
@@ -400,10 +479,128 @@ const faqJsonLd = {
       </div>
     </section>
 
+    <!-- WHY IT MATTERS -->
+    <section id="why-it-matters" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Why it matters</div>
+        <h2 class="section__title">Why using a referral code helps new players</h2>
+        <p>
+          Star Citizen is at its best when you’re learning one thing at a time. The bonus UEC won’t “carry” you — but it gives you breathing room
+          for your first loadouts, rentals, and the mistakes everyone makes while figuring out missions, travel, and recovery loops.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Practical benefits</h3>
+            <ul class="bullets">
+              <li>Buy basic gear without going broke.</li>
+              <li>Rent a ship to test a mission loop before committing.</li>
+              <li>Recover faster after deaths, crashes, or lost gear.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Make it effortless</h3>
+            <p style="margin:0; color: rgba(255,255,255,.78);">
+              Copy the code here, paste it during signup, and you’re done.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE FLY -->
+    <section id="free-fly" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Try before you buy</div>
+        <h2 class="section__title">Try Star Citizen during Free Fly (and still use the referral code)</h2>
+        <p>
+          Not ready to buy a starter pack yet? During official <b>Free Fly</b> events you can try the game without purchasing anything.
+          You can still create your account with a referral code first, then decide later whether you want to activate the account with a starter pack.
+        </p>
+
+        <div class="btnrow" style="margin-top: 16px;">
+          <a class="btn primary" href="/free-fly" data-scb-role="internal-free-fly-guide">Check Free Fly status</a>
+</div>
+      </div>
+    </section>
+
+    <!-- STARTER PACK BRIDGE -->
+    <section id="starter-pack" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> Next step</div>
+        <h2 class="section__title">After signup: one game package is enough to keep playing</h2>
+        <p>
+          Once your account exists and your email is verified, the next step is simple: get one game package when you are ready to play outside Free Fly.
+          That gives you game access and a starter ship. You do not need extra ships or a subscription to begin.
+        </p>
+
+        <div class="btnrow" style="margin-top: 16px;">
+          <a class="btn primary" href="/star-citizen-starter-packs/" data-scb-role="internal-starter-packs-guide">Pick a beginner-friendly starter pack</a>
+</div>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What to do right after signup</h3>
+            <ul class="bullets">
+              <li>Verify the email so the account is fully ready.</li>
+              <li>If you are trying the game during Free Fly, stop there and use the same account later if you decide to buy.</li>
+              <li>If you want to keep playing outside Free Fly, buy one game package when you are ready.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What happens after you buy</h3>
+            <ul class="bullets">
+              <li>Open <b>My Hangar</b> and make sure the package is listed there.</li>
+              <li>Download the launcher, install the game on an SSD if possible, and log in with the same RSI account.</li>
+              <li>Your first in-game choice will be your starting home location, so take a moment before clicking through it.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="section">
+      <div class="card pad">
+        <div class="kicker"><span class="dot"></span> What happens next</div>
+        <h2 class="section__title">When you receive the 50,000 UEC bonus</h2>
+        <p>
+          The code is applied at signup. The bonus is credited once your account becomes <b>active</b> (for most players, that means you can log in and play normally outside Free Fly).
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Do this during signup</h3>
+            <ul class="bullets">
+              <li>Paste the code in the <b>Referral Code (optional)</b> field.</li>
+              <li>Complete account creation and verify your email.</li>
+              <li>Keep the confirmation message as your quick check.</li>
+              <li>If you buy after that, check <b>My Hangar</b> once to make sure the game package is there.</li>
+            </ul>
+            <div class="btnrow" style="margin-top: 14px;">
+              <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus</a>
+            </div>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">How to verify it quickly</h3>
+            <ul class="bullets">
+              <li>During signup: you should see a “code applied” confirmation.</li>
+              <li>After signup: your account usually shows that the referral was applied.</li>
+              <li>If something looks off, copy the code again and try the signup flow once more instead of guessing.</li>
+            </ul>
+            <div class="btnrow" style="margin-top: 14px;">
+              <a class="btn secondary" href="#how-to-use">See the exact steps →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMON MISTAKES -->
     <section id="common-mistakes" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Avoid this</div>
-        <h2 class="section__title">The mistakes that make people miss the bonus</h2>
+        <h2 class="section__title">Common referral code mistakes</h2>
 
         <div class="tableWrap" style="margin-top: 12px;">
           <table class="table">
@@ -412,108 +609,51 @@ const faqJsonLd = {
             </thead>
             <tbody>
               <tr>
-                <th>Creating the account first</th>
-                <td>You may lose the easy path to add the code.</td>
-                <td>Use it during signup.</td>
+                <th>Signing up first</th>
+                <td>You may miss the window to add the code later.</td>
+                <td>Enter the code during account creation.</td>
               </tr>
               <tr>
                 <th>Typing the code manually</th>
-                <td>A small typo can break the whole step.</td>
-                <td>Use the referral link or copy and paste the code.</td>
+                <td>Typos are common, and the code won’t apply.</td>
+                <td>Copy/paste the code.</td>
               </tr>
               <tr>
-                <th>Thinking it is a discount code</th>
-                <td>You misunderstand what the code actually does.</td>
-                <td>Treat it as a free signup bonus, not as store price reduction.</td>
+                <th>Assuming it stacks</th>
+                <td>Only one code can be applied per account.</td>
+                <td>Pick one code and apply it once.</td>
               </tr>
               <tr>
-                <th>Buying random ships first</th>
-                <td>You overcomplicate a beginner decision.</td>
-                <td>Create the account, use the code, then choose one game package only when you are ready.</td>
+                <th>Expecting a discount</th>
+                <td>A referral code doesn’t change pricing.</td>
+                <td>Use it for the free bonus, then choose a starter pack normally.</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-    </section>
 
-    <section id="free-fly" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Try before you buy</div>
-        <h2 class="section__title">Yes — the referral code still makes sense if you want Free Fly first</h2>
-        <p>
-          Free Fly is one of the best entry points if you want to look around before spending money. The simple order is: create the account with the referral code first, try the game during Free Fly, and only buy a starter pack later if you decide the game is for you. That lets you set up the account properly without forcing the buying decision too early.
+        <p style="margin-top: 14px; color: rgba(255,255,255,.72);">
+          Need the code again? Copy it right here:
         </p>
-
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Best Free Fly sequence</h3>
-            <ul class="bullets">
-              <li>Create the account now with the referral code.</li>
-              <li>Use Free Fly when it is active.</li>
-              <li>If you enjoy it, buy one starter pack later on the same account.</li>
-            </ul>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Why this path works well</h3>
-            <ul class="bullets">
-              <li>No rushed spending decision.</li>
-              <li>No confusion about whether the code belongs on the account yet.</li>
-              <li>No need to make Free Fly and buying happen on the same day.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href="/free-fly/" data-scb-role="internal-free-fly-guide">See Free Fly guide</a>
-          <a class="btn secondary" href={FLY_FREE_URL} target="_blank" rel="noopener noreferrer">Official Free Fly page</a>
+        <div class="miniNote" style="margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+          <span class="muted">Paste it into the referral field while you sign up.</span>
         </div>
       </div>
     </section>
 
-    <section id="starter-pack" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> What to do next</div>
-        <h2 class="section__title">After signup, one game package is enough</h2>
-        <p>
-          Once your RSI account exists and your email is verified, the next step is much simpler than the store makes it look: if you want to keep playing outside Free Fly, you need <b>one game package</b>. That already includes game access and a ship. You do not need a large ship, extra ships, or a subscription to begin.
-        </p>
-
-        <div class="grid2" style="margin-top:12px;">
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Do this after signup</h3>
-            <ul class="bullets">
-              <li>Verify the email tied to the new account.</li>
-              <li>If Free Fly is active, try the game first if you want.</li>
-              <li>If you want permanent access outside Free Fly, buy one game package on that same account.</li>
-            </ul>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 8px;">Do not overcomplicate it</h3>
-            <ul class="bullets">
-              <li>You do not need a big ship to start well.</li>
-              <li>You do not need a subscription to play.</li>
-              <li>You do not need to decide everything about the game on day one.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href="/star-citizen-starter-packs/" data-scb-role="internal-starter-packs-guide">See starter packs</a>
-          <a class="btn secondary" href="/should-you-buy-star-citizen/" data-scb-role="internal-buy-guide">Use the buy decision guide</a>
-        </div>
-      </div>
-    </section>
+    <!-- FAQ -->
+    
 
     <section id="next-steps" class="section alt">
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-starter-packs/">Pick a starter pack without overbuying</a></li>
-          <li><a href="/should-you-buy-star-citizen/">Use the buy decision guide</a></li>
-          <li><a href="/free-fly/">Try Star Citizen without buying first</a></li>
-          <li><a href="/referral-bonus-checklist/">Use the referral bonus checklist</a></li>
-          <li><a href="/satellites/">Browse quick answers</a></li>
+            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
+            <li><a href="/should-you-buy-star-citizen/">Use the quick buy guide</a></li>
+            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
+            <li><a href="/free-fly/">Try without buying</a></li>
+            <li><a href="/satellites/">Browse quick answers</a></li>
         </ul>
       </div>
     </section>
@@ -522,17 +662,17 @@ const faqJsonLd = {
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-          <li><a href="/referral-bonus-checklist/">Referral bonus checklist</a></li>
-          <li><a href="/satellites/where-to-enter-referral-code/">Where to paste the code</a></li>
-          <li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add it after signup?</a></li>
-          <li><a href="/satellites/referral-code-not-working/">Referral code not working</a></li>
-          <li><a href="/satellites/does-referral-code-change-price/">Does a code change the price?</a></li>
-          <li><a href="/satellites/get-a-star-citizen-referral-code/">How to get a referral code</a></li>
+            <li><a href="/referral-bonus-checklist/">Referral bonus checklist (capture the window)</a></li>
+            <li><a href="/satellites/get-a-star-citizen-referral-code/">Where to get a referral code</a></li>
+            <li><a href="/satellites/where-to-enter-referral-code/">Where to paste the code</a></li>
+            <li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add it after signup?</a></li>
+            <li><a href="/satellites/referral-code-not-working/">Referral code not working (quick fixes)</a></li>
+            <li><a href="/satellites/does-referral-code-change-price/">Does a code change the price?</a></li>
         </ul>
       </div>
     </section>
 
-    <section id="faq" class="section">
+<section id="faq" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> FAQ</div>
         <h2 class="section__title">Star Citizen referral code FAQ</h2>
@@ -547,44 +687,43 @@ const faqJsonLd = {
         </div>
 
         <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account</a>
-        </div>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account bonus included</a>
+</div>
       </div>
     </section>
 
+    <!-- FINAL CTA -->
     <section id="start" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Start here</div>
-        <h2 class="section__title">Ready to create the account correctly?</h2>
+        <h2 class="section__title">Ready to start?</h2>
         <p>
-          Keep the signup simple. Open the referral signup link, or copy the code and paste it during account creation. That is all most new players need to do.
+          Copy the referral code, paste it during signup, and you’re set. It’s free, and there’s no downside for new accounts.
         </p>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top: 12px;">
           <button class="refOffer__code js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
           <span class="refOffer__copied js-copyStatus" role="status" aria-live="polite"></span>
-          <span class="muted">Paste it into the referral field before you finish signup.</span>
         </div>
 
         <div class="btnrow" style="margin-top: 16px;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Start signup</a>
-        </div>
+          <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + paste the code</a>
+</div>
       </div>
     </section>
 
-    <HowToSchema json={howToJsonLd} />
-    <FaqSchema json={faqJsonLd} />
+<!-- SEO: HowTo + FAQPage JSON-LD -->
+<HowToSchema json={howToJsonLd} />
+<FaqSchema json={faqJsonLd} />
   </main>
 
   <style>
+    /* Referral hero */
     .refHero__overlay{
       background:
         radial-gradient(900px 420px at 25% 45%, rgba(0,0,0,.08), rgba(0,0,0,.58) 66%),
         linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
     }
-
-    .refHero__content{
-      padding: 22px;
-    }
+    .refHero__content{ padding: 22px; }
   </style>
 </BaseLayout>
