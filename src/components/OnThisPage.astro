@@ -18,9 +18,9 @@ const {
 {variant === "hero" ? (
   <div class="hero__toc" aria-label={ariaLabel}>
     <div class="container">
-      <div class="card pad hero__tocCard">
+      <div class:list={["card", "pad", "hero__tocCard", variant === "hero" && "hero__tocCard--hero"]}>
         <div class="kicker"><span class="dot"></span> {title}</div>
-        <div class="toc">
+        <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
           {items.map((it) => (
             <a href={it.href}>{it.label}</a>
           ))}
@@ -32,7 +32,7 @@ const {
   <section class="section" aria-label={ariaLabel}>
     <div class="card pad">
       <div class="kicker"><span class="dot"></span> {title}</div>
-      <div class="toc">
+      <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
         {items.map((it) => (
           <a href={it.href}>{it.label}</a>
         ))}
@@ -57,12 +57,36 @@ const {
     background: rgba(255,255,255,.04);
     padding:8px 10px;
     border-radius:12px;
-    transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    transition: background .15s ease, border-color .15s ease, transform .15s ease, color .15s ease;
   }
 
   .toc a:hover{
     background: rgba(255,255,255,.07);
     border-color: rgba(255,255,255,.14);
     transform: translateY(-1px);
+  }
+
+  .hero__tocCard--hero{
+    background: rgba(255,255,255,.035);
+    border-color: rgba(255,255,255,.08);
+    box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  }
+
+  .toc--hero{
+    gap: 8px 10px;
+    margin-top: 9px;
+    font-size: 12px;
+    opacity: .88;
+  }
+
+  .toc--hero a{
+    padding: 7px 10px;
+    border-color: rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+  }
+
+  .toc--hero a:hover{
+    background: rgba(255,255,255,.055);
+    border-color: rgba(255,255,255,.12);
   }
 </style>
