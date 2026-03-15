@@ -130,9 +130,10 @@ const howToLd = {
       <div class="homeHero__content">
         <div style="max-width:720px; padding: 26px 0;">
           <h1 class="h1">How to buy Star Citizen</h1>
-          <p class="lead">We walk you through the RSI signup and purchase steps in plain English: create the account, verify your email, buy one game package, check your hangar, and get into the game without overthinking day one.</p>
-          <div class="btnrow">
-            <a class="btn primary" href="#do-this-now" data-scb-role="how-to-buy-start-steps">Start the buying steps</a>
+          <p class="lead">If the RSI store looks more complicated than it should, the practical version is simple: create your account, buy one game package, check My Hangar once, then install the launcher and log in.</p>
+          <div class="btnrow" style="flex-wrap:wrap;">
+            <a class="btn primary" href="#quick-answer" data-scb-role="how-to-buy-quick-answer">See what you actually need</a>
+            <a class="btn ghost" href="/star-citizen-starter-packs/">Compare starter packs</a>
           </div>
         </div>
       </div>
@@ -144,7 +145,7 @@ const howToLd = {
         <div class="card pad hero__tocCard">
           <div class="kicker"><span class="dot"></span>On this page</div>
           <div class="toc">
-            <a href="#quick-answer">Quick answer</a>
+            <a href="#quick-answer">What you need</a>
             <a href="#do-this-now">Buying steps</a>
             <a href="#account">Account setup</a>
             <a href="#starter-pack">Starter pack</a>
@@ -166,55 +167,80 @@ const howToLd = {
   <!-- ===================== QUICK ANSWER ===================== -->
   <section id="quick-answer" class="section">
     <div class="card pad">
-      <h2 class="section__title">Quick answer: this is easier than it looks</h2>
-      <ul class="list">
-        <li>
-          <b>Signup:</b> Create your RSI account and enter referral code <b>{REF_CODE}</b> while you sign up so you start with <b>+{REF_BONUS}</b>.
-        </li>
-        <li>
-          <b>Name choice:</b> Your <b>handle</b> (aka moniker/account name) is public. Your login is your email.
-        </li>
-        <li>
-          <b>Purchase:</b> Buy <b>one game package</b> (game access + a ship). Extra ships can wait until you know you actually want them.
-        </li>
-        <li>
-          <b>After checkout:</b> Open <b>My Hangar</b> once. If your package is there, your game access is in place.
-        </li>
-        <li>
-          <b>Install:</b> Download the RSI Launcher, install to an <b>SSD</b> if you can, and run one simple first session.
-        </li>
-        <li>
-          <b>You do not need:</b> A subscription, extra ships, or a complicated upgrade plan to get started.
-        </li>
-      </ul>
-      <p class="muted" style="margin-top:10px;">
-        Still deciding if it is worth it for you? Use the <a href="/should-you-buy-star-citizen/">quick buy guide →</a>
+      <h2 class="section__title">What you actually need</h2>
+      <p style="max-width: 980px;">
+        To start playing Star Citizen, you only need <b>an RSI account</b> and <b>one game package</b>. That is the whole buying job.
+        Everything else is optional, later, or easy to ignore on day one.
       </p>
-      <div class="decisionGrid" style="margin-top:14px;">
-        <div class="decisionCard">
-          <div class="decisionCard__kicker">Step 1</div>
-          <div class="decisionCard__title">Set up the account once, the easy way</div>
-          <p class="decisionCard__body">Use the referral code during signup, pick a handle you are happy to keep publicly, and finish account creation once.</p>
-        </div>
-        <div class="decisionCard">
-          <div class="decisionCard__kicker">Step 2</div>
-          <div class="decisionCard__title">Buy one starter pack</div>
-          <p class="decisionCard__body">Do not turn day one into a fleet-planning project. Buy the starter pack that fits the way you want to start and leave everything else for later.</p>
-        </div>
-        <div class="decisionCard">
-          <div class="decisionCard__kicker">Step 3</div>
-          <div class="decisionCard__title">Confirm the purchase, then play one good first session</div>
-          <p class="decisionCard__body">Check My Hangar once, install on SSD, and play one simple first session before you worry about anything else.</p>
-        </div>
-      </div>
-      <div class="callout" style="margin-top:12px;">
-        <div class="kicker"><span class="dot"></span> Keep it simple</div>
-        <p class="muted" style="margin:6px 0 0;">
-          Break it into three parts: <b>create the account</b>, <b>buy one starter pack</b>, then <b>see how the game feels after one good first session</b>.
-          Most beginner regret comes from trying to solve all three at once and spending too much too early.
-        </p>
+
+      <div class="tableWrap" style="margin-top:12px;">
+        <table class="table table--steps">
+          <thead>
+            <tr>
+              <th>Thing</th>
+              <th>Do you need it?</th>
+              <th>What matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>RSI account</th>
+              <td><b>Yes</b></td>
+              <td>Create the account first. Your login is your email, and your public handle is the name other players see.</td>
+            </tr>
+            <tr>
+              <th>Game package</th>
+              <td><b>Yes</b></td>
+              <td>This is what gives you game access. It already includes a starter ship.</td>
+            </tr>
+            <tr>
+              <th>Standalone ship</th>
+              <td><b>No</b></td>
+              <td>Nice to own later, but by itself it does not replace a game package.</td>
+            </tr>
+            <tr>
+              <th>Subscription</th>
+              <td><b>No</b></td>
+              <td>Optional. It is not required to start playing.</td>
+            </tr>
+            <tr>
+              <th>Big ship or upgrade plan</th>
+              <td><b>No</b></td>
+              <td>Start smaller. Most beginner regret comes from overbuying before the game has even clicked.</td>
+            </tr>
+            <tr>
+              <th>Squadron 42</th>
+              <td><b>No, not for Star Citizen itself</b></td>
+              <td>That is the separate single-player campaign, not your ticket into the persistent universe.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
+      <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>Quick answer</div>
+          <ul class="list" style="margin-top:10px;">
+            <li>Create your RSI account and enter referral code <b>{REF_CODE}</b> during signup if you want the <b>+{REF_BONUS}</b> start bonus.</li>
+            <li>Buy <b>one game package</b>. That already covers game access and your first ship.</li>
+            <li>Open <b>My Hangar</b> once after checkout to confirm the package is on your account.</li>
+            <li>Install the RSI Launcher on an <b>SSD</b> if you can, then judge the game after one clean first session.</li>
+          </ul>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>If you are not ready to buy yet</div>
+          <p class="muted" style="margin:10px 0 0;">
+            You do not need to force the decision today. If you are still unsure whether Star Citizen is worth your money,
+            start with the <a href="/should-you-buy-star-citizen/">should you buy guide</a> or use <a href="/free-fly/">Free Fly</a> as a try-before-you-buy path.
+          </p>
+        </div>
+      </div>
+
+      <div class="btnrow" style="margin-top:14px; flex-wrap:wrap;">
+        <a class="btn primary" href="#do-this-now" data-scb-role="how-to-buy-start-steps">Start the buying steps</a>
+        <a class="btn ghost" href="/star-citizen-starter-packs/">Pick a starter pack</a>
+      </div>
     </div>
   </section>
 
