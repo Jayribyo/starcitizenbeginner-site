@@ -23,32 +23,28 @@ const crumbs = [
 
 const faqs = [
   {
+    q: "What do I actually need to buy to play Star Citizen?",
+    a: "One RSI account and one game package. That is the only purchase requirement for normal entry into Star Citizen.",
+  },
+  {
+    q: "What’s the difference between a game package and a standalone ship?",
+    a: "A game package includes Star Citizen access and a starter ship. A standalone ship is just an extra ship purchase and does not replace a game package by itself.",
+  },
+  {
     q: "Where do I enter the Star Citizen referral code?",
-    a: `During RSI account creation (signup) — that’s the only time the signup bonus applies. Use ${REF_CODE} to start with +${REF_BONUS}.`,
+    a: `During RSI account creation (signup). That is the only moment the signup bonus applies. Use ${REF_CODE} to start with +${REF_BONUS}.`,
   },
   {
-    q: "What’s the difference between login email and handle/moniker?",
-    a: "Your login is your email. Your public handle (often called account name/moniker) is what others see in Spectrum and in-game.",
+    q: "What’s the difference between login email and handle?",
+    a: "Your email is your login. Your handle is the public name other players see in Spectrum and in-game.",
   },
   {
-    q: "Do I need to buy a ship separately?",
-    a: "No. A starter pack already includes game access + a ship. You can earn or rent ships in-game later.",
+    q: "Do I need a subscription or Squadron 42 to start?",
+    a: "No. A subscription is optional, and Squadron 42 is the separate single-player campaign. Neither is required to start playing Star Citizen online.",
   },
   {
-    q: "Can I change my handle later?",
-    a: "Sometimes, yes — but don’t treat it as disposable. Pick something you’re happy to be tagged with publicly (Spectrum + in-game).",
-  },
-  {
-    q: "I bought a pack — what’s next?",
-    a: "Open My Hangar to make sure the pack is on your account, then install the RSI Launcher, download the game to an SSD if possible, and run one simple first session.",
-  },
-  {
-    q: "Do I need a subscription to play?",
-    a: "No. A subscription is optional. Once you own one game package, you can keep playing outside Free Fly.",
-  },
-  {
-    q: "What should my first login look like?",
-    a: "Choose your home location, create your character, retrieve your ship at an ASOP terminal, and finish one simple contract before you try anything more ambitious.",
+    q: "What should I do right after I buy a package?",
+    a: "Open My Hangar to confirm the package is on your account, install the RSI Launcher, put the game on an SSD if possible, and keep your first session simple.",
   },
 ];
 
@@ -231,8 +227,8 @@ const howToLd = {
         <div class="card pad">
           <div class="kicker"><span class="dot"></span>If you are not ready to buy yet</div>
           <p class="muted" style="margin:10px 0 0;">
-            You do not need to force the decision today. If you are still unsure whether Star Citizen is worth your money,
-            start with the <a href="/should-you-buy-star-citizen/">should you buy guide</a> or use <a href="/free-fly/">Free Fly</a> as a try-before-you-buy path.
+            You do not need to force the decision today. If your real question is still whether Star Citizen is worth buying,
+            step sideways into the <a href="/should-you-buy-star-citizen/">should you buy guide</a> or use <a href="/free-fly/">Free Fly</a> first.
           </p>
         </div>
       </div>
@@ -458,7 +454,7 @@ const howToLd = {
         <div class="card pad">
           <div class="kicker"><span class="dot"></span>How to choose your first starter pack</div>
           <p style="margin:10px 0 0;">
-            This page is not where you need a deep ship comparison. The beginner version is simpler: pick the package that matches your budget and how much utility you want on day one.
+            Keep the decision narrow. You are not choosing your forever ship here — you are choosing the cleanest way into the game.
           </p>
           <div class="tableWrap" style="margin-top:12px;">
             <table class="table table--steps">
@@ -466,24 +462,20 @@ const howToLd = {
                 <tr>
                   <th>If this sounds like you</th>
                   <th>Best move</th>
-                  <th>What you are optimizing for</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th>I just want the cheapest sensible way in</th>
                   <td>Start with a basic package and keep the buy-in low.</td>
-                  <td>Minimum spend, fastest answer to “do I even like this game?”</td>
                 </tr>
                 <tr>
                   <th>I want the easiest all-round beginner experience</th>
-                  <td>Choose a more practical starter package with better flexibility.</td>
-                  <td>Less friction across early delivery, travel, and simple combat loops.</td>
+                  <td>Choose a more practical starter package with better day-one flexibility.</td>
                 </tr>
                 <tr>
                   <th>I am already comparing specific ships</th>
-                  <td>Stop here and use the dedicated starter-pack guide.</td>
-                  <td>That is where the full package comparison belongs.</td>
+                  <td>Use the dedicated starter-packs guide. That comparison belongs there, not here.</td>
                 </tr>
               </tbody>
             </table>
@@ -493,8 +485,7 @@ const howToLd = {
         <div class="card pad">
           <div class="kicker"><span class="dot"></span>The clean beginner rule</div>
           <p style="margin:0;">
-            Buy one sensible <b>game package</b>, make sure it appears in <b>My Hangar</b>, and let the game prove itself first.
-            Do not try to future-proof your account before you have even finished one clean session.
+            Buy one sensible <b>game package</b>, confirm it in <b>My Hangar</b>, and let the game prove itself before you spend another euro.
           </p>
         </div>
       </div>
@@ -577,9 +568,9 @@ const howToLd = {
   <!-- ===================== INSTALL ===================== -->
   <section id="install" class="section">
     <div class="card pad">
-      <h2 class="section__title">Install & launch (so your first impression isn’t ruined)</h2>
+      <h2 class="section__title">After you buy: install cleanly and keep the first session simple</h2>
       <p style="max-width: 980px;">
-        Install is straightforward, but performance isn’t. The single biggest “new buyer” regret is judging the game while it’s stuttering.
+        Once your package is in My Hangar, the buying job is done. From here, your goal is not to “master Star Citizen” on day one — it is to get through one clean install and one calm first session without creating extra friction.
       </p>
 
       <div class="tableWrap" style="margin-top:12px;">
@@ -621,25 +612,72 @@ const howToLd = {
         </table>
       </div>
 
-      <div class="card" style="margin-top:14px;">
-        <div class="pad">
-          <div class="kicker"><span class="dot"></span>What your first login usually looks like</div>
+      <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>What your first login should look like</div>
           <ul class="list" style="margin-top:10px;">
             <li><b>Choose your home location</b> carefully. That becomes your first base and where many starting items live.</li>
             <li><b>Create your character</b> and keep moving. You can refine details later.</li>
             <li><b>Retrieve your ship at an ASOP terminal</b> instead of wandering the spaceport guessing.</li>
-            <li><b>Run one simple contract</b> before you judge the whole game. That first clean loop matters more than any menu tour.</li>
+            <li><b>Run one simple contract</b> before you judge the whole game.</li>
           </ul>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>What success looks like</div>
+          <p style="margin:0;">
+            Keep the day-one win condition boring on purpose: <b>get into the game, retrieve your ship, and complete one clean beginner-friendly loop</b> without getting lost or stuck in settings menus for an hour.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== NEXT STEPS ===================== -->
+  <section class="section">
+    <div class="card pad">
+      <h2 class="section__title">What to do next depends on where you are</h2>
+      <p style="max-width: 980px;">
+        Good authority pages do not dump more reading on you. They move you to the next right page. Pick the branch that matches your real next question.
+      </p>
+
+      <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>You are ready to buy, but still comparing packs</div>
+          <p style="margin:0 0 12px;">Use the starter-packs guide for the real ship and package comparison. That is where budget, utility, and beginner fit get sorted properly.</p>
+          <a class="btn ghost" href="/star-citizen-starter-packs/">Compare starter packs</a>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>You are not sure the game is worth the money</div>
+          <p style="margin:0 0 12px;">Step sideways before you buy. The right question is not “which package?” but “should I spend at all?”</p>
+          <div class="btnrow" style="flex-wrap:wrap;">
+            <a class="btn ghost" href="/should-you-buy-star-citizen/">Should you buy Star Citizen?</a>
+            <a class="btn ghost" href="/free-fly/">Try Free Fly first</a>
+          </div>
         </div>
       </div>
 
-      <div class="card" style="margin-top:14px;">
-        <div class="pad">
-          <div class="kicker"><span class="dot"></span>What “success” looks like</div>
-          <p style="margin:0;">
-            Your first win condition is boring on purpose: <b>one clean contract loop</b> completed without getting lost or crashing.
-            Once you can repeat that, the game opens up fast.
-          </p>
+      <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>You want the signup bonus done correctly</div>
+          <p style="margin:0 0 12px;">Use the referral guide if your real question is about timing, where the field appears, or whether the code can be added later.</p>
+          <div class="btnrow" style="flex-wrap:wrap;">
+            <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
+              Create account + claim signup bonus
+            </a>
+            <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker"><span class="dot"></span>You already bought the package</div>
+          <p style="margin:0 0 12px;">Good. Stop shopping and switch to setup and first-session help. That is where the next beginner wins come from.</p>
+          <div class="btnrow" style="flex-wrap:wrap;">
+            <a class="btn ghost" href="/satellites/first-session/">First session checklist</a>
+            <a class="btn ghost" href="/star-citizen-performance-guide/">Performance guide</a>
+          </div>
         </div>
       </div>
     </div>
@@ -649,6 +687,9 @@ const howToLd = {
   <section id="faq" class="section">
     <div class="card pad">
       <h2 class="section__title">FAQ</h2>
+      <p style="max-width: 980px; margin-top: 8px;">
+        These are the last buying questions that still trip people up right before checkout or right after it.
+      </p>
 
       <div class="faq" style="margin-top:12px;">
         {faqs.map((f) => (
@@ -660,10 +701,10 @@ const howToLd = {
       </div>
 
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-        <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
+        <a class="btn primary" href="/star-citizen-starter-packs/">Compare starter packs</a>
+        <a class="btn ghost" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
           Create account + claim signup bonus
         </a>
-        <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
       </div>
     </div>
   </section>
