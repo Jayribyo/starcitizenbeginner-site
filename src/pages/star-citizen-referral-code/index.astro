@@ -173,8 +173,7 @@ const faqJsonLd = {
           { label: "Already created the account?", href: "#24-hour-rule" },
                     { label: "Common mistakes", href: "#common-mistakes" },
           { label: "Free Fly", href: "#free-fly" },
-          { label: "After signup", href: "#how-it-works" },
-          { label: "FAQ", href: "#faq" },
+                    { label: "FAQ", href: "#faq" },
         ]}
       />
     </section>
@@ -294,7 +293,7 @@ const faqJsonLd = {
                 <td>You still choose your starter pack normally. The code only adds the signup bonus.</td>
               </tr>
               <tr>
-                <th>Best way to use it?</th>
+                <th>Best way to add it?</th>
                 <td>The referral link is the preferred method.</td>
                 <td>It opens the signup page with the code already filled in, so there is less to miss.</td>
               </tr>
@@ -397,7 +396,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Value</div>
         <h2 class="section__title">What the bonus actually helps with</h2>
         <p>
-          The extra 50,000 UEC is not a giant shortcut. It simply gives you a little more breathing room for basic gear, med supplies, ammo, fuel, repairs, or one early mistake while you are still figuring things out. If you are still deciding whether the game is worth your money, the <a class="link" href="/should-you-buy-star-citizen/">should-you-buy guide</a> is the next stop.
+          The extra 50,000 UEC is not a giant shortcut. It mainly gives you more breathing room for basic gear, med supplies, ammo, fuel, repairs, or one early mistake while you are still figuring things out. If you are still deciding whether the game is worth your money, the <a class="link" href="/should-you-buy-star-citizen/">should-you-buy guide</a> is the next stop.
         </p>
 
         <div class="tableWrap" style="margin-top: 12px;">
@@ -497,7 +496,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Try before you buy</div>
         <h2 class="section__title">Free Fly is one of the best reasons to create the account now</h2>
         <p>
-          You do not need to buy immediately. Many new players are better off creating the account with the code first, testing the game during <a class="link" href="/free-fly/">Free Fly</a> when it is live, and only choosing a starter pack after they know how the game feels on their system. If the first session feels rough, check the <a class="link" href="/star-citizen-performance-guide/">performance guide</a> before you write the game off.
+          You do not need to buy immediately. Many new players are better off creating the account with the code first, testing the game during <a class="link" href="/free-fly/">Free Fly</a> when it is live, and only choosing a starter pack after they know how the game feels on their system. If that first session feels rough, check the <a class="link" href="/star-citizen-performance-guide/">performance guide</a> before you write the game off.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -566,7 +565,6 @@ const faqJsonLd = {
         <p class="miniLead">Use these when the referral part is done and you want the clearest next move.</p>
         <ul class="bullets">
           <li><a class="link" href="/free-fly/">Try the game during Free Fly first if you are not ready to buy yet</a></li>
-          <li><a class="link" href="/how-to-buy-star-citizen/">See the full buying steps from account to launcher</a></li>
           <li><a class="link" href="/star-citizen-starter-packs/">Compare beginner-friendly starter packs</a></li>
           <li><a class="link" href="/should-you-buy-star-citizen/">Read the should-you-buy guide if you are still unsure</a></li>
           <li><a class="link" href="/star-citizen-performance-guide/">Fix FPS and stutter before your first real impression</a></li>
@@ -594,7 +592,6 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> FAQ</div>
         <h2 class="section__title">Star Citizen referral code FAQ</h2>
         <p class="miniLead">These are the short answers most new players still need right before signup, right after they notice the referral field, or while deciding whether to buy later.</p>
-        <p>For the next step after signup, open the <a class="link" href="/how-to-buy-star-citizen/">how-to-buy guide</a>, <a class="link" href="/star-citizen-starter-packs/">starter pack guide</a>, or <a class="link" href="/free-fly/">Free Fly guide</a>.</p>
 
         <div class="faq">
           {faqItems.map((item) => (
@@ -652,5 +649,20 @@ const faqJsonLd = {
     }
     .section .miniNote p:last-child,
     .section .miniNote li:last-child { margin-bottom: 0; }
+    #what-you-get .miniNote,
+    #free-fly .miniNote,
+    #how-it-works .miniNote {
+      background: rgba(255,255,255,0.035);
+      border-color: rgba(255,255,255,0.09);
+      color: rgba(255,255,255,0.86);
+    }
+    #next-steps .bullets,
+    #related-answers .bullets {
+      gap: 6px 18px;
+    }
+    #faq .miniLead {
+      max-width: 72ch;
+      margin-bottom: 10px;
+    }
   </style>
 </BaseLayout>
