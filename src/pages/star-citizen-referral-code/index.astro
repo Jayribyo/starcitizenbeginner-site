@@ -29,7 +29,7 @@ const faqItems = [
   },
   {
     q: "Can I add a referral code after creating my account?",
-    a: "Only as a short backup. RSI’s current referral FAQ says brand-new accounts may have a 24-hour grace window after creation, so check immediately instead of counting on it later.",
+    a: "Only as a short backup. RSI’s current referral FAQ says brand-new accounts may have a 24-hour grace window after creation, so check immediately instead of planning around it.",
   },
   {
     q: "Does using a referral code cost money?",
@@ -195,24 +195,27 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Quick answer</div>
         <h2 class="section__title">Quick answer: add the code during signup, then move on</h2>
         <p>
-          Use the referral link, or paste the code into the “Referral Code (optional)” field while you sign up. Finish creating the account, verify your email, and the new account gets 50,000 UEC once it becomes active. The code is free and does not change the price of anything you may buy later.
+          Use the referral link or paste the code while you create the account. Finish signup, verify your email, and then move on. The new account gets 50,000 UEC once it becomes active, and the code does not change the price of anything you may buy later.
         </p>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
             <div class="decisionCard__kicker">1 · Start</div>
-            <div class="decisionCard__title">Open signup with the code already there</div>
-            <p class="decisionCard__body">RSI’s own referral FAQ treats the URL link as the preferred method because it opens the signup page with the code already filled in.</p>
+            <div class="decisionCard__title">Click the button and open signup with the code already there</div>
+            <p class="decisionCard__body">That gives you the easiest start and removes the need to type the code yourself.</p>
+            <div class="btnrow" style="margin-top: 12px;">
+              <a class="btn secondary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Open signup with code ready</a>
+            </div>
           </div>
           <div class="decisionCard">
-            <div class="decisionCard__kicker">2 · Paste</div>
-            <div class="decisionCard__title">If needed, paste the code during signup</div>
-            <p class="decisionCard__body">Look for the field labeled “Referral Code (optional)” before you finish creating the account.</p>
+            <div class="decisionCard__kicker">2 · Create your account</div>
+            <div class="decisionCard__title">Enter the required details and finish signup</div>
+            <p class="decisionCard__body">Create the account first. If you are still unsure what you may want to buy later, use the <a class="link" href="/how-to-buy-star-citizen/">how-to-buy guide</a>.</p>
           </div>
           <div class="decisionCard">
-            <div class="decisionCard__kicker">3 · Finish</div>
-            <div class="decisionCard__title">Create the account first, buy later if you want</div>
-            <p class="decisionCard__body">You can use the same account for <a class="link" href="/free-fly/">Free Fly</a> first and only pick a <a class="link" href="/star-citizen-starter-packs/">starter pack</a> later if you want to keep playing.</p>
+            <div class="decisionCard__kicker">3 · Buy now or later</div>
+            <div class="decisionCard__title">Use the same account for Free Fly or for your starter pack later</div>
+            <p class="decisionCard__body">You can buy a game package right away, or use <a class="link" href="/free-fly/">Free Fly</a> first and only choose a <a class="link" href="/star-citizen-starter-packs/">starter pack</a> if you decide the game is worth keeping.</p>
           </div>
         </div>
 
@@ -258,7 +261,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Official rules</div>
         <h2 class="section__title">Official rules at a glance</h2>
         <p>
-          Here is the short official version: what you get, when to use it, what the short backup window means, and what the code does not do.
+          This is the short official version you actually need: what you get, when to use it, when the short backup window matters, and what the code does not do.
         </p>
 
         <div class="tableWrap" style="margin-top: 12px;">
@@ -306,7 +309,7 @@ const faqJsonLd = {
           </table>
         </div>
 
-        <p class="muted" style="margin-top:12px;">For most people, that is the whole referral part: add the code during signup, create the account, and then decide whether you want to try <a class="link" href="/free-fly/">Free Fly</a> or move on to the full <a class="link" href="/how-to-buy-star-citizen/">buying guide</a>.</p>
+        <p class="muted" style="margin-top:12px;">For most people, that is the whole referral step: add the code during signup, create the account, and then choose your next move — try <a class="link" href="/free-fly/">Free Fly</a>, compare packs, or use the full <a class="link" href="/how-to-buy-star-citizen/">how-to-buy guide</a>.</p>
       </div>
     </section>
 
@@ -316,7 +319,7 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Step-by-step</div>
           <h2 class="section__title">Where to paste the referral code</h2>
           <p>
-            Open the signup page, find “Referral Code (optional)”, paste the code before you finish creating the account, then verify your email.
+            Open the signup page, find “Referral Code (optional)”, paste the code before you finish creating the account, and then verify your email. After that, the referral part is done.
           </p>
 
           <div class="tableWrap" style="margin-top: 12px;">
@@ -357,7 +360,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Backup window</div>
         <h2 class="section__title">Already created the account? Check the short backup window right away</h2>
         <p>
-          The best time to add the code is while you create the account. If you already finished signup a few minutes ago, check right away whether your new account still shows the short referral entry option RSI mentions in its current FAQ. Treat that as backup, not the normal plan.
+          The best version is still simple: add the code while you create the account. If you already finished signup a few minutes ago, check right away whether your new account still shows the short referral entry option RSI mentions in its current FAQ. Treat that as a last chance, not as the normal plan.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -396,7 +399,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Value</div>
         <h2 class="section__title">What the bonus actually helps with</h2>
         <p>
-          The extra 50,000 UEC is not a giant shortcut. It mainly gives you more breathing room for basic gear, med supplies, ammo, fuel, repairs, or one early mistake while you are still figuring things out. If you are still deciding whether the game is worth your money, the <a class="link" href="/should-you-buy-star-citizen/">should-you-buy guide</a> is the next stop.
+          The extra 50,000 UEC is not a giant shortcut. It mainly helps with the small costs that show up early: basic gear, med supplies, ammo, fuel, repairs, or one early mistake while you are still figuring things out. If you are still deciding whether the game is worth your money, the <a class="link" href="/should-you-buy-star-citizen/">should-you-buy guide</a> is the best next stop.
         </p>
 
         <div class="tableWrap" style="margin-top: 12px;">
@@ -496,7 +499,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Try before you buy</div>
         <h2 class="section__title">Free Fly is one of the best reasons to create the account now</h2>
         <p>
-          You do not need to buy immediately. Many new players are better off creating the account with the code first, testing the game during <a class="link" href="/free-fly/">Free Fly</a> when it is live, and only choosing a starter pack after they know how the game feels on their system. If that first session feels rough, check the <a class="link" href="/star-citizen-performance-guide/">performance guide</a> before you write the game off.
+          You do not need to buy immediately. Many new players are better off creating the account with the code first, testing the game during <a class="link" href="/free-fly/">Free Fly</a> when it is live, and only choosing a starter pack after they know how the game feels on their system. If you want that route, go straight to the <a class="link" href="/free-fly/">Free Fly guide</a>. If that first session feels rough, check the <a class="link" href="/star-citizen-performance-guide/">performance guide</a> before you write the game off.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -529,7 +532,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> What to do next</div>
         <h2 class="section__title">After signup, keep the rest simple</h2>
         <p>
-          Once the account exists, the rest is straightforward. Verify your email, decide whether you want to try <a class="link" href="/free-fly/">Free Fly</a> first or move on to a <a class="link" href="/star-citizen-starter-packs/">starter pack</a>, and keep using that same RSI account. If you are still unsure whether to spend money at all, use the <a class="link" href="/should-you-buy-star-citizen/">should-you-buy guide</a> before you commit.
+          Once the account exists, keep the rest simple. Verify your email, keep using that same RSI account, and then choose only one next step: try <a class="link" href="/free-fly/">Free Fly</a>, compare a <a class="link" href="/star-citizen-starter-packs/">starter pack</a>, or use the <a class="link" href="/should-you-buy-star-citizen/">should-you-buy guide</a> if you are not ready to spend money yet.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -562,7 +565,7 @@ const faqJsonLd = {
     <section id="next-steps" class="section alt">
       <div class="container">
         <h2 class="h2">Next steps</h2>
-        <p class="miniLead">Use these when the referral part is done and you want the clearest next move.</p>
+        <p class="miniLead">Use these once the referral part is done and you want the clearest next move.</p>
         <ul class="bullets">
           <li><a class="link" href="/free-fly/">Try the game during Free Fly first if you are not ready to buy yet</a></li>
           <li><a class="link" href="/star-citizen-starter-packs/">Compare beginner-friendly starter packs</a></li>
@@ -614,7 +617,7 @@ const faqJsonLd = {
         <h2 class="section__title">Ready to start?</h2>
         <p class="miniLead">You only need one clean signup pass here.</p>
         <p>
-          Copy the referral code, paste it during signup, and you are done with the referral part.
+          Use the referral link or copy the code, finish signup, and then move on to Free Fly or your buying decision.
         </p>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top: 12px;">
