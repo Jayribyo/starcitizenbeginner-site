@@ -10,7 +10,6 @@ import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_LABEL } from "../../config
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
 const referralBonusLabel = REFERRAL_BONUS_LABEL;
-const latestReviewedLabel = "March 16, 2026";
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
@@ -26,7 +25,7 @@ const faqItems = [
   },
   {
     q: "When should I enter the referral code?",
-    a: "During account creation. RSI’s current referral FAQ also mentions a 24-hour grace window for brand-new accounts, but the safest version is still adding it during signup.",
+    a: "During signup. That is the version you should plan around.",
   },
   {
     q: "Can I add a referral code after creating my account?",
@@ -124,8 +123,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Star Citizen Referral Code (2026) – Where to Enter It and Get the 50,000 UEC Bonus"
-  description={`Use referral code ${referralCode} while creating your account to start with 50,000 UEC, see where to enter it, understand RSI’s current 24-hour grace window, and avoid the common signup mistakes new players make.`}
+  title="Star Citizen Referral Code (2026) – Where to Enter It and Get 50,000 UEC"
+  description={`Use referral code ${referralCode} while creating your account to start with 50,000 UEC, see where to enter it, understand the current 24-hour backup window, and avoid the common signup mistakes new players make.`}
   canonicalPath="/star-citizen-referral-code/"
   stickyCtaLabel="Claim your start bonus"
   stickyCtaHref={referralLink}
@@ -194,11 +193,13 @@ const faqJsonLd = {
     <section id="quick-answer" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Quick answer</div>
-        <h2 class="section__title">Quick answer: use the code during signup, with the 24-hour window as backup only</h2>
+        <h2 class="section__title">Quick answer: add the code during signup, then move on</h2>
         <p>
-          Use the referral link or paste the code while you create the account. Finish signup, verify your email, and then move on. The new account gets 50,000 UEC once it becomes active. RSI’s current FAQ mentions a short 24-hour grace window after creation, but the clean version is still adding the code during signup.
+          Use the referral link or paste the code while you create the account. Finish signup, verify your email, and then move on. The new account gets 50,000 UEC once it becomes active, and the code does not change the price of anything you may buy later. If you miss the field, RSI currently mentions a short 24-hour backup window for brand-new accounts, but the clean version is still adding the code during signup.
         </p>
-        <p class="microTrust">Latest reviewed {latestReviewedLabel} against RSI’s current Referral Program FAQ.</p>
+        <p class="muted" style="margin-top:10px;">
+          Latest reviewed: March 2026. Timing and the current backup-window wording are checked against RSI’s <a class="link" href="https://support.robertsspaceindustries.com/hc/en-us/articles/115013102847-Referral-Program-FAQ" target="_blank" rel="noopener noreferrer">Referral Program FAQ</a>.
+        </p>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
@@ -263,7 +264,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Official rules</div>
         <h2 class="section__title">Official rules at a glance</h2>
         <p>
-          This is the short official version you actually need, based on RSI’s current Referral Program FAQ: what you get, when to use it, when the short backup window matters, and what the code does not do.
+          This is the short official version you actually need: what you get, when to use it, when the short backup window matters, and what the code does not do. The source here is RSI’s current Referral Program FAQ, not forum guesswork.
         </p>
 
         <div class="tableWrap" style="margin-top: 12px;">
@@ -644,11 +645,6 @@ const faqJsonLd = {
         linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
     }
     .refHero__content{ padding: 22px; }
-    .microTrust{
-      margin: 10px 0 0;
-      color: rgba(255,255,255,.74);
-      font-size: 13px;
-    }
     .section b,
     .section strong,
     .section td strong,
