@@ -153,17 +153,8 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Referral Code Guide</div>
           <h1 class="h1">Star Citizen Referral Code</h1>
           <p class="lead">
-            Use referral code {referralCode} while you create your account to start with 50,000 UEC. The safest move is adding it during signup, although RSI’s current referral FAQ says brand-new accounts may still have a short 24-hour grace window after creation.
+            Use referral code {referralCode} while you create your account to start with 50,000 UEC, see exactly where it goes, and avoid the easy mistakes that make people miss the bonus.
           </p>
-
-          <div class="heroFacts" aria-label="Referral quick facts">
-            <span class="heroFacts__item"><span class="heroFacts__label">Code:</span> <button class="refOffer__code js-copyCode heroFacts__code" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button></span>
-            <span class="heroFacts__item"><span class="heroFacts__label">Bonus:</span> 50,000 UEC</span>
-            <span class="heroFacts__item"><span class="heroFacts__label">Best time:</span> during account creation</span>
-            <span class="heroFacts__item"><span class="heroFacts__label">Missed the field?</span> 24-hour grace period</span>
-            <span class="heroFacts__item"><span class="heroFacts__label">Latest reviewed:</span> {latestReviewedLabel}</span>
-          </div>
-          <p class="refHero__sourceNote">Official referral rules on this page are reviewed against RSI’s current Referral Program FAQ.</p>
 
           <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">
@@ -207,6 +198,7 @@ const faqJsonLd = {
         <p>
           Use the referral link or paste the code while you create the account. Finish signup, verify your email, and then move on. The new account gets 50,000 UEC once it becomes active. RSI’s current FAQ mentions a short 24-hour grace window after creation, but the clean version is still adding the code during signup.
         </p>
+        <p class="microTrust">Latest reviewed {latestReviewedLabel} against RSI’s current Referral Program FAQ.</p>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
@@ -652,40 +644,10 @@ const faqJsonLd = {
         linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
     }
     .refHero__content{ padding: 22px; }
-    .heroFacts{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:12px;
-    }
-    .heroFacts__item{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(9,12,20,.42);
-      color:rgba(255,255,255,.92);
-      font-size:13px;
-      line-height:1.35;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .heroFacts__label{
-      font-weight:700;
-      color:rgba(255,244,218,.96);
-    }
-    .heroFacts__code{
-      padding:4px 8px;
-      font-size:12px;
-      min-height:auto;
-    }
-    .refHero__sourceNote{
-      margin:10px 0 0;
-      color:rgba(255,255,255,.76);
-      font-size:13px;
-      max-width:72ch;
+    .microTrust{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
     }
     .section b,
     .section strong,
