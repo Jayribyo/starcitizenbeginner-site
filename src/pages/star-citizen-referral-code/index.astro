@@ -10,6 +10,7 @@ import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_LABEL } from "../../config
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
 const referralBonusLabel = REFERRAL_BONUS_LABEL;
+const latestReviewedLabel = "March 16, 2026";
 
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 const signupFieldImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
@@ -25,7 +26,7 @@ const faqItems = [
   },
   {
     q: "When should I enter the referral code?",
-    a: "During signup. That is the version you should plan around.",
+    a: "During account creation. RSI’s current referral FAQ also mentions a 24-hour grace window for brand-new accounts, but the safest version is still adding it during signup.",
   },
   {
     q: "Can I add a referral code after creating my account?",
@@ -123,8 +124,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Star Citizen Referral Code – Where to Enter It and Get the 50,000 UEC Bonus"
-  description={`Use referral code ${referralCode} while creating your account to start with 50,000 UEC, see where to enter it, and avoid the common signup mistakes new players make.`}
+  title="Star Citizen Referral Code (2026) – Where to Enter It and Get the 50,000 UEC Bonus"
+  description={`Use referral code ${referralCode} while creating your account to start with 50,000 UEC, see where to enter it, understand RSI’s current 24-hour grace window, and avoid the common signup mistakes new players make.`}
   canonicalPath="/star-citizen-referral-code/"
   stickyCtaLabel="Claim your start bonus"
   stickyCtaHref={referralLink}
@@ -152,8 +153,17 @@ const faqJsonLd = {
           <div class="kicker"><span class="dot"></span> Referral Code Guide</div>
           <h1 class="h1">Star Citizen Referral Code</h1>
           <p class="lead">
-            Use referral code {referralCode} while you create your account to start with 50,000 UEC, see exactly where it goes, and avoid the easy mistakes that make people miss the bonus.
+            Use referral code {referralCode} while you create your account to start with 50,000 UEC. The safest move is adding it during signup, although RSI’s current referral FAQ says brand-new accounts may still have a short 24-hour grace window after creation.
           </p>
+
+          <div class="heroFacts" aria-label="Referral quick facts">
+            <span class="heroFacts__item"><span class="heroFacts__label">Code:</span> <button class="refOffer__code js-copyCode heroFacts__code" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button></span>
+            <span class="heroFacts__item"><span class="heroFacts__label">Bonus:</span> 50,000 UEC</span>
+            <span class="heroFacts__item"><span class="heroFacts__label">Best time:</span> during account creation</span>
+            <span class="heroFacts__item"><span class="heroFacts__label">Missed the field?</span> 24-hour grace period</span>
+            <span class="heroFacts__item"><span class="heroFacts__label">Latest reviewed:</span> {latestReviewedLabel}</span>
+          </div>
+          <p class="refHero__sourceNote">Official referral rules on this page are reviewed against RSI’s current Referral Program FAQ.</p>
 
           <div class="btnrow" style="margin-top: 14px;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">
@@ -193,9 +203,9 @@ const faqJsonLd = {
     <section id="quick-answer" class="section">
       <div class="card pad">
         <div class="kicker"><span class="dot"></span> Quick answer</div>
-        <h2 class="section__title">Quick answer: add the code during signup, then move on</h2>
+        <h2 class="section__title">Quick answer: use the code during signup, with the 24-hour window as backup only</h2>
         <p>
-          Use the referral link or paste the code while you create the account. Finish signup, verify your email, and then move on. The new account gets 50,000 UEC once it becomes active, and the code does not change the price of anything you may buy later.
+          Use the referral link or paste the code while you create the account. Finish signup, verify your email, and then move on. The new account gets 50,000 UEC once it becomes active. RSI’s current FAQ mentions a short 24-hour grace window after creation, but the clean version is still adding the code during signup.
         </p>
 
         <div class="decisionGrid" style="margin-top:14px;">
@@ -261,7 +271,7 @@ const faqJsonLd = {
         <div class="kicker"><span class="dot"></span> Official rules</div>
         <h2 class="section__title">Official rules at a glance</h2>
         <p>
-          This is the short official version you actually need: what you get, when to use it, when the short backup window matters, and what the code does not do.
+          This is the short official version you actually need, based on RSI’s current Referral Program FAQ: what you get, when to use it, when the short backup window matters, and what the code does not do.
         </p>
 
         <div class="tableWrap" style="margin-top: 12px;">
@@ -642,6 +652,41 @@ const faqJsonLd = {
         linear-gradient(90deg, rgba(7,10,18,.74), rgba(7,10,18,.08));
     }
     .refHero__content{ padding: 22px; }
+    .heroFacts{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .heroFacts__item{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(9,12,20,.42);
+      color:rgba(255,255,255,.92);
+      font-size:13px;
+      line-height:1.35;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .heroFacts__label{
+      font-weight:700;
+      color:rgba(255,244,218,.96);
+    }
+    .heroFacts__code{
+      padding:4px 8px;
+      font-size:12px;
+      min-height:auto;
+    }
+    .refHero__sourceNote{
+      margin:10px 0 0;
+      color:rgba(255,255,255,.76);
+      font-size:13px;
+      max-width:72ch;
+    }
     .section b,
     .section strong,
     .section td strong,
