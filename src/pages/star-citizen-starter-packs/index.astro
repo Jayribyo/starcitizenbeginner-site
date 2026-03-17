@@ -17,7 +17,7 @@ const heroImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-pac
 const sectionImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-pack-comparison.webp";
 
 const tocItems = [
-  { label: "What a starter pack is", href: "#what-it-is" },
+  { label: "What starter packs are", href: "#what-it-is" },
   { label: "Quick answer", href: "#quick-answer" },
   { label: "Choose your first pack", href: "#choose" },
   { label: "Top picks", href: "#best" },
@@ -29,60 +29,54 @@ const tocItems = [
 
 const faqItems = [
   {
-    q: "What is a Star Citizen starter pack?",
-    a: "A starter pack (also called a game package) is the minimum purchase required to access the live game outside Free Fly. It includes game access and at least one ship so you can play immediately.",
+    q: "What is the best cheap starter pack?",
+    a: "If the Aurora MR is available, it is still the cheapest sensible benchmark. If it is not in the live package lineup, the Mustang Alpha becomes the budget entry — just with a little more day-one friction.",
   },
   {
-    q: "Can I play without buying a starter pack?",
-    a: "Only during official Free Fly events. Once Free Fly ends, you need a starter pack to keep playing.",
+    q: "Which starter pack is best for most new players?",
+    a: "The Avenger Titan is usually the best all-round recommendation if your budget can tolerate it. If you want a calmer, utility-first start, the Cutter is one of the safest current picks.",
   },
   {
-    q: "Do starter packs include Squadron 42?",
-    a: "Starter packs are for the online universe. Single-player content is sold separately when available.",
+    q: "Should I pick Mustang Alpha or Cutter first?",
+    a: "Pick the Mustang if flying feel and later upgrade logic matter more to you. Pick the Cutter if you want the easier day-one life, better utility feel, and less small friction.",
+  },
+  {
+    q: "Is the Avenger Titan really worth it for beginners?",
+    a: "Usually yes. It keeps getting recommended because it handles mixed early play better than the cheapest starters without forcing you into a specialist lane too early.",
+  },
+  {
+    q: "Do I need a starter pack to play Star Citizen?",
+    a: "Yes, outside Free Fly. A starter pack gives you live game access plus a ship so you can actually log in and play.",
   },
   {
     q: "Should I use a referral code before buying a starter pack?",
-    a: "Yes. Use a referral code during RSI account creation to claim the new-player bonus, then buy your starter pack normally.",
-  },
-  {
-    q: "Which starter pack is best for most beginners?",
-    a: "A balanced starter (the kind that can do delivery + light combat without drama) is usually the easiest first buy. If you’re unsure, start with the cheapest pack, then upgrade once you feel a real limitation.",
+    a: "Yes. Use a referral code during RSI account creation, then buy your starter pack normally so you do not miss the new-player bonus.",
   },
   {
     q: "Can I upgrade my starter ship later?",
-    a: "Yes. Most players start with a basic pack and upgrade later once they understand what they enjoy. You can change ships over time and keep your account.",
+    a: "Yes. That is why starting modestly works so well. You can buy a sensible first package, learn what you actually enjoy, and upgrade later by paying the difference.",
   },
   {
-    q: "Where is the official starter pack store page?",
-    a: "The official RSI store has a dedicated game package page where you can browse current starter packs and pricing.",
+    q: "Should I buy a specialised or expensive package first?",
+    a: "Usually no. Most beginners are better served by a cheap or balanced starter first. Bigger or more specialised packs make more sense after you can name a real limitation.",
   },
   {
-    q: "What’s the smartest first purchase strategy?",
-    a: "Spend the minimum to get into the game. One game package is enough to start, and you can change direction later after a few sessions.",
-  },
-  {
-    q: "Do I need a subscription to play?",
-    a: "No. A subscription is optional. To play outside Free Fly, you only need one game package on your account.",
-  },
-  {
-    q: "Do I need to buy extra ships to progress?",
-    a: "No. A starter pack is enough to start earning, trying mission loops, and upgrading later. Buying extra ships early is optional — and often slows learning.",
-  },
-  {
-    q: "Can I buy a starter pack after Free Fly?",
-    a: "Yes. Free Fly is just a free trial window. If you decide to keep playing, a starter pack activates your account for ongoing access.",
+    q: "Do starter packs include Squadron 42?",
+    a: "Not by default. Starter packs are for the online universe unless the package explicitly says Squadron 42 is included.",
   },
   {
     q: "What if I pick the wrong starter ship?",
-    a: "Don’t panic. Upgrades exist: you can usually upgrade by paying the price difference. That is why starting cheap works so well — it keeps your options open.",
+    a: "Do not panic. Your first package is not a permanent life choice. Upgrades exist, and you can usually move upward later once you understand your real loop.",
   },
-
-
-{
-  q: "How do I buy Star Citizen step-by-step (account → checkout)?",
-  a: "Use the dedicated walkthrough: <a href=\"/how-to-buy-star-citizen/\">How to buy Star Citizen →</a> (includes account name/handle tips, referral code placement, and the exact checkout steps).",
-},
-];
+  {
+    q: "Where is the official starter pack store page?",
+    a: "The official RSI store has a dedicated game packages page where you can browse the current starter lineup and availability.",
+  },
+  {
+    q: "How do I buy Star Citizen step-by-step (account → checkout)?",
+    a: 'Use the dedicated walkthrough: <a href="/how-to-buy-star-citizen/">How to buy Star Citizen →</a> (includes account name/handle tips, referral code placement, and the exact checkout steps).',
+  },
+ ];
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -127,8 +121,8 @@ const howToJsonLd = {
 ---
 
 <BaseLayout
-  title = "Best Star Citizen Starter Packs – Which Starter Ship to Buy First"
-  description = "Trying to choose your first Star Citizen starter pack? This guide keeps it simple: compare the beginner-friendly ships, avoid overpriced early picks, and buy the package that fits how you want to start."
+  title = "Best Star Citizen Starter Packs – Which First Package Should You Actually Buy?"
+  description = "Trying to choose your first Star Citizen starter pack? Compare the real beginner picks, see which ships are easiest to live with, and avoid overbuying your first package."
   canonicalPath="/star-citizen-starter-packs/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen starter pack guide hero image"
@@ -158,12 +152,12 @@ const howToJsonLd = {
       <div class="hero__content">
       <div class="packsHero__content">
         <div class="kicker">Starter Guides</div>
-        <h1>Best Star Citizen Starter Packs</h1>
+        <h1>Which Star Citizen starter pack should you buy first?</h1>
         <p class="lead packsHero__lead">
-          Pick your first starter pack with one simple rule: choose something that fits how you want to start, keep it modest, and only upgrade later if you still want more.
+          This page is for one decision only: which first game package gives you the cleanest start. We keep it practical, call out the real trade-offs, and help you avoid buying more ship than you actually need.
         </p>
         <div class="btnrow packsHero__buttons">
-          <a class="btn primary" href="#best" data-scb-role="starter-packs-top-picks">See top picks</a>
+          <a class="btn primary" href="#quick-answer" data-scb-role="starter-packs-top-picks">See the safest picks</a>
         </div>
       </div>
     </div>
@@ -185,26 +179,25 @@ const howToJsonLd = {
       <div class="card pad">
         <h2 class="section__title">What a starter pack actually is</h2>
         <p>
-          A starter pack (RSI calls it a <em>game package</em>) is the minimum purchase required to access the live game when Free Fly is not active.
-          It’s not just a ship — it’s <strong>game access + a starter ship</strong>, so you can log in and play immediately.
+          A starter pack is simply the version of the purchase that lets you <strong>play Star Citizen</strong>. It combines <strong>game access + a starter ship</strong>. That is why this page is really about <strong>your first package choice</strong>, not about shopping for dream ships.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
           <div class="card pad">
-            <h3 style="margin:0 0 8px;">What you get</h3>
+            <h3 style="margin:0 0 8px;">What matters</h3>
             <ul class="bullets">
-              <li><strong>Star Citizen game access</strong> (the online universe).</li>
-              <li><strong>A starter ship</strong> you can claim and fly right away.</li>
-              <li><strong>A clean baseline</strong> you can upgrade later once you know what you enjoy.</li>
+              <li><strong>Game access first.</strong> If the package does not include Star Citizen digital download, it is the wrong buy for a new player.</li>
+              <li><strong>A ship you can actually live with.</strong> Small utility, bed access, box handling, and low-friction travel matter more than fantasy on day one.</li>
+              <li><strong>A clean baseline.</strong> The smartest first package is usually the one you can judge honestly after a few calm sessions.</li>
             </ul>
           </div>
 
           <div class="card pad">
-            <h3 style="margin:0 0 8px;">What people assume (but shouldn’t)</h3>
+            <h3 style="margin:0 0 8px;">What beginners get wrong</h3>
             <ul class="bullets">
-              <li><strong>“More money = more fun.”</strong> Usually not in your first sessions.</li>
-              <li><strong>“I need a big ship.”</strong> You need one starter pack and a few good sessions first.</li>
-              <li><strong>“Squadron 42 comes with it.”</strong> Usually not — check the package listing.</li>
+              <li><strong>Buying too much ship.</strong> Bigger rarely means easier in your first week.</li>
+              <li><strong>Picking on aesthetics alone.</strong> Great looks do not fix awkward box handling or annoying day-one friction.</li>
+              <li><strong>Treating the first package like a permanent life choice.</strong> It is not. You can start modestly and adjust later.</li>
             </ul>
           </div>
         </div>
@@ -239,7 +232,7 @@ const howToJsonLd = {
         </div>
 
         <p class="muted" style="margin-top:12px;">
-          If you want the full “account creation → checkout” walk-through, use <a href="/how-to-buy-star-citizen/">How to buy Star Citizen →</a>
+          This page helps you choose the <strong>right first package</strong>. If you still need the full account creation and checkout flow, use <a href="/how-to-buy-star-citizen/">How to buy Star Citizen →</a>
         </p>
       </div>
     </section>
@@ -248,96 +241,82 @@ const howToJsonLd = {
     <section id="quick-answer" class="section">
       <div class="card pad">
         <h2 class="section__title">Quick answer</h2>
-        <ul class="bullets">
-          <li><strong>A starter pack = a game package.</strong> It includes <strong>Star Citizen access + a starter ship</strong>.</li>
-          <li><strong>One game package is enough to start.</strong> You do not need extra ships or a subscription.</li>
-          <li><strong>Squadron 42 is separate.</strong> It’s not included unless the package explicitly says it includes Squadron 42.</li>
-          <li><strong>If you’re unsure which ship:</strong> pick by your first loop (delivery / light combat / general), not by hype or “future potential.” <a href="#choose">Use the 60‑second picker below →</a></li>
-          <li><strong>If you just want the purchase steps (account → checkout):</strong> use <a href="/how-to-buy-star-citizen/">How to buy Star Citizen →</a></li>
-        </ul>
-        <div class="callout" style="margin-top:12px;">
-          <div class="kicker"><span class="dot"></span> Rule of thumb</div>
-          <p class="muted" style="margin:6px 0 0;">
-            Buy the <strong>minimum game package</strong> that lets you run one clean beginner loop. Upgrade later only after you’ve repeated that loop a few times.
-          </p>
-          <ul class="bullets" style="margin-top:10px;">
-            <li><strong>Optimize for learning speed, not ship fantasy.</strong></li>
-            <li><strong>One pack is enough</strong> to validate whether the game works for you.</li>
-            <li><strong>No subscription needed.</strong> Outside Free Fly, one game package is the thing that matters.</li>
-            <li><strong>Upgrades are easier than regrets.</strong> Starting cheap keeps your options open.</li>
-          </ul>
+        <p>
+          Most beginners do best when they choose a package that is either <strong>cheap and sensible</strong> or <strong>balanced enough to try more than one loop</strong>. The trap is buying for a future fantasy instead of for your first week.
+        </p>
+
+        <div class="tableWrap" style="margin-top:12px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>If this sounds like you</th>
+                <th>Best first move</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>I want the cheapest sensible way in</td>
+                <td>Aurora MR if available, otherwise Mustang Alpha</td>
+                <td>The Aurora is still the classic “cheap but practical” benchmark. If it drops out of the live package lineup, the Mustang becomes the budget entry — just with less everyday comfort.</td>
+              </tr>
+              <tr>
+                <td>I want the easiest all-round beginner experience</td>
+                <td>Avenger Titan</td>
+                <td>It is the most repeated beginner recommendation for a reason: cargo space, bed access, better combat confidence, and room to grow without feeling like overkill.</td>
+              </tr>
+              <tr>
+                <td>I care more about flying feel than convenience</td>
+                <td>Mustang Alpha</td>
+                <td>The Mustang feels cleaner and sportier to some players, and it also has a slightly better CCU stepping-stone feel later. The trade-off is that it is still less practical as a true “easy life” starter.</td>
+              </tr>
+              <tr>
+                <td>I want a forgiving utility starter, not a tiny cockpit</td>
+                <td>Cutter or C8X Pisces Expedition</td>
+                <td>These picks make more sense when you care about day-one usability, simple box work, and low-stress travel more than pure combat swagger.</td>
+              </tr>
+              <tr>
+                <td>I already know I want something specialised or expensive</td>
+                <td>Slow down and start smaller unless you can explain why</td>
+                <td>Most first-package regret comes from buying too much ship before the game has even proved itself. Specialisation makes more sense after you understand your real loop.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="card pad" style="margin-top:12px;">
-          <div class="kicker"><span class="dot"></span> After you buy</div>
-          <div class="grid2" style="margin-top:10px;">
-            <div>
-              <h3 style="margin:0 0 8px;">1) Check My Hangar</h3>
-              <p class="muted" style="margin:0;">Your game package should appear in <b>My Hangar</b>. That is the fastest way to confirm that you really own the game now.</p>
-            </div>
-            <div>
-              <h3 style="margin:0 0 8px;">2) Download the launcher</h3>
-              <p class="muted" style="margin:0;">Install the RSI Launcher, log in with the same account, and install the game on an SSD if you can.</p>
-            </div>
-            <div>
-              <h3 style="margin:18px 0 8px;">3) Expect a simple first login</h3>
-              <p class="muted" style="margin:0;">You will choose a home location, create your character, and retrieve your ship. That is normal — you have not missed a hidden setup step.</p>
-            </div>
-            <div>
-              <h3 style="margin:18px 0 8px;">4) Judge the pack after one calm session</h3>
-              <p class="muted" style="margin:0;">Give the ship one clean beginner loop before you decide whether it feels limiting. One rough spawn tells you almost nothing.</p>
-            </div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <div class="kicker"><span class="dot"></span> Canonical verdicts</div>
+            <ul class="bullets" style="margin-top:10px;">
+              <li><strong>Aurora MR:</strong> cheapest sensible start if available; still the benchmark for “basic but practical.”</li>
+              <li><strong>Mustang Alpha:</strong> better flyer than it is a practical starter; makes more sense if you value feel over comfort.</li>
+              <li><strong>Cutter:</strong> easy utility pick for relaxed beginners who want less friction and more day-one comfort.</li>
+              <li><strong>C8X Pisces Expedition:</strong> neat, versatile, and easy to like — but not automatically the best default over the Titan or Cutter.</li>
+              <li><strong>Avenger Titan:</strong> best all-round starter if budget tolerance is slightly higher and you want one package that can stay useful longer.</li>
+            </ul>
+          </div>
+          <div class="card pad">
+            <div class="kicker"><span class="dot"></span> The one rule that prevents regret</div>
+            <p class="muted" style="margin:10px 0 0;">
+              Buy the package that gives you one clean beginner loop right now. Do not buy for imagined cargo empires, future PvP dominance, or because one ship looks cooler in a thumbnail.
+            </p>
+            <p class="muted" style="margin:10px 0 0;">
+              If you still need the account creation and checkout steps, use <a href="/how-to-buy-star-citizen/">How to buy Star Citizen →</a>
+            </p>
           </div>
         </div>
 
         <div class="card pad" style="margin-top:12px;">
-          <div class="kicker"><span class="dot"></span> Starter ship cheat sheet</div>
-          <h3 style="margin:0 0 10px; font-size:clamp(1.5rem,2.7vw,2.2rem); line-height:1.1;">If you buy after Free Fly: pick by loop, not by hype</h3>
-          <p class="muted" style="margin:0 0 12px;">
-            These are the common “true starter” options people actually keep. Treat this as a fast comparison, not a permanent spec sheet.
-          </p>
-          <div class="tableWrap">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Ship</th>
-                  <th>Cargo</th>
-                  <th>Bed</th>
-                  <th>Why beginners like it</th>
-                  <th>Best for</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>Aurora MR</th>
-                  <td>~3 SCU</td>
-                  <td>Yes</td>
-                  <td>Cheap + functional. Small interior means fewer “where is my stuff?” moments.</td>
-                  <td>First delivery loops, learning travel</td>
-                </tr>
-                <tr>
-                  <th>Mustang Alpha</th>
-                  <td>~4 SCU</td>
-                  <td>No</td>
-                  <td>Great cockpit view + fun handling. Less “live in the ship” convenience.</td>
-                  <td>Flying practice, light combat</td>
-                </tr>
-                <tr>
-                  <th>Cutter</th>
-                  <td>~4 SCU</td>
-                  <td>Yes</td>
-                  <td>Beginner-friendly interior and vibe. Easy “I can do a bit of everything” starter.</td>
-                  <td>Delivery/utility, casual exploration</td>
-                </tr>
-                <tr>
-                  <th>Avenger Titan</th>
-                  <td>~8 SCU</td>
-                  <td>Yes</td>
-                  <td>The easiest “keep it” starter: cargo + interior + combat-capable without feeling flimsy.</td>
-                  <td>Best all-rounder (delivery + combat)</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="kicker"><span class="dot"></span> Buy after Free Fly, not before</div>
+          <div class="grid2" style="margin-top:10px;">
+            <div>
+              <h3 style="margin:0 0 8px;">What to do</h3>
+              <p class="muted" style="margin:0;">Buy the package that best matches the loop you actually enjoyed in Free Fly. That is the closest thing you have to real evidence.</p>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px;">What not to do</h3>
+              <p class="muted" style="margin:0;">Do not promote a ship to “my future main” because one session or one video made it look cool. Your first package is a tool for learning, not a forever identity.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -346,51 +325,51 @@ const howToJsonLd = {
     <!-- CHOOSE -->
     <section id="choose" class="section">
       <div class="card pad">
-        <h2 class="section__title">How to choose the right starter pack</h2>
+        <h2 class="section__title">Who each starter pack actually suits</h2>
         <p>
-          Your first pack should remove friction: you want a ship that can reliably complete simple missions, travel without pain, and handle basic mistakes.
-          Choose based on the <strong>first loop you’ll actually play</strong> — not on looks.
+          The right first package is not the one with the coolest silhouette. It is the one that makes your first week easier. For most new players, the real decision is between <strong>cheap entry</strong>, <strong>easy all-round use</strong>, and <strong>slightly more specialised comfort or combat feel</strong>.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
             <thead>
               <tr>
-                <th>Your goal</th>
-                <th>Best starter type</th>
-                <th>What to look for</th>
-                <th>Good beginner picks</th>
-                <th>Common pitfall</th>
+                <th>Starter ship</th>
+                <th>Who it suits</th>
+                <th>What it does better than expected</th>
+                <th>Where people get annoyed</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Just get in cheap</strong></td>
-                <td>Cheapest starter</td>
-                <td>Low cost, easy to fly, community guides everywhere</td>
-                <td>Aurora MR, Mustang Alpha</td>
-                <td>Expecting “smooth comfort” immediately</td>
+                <td>Aurora MR</td>
+                <td>The player who wants the cheapest sensible start and does not need the ship to feel exciting on day one.</td>
+                <td>Still one of the easiest ships to justify because it gives you basic practicality, a bed, and enough flexibility to learn without drama.</td>
+                <td>It is not the ship people buy because it feels cool. It is the ship people buy because it quietly does the starter job.</td>
               </tr>
               <tr>
-                <td><strong>Try everything</strong></td>
-                <td>Balanced starter</td>
-                <td>Comfortable travel + flexible missions + forgiving handling</td>
-                <td>Avenger Titan, Cutter</td>
-                <td>Buying a niche ship too early</td>
+                <td>Mustang Alpha</td>
+                <td>The beginner who cares more about flying feel and future upgrade flexibility than about maximum day-one comfort.</td>
+                <td>It feels cleaner to fly than many people expect, and its value as a later CCU stepping stone is part of why experienced players still mention it.</td>
+                <td>It is still not the “easy life” starter. Less everyday convenience means more small annoyances if you mainly want relaxed beginner utility.</td>
               </tr>
               <tr>
-                <td><strong>Combat first</strong></td>
-                <td>Fighter-leaning starter</td>
-                <td>Agility + confidence in early bounties</td>
-                <td>Mustang Alpha (lean), Avenger Titan (hybrid)</td>
-                <td>Buying “big ship” thinking it wins fights</td>
+                <td>Cutter</td>
+                <td>The relaxed beginner who wants a forgiving ship for delivery work, moving around, and low-friction early sessions.</td>
+                <td>It is comfortable, practical, and beginner-friendly in a way that does not show up on pure combat stats. That matters more than people think in week one.</td>
+                <td>It is not the pick for someone who mainly wants their first package to feel sharp, aggressive, or fighter-like.</td>
               </tr>
               <tr>
-                <td><strong>Small hauling / convenience</strong></td>
-                <td>Utility starter</td>
-                <td>Easy loading, space for boxes, low-stress missions</td>
-                <td>Cutter, Nomad</td>
-                <td>Going all-in on trading too early</td>
+                <td>C8X Pisces Expedition</td>
+                <td>The player who values tidy utility, light exploration feel, and an easy ship that is simple to like immediately.</td>
+                <td>It is versatile, easy to access, and pleasant to live with. It often makes a better first impression than a more awkward ship with “better future potential.”</td>
+                <td>It is easy to overrate just because it feels neat. For many players it is a very nice starter, not automatically the smartest default over a Titan or Cutter.</td>
+              </tr>
+              <tr>
+                <td>Avenger Titan</td>
+                <td>The beginner who wants one package that can handle mixed early play without feeling cheap or quickly outgrown.</td>
+                <td>It keeps getting recommended because the mix really is that good: stronger combat confidence, usable cargo, a bed, and more room to grow into early mission variety.</td>
+                <td>The only real catch is that it asks for more commitment up front. That does not make it bad value — it just means the cheapest options still make sense for cautious first buys.</td>
               </tr>
             </tbody>
           </table>
@@ -398,18 +377,18 @@ const howToJsonLd = {
 
         <div class="grid2" style="margin-top:12px;">
           <div class="card pad">
-            <h3 style="margin:0 0 8px;">Pick based on your first loop</h3>
+            <h3 style="margin:0 0 8px;">Use this decision rule</h3>
             <ul class="bullets">
-              <li><strong>Balanced</strong>: best if you want a smooth start and flexibility.</li>
-              <li><strong>Combat</strong>: best if you mainly want dogfights early.</li>
-              <li><strong>Utility</strong>: best if you like cargo, small hauls, and convenience.</li>
+              <li><strong>Buy Aurora</strong> if the main goal is the lowest-risk entry.</li>
+              <li><strong>Buy Mustang</strong> if you care more about feel and future upgrade logic than comfort.</li>
+              <li><strong>Buy Cutter or Pisces</strong> if you want a friendlier day-one ship and calmer utility play.</li>
+              <li><strong>Buy Titan</strong> if you already know you want the strongest all-round first package.</li>
             </ul>
           </div>
           <div class="card pad">
             <h3 style="margin:0 0 8px;">Rule of thumb</h3>
             <p style="margin:0;">
-              Don’t think about the endgame on day one. Think about <strong>your first 10–20 hours</strong>: learning controls, completing missions, and staying mobile.
-              You can always upgrade later.
+              Most beginners should not buy the package they admire most. They should buy the package that makes the first 10–20 hours easiest to judge honestly. That usually means one of the simple, mixed-use starters — and only then upgrading if a real limitation keeps showing up.
             </p>
           </div>
         </div>
@@ -417,7 +396,7 @@ const howToJsonLd = {
         <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
           <div>
             <strong>Buying rule that prevents regret</strong>
-            <div style="color: rgba(255,255,255,.74);">Start cheap. Upgrade only when a limitation is real and repeatable.</div>
+            <div style="color: rgba(255,255,255,.74);">Start with the package that solves your real first-week problem, not the ship that wins the coolest thumbnail contest.</div>
           </div>
           <a class="btn" href={officialPacksUrl} target="_blank" rel="noopener noreferrer" data-scb-role="official-packs-browse">See current packs on RSI</a>
         </div>
@@ -442,53 +421,104 @@ const howToJsonLd = {
     <!-- BEST -->
     <section id="best" class="section">
       <div class="card pad">
-        <h2 class="section__title">Best starter packs for beginners</h2>
+        <h2 class="section__title">The current starter packs that actually deserve your attention</h2>
         <p>
-          Starter packs rotate in the RSI store, but the best beginner picks stay fairly consistent: choose a ship that feels easy to live with in the first hours and can handle a few different mission types.
-          These are <strong>common starter ships</strong> that are frequently available as starter packs. If one isn’t available today, pick the closest equivalent.
+          The official store can show a longer package list than a true beginner really needs. In practice, only a small group of starter packs deserve default attention. The rest are better treated as <strong>specific-case buys</strong>, not as the normal answer for a new player.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
             <thead>
               <tr>
-                <th>Pick</th>
-                <th>Best for</th>
-                <th>Why beginners like it</th>
-                <th>Trade-off</th>
-                <th>Next step</th>
+                <th>Store pack</th>
+                <th>Starter ship</th>
+                <th>My verdict</th>
+                <th>Why that matters in week one</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Cheapest starter</strong><div style="color:rgba(255,255,255,.7)">Aurora MR / Mustang Alpha</div></td>
-                <td>Getting in fast + learning basics</td>
-                <td>Low spend, tons of guides, enough to start earning</td>
-                <td>More friction / less comfort</td>
-                <td><a class="link" href="#how-to-buy">Buy steps →</a></td>
+                <td>Citizen Starter Pack</td>
+                <td>Mustang Alpha</td>
+                <td>Valid budget pick — but not the easiest lifestyle starter.</td>
+                <td>Buy it when you like the Mustang’s cleaner flying feel or already suspect you may CCU later. Skip it if you mainly want easy box work and low-fuss beginner comfort.</td>
               </tr>
               <tr>
-                <td><strong>Balanced default</strong><div style="color:rgba(255,255,255,.7)">Avenger Titan</div></td>
-                <td>Trying multiple loops</td>
-                <td>Flexible missions, forgiving, “feels good” early</td>
-                <td>Costs more than cheapest</td>
-                <td><a class="link" href="#ship-upgrades">Upgrade path →</a></td>
+                <td>Generalist Starter Pack</td>
+                <td>Cutter</td>
+                <td>One of the safest current recommendations.</td>
+                <td>It solves the “I just want a calm first week” problem better than flashier starters. That makes it easy to recommend to cautious beginners.</td>
               </tr>
               <tr>
-                <td><strong>Utility comfort</strong><div style="color:rgba(255,255,255,.7)">Cutter / Nomad</div></td>
-                <td>Delivery + low-stress play</td>
-                <td>Convenient boxes, relaxed pace, forgiving</td>
-                <td>Not a pure fighter</td>
-                <td><a class="link" href="/make-money-fast/#do-this-now">First money loop →</a></td>
+                <td>Seeker Starter Pack</td>
+                <td>C8X Pisces Expedition</td>
+                <td>Good light utility choice — slightly more niche than it first looks.</td>
+                <td>It is tidy, practical, and easy to like, but not automatically a stronger default than the Cutter or Titan for every new player.</td>
+              </tr>
+              <tr>
+                <td>Duelist Starter Pack</td>
+                <td>Avenger Titan</td>
+                <td>Best all-round first package if your budget can tolerate it.</td>
+                <td>It stays useful longer because it handles mixed early loops without forcing you into a specialist lane too early.</td>
+              </tr>
+              <tr>
+                <td>Hauler Starter Pack</td>
+                <td>Intrepid</td>
+                <td>Interesting comfort/space pick — not a default must-buy.</td>
+                <td>It can make sense when you specifically want a roomier solo hauler-style start, but most true beginners do not need to jump here first.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">The expensive packages most beginners should not default to</h3>
+            <div class="tableWrap" style="margin-top:10px;">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Pack</th>
+                    <th>Why to be careful</th>
+                    <th>Only makes sense if…</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Outsider Starter Pack</td>
+                    <td>Cool factor can do too much of the selling before a beginner has proved their actual playstyle.</td>
+                    <td>You already know you want that exact ship feel and accept that it is not the calmest default recommendation.</td>
+                  </tr>
+                  <tr>
+                    <td>Advanced Duelist Starter Pack</td>
+                    <td>More fighter energy does not automatically equal a better first week.</td>
+                    <td>You are explicitly buying for combat confidence and know you are choosing a narrower lane on purpose.</td>
+                  </tr>
+                  <tr>
+                    <td>Advanced Hauler / Privateer packs</td>
+                    <td>These are where “more ship” starts to become an easy beginner overbuy trap.</td>
+                    <td>You can explain exactly why the extra ship size solves a real near-term problem for you.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What I would tell most new players</h3>
+            <ul class="bullets">
+              <li>If budget stress matters, start cheap and prove the game first.</li>
+              <li>If you want one recommendation that rarely ages badly, pick the Titan.</li>
+              <li>If convenience matters more than fighter energy, the Cutter usually makes more sense than a “cooler” pick.</li>
+              <li>If the Mustang appeals to you, buy it for its feel and later upgrade logic — not because you think it is the easiest starter overall.</li>
+              <li>If a package feels exciting mainly because it is bigger, that is usually a warning sign, not a green light.</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
           <div>
-            <strong>Start bonus (optional)</strong>
-            <div style="color: rgba(255,255,255,.74);">If you’re creating a new account, claim the signup bonus first.</div>
+            <strong>Start bonus before checkout</strong>
+            <div style="color: rgba(255,255,255,.74);">If you’re creating a new account, claim the signup bonus first — then choose the package calmly.</div>
           </div>
           <div class="btnrow" style="margin:0;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Use referral code at signup</a>
@@ -501,7 +531,7 @@ const howToJsonLd = {
     <!-- HOW TO BUY -->
     <section id="how-to-buy" class="section">
       <div class="card pad">
-        <h2 class="section__title">How to buy the right starter pack (without overbuying)</h2>
+        <h2 class="section__title">How to buy the right pack without turning it into a project</h2>
 
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table table--steps">
@@ -593,35 +623,33 @@ const howToJsonLd = {
     <!-- UPGRADE -->
     <section id="ship-upgrades" class="section">
       <div class="card pad">
-        <h2 class="section__title">Ship upgrades (CCU) — how it works</h2>
+        <h2 class="section__title">Should you think about upgrades yet?</h2>
         <p>
-          You can <strong>upgrade your starter ship</strong> later instead of replacing your whole purchase. These are often called <strong>ship upgrades</strong> or
-          <strong>CCUs</strong>: you select a “from” ship and a “to” ship, then pay the <strong>difference</strong>. Your game access stays valid — only the ship changes.
+          Usually only a little. Upgrades (often called <strong>CCUs</strong>) let you change your ship later by paying the difference, so your first package does not have to be perfect forever.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
           <div class="card pad">
-            <h3 style="margin:0 0 8px;">What upgrades do</h3>
+            <h3 style="margin:0 0 8px;">What matters</h3>
             <ul class="bullets">
-              <li>Replace your current ship with a higher-tier one.</li>
-              <li>Let you evolve your pack as your interests change.</li>
-              <li>Reduce buyer’s regret: start cheap, then step up intentionally.</li>
+              <li>You can start smaller now and move up later.</li>
+              <li>Your game access stays intact when you upgrade the ship.</li>
+              <li>This is why the first pack should solve a real week-one need, not every future dream.</li>
             </ul>
           </div>
           <div class="card pad">
-            <h3 style="margin:0 0 8px;">Beginner strategy</h3>
+            <h3 style="margin:0 0 8px;">Beginner rule</h3>
             <ul class="bullets">
-              <li>Start with a simple baseline starter pack.</li>
-              <li>Play enough to learn what you actually enjoy.</li>
-              <li>Upgrade only when you feel a real limitation.</li>
-              <li>Prefer versatile ships before niche specialists.</li>
+              <li>Do not buy a more expensive ship just because upgrades exist.</li>
+              <li>Use upgrades after repeated friction, not before first launch.</li>
+              <li>The smartest first purchase is often the one that leaves your options open.</li>
             </ul>
           </div>
         </div>
 
         <div class="callout" style="margin-top:12px;">
           <h3>Why this matters</h3>
-          <p>Knowing upgrades exist removes purchase anxiety: you can start sensible now, then grow later without “wasting” your first choice.</p>
+          <p>Upgrades are the safety net, not the reason to overspend. Their real value is that they let you start cleanly now and make the second decision later with better information.</p>
         </div>
       </div>
     </section>
@@ -629,39 +657,67 @@ const howToJsonLd = {
     <!-- MISTAKES -->
     <section id="mistakes" class="section">
       <div class="card pad">
-        <h2 class="section__title">Common mistakes (and fixes)</h2>
+        <h2 class="section__title">Common beginner buying mistakes (this is where money gets wasted)</h2>
+        <p>
+          Most bad starter-pack decisions come from buying the ship you imagine future-you will love, not the package that makes day one easy. These are the mistakes that create regret fastest.
+        </p>
         <div class="tableWrap" style="margin-top:12px;">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
-                <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>What usually goes wrong</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Buying too big too early</strong></td>
-                <td>Learning slows down; you spend time managing instead of playing.</td>
-                <td>Start with a cheap or balanced starter; upgrade after you feel a real limitation.</td>
+                <td>Buying too big too early</td>
+                <td>You spend the first week managing ship bulk, setup friction, or expectations instead of simply learning the game.</td>
+                <td>Start with a cheap or balanced starter. Upgrade only after a real limitation keeps showing up.</td>
               </tr>
               <tr>
-                <td><strong>Choosing on looks only</strong></td>
-                <td>Your first missions feel painful (storage, travel, handling).</td>
-                <td>Pick based on your first loop: delivery, combat, or utility — then adjust later.</td>
+                <td>Choosing on looks alone</td>
+                <td>Your first missions feel more awkward than the ship trailer suggested: storage, access, handling, and travel comfort all matter.</td>
+                <td>Choose based on your first loop. Looks are a bonus, not the decision framework.</td>
               </tr>
               <tr>
-                <td><strong>Skipping the signup bonus</strong></td>
-                <td>You miss easy starting credits if you create an account without a code.</td>
-                <td>Apply the referral code during account creation (bonus is optional but free).</td>
+                <td>Treating “better in combat” as “better for beginners”</td>
+                <td>You buy a more combat-leaning package and then realise you mostly need a forgiving ship for getting around, moving boxes, and learning systems.</td>
+                <td>Separate “cool in a fight” from “easy to live with.” They are not the same thing.</td>
               </tr>
               <tr>
-                <td><strong>Over-optimizing the first purchase</strong></td>
-                <td>You spend more money before you even know your playstyle.</td>
-                <td>Spend the minimum to validate fun; treat upgrades as a second step.</td>
+                <td>Buying for an imagined long-term role</td>
+                <td>You commit to cargo, mining, or some future specialist fantasy before you even know whether you enjoy the basics.</td>
+                <td>Buy for your next 10–20 hours, not for the version of you that might exist three months later.</td>
+              </tr>
+              <tr>
+                <td>Skipping the signup bonus</td>
+                <td>You miss free starting credits simply because the code was not used before checkout.</td>
+                <td>Apply the referral code during account creation, then choose your package calmly.</td>
+              </tr>
+              <tr>
+                <td>Over-optimising the first purchase</td>
+                <td>You turn the first buy into a mini-finance project before the game has even proved itself.</td>
+                <td>Keep the first purchase simple. Your second decision will be smarter once you have real playtime.</td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">The rule that saves beginners the most money</h3>
+            <p style="margin:0;">
+              If two packages both let you start cleanly, buy the smaller one first. The bigger package only becomes the better buy once you can name the limitation the smaller one failed to solve.
+            </p>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">When spending more really is justified</h3>
+            <p style="margin:0;">
+              Paying more can make sense when it removes a frustration you already understand: weak mixed-use flexibility, too little comfort for the loop you actually run, or a starter that you already know you will outgrow immediately.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -673,11 +729,10 @@ const howToJsonLd = {
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-            <li><a href="/star-citizen-starter-packs/">Pick a starter pack</a></li>
-            <li><a href="/should-you-buy-star-citizen/">Take the 2-minute buy test</a></li>
-            <li><a href="/star-citizen-referral-code/">Referral code: where to paste it</a></li>
-            <li><a href="/free-fly/">Try without buying</a></li>
-            <li><a href="/make-money-fast/">Earn credits fast</a></li>
+            <li><a href="/how-to-buy-star-citizen/">Need the account + checkout flow? Use How to buy Star Citizen</a></li>
+            <li><a href="/star-citizen-referral-code/">Creating a new account? Use the referral code before checkout</a></li>
+            <li><a href="/should-you-buy-star-citizen/">Still unsure it is worth buying? Take the buy test first</a></li>
+            <li><a href="/free-fly/">Not ready to spend yet? Wait for Free Fly</a></li>
         </ul>
       </div>
     </section>
@@ -686,17 +741,18 @@ const howToJsonLd = {
       <div class="container">
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
-            <li><a href="/satellites/what-starter-ship-should-i-choose/">Starter ship choice (simple pick)</a></li>
-            <li><a href="/satellites/first-session-checklist/">First session checklist (easy first hour)</a></li>
-            <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code (signup step)</a></li>
-            <li><a href="/satellites/does-referral-code-change-price/">Referral code: does it change the price? (no)</a></li>
-</ul>
+            <li><a href="/satellites/what-starter-ship-should-i-choose/">Starter ship choice: simple pick</a></li>
+            <li><a href="/satellites/first-session-checklist/">First session checklist: easy first hour</a></li>
+            <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code</a></li>
+            <li><a href="/satellites/does-referral-code-change-price/">Does a referral code change the price?</a></li>
+        </ul>
       </div>
     </section>
 
 <section id="faq" class="section">
       <div class="card pad">
         <h2 class="section__title">FAQ</h2>
+        <p>These are the last buying questions that still trip people up right before checkout.</p>
 
         <div class="faq" style="margin-top:12px;">
           {faqItems.map((item) => (
@@ -710,7 +766,7 @@ const howToJsonLd = {
         <div class="card pad" style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
           <div>
             <strong>Ready to start?</strong>
-            <div style="color: rgba(255,255,255,.74);">If you’re creating a new account, claim the signup bonus first — then buy your pack.</div>
+            <div style="color: rgba(255,255,255,.74);">If you’re ready to buy, claim the signup bonus during account creation first — then choose your pack calmly.</div>
           </div>
           <div class="btnrow" style="margin:0;">
             <a class="btn primary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus</a>
