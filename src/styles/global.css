@@ -1336,7 +1336,8 @@ details[open].faq__item > .faq__q::after{
 
 .table tbody th{
   background: rgba(255,255,255,.03);
-  font-weight: 900;
+  font-weight: 760;
+  color: rgba(236,241,248,.9);
   overflow-wrap: normal;
   word-break: normal;
 }
