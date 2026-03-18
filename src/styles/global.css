@@ -41,8 +41,8 @@ body {
      Hero can be wider than content, but both should stop stretching. */
   --scb-max-hero: 1560px;
   --scb-max-content: 1180px;
-  --scb-heading-tier-2: rgba(236, 241, 248, 0.96);
-  --scb-heading-tier-2-soft: rgba(236, 241, 248, 0.9);
+  --scb-heading-tier-2: rgba(226, 234, 245, 0.96);
+  --scb-heading-tier-2-soft: rgba(220, 229, 241, 0.92);
 }
 
 /* Fixed background layer to prevent "seams" / color breaks while scrolling */
@@ -109,7 +109,7 @@ li {
 
 .section.alt .container > .h2,
 .section.alt .container > .section__title {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .section.alt .container > .miniLead,
@@ -339,7 +339,7 @@ li {
 .h2 {
   font-size: clamp(22px, 2.3vw, 28px);
   line-height: 1.12;
-  margin: 0 0 12px;
+  margin: 2px 0 14px;
   font-weight: 900;
   letter-spacing: -0.015em;
   color: var(--scb-heading-tier-2);
@@ -362,7 +362,7 @@ li {
 
 .section__title {
   font-size: 20px;
-  margin: 12px 0 12px;
+  margin: 18px 0 14px;
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--scb-heading-tier-2-soft);
@@ -372,6 +372,15 @@ li {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.74);
   margin: 0;
+}
+
+.pad > .section__title:first-child,
+.card > .pad > .section__title:first-child,
+.container > .section__title:first-child,
+.pad > .h2:first-child,
+.card > .pad > .h2:first-child,
+.container > .h2:first-child {
+  margin-top: 4px;
 }
 
 .btnrow {
