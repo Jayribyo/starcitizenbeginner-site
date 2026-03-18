@@ -112,10 +112,10 @@ const tiles = [
         variant="hero"
         title="On this page"
         items={[
-          { label: "Pick your path", href: "#situation" },
+          { label: "Start here", href: "#situation" },
           { label: "Mistakes", href: "#mistakes" },
           { label: "First hour", href: "#first-hour" },
-          { label: "Go deeper", href: "#guides" },
+          { label: "Specific help", href: "#specific-help" },
           { label: "FAQ", href: "#faq" },
         ]}
       />
@@ -124,48 +124,43 @@ const tiles = [
     <!-- ===================== PICK YOUR SITUATION ===================== -->
     <section id="situation" class="section">
       <div class="card pad">
-        <h2 class="section__title">Start with the box that matches your situation</h2>
-        <p style="max-width:880px;">Choose the box that sounds most like you right now. Solve that one problem first, then let the rest wait until the start feels easier.</p>
+        <h2 class="section__title">Choose your safest starting path</h2>
+        <p style="max-width:860px;">Start with the main page that matches your situation best. Pick one path, ignore the rest for now, and let the start feel easier before you stack more decisions on top.</p>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <a class="decisionCard" href="/free-fly/" style="text-decoration:none; color:inherit; display:block;">
             <div class="decisionCard__kicker">Try first</div>
-            <div class="decisionCard__title">I want to try the game before I buy</div>
-            <p class="decisionCard__body">Use Free Fly to test the game before you spend money.</p>
+            <div class="decisionCard__title">Try the game before you buy</div>
+            <p class="decisionCard__body">Use Free Fly to test the game without spending money yet.</p>
           </a>
           <a class="decisionCard" href="/should-you-buy-star-citizen/" style="text-decoration:none; color:inherit; display:block;">
             <div class="decisionCard__kicker">Decide first</div>
-            <div class="decisionCard__title">I am not sure the game is worth the money</div>
-            <p class="decisionCard__body">Use one calm yes-or-no check before you think about packs or spending more money.</p>
+            <div class="decisionCard__title">Decide if Star Citizen is worth it for you</div>
+            <p class="decisionCard__body">Use one calm reality check before you think about packs, upgrades, or hype.</p>
           </a>
           <a class="decisionCard" href="/star-citizen-starter-packs/" style="text-decoration:none; color:inherit; display:block;">
             <div class="decisionCard__kicker">Buy smart</div>
-            <div class="decisionCard__title">I am ready to buy and want one sensible starter pack</div>
-            <p class="decisionCard__body">Choose one sensible starter pack and leave bigger ships and upgrades for later.</p>
+            <div class="decisionCard__title">Choose one sensible starter pack</div>
+            <p class="decisionCard__body">Start with one practical package and leave bigger ships for later.</p>
           </a>
           <a class="decisionCard" href="/star-citizen-performance-guide/" style="text-decoration:none; color:inherit; display:block;">
             <div class="decisionCard__kicker">Fix the game</div>
-            <div class="decisionCard__title">The game runs badly and I do not know why</div>
-            <p class="decisionCard__body">Start with the clean baseline and the small fixes that remove fake difficulty.</p>
+            <div class="decisionCard__title">Fix stutter, crashes, and bad first impressions</div>
+            <p class="decisionCard__body">Build a clean baseline before you judge how the game really feels.</p>
           </a>
-          <a class="decisionCard" href="#first-hour" style="text-decoration:none; color:inherit; display:block;">
+          <a class="decisionCard" href="/beginner-tips/" style="text-decoration:none; color:inherit; display:block;">
             <div class="decisionCard__kicker">Start simple</div>
-            <div class="decisionCard__title">I already bought and now I feel lost</div>
-            <p class="decisionCard__body">Use one calm first-session plan and ignore the rest for now.</p>
+            <div class="decisionCard__title">Start your first sessions safely</div>
+            <p class="decisionCard__body">Use one calm beginner routine instead of trying to learn everything today.</p>
           </a>
           <a class="decisionCard" href="/make-money-fast/" style="text-decoration:none; color:inherit; display:block;">
             <div class="decisionCard__kicker">Earn later</div>
-            <div class="decisionCard__title">I want an easy beginner money path later</div>
-            <p class="decisionCard__body">Start simple, then use one forgiving loop after the basics feel stable.</p>
+            <div class="decisionCard__title">Build easy beginner credits later</div>
+            <p class="decisionCard__body">Use a simple early loop after your basics feel stable.</p>
           </a>
         </div>
 
-        <div class="card" style="margin-top:14px;">
-          <div class="pad">
-            <div class="kicker"><span class="dot"></span> Quick truth</div>
-            <p style="margin:0;">Most bad starts come from trying to solve five problems at once. One safe next step is enough for now.</p>
-          </div>
-        </div>
+        <p class="muted" style="margin:14px 0 0; max-width:860px;">One clear path beats six half-started plans. Pick the problem that is blocking you most and let the rest wait.</p>
       </div>
     </section>
 
@@ -189,27 +184,22 @@ const tiles = [
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
             <div class="decisionCard__title">Trying to learn everything at once</div>
-            <p class="decisionCard__body">Too many goals create random choices, wasted time, and slow progress.</p>
+            <p class="decisionCard__body">Too many goals create random choices, wasted time, and a start that never feels settled.</p>
             <p class="muted" style="margin:10px 0 0;">Fix: run one safe loop only, then repeat it. <a href="/beginner-tips/">Beginner tips →</a></p>
           </div>
           <div class="decisionCard">
             <div class="decisionCard__title">Judging the game from one rough session</div>
-            <p class="decisionCard__body">A bad frame-time, crowded server, or awkward start can make the whole game feel worse than it really is.</p>
-            <p class="muted" style="margin:10px 0 0;">Fix: check the <a href="/star-citizen-performance-guide/">performance guide →</a> before you decide how the game actually feels.</p>
+            <p class="decisionCard__body">A bad frame-time, crowded server, or awkward spawn can make the whole game feel worse than it really is.</p>
+            <p class="muted" style="margin:10px 0 0;">Fix: check the <a href="/star-citizen-performance-guide/">performance guide →</a> before you decide what the game actually feels like.</p>
           </div>
           <div class="decisionCard">
             <div class="decisionCard__title">Buying extra ships too early</div>
-            <p class="decisionCard__body">Extra ships rarely solve the real early-game problem. They usually just lock money in before you know your playstyle.</p>
+            <p class="decisionCard__body">Extra ships rarely fix the real early-game problem. They usually just lock money in before you know your playstyle.</p>
             <p class="muted" style="margin:10px 0 0;">Fix: start with one pack and leave upgrades for later. <a href="/star-citizen-starter-packs/">Starter packs →</a></p>
           </div>
         </div>
 
-        <div class="card" style="margin-top:14px;">
-          <div class="pad">
-            <div class="kicker"><span class="dot"></span> One easy thing to avoid losing</div>
-            <p style="margin:0;">If you want the signup bonus, enter the referral code during account creation. Missing that field is one of the easiest avoidable losses for brand-new accounts. <a href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + claim bonus →</a></p>
-          </div>
-        </div>
+        <p class="muted" style="margin:14px 0 0; max-width:900px;">One easy thing not to miss: if you want the signup bonus, enter the referral code during account creation. <a href={referralLink} target="_blank" rel="nofollow noopener noreferrer">Create account + claim bonus →</a></p>
       </div>
     </section>
 
@@ -237,7 +227,7 @@ const tiles = [
           </div>
         </div>
 
-        <p class="muted" style="margin:14px 0 0; max-width:900px;">Keep your gear cheap, your route obvious, and your expectations small. If the game still feels rough after one clean loop, fix performance first and then run the same simple session again.</p>
+        <p class="muted" style="margin:14px 0 0; max-width:900px;">Keep your gear cheap, your route obvious, and your expectations small. If the game still feels rough after one clean loop, fix performance first and then try the same simple session again.</p>
 
         <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
           <a class="btn primary" href="/beginner-tips/">Open beginner tips</a>
@@ -246,47 +236,35 @@ const tiles = [
       </div>
     </section>
 
-    <!-- ===================== GUIDES ===================== -->
-    <section id="guides" class="section">
+    <!-- ===================== SPECIFIC HELP ===================== -->
+    <section id="specific-help" class="section">
       <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Next step guides</div>
-        <h2 class="section__title">Open the guide that solves your next problem</h2>
-        <p class="lead">You do not need all of these today. Open one only when a specific problem is actually blocking you right now.</p>
-      </div>
+        <div class="kicker"><span class="dot"></span> Specific help</div>
+        <h2 class="section__title">If one specific problem is still blocking you</h2>
+        <p class="lead">You already chose your main path above. Use one of these only if a smaller problem is still getting in the way.</p>
 
-      <div class="tiles">
-        {tiles.map((t) => (
-          <a class="tile" href={t.href}>
-            <img
-  class="tile__img"
-  src={t.img}
-  alt={t.title}
-  loading="lazy"
-  decoding="async"
-  width="1024"
-  height="1024"
-/>
-            <div class="tile__meta">
-              <span class="tile__pill">{t.pill}</span>
-              <h3 class="tile__title">{t.title}</h3>
-              <p class="tile__desc">{t.desc}</p>
-            </div>
+        <div class="decisionGrid" style="margin-top:14px;">
+          <a class="decisionCard" href="/satellites/first-session/" style="text-decoration:none; color:inherit; display:block;">
+            <div class="decisionCard__kicker">Session help</div>
+            <div class="decisionCard__title">Use a simple first-session checklist</div>
+            <p class="decisionCard__body">Follow one calm hour without guessing what to do next.</p>
           </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- ===================== FAQ ===================== -->
-    
-    <section id="related-answers" class="section alt">
-      <div class="container">
-        <h2 class="h2">Useful follow-ups</h2>
-        <p class="muted" style="margin:0 0 12px; max-width: 860px;">Open one of these only if your main path still leaves one specific problem unsolved.</p>
-        <ul class="bullets">
-            <li><a href="/satellites/first-session/">First session checklist (easy first hour)</a></li>
-            <li><a href="/satellites/fix-stuttering/">Fix stuttering (SSD/RAM checklist)</a></li>
-            <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the referral code</a></li>
-                    </ul>
+          <a class="decisionCard" href="/satellites/fix-stuttering/" style="text-decoration:none; color:inherit; display:block;">
+            <div class="decisionCard__kicker">Performance fix</div>
+            <div class="decisionCard__title">Fix stuttering before you judge the game</div>
+            <p class="decisionCard__body">Use the SSD, RAM, and baseline checklist that solves the most common beginner stutter problems.</p>
+          </a>
+          <a class="decisionCard" href="/satellites/where-to-enter-referral-code/" style="text-decoration:none; color:inherit; display:block;">
+            <div class="decisionCard__kicker">Signup help</div>
+            <div class="decisionCard__title">See exactly where to enter the referral code</div>
+            <p class="decisionCard__body">Use the field correctly during account creation and avoid missing the signup bonus by mistake.</p>
+          </a>
+          <a class="decisionCard" href="/referral-bonus-checklist/" style="text-decoration:none; color:inherit; display:block;">
+            <div class="decisionCard__kicker">Bonus checklist</div>
+            <div class="decisionCard__title">Double-check the referral bonus steps</div>
+            <p class="decisionCard__body">Use a short checklist if you want to verify the bonus path before you create your account.</p>
+          </a>
+        </div>
       </div>
     </section>
 
