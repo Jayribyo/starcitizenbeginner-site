@@ -329,6 +329,30 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
+          <div class="card__title">One thing to do before you start</div>
+          <p style="margin:0;">If you are creating a new account anyway, enter the referral code during signup so the bonus is already in place if you later decide to buy.</p>
+          <div class="btnrow" style="margin-top:12px;">
+            <a class="btn secondary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus</a>
+            <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
+          </div>
+        </div>
+
+        <div class="grid3" style="margin-top:12px; gap:14px;">
+          <div class="card pad">
+            <div class="card__title">A clean first session</div>
+            <p class="muted" style="margin:0;">Choose one simple loop, not five random activities.</p>
+          </div>
+          <div class="card pad">
+            <div class="card__title">A useful second try</div>
+            <p class="muted" style="margin:0;">If the first login was chaos, repeat the same simple session once more before you judge the game.</p>
+          </div>
+          <div class="card pad">
+            <div class="card__title">A fair test</div>
+            <p class="muted" style="margin:0;">Free Fly tells you more about the game once setup friction is out of the way.</p>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:12px;">
           <div class="kicker"><span class="dot"></span> If you buy after Free Fly</div>
           <p class="muted" style="margin:6px 0 0;">
             Keep the same RSI account. You only need <b>one game package</b> to keep playing after the event. Once you buy it, check <b>My Hangar</b>, download the launcher if needed, and log in the same way you already used during Free Fly.
@@ -351,42 +375,6 @@ const faqJsonLd = {
             <div class="decisionCard__title">Repeat one simple session</div>
             <p class="decisionCard__body">A second run of the same simple session usually tells you more than three random first attempts.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-to-join" class="section">
-      <div class="card pad">
-        <h2 class="section__title">How to join Free Fly and get to the good part faster</h2>
-        <p>
-          Free Fly feels much better when you separate account setup, download, and gameplay. It keeps the first session much easier to read.
-        </p>
-
-        <div class="decisionGrid" style="margin-top:14px;">
-          <div class="decisionCard">
-            <div class="decisionCard__kicker">1 · Account</div>
-            <div class="decisionCard__title">Create the RSI account</div>
-            <p class="decisionCard__body">Create the account, verify the email, and log in once before you try to do anything else.</p>
-          </div>
-          <div class="decisionCard">
-            <div class="decisionCard__kicker">2 · Download</div>
-            <div class="decisionCard__title">Install early on an SSD</div>
-            <p class="decisionCard__body">Free Fly traffic spikes hard. Starting the launcher and download before your planned play window saves frustration.</p>
-          </div>
-          <div class="decisionCard">
-            <div class="decisionCard__kicker">3 · First test</div>
-            <div class="decisionCard__title">Run one simple mission loop</div>
-            <p class="decisionCard__body">Do not try to sample everything in the first hour. Pick one loop and see whether that part of the game feels good.</p>
-          </div>
-        </div>
-
-        <div style="margin-top:14px;">
-          <ReferralCTA
-            title="Use the code before you enter Free Fly"
-            blurb={`If you plan to test the game on a fresh account, use referral code ${referralCode} during signup. It does not change the price. It simply adds the signup bonus to a new account.`}
-            ctaPrimary="Create account + use the code"
-            ctaSecondary="Where to paste the code"
-          />
         </div>
       </div>
     </section>
@@ -507,7 +495,7 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
-          Compare ships by how quickly they get you back into a loop, not by raw damage or max cargo.
+          Compare ships by how quickly they get you back into a loop.
         </div>
       </div>
     </section>
