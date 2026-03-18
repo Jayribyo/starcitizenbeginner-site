@@ -1508,17 +1508,14 @@ details[open].faq__item > .faq__q::after{
 
 .footer__inner {
   display: grid;
-  gap: 8px;
-}
-
-.footer__brand {
-  font-weight: 900;
+  gap: 4px;
 }
 
 .footer__legal {
   font-size: 12px;
   line-height: 1.55;
-  opacity: 0.85;
+  opacity: 0.72;
+  color: var(--scb-text-muted);
 }
 
 /* ========== Back to top (global) ========== */
