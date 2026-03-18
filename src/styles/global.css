@@ -43,8 +43,8 @@ body {
   --scb-max-content: 1180px;
   --scb-heading-tier-2: rgba(226, 234, 245, 0.96);
   --scb-heading-tier-2-soft: rgba(220, 229, 241, 0.92);
-  --scb-heading-tier-3: rgba(214, 223, 236, 0.90);
-  --scb-card-title: rgba(205, 214, 228, 0.86);
+  --scb-heading-tier-3: rgba(208, 218, 232, 0.84);
+  --scb-card-title: rgba(198, 208, 223, 0.80);
 }
 
 /* Fixed background layer to prevent "seams" / color breaks while scrolling */
@@ -348,20 +348,20 @@ li {
 }
 
 .h3 {
-  font-size: clamp(15px, 1.25vw, 17px);
+  font-size: clamp(14px, 1.18vw, 16px);
   line-height: 1.24;
   margin: 0 0 8px;
-  font-weight: 850;
-  letter-spacing: -0.008em;
+  font-weight: 800;
+  letter-spacing: -0.006em;
   color: var(--scb-heading-tier-3);
 }
 
 .card__title {
-  font-size: clamp(14px, 1.12vw, 16px);
-  line-height: 1.26;
-  margin: 0 0 8px;
-  font-weight: 800;
-  letter-spacing: -0.006em;
+  font-size: clamp(13px, 1.02vw, 15px);
+  line-height: 1.28;
+  margin: 0 0 7px;
+  font-weight: 760;
+  letter-spacing: -0.004em;
   color: var(--scb-card-title);
 }
 
