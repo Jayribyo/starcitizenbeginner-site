@@ -58,7 +58,6 @@ const resolvedPageType = (() => {
   if (safePath === "/beginner-tips/") return "beginner_tips";
   if (safePath === "/make-money-fast/") return "make_money_fast";
   if (safePath === "/star-citizen-performance-guide/") return "performance_guide";
-  if (safePath.startsWith("/satellites/")) return "satellite";
   if (["/de/", "/fr/", "/es/", "/zh/"].includes(safePath)) return "language_entry";
   return "other";
 })();
