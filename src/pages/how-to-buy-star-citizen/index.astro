@@ -23,11 +23,11 @@ const crumbs = [
 ];
 
 const tocItems = [
-  { label: "What you need", href: "#quick-answer" },
+  { label: "Quick answer", href: "#quick-answer" },
   { label: "Buying steps", href: "#do-this-now" },
-  { label: "Account setup", href: "#account" },
-  { label: "Starter pack", href: "#starter-pack" },
-  { label: "Install & launch", href: "#install" },
+  { label: "Account signup", href: "#account" },
+  { label: "Game package vs ship", href: "#starter-pack" },
+  { label: "Install & first session", href: "#install" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -110,14 +110,14 @@ const howToLd = {
   ogImage="/assets/img/how-to-buy-star-citizen/star-citizen-pilot-logs-in-hero.webp"
   ogImageAlt="Star Citizen pilot signing in on the RSI website"
   robots="index,follow"
-  stickyCtaLabel={`Create account + claim bonus (+50k UEC)`}
+  stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={REF_LINK}
   stickyCtaExternal={true}
 >
   <HowToSchema json={howToLd} />
   <FaqSchema json={faqLd} />
 
-  <Breadcrumbs crumbs={crumbs} />
+  <Breadcrumbs items={crumbs} />
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
@@ -135,10 +135,12 @@ const howToLd = {
     <div class="hero__content">
       <div class="homeHero__content">
         <div style="max-width:720px; padding: 26px 0;">
+          <div class="kicker"><span class="dot"></span> Beginner buying guide</div>
           <h1 class="h1">How to buy Star Citizen</h1>
-          <p class="lead">The practical version is simple: create your account, buy one game package, check My Hangar once, then install the launcher and log in.</p>
+          <p class="lead">If you already know you want in, keep the buy simple: create the account correctly, buy one game package, confirm it in My Hangar, then move straight into a clean first session.</p>
           <div class="btnrow" style="flex-wrap:wrap;">
-            <a class="btn primary" href="#quick-answer" data-scb-role="how-to-buy-quick-answer">See what you actually need</a>
+            <a class="btn primary" href="#quick-answer" data-scb-role="how-to-buy-quick-answer">See the clean buying path</a>
+            <a class="btn ghost" href="/should-you-buy-star-citizen/">Not sure yet? Read this first</a>
           </div>
         </div>
       </div>
@@ -152,20 +154,40 @@ const howToLd = {
   </section>
 
   <ReferralBanner
-    title={`Use referral code ${REF_CODE} to start with ${REF_BONUS}.`}
-    sub="Optional. No cost. Doesn’t change your price — it just adds the signup bonus during account creation."
-    ctaLabel="Create account + claim your start bonus"
+    code={REF_CODE}
+    bonus={REF_BONUS}
+    ctaLabel="Create account + claim bonus"
     ctaHref={REF_LINK}
+    sublineHtml="Optional. Free. Doesn’t change your price — it just adds the signup bonus during account creation."
   />
 
   <!-- ===================== QUICK ANSWER ===================== -->
   <section id="quick-answer" class="section">
     <div class="card pad">
-      <h2 class="section__title">What you actually need</h2>
+      <div class="kicker"><span class="dot"></span> Quick answer</div>
+      <h2 class="section__title">Quick answer: create the account correctly, buy one game package, then stop there</h2>
       <p style="max-width: 980px;">
         To start playing Star Citizen, you only need an RSI account and one game package.
-        Everything else can wait.
+        You do not need a bigger ship, a subscription, or a plan for later upgrades before the game has even clicked.
       </p>
+
+      <div class="decisionGrid" style="margin-top:14px;">
+        <div class="decisionCard">
+          <div class="decisionCard__kicker">Step 1</div>
+          <div class="decisionCard__title">Create the account correctly once</div>
+          <p class="decisionCard__body">Use your real email, pick a handle you can keep, and enter referral code {REF_CODE} during signup if you want the +{REF_BONUS} start bonus.</p>
+        </div>
+        <div class="decisionCard">
+          <div class="decisionCard__kicker">Step 2</div>
+          <div class="decisionCard__title">Buy one game package, not a standalone ship</div>
+          <p class="decisionCard__body">The package is the thing that gives you access. That is the only store decision that really matters on day one.</p>
+        </div>
+        <div class="decisionCard">
+          <div class="decisionCard__kicker">Step 3</div>
+          <div class="decisionCard__title">Check My Hangar once, then move to setup</div>
+          <p class="decisionCard__body">Confirm the package landed on the right account, install the launcher, and judge the game after one clean first session.</p>
+        </div>
+      </div>
 
       <div class="tableWrap" style="margin-top:12px;">
         <table class="table table--steps">
@@ -214,16 +236,16 @@ const howToLd = {
       <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
         <div class="card pad">
           <ul class="list">
-            <li>Create your RSI account and enter referral code {REF_CODE} during signup if you want the +{REF_BONUS} start bonus.</li>
-            <li>Buy one game package. That covers game access and your first ship.</li>
-            <li>Check My Hangar once after checkout.</li>
-            <li>Install the RSI Launcher on an SSD if you can, then judge the game after one clean first session.</li>
+            <li>Create the RSI account first and use the referral field during signup if you want the +{REF_BONUS} start bonus.</li>
+            <li>Buy one game package. That covers access and your first ship.</li>
+            <li>Open My Hangar once after checkout so you know the purchase landed correctly.</li>
+            <li>Install on an SSD if possible and judge the game after one calm first session, not before.</li>
           </ul>
         </div>
 
         <div class="card pad">
           <p class="muted" style="margin:0;">
-            If you are still deciding whether Star Citizen is worth buying, use the <a href="/should-you-buy-star-citizen/">should you buy guide</a> or try <a href="/free-fly/">Free Fly</a> first.
+            If you are still deciding whether Star Citizen is worth buying at all, step sideways first. Use the <a href="/should-you-buy-star-citizen/">should you buy guide</a> or try <a href="/free-fly/">Free Fly</a> before you spend.
           </p>
         </div>
       </div>
@@ -240,7 +262,7 @@ const howToLd = {
     <div class="card pad">
       <h2 class="section__title">Buying steps (do this in order)</h2>
       <p style="max-width: 980px;">
-        Keep it in this order: create the account, verify it, buy one game package, check My Hangar, then install the launcher.
+        This order keeps the process clean: create the account, verify it, buy one game package, check My Hangar, then install the launcher and move on.
       </p>
 
       <div class="tableWrap" style="margin-top:12px;">
@@ -302,7 +324,7 @@ const howToLd = {
               <td>
                 Download the RSI Launcher, install the game, and keep your first login small.
                 <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
-                  <a class="btn ghost" href="/satellites/first-session/">First session checklist →</a>
+                  <a class="btn ghost" href="/first-session/">First session checklist →</a>
                   <a class="btn ghost" href="/star-citizen-performance-guide/#do-this-now">If it stutters: 10‑minute fix →</a>
                 </div>
               </td>
@@ -319,9 +341,9 @@ const howToLd = {
   <div id="referral-code" aria-hidden="true"></div>
   <section id="account" class="section">
     <div class="card pad">
-      <h2 class="section__title">RSI account setup (what matters on the signup form)</h2>
+      <h2 class="section__title">RSI account signup (only the fields that matter)</h2>
       <p style="max-width: 980px;">
-        Keep the signup form simple: your email is your login, your handle is your public name, and the referral field only works during account creation.
+        Keep the signup form simple: your email is your login, your handle is your public name, and the referral field only matters while you are creating the account.
       </p>
 
       <div class="grid2" style="margin-top:12px; gap:14px; align-items:start;">
@@ -386,9 +408,9 @@ const howToLd = {
   <!-- ===================== STARTER PACK ===================== -->
   <section id="starter-pack" class="section">
     <div class="card pad">
-      <h2 class="section__title">Game package vs standalone ship (this is the buying part that trips people up)</h2>
+      <h2 class="section__title">Buy one game package, not a standalone ship</h2>
       <p style="max-width: 980px;">
-        The key distinction is simple: a game package lets you play. A standalone ship does not.
+        This is the buying distinction that matters most: a game package lets you play. A standalone ship does not.
       </p>
 
       <div class="tableWrap" style="margin-top:12px;">
@@ -433,7 +455,7 @@ const howToLd = {
       <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
         <div class="card pad">
           <p class="muted" style="margin:0 0 12px;">
-            Keep the decision narrow. You are choosing the cleanest way in.
+            Keep the decision narrow. You are choosing the easiest sensible way into the game, not your forever ship.
           </p>
           <div class="tableWrap" style="margin-top:12px;">
             <table class="table table--steps">
@@ -471,7 +493,7 @@ const howToLd = {
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
         <a class="btn primary" href="/star-citizen-starter-packs/">Compare starter packs properly</a>
         <a class="btn ghost" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
-          Create account + claim signup bonus
+          Create account + claim bonus
         </a>
       </div>
     </div>
@@ -544,7 +566,7 @@ const howToLd = {
     <div class="card pad">
       <h2 class="section__title">After you buy: install cleanly and keep the first session simple</h2>
       <p style="max-width: 980px;">
-        Once your package is in My Hangar, the buying job is done. From here, your goal is one clean install and one calm first session.
+        Once your package is in My Hangar, the buying part is finished. From here, your goal is one clean install and one calm first session so you can judge the game fairly.
       </p>
 
       <div class="tableWrap" style="margin-top:12px;">
@@ -574,7 +596,7 @@ const howToLd = {
               <td>3</td>
               <td>Launch once, then follow a simple first-session checklist.</td>
               <td>Prevents overwhelm and “random wandering”.</td>
-              <td><a href="/satellites/first-session/">First session checklist →</a></td>
+              <td><a href="/first-session/">First session checklist →</a></td>
             </tr>
             <tr>
               <td>4</td>
@@ -611,17 +633,17 @@ const howToLd = {
     <div class="card pad">
       <h2 class="section__title">What to do next</h2>
       <p style="max-width: 980px;">
-        Pick the branch that matches your real next question.
+        Do not branch into five new questions at once. Pick the one thing you still need help with, then move there on purpose.
       </p>
 
       <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
         <div class="card pad">
-          <p class="muted" style="margin:0 0 12px;">Still comparing packs? Use the starter-packs guide.</p>
+          <p class="muted" style="margin:0 0 12px;">Your next question is package choice, not account setup anymore.</p>
           <a class="btn ghost" href="/star-citizen-starter-packs/">Compare starter packs</a>
         </div>
 
         <div class="card pad">
-          <p class="muted" style="margin:0 0 12px;">Not sure the game is worth the money yet? Step sideways before you buy.</p>
+          <p class="muted" style="margin:0 0 12px;">You are not ready for checkout yet and need an honest buy-or-wait answer first.</p>
           <div class="btnrow" style="flex-wrap:wrap;">
             <a class="btn ghost" href="/should-you-buy-star-citizen/">Should you buy Star Citizen?</a>
             <a class="btn ghost" href="/free-fly/">Try Free Fly first</a>
@@ -631,19 +653,19 @@ const howToLd = {
 
       <div class="grid2" style="margin-top:14px; gap:14px; align-items:start;">
         <div class="card pad">
-          <p class="muted" style="margin:0 0 12px;">Want the signup bonus done correctly? Use the referral guide for timing and the “can I add it later?” question.</p>
+          <p class="muted" style="margin:0 0 12px;">You want the signup done correctly once, including the referral field.</p>
           <div class="btnrow" style="flex-wrap:wrap;">
             <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
-              Create account + claim signup bonus
+              Create account + claim bonus
             </a>
             <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide</a>
           </div>
         </div>
 
         <div class="card pad">
-          <p class="muted" style="margin:0 0 12px;">Already bought the package? Switch to setup and first-session help.</p>
+          <p class="muted" style="margin:0 0 12px;">You are done buying and want the first hour to feel smoother than the store did.</p>
           <div class="btnrow" style="flex-wrap:wrap;">
-            <a class="btn ghost" href="/satellites/first-session/">First session checklist</a>
+            <a class="btn ghost" href="/first-session/">First session checklist</a>
             <a class="btn ghost" href="/star-citizen-performance-guide/">Performance guide</a>
           </div>
         </div>
@@ -656,7 +678,7 @@ const howToLd = {
     <div class="card pad">
       <h2 class="section__title">FAQ</h2>
       <p style="max-width: 980px; margin-top: 8px;">
-        These are the last buying questions that still trip people up right before checkout or right after it.
+        These are the last questions that usually show up right before checkout or right after it.
       </p>
 
       <div class="faq" style="margin-top:12px;">

@@ -76,7 +76,7 @@ const faqItems = [
       <div class="container">
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
-          { label: "Starter guides", href: "/" },
+          { label: "Referral code", href: REFERRAL_INFO_PATH },
           { label: "Referral bonus checklist", href: "/referral-bonus-checklist/" }
         ]} />
         <div class="hero__inner">
@@ -106,7 +106,7 @@ const faqItems = [
         <ul class="bullets">
           <li>Optional: it doesn’t change pricing. It’s just a signup bonus.</li>
           <li>Do it once, then stop thinking about it.</li>
-          <li>Need the exact field, the 24-hour backup window, or the full FAQ? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
+          <li>Need the exact field, the short backup window, or the full FAQ? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
         </ul>
       </div>
     </section>
@@ -133,9 +133,9 @@ const faqItems = [
               <div class="codebox">{referralCode}</div>
               <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;">
                 <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-                <a class="btn" href="/satellites/where-to-enter-referral-code/">Where to paste it</a>
+                <a class="btn" href="/where-to-enter-referral-code/">Where to paste it</a>
               </div>
-              <p class="muted" style="margin-top:10px;">Not buying yet? Create the account now, then use <a class="link" href="/free-fly/">Free Fly</a> or the <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> when you are ready.</p>
+              <p class="muted" style="margin-top:10px;">Not buying yet? Create the account now, then try <a class="link" href="/free-fly/">Free Fly</a>. Ready to spend? Use the <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> next.</p>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ const faqItems = [
           <a class="card pad linkcard" href="/free-fly/">
             <div class="kicker"><span class="dot"></span>Try first</div>
             <h3 class="h3">Free Fly</h3>
-            <p class="muted">Try without buying and follow a safe first session route.</p>
+            <p class="muted">Try without buying, then decide with real playtime instead of guesswork.</p>
           </a>
           <a class="card pad linkcard" href="/star-citizen-starter-packs/">
             <div class="kicker"><span class="dot"></span>Buy smart</div>
@@ -179,7 +179,7 @@ const faqItems = [
           <a class="card pad linkcard" href="/should-you-buy-star-citizen/">
             <div class="kicker"><span class="dot"></span>Decide</div>
             <h3 class="h3">Should you buy?</h3>
-            <p class="muted">A quick decision framework that matches your playstyle.</p>
+            <p class="muted">A quick guide that matches your playstyle.</p>
           </a>
         </div>
       </div>
@@ -199,7 +199,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn" href={REFERRAL_INFO_PATH}>Referral guide</a>
+          <a class="btn" href={REFERRAL_INFO_PATH}>Main referral guide</a>
         </div>
       </div>
     </section>

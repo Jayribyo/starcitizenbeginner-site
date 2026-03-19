@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
+
+const heroImg = "/assets/img/home/scb-home-hero.webp";
+
+const tocItems = [
+  { id: "quick-answer", label: "Fast definitions" },
+  { id: "terms", label: "Key terms" },
+  { id: "next-steps", label: "Next steps" },
+  { id: "faq", label: "FAQ" }
+];
+
+const faqItems = [
+  { q: "Do I need to memorize all of this?", a: "No. Use this page as a lookup. Most guides link back here for the few terms that matter in that moment." },
+  { q: "Why does SCB use satellites for terms?", a: "Short, focused pages help you find answers fast and help search engines understand the topic map." },
+  { q: "What’s the one term I should learn first?", a: "Free Fly and Starter pack. That choice determines your best beginner path." },
+  { q: "What’s the most common beginner mistake?", a: "Trying to learn everything at once. Pick one path, do one small loop, then expand." }
+];
+---
+
+<BaseLayout
+  title="Star Citizen beginner terms (glossary) | Star Citizen Beginner"
+  description="Star Citizen beginner glossary: quick definitions for UI, ships, contracts, locations, and economy terms you'll see in guides."
+  canonicalPath="/glossary/"
+  pageType="satellite"
+  pageTier="satellite"
+  ogImage={heroImg}
+  ogImageAlt="Star Citizen beginner glossary hero image"
+  stickyCtaLabel="Create account + claim bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+  activeNav="guides"
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Beginner tips", href: "/beginner-tips/" },
+          { label: "Glossary", href: "/glossary/" }
+        ]} />
+        <div class="hero__inner">
+          <div class="kicker"><span class="dot"></span>Support page</div>
+          <h1 class="h1">Star Citizen beginner glossary</h1>
+          <p class="hero__lead">Quick definitions for the beginner terms that actually block you in guides, menus, and first sessions — then you can jump back to the page you were using.</p>
+          <div class="hero__cta">
+            <a class="btn primary" href="#terms">Jump to the terms</a>
+          </div>
+        </div>
+        <OnThisPage items={tocItems} />
+      </div>
+    </section>
+
+    <ReferralBanner />
+
+    <section id="quick-answer" class="section">
+      <div class="container">
+        <h2 class="h2">Quick answer</h2>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">This is a support page, not a main route. Look up the blocked term, get unstuck, then jump back to the guide or decision page you were following.</p>
+        </div>
+
+        <ul class="bullets">
+          <li>This page is a helper, not the main route. Look up one term, solve the confusion, then return to the guide you were using.</li>
+          <li>Read only what you need right now, then go back to your guide.</li>
+          <li>Most confusion disappears once you understand <b>Free Fly</b>, <b>Starter packs</b>, and <b>ASOP/Claim</b>.</li>
+          <li>Tip: if performance is bad, fix that first—otherwise every “is it worth it?” moment gets harder to judge fairly.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="terms" class="section">
+      <div class="container">
+        <h2 class="h2">Key terms</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Term</th><th>Meaning (1 sentence)</th><th>Go deeper</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><b>aUEC / UEC</b></td><td>In‑game currency used to buy gear, ship components, rentals, and services.</td><td><a class='link' href='/make-money-fast/'>Open</a></td></tr>
+<tr><td><b>Starter pack / Game package</b></td><td>A required purchase to play outside Free Fly; it includes game access and usually a starter ship.</td><td><a class='link' href='/star-citizen-starter-packs/'>Open</a></td></tr>
+<tr><td><b>Free Fly</b></td><td>A limited-time trial where you can play without buying—perfect for testing performance and deciding.</td><td><a class='link' href='/free-fly/'>Open</a></td></tr>
+<tr><td><b>Referral code</b></td><td>An optional code entered during account creation that can add a signup bonus.</td><td><a class='link' href='/star-citizen-referral-code/'>Open</a></td></tr>
+<tr><td><b>ASOP terminal</b></td><td>The in‑game kiosk where you spawn, claim, and retrieve your ships in a hangar or station.</td><td><a class='link' href='/how-to-claim-your-ship-asop-terminal/'>Open</a></td></tr>
+<tr><td><b>Claim</b></td><td>An insurance recovery flow to restore a destroyed ship; you use it at ASOP.</td><td><a class='link' href='/how-to-claim-your-ship-asop-terminal/'>Open</a></td></tr>
+<tr><td><b>Quantum travel (QT)</b></td><td>The long-distance travel mode between locations; you typically spool and calibrate to markers.</td><td><a class='link' href='/how-to-not-get-lost-in-star-citizen/'>Open</a></td></tr>
+<tr><td><b>Bounty</b></td><td>A combat contract track that scales with your license and ship capability.</td><td><a class='link' href='/bounties-beginner-setup/'>Open</a></td></tr>
+<tr><td><b>Courier mission</b></td><td>A simple delivery contract—great for first credits and learning navigation.</td><td><a class='link' href='/courier-missions-beginner-route/'>Open</a></td></tr>
+<tr><td><b>Stutter</b></td><td>Frame-time spikes that feel like hitching; often improved by SSD, RAM headroom, and clean settings.</td><td><a class='link' href='/fix-stuttering/'>Open</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="section">
+      <div class="container">
+        <h2 class="h2">Best next steps</h2>
+        <div class="grid-3">
+          <a class="card pad linkcard" href="/first-session/">
+            <div class="kicker"><span class="dot"></span>Start here</div>
+            <h3 class="card__title">Main first-session guide</h3>
+            <p class="muted">Best next step if one blocked term interrupted your main beginner flow.</p>
+          </a>
+          <a class="card pad linkcard" href="/free-fly/">
+            <div class="kicker"><span class="dot"></span>Try first</div>
+            <h3 class="card__title">Free Fly guide</h3>
+            <p class="muted">Use this if the blocked term is really about trying the game before buying.</p>
+          </a>
+          <a class="card pad linkcard" href="/should-you-buy-star-citizen/">
+            <div class="kicker"><span class="dot"></span>Decide</div>
+            <h3 class="card__title">Should you buy?</h3>
+            <p class="muted">Use this if the blocked term is part of the bigger buy-or-wait decision.</p>
+          </a>
+          <a class="card pad linkcard" href="/star-citizen-performance-guide/">
+            <div class="kicker"><span class="dot"></span>Make it playable</div>
+            <h3 class="card__title">Performance guide</h3>
+            <p class="muted">Use this if the blocked term sits inside a bad first impression caused by performance.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="h2">FAQ</h2>
+        <div class="faq">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q"><span class="faq__icon">+</span>{item.q}</summary>
+              <div class="faq__a"><p>{item.a}</p></div>
+            </details>
+          ))}
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+          <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
+          <a class="btn" href="/star-citizen-referral-code/">Referral guide</a>
+        </div>
+      </div>
+    </section>
+
+    <FaqSchema items={faqItems} />
+  </main>
+</BaseLayout>

@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralCTA from "../../components/ReferralCTA.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 
-import { DEFAULT_LANGUAGE_PATHS, REFERRAL_CODE } from "../../config/site";
+import { DEFAULT_LANGUAGE_PATHS, LANGUAGE_PAGES_ENABLED, REFERRAL_CODE } from "../../config/site";
 
 const paths = DEFAULT_LANGUAGE_PATHS;
 const referralCode = REFERRAL_CODE;
@@ -39,7 +39,7 @@ const faqItems = [
 ];
 
 ---
-<BaseLayout lang="es" title={t.title} description={t.desc} canonicalPath="/es/" brand="Star Citizen Beginner" paths={paths}>
+<BaseLayout lang="es" title={t.title} description={t.desc} canonicalPath="/es/" brand="Star Citizen Beginner" paths={paths} robots={LANGUAGE_PAGES_ENABLED ? "index,follow" : "noindex,follow"}>
   <FaqSchema items={faqItems} />
   <main class="langPage">
     <section class="section section--heroWidth">

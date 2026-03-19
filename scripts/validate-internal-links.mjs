@@ -72,15 +72,20 @@ for (const file of files) {
     const exists = routeCandidates(normalized).some((candidate) => fs.existsSync(candidate));
     const redirected = redirects.has(normalized) || redirects.has(`${normalized}/`) || redirects.has(normalized.replace(/\/$/, ''));
 
-    if (!exists && !redirected) {
-      issues.push({ file: path.relative(ROOT, file), href: normalized });
+    if (redirected) {
+      issues.push({ file: path.relative(ROOT, file), href: normalized, reason: 'points to a redirect source instead of the final canonical route' });
+      continue;
+    }
+
+    if (!exists) {
+      issues.push({ file: path.relative(ROOT, file), href: normalized, reason: 'target route does not exist' });
     }
   }
 }
 
 if (issues.length) {
   console.error('[validate-internal-links] Broken local href targets found:');
-  issues.forEach((issue) => console.error(`- ${issue.file} -> ${issue.href}`));
+  issues.forEach((issue) => console.error(`- ${issue.file} -> ${issue.href} (${issue.reason})`));
   process.exit(1);
 }
 

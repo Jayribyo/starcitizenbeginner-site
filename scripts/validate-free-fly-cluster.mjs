@@ -3,43 +3,94 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const HUB = path.join(ROOT, "src", "pages", "free-fly", "index.astro");
+
 const SATELLITES = [
-  "src/pages/satellites/free-fly-download-install-checklist/index.astro",
-  "src/pages/satellites/best-time-to-play-free-fly/index.astro",
-  "src/pages/satellites/free-fly-first-session/index.astro",
-  "src/pages/satellites/free-fly-queues-and-server-lag-fix/index.astro",
-  "src/pages/satellites/free-fly-what-do-i-keep/index.astro",
-  "src/pages/satellites/try-star-citizen-without-buying/index.astro",
-].map((rel) => path.join(ROOT, rel));
+  {
+    rel: "src/pages/free-fly-download-install-checklist/index.astro",
+    requiredLinks: ["/free-fly/"],
+    mustIncludeOneOf: ["/free-fly-first-session/", "/star-citizen-performance-guide/"],
+  },
+  {
+    rel: "src/pages/best-time-to-play-free-fly/index.astro",
+    requiredLinks: ["/free-fly/"],
+    mustIncludeOneOf: ["/free-fly-queues-and-server-lag-fix/", "/free-fly-first-session/"],
+  },
+  {
+    rel: "src/pages/free-fly-first-session/index.astro",
+    requiredLinks: ["/free-fly/"],
+    mustIncludeOneOf: ["/first-session/", "/how-to-buy-star-citizen/", "/free-fly-what-do-i-keep/"],
+  },
+  {
+    rel: "src/pages/free-fly-queues-and-server-lag-fix/index.astro",
+    requiredLinks: ["/free-fly/", "/star-citizen-performance-guide/"],
+    mustIncludeOneOf: ["/best-time-to-play-free-fly/"],
+  },
+  {
+    rel: "src/pages/free-fly-what-do-i-keep/index.astro",
+    requiredLinks: ["/free-fly/"],
+    mustIncludeOneOf: ["/star-citizen-starter-packs/", "/how-to-buy-star-citizen/"],
+  },
+  {
+    rel: "src/pages/try-star-citizen-without-buying/index.astro",
+    requiredLinks: ["/free-fly/", "/star-citizen-performance-guide/", "/should-you-buy-star-citizen/"],
+    mustIncludeOneOf: ["/free-fly-first-session/", "/how-to-buy-star-citizen/"],
+  },
+];
 
 let failed = false;
 
-const hubText = fs.readFileSync(HUB, "utf8");
+function readFile(rel) {
+  const file = path.join(ROOT, rel);
+  if (!fs.existsSync(file)) {
+    console.error(`[validate-free-fly-cluster] Missing file: ${rel}`);
+    failed = true;
+    return "";
+  }
+  return fs.readFileSync(file, "utf8");
+}
+
+const hubText = readFile("src/pages/free-fly/index.astro");
 for (const token of [
   "free-fly-next-first-session",
   "free-fly-next-buy-test",
-  "free-fly-next-referral-guide",
+  "free-fly-next-performance",
 ]) {
-  if (!hubText.includes(token)) {
+  if (hubText && !hubText.includes(token)) {
     console.error(`[validate-free-fly-cluster] Missing token "${token}" in src/pages/free-fly/index.astro`);
     failed = true;
   }
 }
 
-const satelliteExpectations = [
-  { token: '/free-fly/', label: 'back link to free-fly hub' },
-  { token: '/should-you-buy-star-citizen/', label: 'buy-test link' },
-  { token: '/star-citizen-performance-guide/', label: 'performance guide link' },
-];
+for (const page of SATELLITES) {
+  const text = readFile(page.rel);
+  if (!text) continue;
 
-for (const file of SATELLITES) {
-  const rel = path.relative(ROOT, file);
-  const text = fs.readFileSync(file, "utf8");
-  for (const { token, label } of satelliteExpectations) {
+  if (text.includes("/satellites/")) {
+    console.error(`[validate-free-fly-cluster] Legacy /satellites/ link found in ${page.rel}`);
+    failed = true;
+  }
+
+  for (const token of page.requiredLinks) {
     if (!text.includes(token)) {
-      console.error(`[validate-free-fly-cluster] Missing ${label} (${token}) in ${rel}`);
+      console.error(`[validate-free-fly-cluster] Missing required cluster link (${token}) in ${page.rel}`);
       failed = true;
     }
+  }
+
+  if (!page.mustIncludeOneOf.some((token) => text.includes(token))) {
+    console.error(
+      `[validate-free-fly-cluster] Missing any acceptable continuation link (${page.mustIncludeOneOf.join(", ")}) in ${page.rel}`,
+    );
+    failed = true;
+  }
+
+  const canonicalMatch = text.match(/canonicalPath\s*=\s*"([^"]+)"/);
+  if (!canonicalMatch) {
+    console.error(`[validate-free-fly-cluster] Missing canonicalPath in ${page.rel}`);
+    failed = true;
+  } else if (canonicalMatch[1].startsWith("/satellites/")) {
+    console.error(`[validate-free-fly-cluster] Legacy canonicalPath ${canonicalMatch[1]} in ${page.rel}`);
+    failed = true;
   }
 }
 
