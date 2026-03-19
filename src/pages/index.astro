@@ -50,6 +50,9 @@ const tiles = [
     desc: "Use one forgiving early money loop after your first session feels stable.",
     pill: "I need early credits",
   },
+];
+
+const specificHelp = [
   {
     href: "/star-citizen-performance-guide/",
     img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
@@ -112,11 +115,10 @@ const tiles = [
         variant="hero"
         title="On this page"
         items={[
-          { label: "Quick answer", href: "#quick-answer" },
-          { label: "Where to start", href: "#pick-your-path" },
-          { label: "First 60 minutes", href: "#first-session" },
-          { label: "Go deeper", href: "#guides" },
-          { label: "Common mistakes", href: "#mistakes" },
+          { label: "Start here", href: "#start-here" },
+          { label: "First calm hour", href: "#first-session" },
+          { label: "What goes wrong", href: "#mistakes" },
+          { label: "Specific help", href: "#specific-help" },
           { label: "FAQ", href: "#faq" },
         ]}
       />
@@ -131,13 +133,20 @@ const tiles = [
       sublineHtml="Optional, free, and easy to use during signup. It does not change your price — it just adds the signup bonus."
       ariaLabel="Referral bonus callout"
     />
-
-    <!-- ===================== QUICK ANSWER ===================== -->
-    <section id="quick-answer" class="section">
+    <!-- ===================== START HERE ===================== -->
+    <section id="start-here" class="section">
       <div class="card pad">
         <h2 class="section__title">Quick answer: start with one safe next step</h2>
         <p style="max-width:980px;">A good beginner start is simple: choose one path, solve that problem, and leave the rest for later. That is how you avoid fake difficulty in Star Citizen.</p>
 
+      <p class="muted" style="margin-top:12px;">Choose the box that fits you best right now. You only need one path to start.</p>
+    </section>
+
+    <!-- ===================== FIRST SESSION ROUTE ===================== -->
+    <section id="first-session" class="section">
+      <div class="card pad">
+        <h2 class="section__title">Here is your first calm hour</h2>
+        <p style="max-width:980px;">Do one clean loop, stop, and call that a win. Day one does not need to be long or impressive.</p>
 
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
@@ -157,8 +166,7 @@ const tiles = [
           </div>
         </div>
 
-        <div>
-            <ul class="list">
+        <p class="muted" style="margin-top:12px;">If this still feels rough, fix performance first and then try the same simple session again.</p>
 
               <li>Not sure if you should buy? Start with <a href="/free-fly/" data-scb-role="internal-free-fly-guide">Free Fly →</a> or take the <a href="/should-you-buy-star-citizen/">2‑minute buy check →</a>.</li>
               <li>Buying anyway? Buy <a href="/star-citizen-starter-packs/">one game package that fits your first hours →</a>. That is enough to start.</li>
@@ -236,8 +244,8 @@ const tiles = [
       </div>
     </section>
 
-    <!-- ===================== FIRST SESSION ROUTE ===================== -->
-    <section id="first-session" class="section">
+    <!-- ===================== WHAT GOES WRONG ===================== -->
+    <section id="mistakes" class="section">
       <div class="card pad">
         <h2 class="section__title">Your first session: one calm loop</h2>
         <p style="max-width: 980px;">
@@ -306,30 +314,12 @@ const tiles = [
         <p class="lead">These are not just topics. Each guide solves a common beginner problem. Open the one that sounds most like your situation right now.</p>
       </div>
 
-      <div class="tiles">
-        {tiles.map((t) => (
-          <a class="tile" href={t.href}>
-            <img
-  class="tile__img"
-  src={t.img}
-  alt={t.title}
-  loading="lazy"
-  decoding="async"
-  width="1024"
-  height="1024"
-/>
-            <div class="tile__meta">
-              <span class="tile__pill">{t.pill}</span>
-              <h3 class="tile__title">{t.title}</h3>
-              <p class="tile__desc">{t.desc}</p>
-            </div>
-          </a>
-        ))}
+        <p class="muted" style="margin-top:12px;">One easy thing not to miss: if you are creating a new account, enter the referral code during signup so the bonus is already attached if you decide to buy later.</p>
       </div>
     </section>
 
-    <!-- ===================== COMMON MISTAKES ===================== -->
-    <section id="mistakes" class="section">
+    <!-- ===================== SPECIFIC HELP ===================== -->
+    <section id="specific-help" class="section">
       <div class="card pad">
         <h2 class="section__title">The mistakes that make beginners quit too early</h2>
 
@@ -428,7 +418,7 @@ const tiles = [
           </details>
           <details class="faq__item">
             <summary class="faq__q">I’m overwhelmed. What is the easiest way to start?</summary>
-            <div class="faq__a">Follow the <a href="#first-session">First 60 minutes section</a> on this page and ignore the rest until you finish one full loop.</div>
+            <div class="faq__a">Follow the <a href="#first-session">first calm hour plan</a> on this page and ignore the rest until you finish one clean loop.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Where do I enter the referral code?</summary>
