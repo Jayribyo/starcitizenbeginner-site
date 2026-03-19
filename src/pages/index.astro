@@ -26,43 +26,61 @@ const tiles = [
     href: "/free-fly/",
     img: "/assets/img/home/tiles/star-citizen-free-fly-tile.webp",
     title: "Test the game first",
-    desc: "Try Free Fly before you spend money or judge the full game.",
+    desc: "Use Free Fly to see how Star Citizen feels before you spend money.",
     pill: "Try first",
   },
   {
     href: "/should-you-buy-star-citizen/",
     img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
     title: "Figure out if it is worth buying",
-    desc: "Use a calm buy-or-wait check before you think about packs, upgrades, or hype.",
+    desc: "Use a calm buy-or-wait check before you think about packs or upgrades.",
     pill: "Decide first",
   },
   {
     href: "/star-citizen-starter-packs/",
     img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
-    title: "Choose a sensible starter pack",
-    desc: "Start with one practical package and leave bigger ships for later.",
+    title: "Choose one sensible starter pack",
+    desc: "Start with one package that fits your first hours and ignore bigger ships for now.",
     pill: "Buy smart",
   },
   {
     href: "/star-citizen-performance-guide/",
     img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
     title: "Fix stutter and bad first impressions",
-    desc: "Build a clean baseline before you decide how the game really feels.",
+    desc: "Remove fake difficulty before you decide what the game actually feels like.",
     pill: "Fix the game",
   },
   {
     href: "/beginner-tips/",
     img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
     title: "Start your first sessions safely",
-    desc: "Use one calm beginner routine instead of trying to learn everything today.",
+    desc: "Use one calm beginner routine so your first hours feel manageable instead of messy.",
     pill: "Start simple",
   },
   {
     href: "/make-money-fast/",
     img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
     title: "Build easy beginner credits later",
-    desc: "Use a simple early loop after your basics feel stable.",
+    desc: "Start small and use forgiving money loops only after the basics feel stable.",
     pill: "Earn later",
+  },
+];
+
+const specificHelp = [
+  {
+    href: "/satellites/first-session/",
+    title: "Use a simple first-session checklist",
+    desc: "Open a short checklist if you want one calm, structured first hour.",
+  },
+  {
+    href: "/satellites/fix-stuttering/",
+    title: "Fix stuttering before you judge the game",
+    desc: "Check the most common beginner performance problems first.",
+  },
+  {
+    href: "/satellites/where-to-enter-referral-code/",
+    title: "See exactly where to enter the referral code",
+    desc: "Use the quick visual guide if you do not want to miss the signup field.",
   },
 ];
 ---
@@ -98,10 +116,10 @@ const tiles = [
         <div class="homeHero__content">
           <div style="max-width:720px; padding: 26px 0;">
             <h1 class="h1">Star Citizen Beginner Guide</h1>
-          <p class="lead">New to Star Citizen? You do not need to solve everything today. Pick one safe next step, avoid the mistakes that create fake difficulty, and let the rest wait until the basics feel easier.</p>
+          <p class="lead">New to Star Citizen? You do not need to solve everything today. Start with one safe next step, let the rest wait, and make your first hours feel easier.</p>
 
             <div class="btnrow">
-              <a class="btn primary" href="#start-here" data-scb-role="hero-start-route">Find your safest next step</a>
+              <a class="btn primary" href="#start-here" data-scb-role="hero-start-route">Choose your safest starting path</a>
             </div>
           </div>
         </div>
@@ -113,8 +131,8 @@ const tiles = [
         title="On this page"
         items={[
           { label: "Start here", href: "#start-here" },
-          { label: "Mistakes", href: "#mistakes" },
-          { label: "First hour", href: "#first-session" },
+          { label: "First calm hour", href: "#first-session" },
+          { label: "What goes wrong", href: "#mistakes" },
           { label: "Specific help", href: "#specific-help" },
           { label: "FAQ", href: "#faq" },
         ]}
@@ -130,105 +148,66 @@ const tiles = [
       sublineHtml="Optional, free, and easy to use during signup. It does not change your price — it just adds the signup bonus."
       ariaLabel="Referral bonus callout"
     />
-
     <!-- ===================== START HERE ===================== -->
     <section id="start-here" class="section">
-      <div class="card pad" style="border-color: rgba(255, 196, 92, 0.14); box-shadow: 0 22px 60px rgba(0,0,0,0.42);">
+      <div class="card pad">
         <h2 class="section__title">Choose your safest starting path</h2>
-        <p style="max-width: 980px;">Start with the main page that matches your situation best. Pick one path, ignore the rest for now, and let the start feel easier before you stack more decisions on top.</p>
-
-        <div class="tiles" style="margin-top: 16px;">
-          {tiles.map((t) => (
-            <a class="tile" href={t.href}>
-              <img
-                class="tile__img"
-                src={t.img}
-                alt={t.title}
-                loading="lazy"
-                decoding="async"
-                width="1024"
-                height="1024"
-              />
-              <div class="tile__meta">
-                <span class="tile__pill">{t.pill}</span>
-                <h3 class="tile__title">{t.title}</h3>
-                <p class="tile__desc">{t.desc}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <p class="muted" style="margin-top:14px;">One clear path beats six half-started plans. Pick the problem that is blocking you most and let the rest wait.</p>
+        <p style="max-width:980px;">Pick one main page that matches your situation and ignore the rest for now.</p>
       </div>
+
+      <div class="tiles" style="margin-top:14px;">
+        {tiles.map((t) => (
+          <a class="tile" href={t.href}>
+            <img
+              class="tile__img"
+              src={t.img}
+              alt={t.title}
+              loading="lazy"
+              decoding="async"
+              width="1024"
+              height="1024"
+            />
+            <div class="tile__meta">
+              <span class="tile__pill">{t.pill}</span>
+              <h3 class="tile__title">{t.title}</h3>
+              <p class="tile__desc">{t.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <p class="muted" style="margin-top:12px;">Choose the box that fits you best right now. You only need one path to start.</p>
     </section>
 
     <!-- ===================== FIRST SESSION ROUTE ===================== -->
     <section id="first-session" class="section">
       <div class="card pad">
-        <h2 class="section__title">What to do in your first hour</h2>
-        <p style="max-width: 980px;">You do not need a perfect session. You just need one calm loop that teaches the basics without turning the start into a mess.</p>
+        <h2 class="section__title">Here is your first calm hour</h2>
+        <p style="max-width:980px;">Do one clean loop, stop, and call that a win. Day one does not need to be long or impressive.</p>
 
-        <div class="tableWrap" style="margin-top:12px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Step</th>
-                <th>Do</th>
-                <th>Why it matters</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <td>Spawn, set your home location, and claim your ship</td>
-                <td>It removes the first layer of friction and gets you moving fast.</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Run one simple courier or delivery contract</td>
-                <td>It teaches travel, navigation, and mission flow with very low risk.</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Stop after one clean loop and repeat the same simple session later</td>
-                <td>That is enough for day one. Repeatability matters more than doing everything.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="decisionGrid" style="margin-top:14px;">
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Step 1</div>
+            <div class="decisionCard__title">Spawn, set your home, and claim your ship</div>
+            <p class="decisionCard__body">This removes the first layer of friction and gets you moving without panic.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Step 2</div>
+            <div class="decisionCard__title">Run one simple courier or delivery contract</div>
+            <p class="decisionCard__body">It teaches travel, mission flow, and basic menus with very low risk.</p>
+          </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">Step 3</div>
+            <div class="decisionCard__title">Stop after one clean loop and repeat it later</div>
+            <p class="decisionCard__body">That is enough for day one. Repeatability matters more than squeezing in everything at once.</p>
+          </div>
         </div>
 
-        <p class="muted" style="margin-top:14px;">If that one calm loop still feels rough, fix performance first and then try the same simple start again.</p>
+        <p class="muted" style="margin-top:12px;">If this still feels rough, fix performance first and then try the same simple session again.</p>
 
-        <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-          <a class="btn ghost" href="/beginner-tips/">Beginner tips →</a>
-          <a class="btn ghost" href="/satellites/first-session/">First-session checklist →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== SPECIFIC HELP ===================== -->
-    <section id="specific-help" class="section">
-      <div class="card pad">
-        <div class="kicker"><span class="dot"></span> Specific help</div>
-        <h2 class="section__title">If one specific problem is still blocking you</h2>
-        <p style="max-width:980px;">Use one of these if your main path is already clear but one exact issue is still getting in the way.</p>
-
-        <div class="grid3" style="margin-top:16px; align-items:stretch;">
-          <div class="card"><div class="pad">
-            <h3 class="card__title">Use a simple first-session checklist</h3>
-            <p style="margin:8px 0 0;">Open a short checklist if you already bought the game and want one clean, repeatable first session.</p>
-            <p class="muted" style="margin-top:10px;"><a href="/satellites/first-session/">Open the checklist →</a></p>
-          </div></div>
-          <div class="card"><div class="pad">
-            <h3 class="card__title">Fix stuttering before you judge the game</h3>
-            <p style="margin:8px 0 0;">Use a short SSD, RAM, and settings check if the game feels rough before you even finish one calm loop.</p>
-            <p class="muted" style="margin-top:10px;"><a href="/satellites/fix-stuttering/">Fix stuttering →</a></p>
-          </div></div>
-          <div class="card"><div class="pad">
-            <h3 class="card__title">See exactly where to enter the referral code</h3>
-            <p style="margin:8px 0 0;">Use the fast signup guide if the bonus matters to you and you want to make sure you enter the code in the right place.</p>
-            <p class="muted" style="margin-top:10px;"><a href="/satellites/where-to-enter-referral-code/">See the signup field →</a></p>
-          </div></div>
+        <div class="btnrow" style="margin-top:12px; flex-wrap: wrap;">
+          <a class="btn ghost" href="/beginner-tips/">Open beginner tips →</a>
+          <a class="btn ghost" href="/satellites/first-session/">Use the first-session checklist →</a>
         </div>
       </div>
     </section>
@@ -237,33 +216,45 @@ const tiles = [
     <section id="mistakes" class="section">
       <div class="card pad">
         <h2 class="section__title">What usually goes wrong at the start</h2>
-        <p style="max-width: 980px;">A rough first impression usually comes from the wrong order, not from you doing everything badly. These are the three mistakes that waste the most time for new players.</p>
+        <p style="max-width:980px;">A rough first session usually comes from the wrong order, not from you. These are the mistakes that make the start feel harder than it should.</p>
 
-        <div class="grid3" style="margin-top:16px; align-items:stretch;">
-          <div class="card">
-            <div class="pad">
-              <h3 class="card__title">Trying to learn everything at once</h3>
-              <p style="margin:8px 0 0;">This creates overload fast. Start with one safe loop, repeat it once or twice, and let the rest wait.</p>
-              <p class="muted" style="margin-top:10px;"><a href="/beginner-tips/">See the simple start guide →</a></p>
-            </div>
+        <div class="decisionGrid" style="margin-top:14px;">
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">What trips people up</div>
+            <div class="decisionCard__title">Trying to learn everything at once</div>
+            <p class="decisionCard__body">Too many menus, contracts, locations, and controls at the same time turns a simple start into a messy one.</p>
           </div>
-          <div class="card">
-            <div class="pad">
-              <h3 class="card__title">Judging the game from one rough session</h3>
-              <p style="margin:8px 0 0;">Stutter, bad locations, and messy first runs can create fake difficulty. Fix the baseline before you decide how the game really feels.</p>
-              <p class="muted" style="margin-top:10px;"><a href="/star-citizen-performance-guide/">Fix the baseline first →</a></p>
-            </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">What causes bad first impressions</div>
+            <div class="decisionCard__title">Judging the game from one rough session</div>
+            <p class="decisionCard__body">Bad performance, a rough spawn, or one chaotic session can make the game feel worse than it normally does.</p>
           </div>
-          <div class="card">
-            <div class="pad">
-              <h3 class="card__title">Buying extra ships too early</h3>
-              <p style="margin:8px 0 0;">More ship rarely fixes a chaotic start. One sensible starter pack is enough until your sessions feel stable.</p>
-              <p class="muted" style="margin-top:10px;"><a href="/star-citizen-starter-packs/">Choose one sensible pack →</a></p>
-            </div>
+          <div class="decisionCard">
+            <div class="decisionCard__kicker">What wastes money early</div>
+            <div class="decisionCard__title">Buying extra ships too early</div>
+            <p class="decisionCard__body">You do not need more ships to fix a rough start. One sensible package is enough until your routine feels stable.</p>
           </div>
         </div>
 
-        <p class="muted" style="margin-top:14px;">One easy thing not to miss: if you want the signup bonus, enter a referral code during account creation.</p>
+        <p class="muted" style="margin-top:12px;">One easy thing not to miss: if you are creating a new account, enter the referral code during signup so the bonus is already attached if you decide to buy later.</p>
+      </div>
+    </section>
+
+    <!-- ===================== SPECIFIC HELP ===================== -->
+    <section id="specific-help" class="section">
+      <div class="card pad">
+        <h2 class="section__title">If one exact problem is still blocking you</h2>
+        <p style="max-width:980px;">Use one exact answer for the one thing that is still getting in your way.</p>
+
+        <div class="decisionGrid" style="margin-top:14px;">
+          {specificHelp.map((item) => (
+            <a class="decisionCard" href={item.href} style="text-decoration:none; color:inherit;">
+              <div class="decisionCard__kicker">Specific help</div>
+              <div class="decisionCard__title">{item.title}</div>
+              <p class="decisionCard__body">{item.desc}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -272,6 +263,7 @@ const tiles = [
 <section id="faq" class="section">
       <div class="card pad">
         <h2 class="section__title">FAQ</h2>
+        <p class="muted" style="margin-top:8px; max-width:980px;">Use these quick answers if one basic question is still holding you up.</p>
         <div class="faq" style="margin-top:12px;">
           <details class="faq__item">
             <summary class="faq__q">Can I try Star Citizen without buying?</summary>
@@ -307,7 +299,7 @@ const tiles = [
           </details>
           <details class="faq__item">
             <summary class="faq__q">I’m overwhelmed. What is the easiest way to start?</summary>
-            <div class="faq__a">Follow the <a href="#first-session">First 60 minutes section</a> on this page and ignore the rest until you finish one full loop.</div>
+            <div class="faq__a">Follow the <a href="#first-session">first calm hour plan</a> on this page and ignore the rest until you finish one clean loop.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Where do I enter the referral code?</summary>
@@ -316,8 +308,8 @@ const tiles = [
         </div>
 
         <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
-          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create account + claim signup bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+          <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create account and claim signup bonus</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">See the referral guide →</a>
         </div>
       </div>
     </section>
