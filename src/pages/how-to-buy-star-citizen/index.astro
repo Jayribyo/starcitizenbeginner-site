@@ -110,14 +110,14 @@ const howToLd = {
   ogImage="/assets/img/how-to-buy-star-citizen/star-citizen-pilot-logs-in-hero.webp"
   ogImageAlt="Star Citizen pilot signing in on the RSI website"
   robots="index,follow"
-  stickyCtaLabel={`Create account + claim bonus (+50k UEC)`}
+  stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={REF_LINK}
   stickyCtaExternal={true}
 >
   <HowToSchema json={howToLd} />
   <FaqSchema json={faqLd} />
 
-  <Breadcrumbs crumbs={crumbs} />
+  <Breadcrumbs items={crumbs} />
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
@@ -152,10 +152,11 @@ const howToLd = {
   </section>
 
   <ReferralBanner
-    title={`Use referral code ${REF_CODE} to start with ${REF_BONUS}.`}
-    sub="Optional. No cost. Doesn’t change your price — it just adds the signup bonus during account creation."
-    ctaLabel="Create account + claim your start bonus"
+    code={REF_CODE}
+    bonus={REF_BONUS}
+    ctaLabel="Create account + claim bonus"
     ctaHref={REF_LINK}
+    sublineHtml="Optional. Free. Doesn’t change your price — it just adds the signup bonus during account creation."
   />
 
   <!-- ===================== QUICK ANSWER ===================== -->
@@ -471,7 +472,7 @@ const howToLd = {
       <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
         <a class="btn primary" href="/star-citizen-starter-packs/">Compare starter packs properly</a>
         <a class="btn ghost" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
-          Create account + claim signup bonus
+          Create account + claim bonus
         </a>
       </div>
     </div>
@@ -634,7 +635,7 @@ const howToLd = {
           <p class="muted" style="margin:0 0 12px;">Want the signup bonus done correctly? Use the referral guide for timing and the “can I add it later?” question.</p>
           <div class="btnrow" style="flex-wrap:wrap;">
             <a class="btn primary" href={REF_LINK} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">
-              Create account + claim signup bonus
+              Create account + claim bonus
             </a>
             <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide</a>
           </div>

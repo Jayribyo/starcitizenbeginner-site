@@ -136,7 +136,7 @@ const howToJsonLd = {
   canonicalPath="/should-you-buy-star-citizen/"
   ogImage={heroImg}
   ogImageAlt="Star Citizen fleet scene representing the buying decision"
-  stickyCtaLabel="Claim +50k UEC start bonus"
+  stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
   activeNav="guides"
@@ -148,7 +148,7 @@ const howToJsonLd = {
 
   <main>
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter guides', href: '/#pick-your-path' }, { label: 'Should you buy Star Citizen', href: '/should-you-buy-star-citizen/' }]} />
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Should you buy Star Citizen', href: '/should-you-buy-star-citizen/' }]} />
     <!-- HERO (must match global landing page hero layout) -->
     <section class="hero guideHero">
       <img
@@ -182,7 +182,7 @@ const howToJsonLd = {
     <ReferralBanner
       code={referralCode}
       bonus={`${referralBonusUEC} UEC`}
-            ctaLabel="Claim your free start bonus"
+            ctaLabel="Create account + claim bonus"
 ctaHref={referralLink}
       howItWorksHref="/star-citizen-referral-code/#how-to-use"
       sublineHtml="If you decide to buy, use it during signup. It is free, simple, and easiest to do right away."
@@ -462,7 +462,7 @@ ctaHref={referralLink}
             <td>
               Create your RSI account and enter referral code <b>{referralCode}</b> during signup.
               <div class="btnrow" style="margin-top:10px; flex-wrap:wrap;">
-                <a class="btn secondary" href={referralLink}>Claim +{referralBonusUEC} UEC start bonus</a>
+                <a class="btn secondary" href={referralLink}>Create account + claim bonus</a>
                 <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
               </div>
             </td>
