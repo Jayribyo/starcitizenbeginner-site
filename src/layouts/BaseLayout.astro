@@ -45,6 +45,37 @@ const alternateEntries = paths && typeof paths === "object"
   ? Object.entries(paths).filter(([, href]) => typeof href === "string" && href.startsWith("/"))
   : [];
 
+const satellitePaths = new Set([
+  "/avoid-losing-gear-beginner/",
+  "/best-beginner-mission-to-earn-credits/",
+  "/best-settings-for-low-end-pc-star-citizen/",
+  "/best-time-to-play-free-fly/",
+  "/bounties-beginner-setup/",
+  "/can-you-add-referral-code-after-signup/",
+  "/courier-missions-beginner-route/",
+  "/cpu-vs-gpu-bottleneck-test/",
+  "/does-referral-code-change-price/",
+  "/first-session/",
+  "/first-session-checklist/",
+  "/fix-stuttering/",
+  "/free-fly-download-install-checklist/",
+  "/free-fly-first-session/",
+  "/free-fly-queues-and-server-lag-fix/",
+  "/free-fly-what-do-i-keep/",
+  "/get-a-star-citizen-referral-code/",
+  "/glossary/",
+  "/how-to-claim-your-ship-asop-terminal/",
+  "/how-to-not-get-lost-in-star-citizen/",
+  "/increase-fps-without-making-it-ugly/",
+  "/inventory-and-gear-beginner-basics/",
+  "/referral-code-not-working/",
+  "/star-citizen-crash-fix-checklist/",
+  "/star-citizen-first-mission-guide/",
+  "/try-star-citizen-without-buying/",
+  "/what-starter-ship-should-i-choose/",
+  "/where-to-enter-referral-code/",
+]);
+
 const pageType = (() => {
   if (safePath === "/") return "home";
   if (safePath === "/free-fly/") return "free_fly";
@@ -55,7 +86,7 @@ const pageType = (() => {
   if (safePath === "/beginner-tips/") return "beginner_tips";
   if (safePath === "/make-money-fast/") return "make_money_fast";
   if (safePath === "/star-citizen-performance-guide/") return "performance_guide";
-  if (safePath.startsWith("/satellites/")) return "satellite";
+  if (safePath.startsWith("/satellites/") || satellitePaths.has(safePath)) return "satellite";
   if (["/de/", "/fr/", "/es/", "/zh/"].includes(safePath)) return "language_entry";
   return "other";
 })();

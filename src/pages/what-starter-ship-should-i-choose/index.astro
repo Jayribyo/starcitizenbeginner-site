@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReferralBanner from "../../components/ReferralBanner.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
+import FaqSchema from "../../components/FaqSchema.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+
+const referralCode = REFERRAL_CODE;
+const referralLink = REFERRAL_LINK;
+
+const heroImg = "/assets/img/star-citizen-starter-packs/star-citizen-starter-pack-guide-ship-selection-hero.webp";
+
+const tocItems = [
+  { id: "quick-answer", label: "Quick answer" },
+  { id: "do-this-now", label: "Do this now" },
+  { id: "common-mistakes", label: "Common mistakes" },
+  { id: "next-steps", label: "Next steps" },
+  { id: "faq", label: "FAQ" }
+];
+
+const faqItems = [
+  { q: "Do I need the ‘best’ starter ship?", a: "No. You just need one that makes your start feel easier." },
+  { q: "Can I upgrade later?", a: "Yes. Start simple first, then upgrade later if you know you want to keep playing." },
+  { q: "Should I buy during Free Fly?", a: "Only if you know you’ll keep playing. Otherwise treat Free Fly as a trial." },
+  { q: "Is a referral code required?", a: "No. It’s optional and only applies during signup." },
+  { q: "Where do I go next?", a: "Use the Starter Packs guide to pick without wasting money." }
+];
+---
+
+<BaseLayout
+  title="What Starter Ship Should You Choose First? | Star Citizen Beginner"
+  description="Not sure which Star Citizen starter ship fits you? This quick answer helps you pick between the common beginner choices without turning it into a full buying guide."
+  canonicalPath="/what-starter-ship-should-i-choose/"
+  ogImage={heroImg}
+  ogImageAlt="What Starter Ship Should You Choose? (Simple Decision Guide)"
+  stickyCtaLabel="Create account + claim bonus"
+  stickyCtaHref={referralLink}
+  stickyCtaExternal={true}
+  activeNav="guides"
+>
+  <main>
+
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Starter pack help', href: '/satellites/' }, { label: 'Starter ship choice', href: '/satellites/what-starter-ship-should-i-choose/' }]} />
+    <section class="hero guideHero">
+      <img
+        class="hero__img"
+        src={heroImg}
+        alt="What Starter Ship Should You Choose? (Simple Decision Guide)"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1536"
+        height="1024"
+      />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="guideHero__content">
+          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <h1 class="h1">What starter ship should you choose first?</h1>
+          <p class="lead" style="max-width: 820px;">Answer: This page helps you choose a starter ship quickly. For the full buying and package context, use the main starter-packs guide.</p>
+
+          <div class="hero__cta">
+            <a class="btn primary" href="#quick-answer">Start here</a>
+          </div>
+        </div>
+
+        <OnThisPage variant="hero" title="On this page" items={tocItems} />
+      </div>
+    </section>
+
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000"
+      ctaLabel="Claim your start bonus"
+      ctaHref={referralLink}
+      ctaExternal={true}
+    />
+
+    <section id="quick-answer" class="section">
+      <div class="container">
+        <h2 class="h2">Quick answer</h2>
+
+        <div class="callout" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Scope</div>
+          <p class="muted" style="margin-top:10px;">This page is only about the ship choice. If you also need help with game packages, pricing, or the buying flow, use <a href="/star-citizen-starter-packs/">Starter packs</a>.</p>
+        </div>
+
+        <div class="card pad" style="margin-bottom:12px;">
+          <div class="kicker"><span class="dot"></span>Answer</div>
+          <p class="lead" style="margin-top:10px;">Use this page to make the ship choice quickly. If you also need package, pricing, or checkout help, move up to the full starter-packs guide.</p>
+        </div>
+
+        <ul class="bullets">
+          <li>Pick the ship that makes your start easier, not the one that just sounds coolest on paper.</li>
+          <li>Choose for your <b>first sessions</b>, not for some future dream fleet you may never need.</li>
+<li>If you are unsure, take the simple option first. You can always upgrade later if you keep playing.</li>
+<li>If you still are not sure, try Free Fly first and buy the smallest starter package later.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="do-this-now" class="section alt">
+      <div class="container">
+        <h2 class="h2">Do this now</h2>
+        <ol class="steps">
+          <li><b>Pick how you want to start</b>: delivery and exploring, combat, or a bit of everything.</li>
+<li><b>Keep it easy at first</b>: simple handling and simple missions beat fancy specs on day one.</li>
+<li><b>Buy the smallest starter package</b> that fits — no extra ships yet.</li>
+<li><b>Play a few sessions</b> before you spend more money.</li>
+<li><b>Use the referral code during signup</b> if you are creating a brand-new account (optional bonus).</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="common-mistakes" class="section">
+      <div class="container">
+        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What happens</th>
+                <th>Fix (exact)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Buying based on hype</b></td><td>You get a ship that does not really fit how you will start.</td><td>Buy for your first sessions and easy missions.</td></tr>
+<tr><td><b>Spending beyond minimum early</b></td><td>You spend before you know what you actually enjoy.</td><td>Start small; upgrade later if you keep playing.</td></tr>
+<tr><td><b>Ignoring performance realities</b></td><td>You buy then struggle with FPS.</td><td>Run the performance checklist before judging.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="section alt">
+      <div class="container">
+        <h2 class="h2">Next steps</h2>
+        <ul class="bullets">
+          <li><a href="/star-citizen-starter-packs/">Open the full starter-packs guide</a> — best next step if you need the complete package recommendation, not just the ship choice.</li>
+<li><a href="/should-you-buy-star-citizen/">Use the reality check</a> if you are still unsure whether to spend money at all.</li>
+<li><a href="/how-to-buy-star-citizen/">Use the buying guide</a> once you know what you want and just need the clean checkout path.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="h2">FAQ</h2>
+        <div class="faq" style="margin-top:12px;">
+          {faqItems.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__q">{item.q}</summary>
+              <div class="faq__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
+  <a class="btn primary" href="/star-citizen-starter-packs/">Open the full starter-packs guide</a>
+  <a class="btn ghost" href="/how-to-buy-star-citizen/">Need the buying steps too? →</a>
+</div>
+      </div>
+
+      <FaqSchema items={faqItems} />
+    </section>
+  </main>
+</BaseLayout>
