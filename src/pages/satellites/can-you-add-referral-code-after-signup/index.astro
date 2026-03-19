@@ -41,7 +41,7 @@ const faqItems = [
 >
   <main>
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/can-you-add-referral-code-after-signup/' }]} />
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Referral code', href: REFERRAL_INFO_PATH }, { label: 'Add referral code after signup', href: '/satellites/can-you-add-referral-code-after-signup/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -88,15 +88,15 @@ const faqItems = [
         </div>
 
         <ul class="bullets">
-          <li>If the account already exists, stop chasing workarounds and decide whether you want to keep using that account.</li>
-          <li><b>The clean plan is still simple:</b> enter the referral code during account creation and avoid the problem entirely.</li>
-<li>If you just created the account, check your RSI account summary right away because the current referral FAQ mentions a short 24-hour backup window for brand-new accounts.</li>
-<li>If the field is already gone, your best move is usually to <b>keep playing</b> and use SCB’s buying path (<a class="link" href="/free-fly/">Free Fly</a> → <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> → <a class="link" href="/star-citizen-starter-packs/">starter pack</a>) without chasing the bonus.</li>
+          <li>If the account already exists, stop chasing vague workarounds and check whether the short backup window still appears in RSI.</li>
+          <li><b>The clean rule is simple:</b> referral belongs to account creation, not to the later buying step.</li>
+<li>If you just created the account, check your RSI account summary right away because the current referral FAQ mentions a short backup window for brand-new accounts.</li>
+<li>If the field is already gone, keep the account and move on. Try <a class="link" href="/free-fly/">Free Fly</a> first or use the <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> when you are ready.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Where to paste the referral code →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Main referral guide →</a>
         </div>
       </div>
     </section>
@@ -139,12 +139,11 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the exact signup rule, backup window, and FAQ in one place.</li>
-<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — use this if you want the shortest no-mistakes path.</li>
-<li><a href="/satellites/where-to-enter-referral-code/">Where to enter the code (field shown)</a></li>
-<li><a href="/should-you-buy-star-citizen/">Not sure yet? Read the quick reality check</a></li>
-<li><a href="/star-citizen-starter-packs/">If you buy: pick a starter pack without wasting money</a></li>
-<li><a href="/how-to-buy-star-citizen/">Still moving forward? Use the buying guide from here</a></li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full answer on signup timing, backup window, and what RSI currently says.</li>
+<li><a href="/satellites/where-to-enter-referral-code/">Where to enter the code</a> — use this if you have not created the account yet.</li>
+<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest clean path for your next signup.</li>
+<li><a href="/free-fly/">Free Fly</a> — keep the account and try the game before you spend money.</li>
+<li><a href="/how-to-buy-star-citizen/">How to buy Star Citizen</a> — move here once you are ready to buy on the account you kept.</li>
         </ul>
       </div>
     </section>
@@ -163,7 +162,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Main referral guide →</a>
         </div>
       </div>
 

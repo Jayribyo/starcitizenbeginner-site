@@ -44,7 +44,7 @@ const faqItems = [
 >
   <main>
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/get-a-star-citizen-referral-code/' }]} />
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Referral code', href: REFERRAL_INFO_PATH }, { label: 'Get a referral code', href: '/satellites/get-a-star-citizen-referral-code/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -91,11 +91,11 @@ const faqItems = [
         </div>
 
         <ul class="bullets">
-          <li>Grab the code before you start signup so the account creation stays simple from start to finish.</li>
-          <li>Use a valid referral code during signup so you don’t miss the signup bonus.</li>
-          <li>Enter the code <b>during account creation</b> (that window is the whole point).</li>
-          <li>If you want the exact field, the fallback window, and the full FAQ in one place, use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
-          <li>It’s optional and doesn’t change your price—just your starting bonus.</li>
+          <li>Grab the code before you start signup so the whole account-creation flow stays simple.</li>
+          <li>Use a valid referral code during signup so you do not miss the bonus window.</li>
+          <li>Enter the code <b>during account creation</b> — that is the whole referral step.</li>
+          <li>Need the exact field, the short backup window, or the full FAQ? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
+          <li>It is optional and does not change your price — only your starting bonus.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
@@ -164,10 +164,11 @@ const faqItems = [
         <h2 class="h2">Next steps</h2>
 
         <ul class="bullets">
-          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — where to paste it, the short backup window, and the full signup FAQ.</li>
-          <li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — capture the window before you overthink the rest.</li>
-          <li><a href="/free-fly/">Free Fly first session</a> — try the game without buying, then decide with real experience.</li>
-          <li><a href="/star-citizen-starter-packs/">Starter packs</a> — spend the minimum and avoid beginner purchase traps.</li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full referral answer: where to paste it, what it changes, and what RSI currently says.</li>
+          <li><a href="/satellites/where-to-enter-referral-code/">Where to enter the code</a> — use this if you only want the exact signup field.</li>
+          <li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest clean signup path.</li>
+          <li><a href="/free-fly/">Free Fly</a> — create the account now and decide later with real playtime.</li>
+          <li><a href="/how-to-buy-star-citizen/">How to buy Star Citizen</a> — use this after signup when you are ready for the actual purchase flow.</li>
         </ul>
       </div>
     </section>
@@ -186,7 +187,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Main referral guide →</a>
         </div>
       </div>
 

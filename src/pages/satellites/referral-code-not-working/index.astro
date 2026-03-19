@@ -41,7 +41,7 @@ const faqItems = [
 >
   <main>
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Answers', href: '/satellites/' }, { label: 'Answer', href: '/satellites/referral-code-not-working/' }]} />
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Referral code', href: REFERRAL_INFO_PATH }, { label: 'Referral code not working', href: '/satellites/referral-code-not-working/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
@@ -88,15 +88,15 @@ const faqItems = [
         </div>
 
         <ul class="bullets">
-          <li>If the account is brand-new, check the RSI account summary right away because the current referral FAQ mentions a short backup window there.</li>
-          <li>Most “not working” cases are one of three things: <b>code entered after signup</b>, <b>typo/spacing</b>, or <b>expecting an instant in‑game change</b>.</li>
-<li>Fix by verifying <b>timing → correctness → account status</b> in that order.</li>
-<li>If the field is already gone, stop troubleshooting loops and focus on the normal beginner path instead.</li>
+          <li>Most “not working” cases come down to one of three things: <b>code entered after signup</b>, <b>typo/spacing</b>, or <b>expecting an instant in-game change</b>.</li>
+<li>If the account is brand-new, check the RSI account summary right away because the current referral FAQ mentions a short backup window there.</li>
+<li>Work in this order: <b>timing → exact code → account status</b>.</li>
+<li>If the field is already gone, stop troubleshooting loops and move on with the normal beginner path.</li>
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Where to paste the referral code →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Main referral guide →</a>
         </div>
       </div>
     </section>
@@ -139,11 +139,11 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — exact steps, backup window, and FAQ.</li>
-<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest path for avoiding this problem next time.</li>
-<li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add it after signup? (short answer)</a></li>
-<li><a href="/should-you-buy-star-citizen/">Quick reality check (buy vs try)</a></li>
-<li><a href="/how-to-buy-star-citizen/">Moving on without the bonus? Use the buying guide from here</a></li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — exact steps, backup window, and the full FAQ.</li>
+<li><a href="/satellites/can-you-add-referral-code-after-signup/">Can you add it after signup?</a> — use this if the account already exists.</li>
+<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest path for getting signup right next time.</li>
+<li><a href="/free-fly/">Free Fly</a> — move forward and test the game before you spend money.</li>
+<li><a href="/how-to-buy-star-citizen/">How to buy Star Citizen</a> — use this when you are ready to continue without getting stuck on the bonus.</li>
         </ul>
       </div>
     </section>
@@ -162,7 +162,7 @@ const faqItems = [
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Referral code guide →</a>
+          <a class="btn ghost" href={REFERRAL_INFO_PATH}>Main referral guide →</a>
         </div>
       </div>
 
