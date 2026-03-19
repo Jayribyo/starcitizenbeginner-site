@@ -16,13 +16,19 @@ export const SHOULD_YOU_BUY_PATH = "/should-you-buy-star-citizen/";
 export const STARTER_PACKS_PATH = "/star-citizen-starter-packs/";
 export const PERFORMANCE_GUIDE_PATH = "/star-citizen-performance-guide/";
 
-export const DEFAULT_LANGUAGE_PATHS = {
+export const LANGUAGE_PAGES_ENABLED = import.meta.env.PUBLIC_ENABLE_LANGUAGE_PAGES === "1";
+
+const ALL_LANGUAGE_PATHS = {
   en: "/",
   de: "/de/",
   fr: "/fr/",
   es: "/es/",
   zh: "/zh/",
 } as const;
+
+export const DEFAULT_LANGUAGE_PATHS = LANGUAGE_PAGES_ENABLED
+  ? ALL_LANGUAGE_PATHS
+  : ({ en: "/" } as const);
 
 export const LANGUAGE_LABELS = {
   en: { code: "EN", label: "English" },
@@ -32,10 +38,11 @@ export const LANGUAGE_LABELS = {
   zh: { code: "中文", label: "中文" },
 } as const;
 
-
-export const LANGUAGE_OPTIONS = Object.entries(LANGUAGE_LABELS).map(([key, value]) => ({
-  key,
-  code: value.code,
-  label: value.label,
-  href: DEFAULT_LANGUAGE_PATHS[key as keyof typeof DEFAULT_LANGUAGE_PATHS],
-}));
+export const LANGUAGE_OPTIONS = Object.entries(LANGUAGE_LABELS)
+  .filter(([key]) => key in DEFAULT_LANGUAGE_PATHS)
+  .map(([key, value]) => ({
+    key,
+    code: value.code,
+    label: value.label,
+    href: DEFAULT_LANGUAGE_PATHS[key as keyof typeof DEFAULT_LANGUAGE_PATHS],
+  }));
