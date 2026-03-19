@@ -17,6 +17,8 @@ const {
   stickyCtaHref = "",
   stickyCtaExternal = false,
   paths = null,
+  pageType: pageTypeProp = "",
+  pageTier: pageTierProp = "",
 } = Astro.props;
 
 const site = Astro.site.toString().replace(/\/$/, "");
@@ -45,38 +47,8 @@ const alternateEntries = paths && typeof paths === "object"
   ? Object.entries(paths).filter(([, href]) => typeof href === "string" && href.startsWith("/"))
   : [];
 
-const satellitePaths = new Set([
-  "/avoid-losing-gear-beginner/",
-  "/best-beginner-mission-to-earn-credits/",
-  "/best-settings-for-low-end-pc-star-citizen/",
-  "/best-time-to-play-free-fly/",
-  "/bounties-beginner-setup/",
-  "/can-you-add-referral-code-after-signup/",
-  "/courier-missions-beginner-route/",
-  "/cpu-vs-gpu-bottleneck-test/",
-  "/does-referral-code-change-price/",
-  "/first-session/",
-  "/first-session-checklist/",
-  "/fix-stuttering/",
-  "/free-fly-download-install-checklist/",
-  "/free-fly-first-session/",
-  "/free-fly-queues-and-server-lag-fix/",
-  "/free-fly-what-do-i-keep/",
-  "/get-a-star-citizen-referral-code/",
-  "/glossary/",
-  "/how-to-claim-your-ship-asop-terminal/",
-  "/how-to-not-get-lost-in-star-citizen/",
-  "/increase-fps-without-making-it-ugly/",
-  "/inventory-and-gear-beginner-basics/",
-  "/referral-code-not-working/",
-  "/star-citizen-crash-fix-checklist/",
-  "/star-citizen-first-mission-guide/",
-  "/try-star-citizen-without-buying/",
-  "/what-starter-ship-should-i-choose/",
-  "/where-to-enter-referral-code/",
-]);
-
-const pageType = (() => {
+const resolvedPageType = (() => {
+  if (pageTypeProp) return pageTypeProp;
   if (safePath === "/") return "home";
   if (safePath === "/free-fly/") return "free_fly";
   if (safePath === "/how-to-buy-star-citizen/") return "how_to_buy";
@@ -86,14 +58,17 @@ const pageType = (() => {
   if (safePath === "/beginner-tips/") return "beginner_tips";
   if (safePath === "/make-money-fast/") return "make_money_fast";
   if (safePath === "/star-citizen-performance-guide/") return "performance_guide";
-  if (safePath.startsWith("/satellites/") || satellitePaths.has(safePath)) return "satellite";
+  if (safePath.startsWith("/satellites/")) return "satellite";
   if (["/de/", "/fr/", "/es/", "/zh/"].includes(safePath)) return "language_entry";
   return "other";
 })();
 
-const pageTier = new Set(["home", "free_fly", "how_to_buy", "referral", "starter_packs", "should_you_buy"]).has(pageType)
-  ? "tier_1"
-  : (pageType === "satellite" ? "satellite" : "support");
+const resolvedPageTier = (() => {
+  if (pageTierProp) return pageTierProp;
+  return new Set(["home", "free_fly", "how_to_buy", "referral", "starter_packs", "should_you_buy"]).has(resolvedPageType)
+    ? "tier_1"
+    : (resolvedPageType === "satellite" ? "satellite" : "support");
+})();
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -167,7 +142,7 @@ const organizationSchema = {
     <slot name="head" />
   </head>
 
-  <body data-referral-code={REFERRAL_CODE} data-scb-page-type={pageType} data-scb-page-tier={pageTier}>
+  <body data-referral-code={REFERRAL_CODE} data-scb-page-type={resolvedPageType} data-scb-page-tier={resolvedPageTier}>
     <div id="top" aria-hidden="true"></div>
 
     <SiteHeader active={activeNav} currentPath={safePath} lang={lang} paths={paths} />
