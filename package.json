@@ -4,15 +4,16 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node ./scripts/generate-sitemap.mjs",
+    "build": "node ./scripts/validate-route-collisions.mjs && astro build && node ./scripts/generate-sitemap.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "validate:links": "node ./scripts/validate-internal-links.mjs",
     "validate:site": "node ./scripts/validate-site-config.mjs",
     "validate:free-fly": "node ./scripts/validate-free-fly-cluster.mjs",
-    "ci:check": "astro check && pnpm run validate:links && pnpm run validate:site && pnpm run validate:free-fly && pnpm run validate:lang && pnpm run validate:public",
+    "ci:check": "astro check && pnpm run validate:routes && pnpm run validate:links && pnpm run validate:site && pnpm run validate:free-fly && pnpm run validate:lang && pnpm run validate:public",
     "validate:public": "node ./scripts/validate-public-artifacts.mjs",
-    "validate:lang": "node ./scripts/validate-language-gating.mjs"
+    "validate:lang": "node ./scripts/validate-language-gating.mjs",
+    "validate:routes": "node ./scripts/validate-route-collisions.mjs"
   },
   "dependencies": {
     "astro": "^4.16.0"
