@@ -1074,11 +1074,11 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 }
 
-/* Desktop: keep the integrated, bottom-anchored TOC pattern */
+/* Desktop: give 3:2 hero artwork more visible vertical space without changing the top shell or TOC pattern. */
 @media (min-width: 1181px) {
   .hero__img{
-    height: min(72vh, 760px);
-    min-height: 540px;
+    height: min(76vh, 800px);
+    min-height: 560px;
   }
 
   .hero__content{
@@ -1095,19 +1095,19 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 }
 
-/* Ultra-wide desktops: keep visual presence without letting the hero dominate the whole fold */
+/* Ultra-wide desktops: add a little more vertical window so centered 3:2 art reads less over-cropped. */
 @media (min-width: 1500px) {
   .hero__img{
-    height: min(75vh, 820px);
-    min-height: 580px;
+    height: min(79vh, 880px);
+    min-height: 620px;
   }
 }
 
-/* Desktop short-viewport safeguard: keep the hero present while preserving the referral bar in view. */
+/* Desktop short-viewport safeguard: still allow more visible image area than the previous compressed state. */
 @media (min-width: 1181px) and (max-height: 820px) {
   .hero__img{
-    height: min(64vh, 620px);
-    min-height: 460px;
+    height: min(68vh, 680px);
+    min-height: 500px;
   }
 }
 
