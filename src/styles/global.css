@@ -1046,8 +1046,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 /* Desktop: keep the integrated, bottom-anchored TOC pattern */
 @media (min-width: 1024px) {
   .hero__img{
-    height: min(84vh, 940px);
-    min-height: 660px;
+    height: min(82vh, 900px);
+    min-height: 620px;
   }
 
   /* Reserve room for the bottom-anchored TOC, but less than before */
@@ -1066,10 +1066,10 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 }
 
 /* Ultra-wide desktops: keep it strong, but not so tall that the referral banner disappears */
-@media (min-width: 1400px) and (min-height: 800px) {
+@media (min-width: 1400px) {
   .hero__img{
-    height: min(86vh, 1020px);
-    min-height: 740px;
+    height: min(84vh, 980px);
+    min-height: 700px;
   }
 }
 
