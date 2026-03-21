@@ -19,7 +19,7 @@ const {
   <div class="hero__toc" aria-label={ariaLabel}>
     <div class="container">
       <div class:list={["card", "pad", "hero__tocCard", variant === "hero" && "hero__tocCard--hero"]}>
-        <div class="kicker"><span class="dot"></span> {title}</div>
+        <div class:list={["kicker", variant === "hero" && "hero__tocKicker"]}><span class:list={["dot", variant === "hero" && "hero__tocDot"]}></span> {title}</div>
         <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
           {items.map((it) => (
             <a href={it.href}>{it.label}</a>
@@ -31,7 +31,7 @@ const {
 ) : (
   <section class="section" aria-label={ariaLabel}>
     <div class="card pad">
-      <div class="kicker"><span class="dot"></span> {title}</div>
+      <div class:list={["kicker", variant === "hero" && "hero__tocKicker"]}><span class:list={["dot", variant === "hero" && "hero__tocDot"]}></span> {title}</div>
       <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
         {items.map((it) => (
           <a href={it.href}>{it.label}</a>
@@ -72,12 +72,12 @@ const {
     box-shadow: 0 12px 28px rgba(0,0,0,.28);
   }
 
-  .hero__tocCard--hero .kicker{
-    color: rgba(255,255,255,.88);
+  .hero__tocKicker{
+    color: var(--scb-heading-tier-3) !important;
   }
 
-  .hero__tocCard--hero .dot{
-    background: rgba(255,255,255,.78);
+  .hero__tocDot{
+    background: var(--scb-heading-tier-3) !important;
   }
 
   .toc--hero{
