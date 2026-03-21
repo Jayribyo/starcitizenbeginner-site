@@ -24,7 +24,7 @@ body {
 body {
   margin: 0;
   /* room for the fixed header + breadcrumb entry zone */
-  padding-top: 84px;
+  padding-top: 72px;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
   background: #06080f; /* IMPORTANT: gradient moved to fixed layer below */
@@ -245,13 +245,13 @@ li {
 }
 
 .guideHero__content {
-  max-width: 700px;
-  padding: 14px 0 0;
+  max-width: min(660px, 100%);
+  padding: 12px 0 0;
 }
 
 .homeHero__content > div {
-  max-width: 680px !important;
-  padding: 18px 0 0 !important;
+  max-width: min(640px, 100%) !important;
+  padding: 14px 0 0 !important;
 }
 
 /* ========== Common UI ========== */
@@ -263,7 +263,7 @@ li {
 }
 
 .pad {
-  padding: 18px;
+  padding: 16px;
 }
 
 @media (min-width: 900px) {
@@ -579,7 +579,7 @@ li {
 /* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
 .siteHeader{
   position: fixed;
-  top: 8px;
+  top: 6px;
   left: 50%;
   right: auto;
   width: min(calc(100% - 16px), var(--scb-max-hero));
@@ -596,9 +596,9 @@ li {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 14px;
-  min-height: 58px;
-  padding: 7px 0;
+  gap: 12px;
+  min-height: 54px;
+  padding: 5px 0;
 }
 
 .topNav{
@@ -612,10 +612,10 @@ li {
 /* Idle: muted */
 .topNav__link{
   font-weight: 850;
-  font-size: 12px;
+  font-size: 11.5px;
   color: rgba(255,255,255,.70);
   opacity: .94;
-  padding: 7px 9px;
+  padding: 6px 8px;
   border-radius: 12px;
   border: 1px solid transparent;
   display:inline-flex;
@@ -638,9 +638,9 @@ li {
 }
 
 .topNav__pill{
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 900;
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.035);
@@ -740,8 +740,8 @@ li {
 
 .navBurger{
   display:none;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
@@ -942,14 +942,15 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 @media (max-width: 1180px){
   /* Keep header single-row; show burger; hide desktop nav sooner before wrapping */
   body{
-    padding-top: 78px;
+    padding-top: 68px;
   }
 
   .siteHeader__inner{
     flex-direction: row;
     align-items: center;
-    min-height: 54px;
-    gap: 10px;
+    min-height: 50px;
+    gap: 8px;
+    padding: 4px 0;
   }
 
   .topNav--desktop{ display:none; }
@@ -959,8 +960,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
     gap: 10px;
   }
 
-  .brand span{ font-size: 17px; }
-  .brand img{ width: 38px; height: 38px; }
+  .brand span{ font-size: 16px; }
+  .brand img{ width: 36px; height: 36px; }
 }
 
 /* ========== Hero ========== */
@@ -1009,7 +1010,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   display: flex;
   align-items: stretch;
   /* Global hero gutter so H1/lead/CTA never hug the card edge. */
-  padding: 18px;
+  padding: 16px;
 }
 
 /* Hero-integrated "On this page" (TOC)
@@ -1019,11 +1020,11 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
    - Desktop: TOC is anchored to the bottom of the hero, like a premium landing page pattern.
 */
 .hero__toc {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .hero__tocCard {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.032);
 }
 
 /* Home hero content alignment (match referral spacing) */
@@ -1046,7 +1047,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 
   .hero__content{
-    padding: 18px;
+    padding: 16px;
   }
 
   .hero__toc{
@@ -1063,14 +1064,14 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 
   .hero__content{
-    padding: 18px 18px 104px;
+    padding: 16px 16px 94px;
   }
 
   .hero__toc{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 14px;
+    bottom: 12px;
     z-index: 4;
     margin-top: 0;
   }
@@ -1094,8 +1095,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 /* Extra-short desktops: reduce reserved TOC room further */
 @media (min-width: 1181px) and (max-height: 820px){
-  .hero__content{ padding: 18px 18px 88px; }
-  .hero__toc{ bottom: 10px; }
+  .hero__content{ padding: 16px 16px 80px; }
+  .hero__toc{ bottom: 8px; }
 }
 
 /* The "On this page" component is now integrated into the hero on key pages,
@@ -1687,15 +1688,17 @@ body.nav-open{
 .homeHero__content {
   position: relative;
   z-index: 2;
+  max-width: min(660px, 100%);
 }
 
 .hero__lead,
 .guideHero__content .lead,
 .homeHero__content .lead {
-  max-width: 62ch;
+  max-width: min(50ch, 100%) !important;
   font-size: 14px;
   line-height: 1.5;
   color: rgba(255,255,255,.78);
+  text-wrap: balance;
 }
 
 .hero__cta,
@@ -1707,8 +1710,9 @@ body.nav-open{
   .hero__lead,
   .guideHero__content .lead,
   .homeHero__content .lead {
-    font-size: 13.5px;
-    line-height: 1.46;
+    max-width: min(34ch, 100%) !important;
+    font-size: 13.25px;
+    line-height: 1.44;
   }
 }
 
@@ -1718,7 +1722,7 @@ body.nav-open{
 
 
 /* Breadcrumbs */
-.crumbs{padding:6px 0 0;}
+.crumbs{padding:2px 0 4px;}
 .crumbs__list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;color:rgba(255,255,255,.68);font-size:13px;}
 .crumbs__item{display:flex;align-items:center;gap:6px;}
 .crumbs__link{color:rgba(255,255,255,.78);text-decoration:none;}
@@ -1726,9 +1730,16 @@ body.nav-open{
 .crumbs__current{color:rgba(255,255,255,.9);}
 .crumbs__sep{color:rgba(255,255,255,.35);}
 
+.crumbs + .hero{ margin-top: 4px; }
+.hero + .section.section--heroWidth{ margin-top: 12px; }
+@media (max-width: 767px){
+  .crumbs + .hero{ margin-top: 2px; }
+  .hero + .section.section--heroWidth{ margin-top: 10px; }
+}
+
 @media (min-width: 1181px){
-  body{ padding-top: 86px; }
-  .brand{ gap: 12px; }
-  .brand img{ width: clamp(38px, 3vw, 46px); height: clamp(38px, 3vw, 46px); }
-  .brand span{ font-size: clamp(18px, 1.6vw, 24px); }
+  body{ padding-top: 76px; }
+  .brand{ gap: 10px; }
+  .brand img{ width: clamp(36px, 2.7vw, 42px); height: clamp(36px, 2.7vw, 42px); }
+  .brand span{ font-size: clamp(17px, 1.45vw, 22px); }
 }
