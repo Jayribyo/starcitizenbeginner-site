@@ -19,7 +19,7 @@ const {
   <div class="hero__toc" aria-label={ariaLabel}>
     <div class="container">
       <div class:list={["card", "pad", "hero__tocCard", variant === "hero" && "hero__tocCard--hero"]}>
-        <div class="kicker hero__tocKicker"><span class="dot"></span> {title}</div>
+        <div class="kicker hero__tocKicker" style="color: var(--scb-heading-tier-3); text-shadow: 0 1px 1px rgba(0,0,0,.18);"><span class="dot hero__tocDot" style="background: var(--scb-heading-tier-3);"></span> {title}</div>
         <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
           {items.map((it) => (
             <a href={it.href}>{it.label}</a>
@@ -31,7 +31,7 @@ const {
 ) : (
   <section class="section" aria-label={ariaLabel}>
     <div class="card pad">
-      <div class="kicker hero__tocKicker"><span class="dot"></span> {title}</div>
+      <div class="kicker hero__tocKicker" style="color: var(--scb-heading-tier-3); text-shadow: 0 1px 1px rgba(0,0,0,.18);"><span class="dot hero__tocDot" style="background: var(--scb-heading-tier-3);"></span> {title}</div>
       <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
         {items.map((it) => (
           <a href={it.href}>{it.label}</a>
@@ -79,9 +79,9 @@ const {
     color: rgba(224, 232, 243, 0.94) !important;
   }
 
-  .hero__tocKicker .dot,
-  .hero__tocCard--hero .hero__tocKicker .dot{
-    background: rgba(224, 232, 243, 0.92) !important;
+  .hero__tocDot,
+  .hero__tocCard--hero .hero__tocDot{
+    background: var(--scb-heading-tier-3) !important;
   }
 
   .toc--hero{
@@ -121,10 +121,6 @@ const {
       padding: 8px 9px 9px;
     }
 
-    .hero__tocKicker,
-    .hero__tocCard--hero .hero__tocKicker{
-      color: rgba(228, 236, 246, 0.95) !important;
-    }
 
     .toc--hero{
       display:grid;
