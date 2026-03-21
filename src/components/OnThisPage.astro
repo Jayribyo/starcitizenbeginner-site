@@ -67,19 +67,21 @@ const {
   }
 
   .hero__tocCard--hero{
-    width:min(100%, 980px);
-    padding: 11px 12px 12px;
-    background: rgba(255,255,255,.03);
+    width:min(100%, 1040px);
+    padding: 10px 12px 11px;
+    background: rgba(255,255,255,.028);
     border-color: rgba(255,255,255,.08);
     box-shadow: 0 10px 24px rgba(0,0,0,.24);
   }
 
-  .hero__tocKicker{
-    color: rgba(226, 234, 245, 0.9);
+  .hero__tocKicker,
+  .hero__tocCard--hero .hero__tocKicker{
+    color: rgba(214, 223, 236, 0.96) !important;
   }
 
-  .hero__tocKicker .dot{
-    background: rgba(226, 234, 245, 0.82);
+  .hero__tocKicker .dot,
+  .hero__tocCard--hero .hero__tocKicker .dot{
+    background: rgba(214, 223, 236, 0.88) !important;
   }
 
   .toc--hero{
@@ -108,19 +110,20 @@ const {
     }
   }
 
-  @media (max-width: 767px){
+  @media (max-width: 991px){
     .hero__tocCard--hero{
       width:100%;
       padding: 10px 11px 11px;
     }
 
-    .hero__tocKicker{
-      color: rgba(226, 234, 245, 0.92);
+    .hero__tocKicker,
+    .hero__tocCard--hero .hero__tocKicker{
+      color: rgba(214, 223, 236, 0.97) !important;
     }
 
     .toc--hero{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 7px;
       margin-top: 8px;
       overflow: visible;
@@ -130,7 +133,7 @@ const {
       white-space: normal;
       text-align: center;
       justify-content: center;
-      min-height: 40px;
+      min-height: 38px;
       line-height: 1.15;
       padding: 8px 9px;
       font-size: 11px;
