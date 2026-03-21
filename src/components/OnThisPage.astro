@@ -68,7 +68,7 @@ const {
 
   .hero__tocCard--hero{
     width:min(100%, 1040px);
-    padding: 10px 12px 11px;
+    padding: 9px 11px 10px;
     background: rgba(255,255,255,.028);
     border-color: rgba(255,255,255,.08);
     box-shadow: 0 10px 24px rgba(0,0,0,.24);
@@ -76,12 +76,12 @@ const {
 
   .hero__tocKicker,
   .hero__tocCard--hero .hero__tocKicker{
-    color: rgba(214, 223, 236, 0.96) !important;
+    color: var(--scb-heading-tier-3) !important;
   }
 
   .hero__tocKicker .dot,
   .hero__tocCard--hero .hero__tocKicker .dot{
-    background: rgba(214, 223, 236, 0.88) !important;
+    background: rgba(208, 218, 232, 0.84) !important;
   }
 
   .toc--hero{
@@ -113,12 +113,12 @@ const {
   @media (max-width: 991px){
     .hero__tocCard--hero{
       width:100%;
-      padding: 10px 11px 11px;
+      padding: 9px 10px 10px;
     }
 
     .hero__tocKicker,
     .hero__tocCard--hero .hero__tocKicker{
-      color: rgba(214, 223, 236, 0.97) !important;
+      color: var(--scb-heading-tier-3) !important;
     }
 
     .toc--hero{
@@ -131,8 +131,10 @@ const {
 
     .toc--hero a{
       white-space: normal;
+      display:flex;
       text-align: center;
       justify-content: center;
+      align-items:center;
       min-height: 38px;
       line-height: 1.15;
       padding: 8px 9px;

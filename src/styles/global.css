@@ -24,7 +24,7 @@ body {
 body {
   margin: 0;
   /* room for the fixed header + breadcrumb entry zone */
-  padding-top: 64px;
+  padding-top: 58px;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
   background: #06080f; /* IMPORTANT: gradient moved to fixed layer below */
@@ -45,11 +45,11 @@ body {
   --scb-heading-tier-2-soft: rgba(220, 229, 241, 0.92);
   --scb-heading-tier-3: rgba(208, 218, 232, 0.84);
   --scb-card-title: rgba(198, 208, 223, 0.80);
-  --scb-hero-content-max: 740px;
-  --scb-hero-content-max-home: 760px;
-  --scb-hero-lead-max: 56ch;
-  --scb-hero-lead-max-tablet: 50ch;
-  --scb-hero-lead-max-mobile: 34ch;
+  --scb-hero-content-max: 780px;
+  --scb-hero-content-max-home: 820px;
+  --scb-hero-lead-max: 60ch;
+  --scb-hero-lead-max-tablet: 54ch;
+  --scb-hero-lead-max-mobile: 36ch;
 }
 
 /* Fixed background layer to prevent "seams" / color breaks while scrolling */
@@ -116,7 +116,7 @@ li {
 
 .section.alt .container > .h2,
 .section.alt .container > .section__title {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .section.alt .container > .miniLead,
@@ -274,7 +274,7 @@ li {
   gap: 8px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.72);
 }
@@ -575,10 +575,10 @@ li {
 /* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
 .siteHeader{
   position: fixed;
-  top: 4px;
+  top: 2px;
   left: 50%;
   right: auto;
-  width: min(calc(100% - 16px), var(--scb-max-hero));
+  width: min(calc(100% - 14px), var(--scb-max-hero));
   transform: translateX(-50%);
   z-index: 100;
   background: rgba(7,10,18,.72);
@@ -593,14 +593,14 @@ li {
   align-items:center;
   justify-content:space-between;
   gap: 10px;
-  min-height: 50px;
-  padding: 3px 0;
+  min-height: 46px;
+  padding: 2px 0;
 }
 
 .topNav{
   display:flex;
   align-items:center;
-  gap: 5px;
+  gap: 4px;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -611,7 +611,7 @@ li {
   font-size: 11px;
   color: rgba(255,255,255,.70);
   opacity: .94;
-  padding: 5px 7px;
+  padding: 4px 6px;
   border-radius: 12px;
   border: 1px solid transparent;
   display:inline-flex;
@@ -634,9 +634,9 @@ li {
 }
 
 .topNav__pill{
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 900;
-  padding: 2px 5px;
+  padding: 2px 4px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.035);
@@ -736,8 +736,8 @@ li {
 
 .navBurger{
   display:none;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
@@ -844,9 +844,9 @@ li {
   align-items:center;
   justify-content:space-between;
   gap: 12px;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .mobileNavDrawer__title{
@@ -856,8 +856,8 @@ li {
 }
 
 .mobileNavDrawer__close{
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
@@ -938,15 +938,15 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 @media (max-width: 1180px){
   /* Keep header single-row; show burger; hide desktop nav sooner before wrapping */
   body{
-    padding-top: 60px;
+    padding-top: 54px;
   }
 
   .siteHeader__inner{
     flex-direction: row;
     align-items: center;
-    min-height: 46px;
+    min-height: 44px;
     gap: 8px;
-    padding: 2px 0;
+    padding: 1px 0;
   }
 
   .topNav--desktop{ display:none; }
@@ -956,14 +956,14 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
     gap: 10px;
   }
 
-  .brand span{ font-size: 15px; }
-  .brand img{ width: 34px; height: 34px; }
+  .brand span{ font-size: 14px; }
+  .brand img{ width: 32px; height: 32px; }
 }
 
 /* ========== Hero ========== */
 .hero {
   /* Keep the hero aligned to the same outer frame as the fixed header. */
-  width: min(calc(100% - 16px), var(--scb-max-hero));
+  width: min(calc(100% - 14px), var(--scb-max-hero));
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -1005,27 +1005,25 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   inset: 0;
   display: flex;
   align-items: stretch;
-  /* Global hero gutter so H1/lead/CTA never hug the card edge. */
-  padding: 14px;
+  padding: 12px;
 }
 
 .hero__content > :is(.guideHero__content, .homeHero__content, .freeFlyHero__content, .refHero__content, .packsHero__content) {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: min(100%, var(--scb-hero-content-max));
   max-width: var(--scb-hero-content-max);
-  padding: 18px 0 0 !important;
+  padding: 14px 0 0 !important;
 }
 
 .hero__content > .homeHero__content {
+  width: min(100%, var(--scb-hero-content-max-home));
   max-width: var(--scb-hero-content-max-home);
 }
 
-.homeHero__content > div,
-.hero__content > :is(.guideHero__content, .homeHero__content, .freeFlyHero__content, .refHero__content, .packsHero__content) > div {
-  max-width: 100% !important;
-  padding: 0 !important;
-}
 
 /* Hero-integrated "On this page" (TOC)
    Goal: keep a cinematic hero on desktop while still showing page navigation
@@ -1035,6 +1033,12 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 */
 .hero__toc {
   margin-top: 8px;
+}
+
+.hero__toc :global(.container){
+  width: 100%;
+  max-width: none;
+  padding: 0;
 }
 
 .hero__tocCard {
@@ -1056,12 +1060,12 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 /* Tablet / small desktop: keep hero cinematic, but reduce total page-top bulk */
 @media (min-width: 900px) and (max-width: 1180px) {
   .hero__img{
-    height: min(56vh, 540px);
-    min-height: 396px;
+    height: min(57vh, 560px);
+    min-height: 404px;
   }
 
   .hero__content{
-    padding: 14px;
+    padding: 12px;
   }
 
   .hero__toc{
@@ -1078,14 +1082,14 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   }
 
   .hero__content{
-    padding: 14px 14px 88px;
+    padding: 10px 12px 74px;
   }
 
   .hero__toc{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 10px;
+    bottom: 8px;
     z-index: 4;
     margin-top: 0;
   }
@@ -1109,7 +1113,7 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 /* Extra-short desktops: reduce reserved TOC room further */
 @media (min-width: 1181px) and (max-height: 820px){
-  .hero__content{ padding: 14px 14px 76px; }
+  .hero__content{ padding: 10px 12px 66px; }
   .hero__toc{ bottom: 8px; }
 }
 
@@ -1716,13 +1720,14 @@ body.nav-open{
   max-width: min(var(--scb-hero-lead-max), 100%) !important;
   font-size: 14px;
   line-height: 1.5;
+  margin-top: 0;
   color: rgba(255,255,255,.78);
   text-wrap: balance;
 }
 
 .hero__cta,
 .hero .btnrow {
-  margin-top: 12px;
+  margin-top: 11px;
 }
 
 @media (max-width: 1180px){
@@ -1755,7 +1760,7 @@ body.nav-open{
 
 
 /* Breadcrumbs */
-.crumbs{padding:0 0 2px;}
+.crumbs{padding:0;}
 .crumbs__list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;color:rgba(255,255,255,.68);font-size:13px;}
 .crumbs__item{display:flex;align-items:center;gap:6px;}
 .crumbs__link{color:rgba(255,255,255,.78);text-decoration:none;}
@@ -1763,16 +1768,16 @@ body.nav-open{
 .crumbs__current{color:rgba(255,255,255,.9);}
 .crumbs__sep{color:rgba(255,255,255,.35);}
 
-.crumbs + .hero{ margin-top: 2px; }
-.hero + .section.section--heroWidth{ margin-top: 8px; }
+.crumbs + .hero{ margin-top: 0; }
+.hero + .section.section--heroWidth{ margin-top: 4px; }
 @media (max-width: 767px){
   .crumbs + .hero{ margin-top: 0; }
-  .hero + .section.section--heroWidth{ margin-top: 6px; }
+  .hero + .section.section--heroWidth{ margin-top: 3px; }
 }
 
 @media (min-width: 1181px){
-  body{ padding-top: 66px; }
-  .brand{ gap: 9px; }
+  body{ padding-top: 58px; }
+  .brand{ gap: 8px; }
   .brand img{ width: clamp(34px, 2.5vw, 40px); height: clamp(34px, 2.5vw, 40px); }
   .brand span{ font-size: clamp(16px, 1.35vw, 21px); }
 }
