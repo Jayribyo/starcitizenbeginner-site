@@ -19,7 +19,7 @@ const {
   <div class="hero__toc" aria-label={ariaLabel}>
     <div class="container">
       <div class:list={["card", "pad", "hero__tocCard", variant === "hero" && "hero__tocCard--hero"]}>
-        <div class="kicker"><span class="dot"></span> {title}</div>
+        <div class="kicker hero__tocKicker"><span class="dot"></span> {title}</div>
         <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
           {items.map((it) => (
             <a href={it.href}>{it.label}</a>
@@ -31,7 +31,7 @@ const {
 ) : (
   <section class="section" aria-label={ariaLabel}>
     <div class="card pad">
-      <div class="kicker"><span class="dot"></span> {title}</div>
+      <div class="kicker hero__tocKicker"><span class="dot"></span> {title}</div>
       <div class:list={["toc", variant === "hero" && "toc--hero", variant !== "hero" && "toc--section"]}>
         {items.map((it) => (
           <a href={it.href}>{it.label}</a>
@@ -67,26 +67,64 @@ const {
   }
 
   .hero__tocCard--hero{
-    background: rgba(255,255,255,.035);
+    width:min(100%, 980px);
+    padding: 13px 14px 14px;
+    background: rgba(255,255,255,.032);
     border-color: rgba(255,255,255,.08);
-    box-shadow: 0 12px 28px rgba(0,0,0,.28);
+    box-shadow: 0 10px 24px rgba(0,0,0,.24);
+  }
+
+  .hero__tocKicker{
+    color: var(--scb-heading-tier-3);
+  }
+
+  .hero__tocKicker .dot{
+    background: rgba(208, 218, 232, 0.64);
   }
 
   .toc--hero{
-    gap: 8px 10px;
-    margin-top: 9px;
+    gap: 7px 8px;
+    margin-top: 8px;
     font-size: 12px;
-    opacity: .88;
+    opacity: .96;
   }
 
   .toc--hero a{
-    padding: 7px 10px;
+    padding: 6px 9px;
     border-color: rgba(255,255,255,.08);
-    background: rgba(255,255,255,.03);
+    background: rgba(255,255,255,.026);
+    white-space: nowrap;
   }
 
   .toc--hero a:hover{
-    background: rgba(255,255,255,.055);
+    background: rgba(255,255,255,.05);
     border-color: rgba(255,255,255,.12);
+  }
+
+  @media (min-width: 1181px){
+    .hero__toc :global(.container){
+      display:flex;
+      justify-content:flex-start;
+    }
+  }
+
+  @media (max-width: 767px){
+    .hero__tocCard--hero{
+      width:100%;
+      padding: 11px 12px 12px;
+    }
+
+    .toc--hero{
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-right: -2px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .toc--hero::-webkit-scrollbar{
+      display:none;
+    }
   }
 </style>
