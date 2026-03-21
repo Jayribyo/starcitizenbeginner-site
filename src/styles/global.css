@@ -23,8 +23,8 @@ body {
 
 body {
   margin: 0;
-  /* room for the fixed header (header is slightly inset on large screens) */
-  padding-top: 72px;
+  /* room for the fixed header + breadcrumb entry zone */
+  padding-top: 54px;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
   background: #06080f; /* IMPORTANT: gradient moved to fixed layer below */
@@ -45,6 +45,11 @@ body {
   --scb-heading-tier-2-soft: rgba(220, 229, 241, 0.92);
   --scb-heading-tier-3: rgba(208, 218, 232, 0.84);
   --scb-card-title: rgba(198, 208, 223, 0.80);
+  --scb-hero-content-max: 780px;
+  --scb-hero-content-max-home: 820px;
+  --scb-hero-lead-max: 60ch;
+  --scb-hero-lead-max-tablet: 54ch;
+  --scb-hero-lead-max-mobile: 36ch;
 }
 
 /* Fixed background layer to prevent "seams" / color breaks while scrolling */
@@ -111,7 +116,7 @@ li {
 
 .section.alt .container > .h2,
 .section.alt .container > .section__title {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .section.alt .container > .miniLead,
@@ -122,7 +127,7 @@ li {
 .section.alt .container > .bullets {
   display: grid;
   gap: 8px 18px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 @media (min-width: 900px) {
@@ -137,7 +142,7 @@ li {
   behind the nav (making it feel like the jump landed “in the middle”).
 */
 .section[id] {
-  scroll-margin-top: 104px;
+  scroll-margin-top: 96px;
 }
 
 /* Sections that should match hero width (e.g., the referral banner under the hero) */
@@ -244,10 +249,6 @@ li {
   color: rgba(255, 244, 218, 0.9);
 }
 
-.guideHero__content {
-  max-width: 760px;
-  padding: 24px 0;
-}
 
 /* ========== Common UI ========== */
 .card {
@@ -258,7 +259,7 @@ li {
 }
 
 .pad {
-  padding: 18px;
+  padding: 16px;
 }
 
 @media (min-width: 900px) {
@@ -273,7 +274,7 @@ li {
   gap: 8px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.72);
 }
@@ -574,42 +575,43 @@ li {
 /* ========== Global Site Header + Top Nav (updated + hover-bridge fix) ========== */
 .siteHeader{
   position: fixed;
-  /* Cap header width on ultra-wide screens so it matches the site's max-width rhythm */
-  top: 10px;
+  top: 0;
   left: 50%;
   right: auto;
-  width: min(calc(100% - 20px), var(--scb-max-hero));
+  width: min(calc(100% - 14px), var(--scb-max-hero));
   transform: translateX(-50%);
-  z-index: 100; /* IMPORTANT: above hero/overlays */
-  background: rgba(7,10,18,.68);
+  z-index: 100;
+  background: rgba(7,10,18,.72);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 999px;
-  box-shadow: 0 16px 48px rgba(0,0,0,.5);
+  box-shadow: 0 12px 34px rgba(0,0,0,.44);
 }
 
 .siteHeader__inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 18px;
-  padding: 10px 0;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0;
 }
 
 .topNav{
   display:flex;
   align-items:center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 3px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 /* Idle: muted */
 .topNav__link{
   font-weight: 850;
-  font-size: 12.5px;
-  color: rgba(255,255,255,.68);
-  opacity: .92;
-  padding: 8px 10px;
+  font-size: 10.5px;
+  color: rgba(255,255,255,.70);
+  opacity: .94;
+  padding: 4px 5px;
   border-radius: 12px;
   border: 1px solid transparent;
   display:inline-flex;
@@ -632,9 +634,9 @@ li {
 }
 
 .topNav__pill{
-  font-size: 11px;
+  font-size: 7.5px;
   font-weight: 900;
-  padding: 2px 8px;
+  padding: 2px 3px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.035);
@@ -661,7 +663,7 @@ li {
   left: 0;
   right: 0;
   top: 100%;
-  height: 10px;            /* bridge height */
+  height: 8px;
   background: transparent; /* invisible */
 }
 
@@ -678,7 +680,7 @@ li {
 .topNav__menu{
   position:absolute;
   left:0;
-  top: calc(100% + 10px);  /* sits under bridge */
+  top: calc(100% + 8px);
   min-width: 240px;
   padding: 10px;
   border-radius: 14px;
@@ -734,9 +736,9 @@ li {
 
 .navBurger{
   display:none;
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 14px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   align-items:center;
@@ -814,8 +816,8 @@ li {
 
 .mobileNavDrawer{
   position: fixed;
-  right: 12px;
-  top: 12px;
+  right: 10px;
+  top: 10px;
   left: 12px;
   max-width: 520px;
   margin-left: auto;
@@ -842,9 +844,9 @@ li {
   align-items:center;
   justify-content:space-between;
   gap: 12px;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .mobileNavDrawer__title{
@@ -854,8 +856,8 @@ li {
 }
 
 .mobileNavDrawer__close{
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
@@ -933,24 +935,35 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 .mobileNav__sublink:hover,
 .mobileNav__langlink:hover{ background: rgba(255,255,255,.05); }
 
-@media (max-width: 1023px){
-  /* Keep header single-row; show burger; hide desktop nav */
+@media (max-width: 1180px){
+  /* Keep header single-row; show burger; hide desktop nav sooner before wrapping */
+  body{
+    padding-top: 48px;
+  }
+
   .siteHeader__inner{
     flex-direction: row;
     align-items: center;
+    min-height: 38px;
+    gap: 7px;
+    padding: 1px 0;
   }
 
   .topNav--desktop{ display:none; }
   .navBurger{ display:inline-flex; }
 
-  .brand span{ font-size: 18px; }
-  .brand img{ width: 44px; height: 44px; }
+  .brand{
+    gap: 8px;
+  }
+
+  .brand span{ font-size: 13px; }
+  .brand img{ width: 30px; height: 30px; }
 }
 
 /* ========== Hero ========== */
 .hero {
-  /* Cap hero width on ultra-wide screens (content already uses max-width) */
-  width: min(100%, var(--scb-max-hero));
+  /* Keep the hero aligned to the same outer frame as the fixed header. */
+  width: min(calc(100% - 14px), var(--scb-max-hero));
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -962,11 +975,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 .hero__img {
   width: 100%;
-  /* Cinematic hero height (responsive):
-     - Desktop 16:9 needs more vertical room so the motif stays readable.
-     - Mobile stays moderate so the first row of "On this page" is still reachable quickly.
-     We intentionally use clamp() to avoid extreme heights on very tall or very short viewports. */
-  height: clamp(320px, 44vh, 480px);
+  /* Keep the image present on wide displays without letting the page-top UI stack eat the fold. */
+  height: clamp(300px, 42vh, 460px);
   object-fit: cover;
   object-position: 50% 50%;
   display: block;
@@ -995,10 +1005,25 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
   inset: 0;
   display: flex;
   align-items: stretch;
-  /* Global hero gutter so H1/lead/CTA never hug the card edge.
-     This keeps all hero variants consistent (home, referral, beginner-tips, etc.). */
-  padding: 22px;
+  padding: 12px;
 }
+
+.hero__content > :is(.guideHero__content, .homeHero__content, .freeFlyHero__content, .refHero__content, .packsHero__content) {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: min(100%, var(--scb-hero-content-max));
+  max-width: var(--scb-hero-content-max);
+  padding: 14px 0 0 !important;
+}
+
+.hero__content > .homeHero__content {
+  width: min(100%, var(--scb-hero-content-max-home));
+  max-width: var(--scb-hero-content-max-home);
+}
+
 
 /* Hero-integrated "On this page" (TOC)
    Goal: keep a cinematic hero on desktop while still showing page navigation
@@ -1007,11 +1032,17 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
    - Desktop: TOC is anchored to the bottom of the hero, like a premium landing page pattern.
 */
 .hero__toc {
-  margin-top: 14px;
+  margin-top: 8px;
+}
+
+.hero__toc :global(.container){
+  width: 100%;
+  max-width: none;
+  padding: 0;
 }
 
 .hero__tocCard {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.032);
 }
 
 /* Home hero content alignment (match referral spacing) */
@@ -1026,65 +1057,64 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
    - Tablet & mobile reduce hero height so "On this page" (teaser) + Referral banner reach the first fold.
 */
 
-/* Tablet / small desktop: keep hero cinematic, but do NOT let it eat the fold */
-@media (min-width: 900px) and (max-width: 1023px) {
+/* Tablet / small desktop: keep hero cinematic, but reduce total page-top bulk */
+@media (min-width: 900px) and (max-width: 1180px) {
   .hero__img{
-    height: min(62vh, 620px);
-    min-height: 420px;
+    height: min(57vh, 560px);
+    min-height: 404px;
   }
 
-  /* Keep TOC in normal flow on tablet so it becomes visible earlier */
   .hero__content{
-    padding: 22px;
+    padding: 12px;
   }
+
   .hero__toc{
     position: static;
-    margin-top: 14px;
+    margin-top: 10px;
   }
 }
 
 /* Desktop: keep the integrated, bottom-anchored TOC pattern */
-@media (min-width: 1024px) {
+@media (min-width: 1181px) {
   .hero__img{
-    height: min(82vh, 900px);
-    min-height: 620px;
+    height: min(66vh, 660px);
+    min-height: 500px;
   }
 
-  /* Reserve room for the bottom-anchored TOC, but less than before */
   .hero__content{
-    padding: 22px 22px 120px;
+    padding: 10px 12px 74px;
   }
 
   .hero__toc{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 16px;
+    bottom: 8px;
     z-index: 4;
     margin-top: 0;
   }
 }
 
-/* Ultra-wide desktops: keep it strong, but not so tall that the referral banner disappears */
-@media (min-width: 1400px) {
+/* Ultra-wide desktops: keep visual presence without letting the hero dominate the whole fold */
+@media (min-width: 1500px) {
   .hero__img{
-    height: min(84vh, 980px);
-    min-height: 700px;
+    height: min(68vh, 730px);
+    min-height: 520px;
   }
 }
 
-/* Short viewport safeguard: prevent "all hero, no action" on small-height screens */
+/* Short viewport safeguard: prevent "all hero, no action" on shorter displays */
 @media (max-height: 820px) {
   .hero__img{
-    height: min(62vh, 560px);
-    min-height: 360px;
+    height: min(56vh, 500px);
+    min-height: 340px;
   }
 }
 
 /* Extra-short desktops: reduce reserved TOC room further */
-@media (min-width: 1024px) and (max-height: 820px){
-  .hero__content{ padding: 22px 22px 96px; }
-  .hero__toc{ bottom: 12px; }
+@media (min-width: 1181px) and (max-height: 820px){
+  .hero__content{ padding: 10px 12px 66px; }
+  .hero__toc{ bottom: 8px; }
 }
 
 /* The "On this page" component is now integrated into the hero on key pages,
@@ -1409,7 +1439,7 @@ details[open].faq__item > .faq__q::after{
 
 /* ========== Premium referral offer banner ========== */
 .refBar {
-  margin-top: 14px;
+  margin-top: 4px;
 }
 
 .refOffer {
@@ -1671,16 +1701,83 @@ body.nav-open{
 }
 
 
+.hero__inner,
+.guideHero__content,
+.homeHero__content,
+.freeFlyHero__content,
+.refHero__content,
+.packsHero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__lead,
+.guideHero__content .lead,
+.homeHero__content .lead,
+.freeFlyHero__content .lead,
+.refHero__content .lead,
+.packsHero__content .lead {
+  max-width: min(var(--scb-hero-lead-max), 100%) !important;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 0;
+  color: rgba(255,255,255,.78);
+  text-wrap: balance;
+}
+
+.hero__cta,
+.hero .btnrow {
+  margin-top: 11px;
+}
+
+@media (max-width: 1180px){
+  .hero__lead,
+  .guideHero__content .lead,
+  .homeHero__content .lead,
+  .freeFlyHero__content .lead,
+  .refHero__content .lead,
+  .packsHero__content .lead {
+    max-width: min(var(--scb-hero-lead-max-tablet), 100%) !important;
+  }
+}
+
+@media (max-width: 767px){
+  .hero__lead,
+  .guideHero__content .lead,
+  .homeHero__content .lead,
+  .freeFlyHero__content .lead,
+  .refHero__content .lead,
+  .packsHero__content .lead {
+    max-width: min(var(--scb-hero-lead-max-mobile), 100%) !important;
+    font-size: 13.25px;
+    line-height: 1.44;
+  }
+}
+
 /* Referral highlight pill in top nav */
-.topNav__pill--bonus{margin-left:10px; font-weight:800; letter-spacing:0.02em;}
-@media (max-width: 720px){.topNav__pill--bonus{margin-left:8px;}}
+.topNav__pill--bonus{margin-left:8px; font-weight:800; letter-spacing:0.02em;}
+@media (max-width: 720px){.topNav__pill--bonus{margin-left:6px;}}
 
 
 /* Breadcrumbs */
-.crumbs{padding:10px 0 0;}
-.crumbs__list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;color:rgba(255,255,255,.68);font-size:13px;}
-.crumbs__item{display:flex;align-items:center;gap:6px;}
+.crumbs{padding:0;}
+.crumbs__list{list-style:none;display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:0;padding:0;color:rgba(255,255,255,.68);font-size:12px;line-height:1.18;}
+.crumbs__item{display:flex;align-items:center;gap:5px;}
 .crumbs__link{color:rgba(255,255,255,.78);text-decoration:none;}
 .crumbs__link:hover{text-decoration:underline;}
 .crumbs__current{color:rgba(255,255,255,.9);}
 .crumbs__sep{color:rgba(255,255,255,.35);}
+
+.crumbs + .hero{ margin-top: 0; }
+.hero + .section.section--heroWidth{ margin-top: 0; }
+@media (max-width: 767px){
+  .crumbs + .hero{ margin-top: 0; }
+  .hero + .section.section--heroWidth{ margin-top: 0; }
+}
+
+@media (min-width: 1181px){
+  body{ padding-top: 52px; }
+  .brand{ gap: 7px; }
+  .brand img{ width: clamp(32px, 2.4vw, 38px); height: clamp(32px, 2.4vw, 38px); }
+  .brand span{ font-size: clamp(15px, 1.25vw, 20px); }
+}
