@@ -1050,17 +1050,15 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
     min-height: 620px;
   }
 
-  /* Reserve room for the bottom-anchored TOC, but less than before */
+  /* Desktop sanity pass: keep the image uninterrupted and move the TOC below it.
+     This gives the art more visual presence without adding more overall chrome above the fold. */
   .hero__content{
-    padding: 22px 22px 120px;
+    padding: 22px;
   }
 
   .hero__toc{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 16px;
-    z-index: 4;
+    position: static;
+    z-index: 1;
     margin-top: 0;
   }
 }
@@ -1083,8 +1081,8 @@ details[open] > .mobileNav__summary::after{ content: "▴"; }
 
 /* Extra-short desktops: reduce reserved TOC room further */
 @media (min-width: 1024px) and (max-height: 820px){
-  .hero__content{ padding: 22px 22px 96px; }
-  .hero__toc{ bottom: 12px; }
+  .hero__content{ padding: 22px; }
+  .hero__toc{ margin-top: 0; }
 }
 
 /* The "On this page" component is now integrated into the hero on key pages,
@@ -1409,7 +1407,7 @@ details[open].faq__item > .faq__q::after{
 
 /* ========== Premium referral offer banner ========== */
 .refBar {
-  margin-top: 14px;
+  margin-top: 8px;
 }
 
 .refOffer {
