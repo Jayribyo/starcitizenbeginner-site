@@ -12,10 +12,10 @@ const referralLink = REFERRAL_LINK;
 const heroImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "What you’ll learn" },
+  { id: "quick-answer", label: "Fast clue" },
   { id: "do-this-now", label: "2-minute test" },
   { id: "common-mistakes", label: "Misreads to avoid" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "next-steps", label: "Best next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
@@ -29,8 +29,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="CPU vs GPU Bottleneck Test | Star Citizen Beginner"
-  description="CPU or GPU bottleneck? Fast in-game tests and Windows checks to see what limits your FPS - and which settings actually matter."
+  title="Star Citizen CPU or GPU Bottleneck Test | Star Citizen Beginner"
+  description="Run this quick test to see whether Star Citizen is mostly limited by your CPU, your GPU, or a wider storage and RAM problem."
   canonicalPath="/cpu-vs-gpu-bottleneck-test/"
   pageType="satellite"
   pageTier="satellite"
@@ -59,9 +59,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <div class="kicker"><span class="dot"></span> 2-minute check</div>
           <h1 class="h1">Is Star Citizen CPU or GPU bound? A 2-minute test</h1>
-          <p class="lead" style="max-width: 820px;">Not sure what to upgrade first? This quick test tells you whether Star Citizen is mostly hitting your CPU or your GPU — then points you to the right fix.</p>
+          <p class="lead" style="max-width: 820px;">Run this when you are not sure whether lower resolution, different settings, or an upgrade will actually help. The goal is not a perfect diagnosis. The goal is the right next move.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -85,8 +85,8 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Quick take</div>
-          <p class="lead" style="margin-top:10px;">If you’re CPU‑bound, lowering resolution won’t help much — you need CPU-friendly settings and smoother server/time choices.</p>
+          <div class="kicker"><span class="dot"></span>Fast clue</div>
+          <p class="lead" style="margin-top:10px;">Resolution change is the fastest clue. Big FPS jump usually points at the GPU. Little change usually points at the CPU, storage and RAM pressure, or a rough server.</p>
         </div>
 
         <ul class="bullets">
@@ -97,15 +97,15 @@ const faqItems = [
         </ul>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
-          <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Where to paste the referral code →</a>
+          <a class="btn primary" href="/star-citizen-performance-guide/">Open the full performance guide</a>
+          <a class="btn ghost" href="/best-settings-for-low-end-pc-star-citizen/">Weak PC? Lower the right settings first →</a>
         </div>
       </div>
     </section>
 
     <section id="do-this-now" class="section alt">
       <div class="container">
-        <h2 class="h2">Do this now</h2>
+        <h2 class="h2">Run the 2-minute test</h2>
         <ol class="steps">
           <li><b>Pick a repeatable test scene</b> — Use the same location and camera angle for all tests.</li>
 <li><b>Run at your normal settings</b> — Note how it feels (stutter vs steady low FPS).</li>
@@ -118,7 +118,7 @@ const faqItems = [
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">Misreads to avoid</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
@@ -142,7 +142,7 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Best next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-performance-guide/">Open the full performance guide</a></li>
+          <li><a href="/star-citizen-performance-guide/">Open the full performance guide for the broader baseline</a></li>
 <li><a href="/fix-stuttering/">If the issue feels like hitching, use the stutter checklist</a></li>
 <li><a href="/best-settings-for-low-end-pc-star-citizen/">Weak system? Start with these low-end settings first</a></li>
         </ul>
@@ -162,8 +162,8 @@ const faqItems = [
         </div>
 
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
-          <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">Referral code guide →</a>
+          <a class="btn primary" href="/fix-stuttering/">Still feels choppy? Use the stutter checklist</a>
+          <a class="btn ghost" href="/star-citizen-performance-guide/">Back to the full performance guide →</a>
         </div>
       </div>
 

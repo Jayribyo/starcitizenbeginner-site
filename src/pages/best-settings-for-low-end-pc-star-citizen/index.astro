@@ -12,10 +12,10 @@ const referralLink = REFERRAL_LINK;
 const heroImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Quick answer" },
-  { id: "do-this-now", label: "Do this now" },
-  { id: "common-mistakes", label: "Common mistakes" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "quick-answer", label: "What to aim for" },
+  { id: "do-this-now", label: "Lower these first" },
+  { id: "common-mistakes", label: "Common low-end mistakes" },
+  { id: "next-steps", label: "Best next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
@@ -29,8 +29,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="Star Citizen Low-End PC Settings: What to Lower First | Star Citizen Beginner"
-  description="Star Citizen low-end PC settings: what to lower first, what to leave alone, and how to get a smoother test without wasting time on tiny tweaks."
+  title="Star Citizen Settings for Low-End PCs | Star Citizen Beginner"
+  description="Lower the few settings that usually matter first, keep the image readable, and test changes in the same scene."
   canonicalPath="/best-settings-for-low-end-pc-star-citizen/"
   pageType="satellite"
   pageTier="satellite"
@@ -59,9 +59,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <div class="kicker"><span class="dot"></span> Weak PC baseline</div>
           <h1 class="h1">Star Citizen low-end PC settings: what to lower first</h1>
-          <p class="lead" style="max-width: 820px;">If your PC is on the weak side, start with the settings that actually move the needle first. This page shows what to lower, what to leave alone, and how to test changes without guesswork.</p>
+          <p class="lead" style="max-width: 820px;">Use this page when the game runs, but not well, and you need the shortest path to a smoother test. Lower the few settings that actually matter first, keep the image readable, and test every change in the same scene.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -85,8 +85,8 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Quick take</div>
-          <p class="lead" style="margin-top:10px;">Low-end goal is playability: stable frametime and fewer stutters, not perfect visuals.</p>
+          <div class="kicker"><span class="dot"></span>What to aim for</div>
+          <p class="lead" style="margin-top:10px;">Low-end goal is playability: steadier frame-times, fewer hitches, and readable visuals. You do not need a pretty benchmark screenshot. You need a session that feels stable enough to judge the game fairly.</p>
         </div>
 
         <ul class="bullets">
@@ -100,7 +100,7 @@ const faqItems = [
 
     <section id="do-this-now" class="section alt">
       <div class="container">
-        <h2 class="h2">Do this now</h2>
+        <h2 class="h2">Lower these first</h2>
         <ol class="steps">
           <li><b>Use upscaling</b> (if available) to reduce render cost while keeping readability.</li>
 <li><b>Lower volumetric clouds</b> first — it’s a common heavy setting.</li>
@@ -113,7 +113,7 @@ const faqItems = [
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">Common low-end mistakes</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
@@ -137,7 +137,7 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Best next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-performance-guide/">Open the full performance guide</a></li>
+          <li><a href="/star-citizen-performance-guide/">Open the full performance guide for the broader baseline</a></li>
 <li><a href="/fix-stuttering/">Still hitching? Use the stutter checklist next</a></li>
 <li><a href="/cpu-vs-gpu-bottleneck-test/">Not sure what is limiting you? Run the bottleneck test</a></li>
         </ul>

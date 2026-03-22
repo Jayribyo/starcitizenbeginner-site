@@ -4,8 +4,7 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import ReferralCTA from "../../components/ReferralCTA.astro";
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL, SHOULD_YOU_BUY_PATH, STARTER_PACKS_PATH, PERFORMANCE_GUIDE_PATH } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_UEC, FLY_FREE_URL, SHOULD_YOU_BUY_PATH, STARTER_PACKS_PATH, PERFORMANCE_GUIDE_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralBonusUEC = REFERRAL_BONUS_UEC;
@@ -27,8 +26,8 @@ const faqItems = [
     a: "Open the official RSI Free Fly page. If an event is active, you’ll see the event banner plus the exact steps to get access.",
   },
   {
-    q: "How long does a Free Fly usually last?",
-    a: "Most Free Fly events run about 5–10 days. The exact start and end time is always listed on the official event page.",
+    q: "How long does a Free Fly last?",
+    a: "Free Fly windows are limited-time and vary by event. The official event page shows the current start and end dates.",
   },
   {
     q: "Do I need a game package during Free Fly?",
@@ -59,11 +58,11 @@ const faqItems = [
     a: "Expect a large download (often 80–100+ GB). Install on an SSD if possible and start the download before peak hours during event week.",
   },
   {
-    q: "Is Free Fly available worldwide?",
-    a: "Generally yes, but availability and login flow can vary by region and account status. If you can access the RSI website and launcher, you can usually participate.",
+    q: "Can I keep the same account if I buy later?",
+    a: "Yes. If you buy after Free Fly, keep the same RSI account. You only add a starter pack to continue playing after the event.",
   },
   {
-    q: "Should I buy during Free Fly?",
+    q: "Should I buy after Free Fly?",
     a: "Only if you enjoyed the core loop you tested and your sessions were mostly stable. If the event week felt rough, wait a few days after Free Fly for a more typical experience.",
   },
 ];
@@ -80,8 +79,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Star Citizen Free Fly Guide – How to Join, What to Test First, and Whether to Buy After"
-  description="Thinking about trying Star Citizen? This Free Fly guide shows how to join, what to test first, and how to tell whether you want to buy later without making it complicated."
+  title="Star Citizen Free Fly: Try Before You Buy"
+  description="Try Star Citizen during Free Fly before you buy. See how to join, what to test first, and how to tell if one rough session is just event chaos or a real no."
   canonicalPath="/free-fly/"
   stickyCtaLabel="Check Free Fly status"
   stickyCtaHref={flyFreeUrl}
@@ -107,10 +106,10 @@ const faqJsonLd = {
 
       <div class="hero__content">
         <div class="freeFlyHero__content">
-          <div class="kicker"><span class="dot"></span> Free Fly Guide</div>
+          <div class="kicker"><span class="dot"></span> Official free-play event</div>
           <h1 class="h1">Star Citizen Free Fly</h1>
 
-          <p class="lead" style="max-width: 920px;">Use Free Fly as a simple try-before-you-buy test: join the event, run one good beginner session, and only buy later if the game genuinely clicks for you.</p>
+          <p class="lead" style="max-width: 920px;">Use Free Fly to try Star Citizen before you buy a starter pack. This page shows how to join, what to test first, and how to tell whether one rough session is just event chaos or a real no for you.</p>
 
           <div class="btnrow">
             <a class="btn primary" href={flyFreeUrl} target="_blank" rel="noopener noreferrer" data-scb-role="free-fly-status">
@@ -125,14 +124,14 @@ const faqJsonLd = {
         title="On this page"
         items={[
           { label: "Quick answer", href: "#quick-answer" },
-          { label: "What Free Fly tells you", href: "#what-is" },
-          { label: "When it is worth it", href: "#worth-it" },
+          { label: "What Free Fly is", href: "#what-is" },
+          { label: "When Free Fly tells you enough", href: "#worth-it" },
           { label: "How to join", href: "#how-to-join" },
           { label: "Free Fly vs full game", href: "#compare" },
-          { label: "What to test", href: "#ships" },
+          { label: "What to test first", href: "#ships" },
           { label: "Before you jump in", href: "#prepare" },
           { label: "Common myths", href: "#myths" },
-          { label: "Buy or wait?", href: "#buy" },
+          { label: "Buy after Free Fly?", href: "#buy" },
                     { label: "Next steps", href: "#next-steps" },
           { label: "Related answers", href: "#related-answers" },
 { label: "FAQ", href: "#faq" },
@@ -154,10 +153,10 @@ const faqJsonLd = {
     <!-- QUICK ANSWER -->
     <section id="quick-answer" class="section">
       <div class="card pad">
-        <h2 class="section__title">Quick answer: keep your Free Fly test simple</h2>
+        <h2 class="section__title">Quick answer: use Free Fly as a clean test, not a marathon</h2>
         <ul class="list">
           <li><b>Use Free Fly as a test drive:</b> do not try to see everything in one night.</li>
-          <li><b>Start clean:</b> create the account, use the referral code during signup, and install early if you can.</li>
+          <li><b>Start clean:</b> check if the event is live, create the account, use the referral code during signup, and install early if you can.</li>
           <li><b>Judge one loop properly:</b> repeat one beginner-friendly activity instead of sampling ten things once.</li>
           <li><b>Only buy later if a real session felt good:</b> that is the clearest signal Free Fly can give you.</li>
         </ul>
@@ -165,25 +164,25 @@ const faqJsonLd = {
         <div class="decisionGrid" style="margin-top:14px;">
           <div class="decisionCard">
             <div class="decisionCard__kicker">Step 1</div>
-            <div class="decisionCard__title">Start the easy way</div>
-            <p class="decisionCard__body">Create the account, use the code during signup, and install early so your first impression is not just queues and downloads.</p>
+            <div class="decisionCard__title">Check the event and set up early</div>
+            <p class="decisionCard__body">Check that Free Fly is live, create the account, use the code during signup, and install early so your first impression is not just queues and downloads.</p>
           </div>
           <div class="decisionCard">
             <div class="decisionCard__kicker">Step 2</div>
-            <div class="decisionCard__title">Try one part of the game properly</div>
+            <div class="decisionCard__title">Run one clean test session</div>
             <p class="decisionCard__body">Pick one activity like delivery, simple combat, or multi-crew and repeat it. That tells you much more than random ship hopping.</p>
           </div>
           <div class="decisionCard">
             <div class="decisionCard__kicker">Step 3</div>
-            <div class="decisionCard__title">Buy only after a session that felt good</div>
-            <p class="decisionCard__body">If you liked the core loop when things mostly worked, move to a starter pack. If not, wait. Free Fly did its job.</p>
+            <div class="decisionCard__title">Decide later, not in the middle of chaos</div>
+            <p class="decisionCard__body">If you liked the core loop when things mostly worked, move to a starter pack later. If not, wait. Free Fly already did its job.</p>
           </div>
         </div>
 
         <div class="callout" style="margin-top:12px;">
           <div class="kicker"><span class="dot"></span> Keep it easy</div>
           <p class="muted" style="margin:6px 0 0;">
-            Keep it to three simple parts: account setup, one simple test session, then buying later if you want to. Most beginner frustration comes from trying to solve all three at once.
+            Keep it to three simple parts: event check, one simple test session, then buying later if you want to. Most beginner frustration comes from trying to solve all three at once.
           </p>
         </div>
       </div>
@@ -198,9 +197,7 @@ const faqJsonLd = {
 
 
         <p>
-          Free Fly is a limited-time “open access” event run by the developers (RSI). During the event window you can download the
-          game, log in, and play without owning a starter pack. It’s the best way to feel the flight model, the scale, and the moment-to-moment
-          experience before you spend anything.
+          Free Fly is the official free-play event for Star Citizen. During the event window you can download the live game, log in, and play without owning a starter pack. It is the clearest way to test the flight, travel, mission flow, and general friction before you spend anything.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -240,11 +237,11 @@ const faqJsonLd = {
     <!-- WORTH IT -->
     <section id="worth-it" class="section">
       <div class="card pad">
-        <h2 class="section__title">Is Free Fly worth it?</h2>
+        <h2 class="section__title">When Free Fly tells you enough</h2>
 
         <p>
-          Usually yes — if you use it to answer one question: <b>do you enjoy the core loop when the basics work?</b>
-          Free Fly is not mainly about efficiency. It is about getting a fair feel for flying, landing, moving through stations, and repeating one activity long enough to know whether the sandbox clicks for you.
+          Free Fly is worth doing if you use it to answer one question: <b>do you enjoy the core loop when the basics work?</b>
+          It is not mainly about efficiency. It is about getting a fair read on flying, landing, moving through stations, and repeating one activity long enough to know whether the sandbox clicks for you.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -273,8 +270,8 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
-          <b>Expectation that keeps people happy:</b> If your first session is messy, don’t quit on the whole game.
-          Try again at a different time of day — Free Fly weeks can be the noisiest weeks.
+          <b>Expectation that keeps people happy:</b> If your first session is messy, do not judge the whole game yet.
+          Try the same simple loop again at a quieter time of day — Free Fly weeks can be the noisiest weeks.
         </div>
       </div>
     </section>
@@ -285,8 +282,7 @@ const faqJsonLd = {
         <h2 class="section__title">How to join Free Fly</h2>
 
         <p>
-          The cleanest setup is: create your RSI account, verify the email, install the launcher, and then use the official Free Fly page to confirm access.
-          If a Free Fly is live, RSI will show the exact steps for that specific event.
+          The cleanest setup is simple: check that Free Fly is live, create your RSI account, verify the email, install the launcher, and then use the official event page for the current access steps. That keeps setup friction from becoming your whole first impression.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -329,8 +325,8 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
-          <div class="card__title">One thing to do before you start</div>
-          <p style="margin:0;">If you are creating a new account anyway, enter the referral code during signup so the bonus is already in place if you later decide to buy.</p>
+          <div class="card__title">One setup step worth doing now</div>
+          <p style="margin:0;">If you are creating a new account anyway, enter the referral code during signup so the bonus is already in place if you later decide to keep playing.</p>
           <div class="btnrow" style="margin-top:12px;">
             <a class="btn secondary" href={referralLink} target="_blank" rel="noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus</a>
             <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">Copy code: {referralCode}</button>
@@ -353,9 +349,9 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
-          <div class="kicker"><span class="dot"></span> If you buy after Free Fly</div>
+          <div class="kicker"><span class="dot"></span> If Free Fly goes well</div>
           <p class="muted" style="margin:6px 0 0;">
-            Keep the same RSI account. You only need <b>one game package</b> to keep playing after the event. Once you buy it, check <b>My Hangar</b>, download the launcher if needed, and log in the same way you already used during Free Fly.
+            Keep the same RSI account. You only need <b>one game package</b> to keep playing after the event. If you buy later, check <b>My Hangar</b>, keep the same launcher install if it already works, and continue on the same account you used during Free Fly.
           </p>
         </div>
 
@@ -382,7 +378,7 @@ const faqJsonLd = {
     <!-- COMPARE -->
     <section id="compare" class="section">
       <div class="card pad">
-        <h2 class="section__title">Free Fly vs the full game</h2>
+        <h2 class="section__title">Free Fly vs owning the game</h2>
 
         <p>
           Free Fly gives you a real slice of the live game, but it’s still time-limited access. If you decide to stay after it ends, you only need one game package to keep playing.
@@ -442,7 +438,7 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
-          If you like the game but the week feels unstable, wait a few days after the event ends. The same build often feels smoother once the surge drops.
+          If you like the game but the week feels unstable, wait a few days after the event ends. The same build often feels clearer once the surge drops.
         </div>
       </div>
     </section>
@@ -453,7 +449,7 @@ const faqJsonLd = {
         <h2 class="section__title">What to test during Free Fly</h2>
 
         <p>
-          Don’t try to fly everything. Pick 3–4 ships that represent different roles and you’ll leave Free Fly with a clearer sense of what you actually enjoy.
+          Do not try to fly everything. Pick one or two roles that represent different kinds of play and you will leave Free Fly with a much clearer sense of what you actually enjoy.
         </p>
 
         <div class="grid2" style="margin-top:12px;">
@@ -476,11 +472,11 @@ const faqJsonLd = {
           </div>
 
           <div class="card pad">
-            <h3 class="card__title">Process gameplay</h3>
+            <h3 class="card__title">Routine-heavy loops</h3>
             <ul class="bullets">
-              <li>Great for players who enjoy routines and optimization.</li>
-              <li>Try it once to see if “process gameplay” clicks for you.</li>
-              <li>Don’t judge it by your first run — learning curve is real.</li>
+              <li>Great for players who enjoy routines, planning, and repetition.</li>
+              <li>Try it once to see if slower routine-heavy gameplay clicks for you.</li>
+              <li>Do not judge it by your first run — the learning curve is real.</li>
             </ul>
           </div>
 
@@ -495,7 +491,7 @@ const faqJsonLd = {
         </div>
 
         <div class="callout" style="margin-top:12px;">
-          Compare ships by how quickly they get you back into a loop.
+          Compare ships by how quickly they get you back into a loop you actually enjoy.
         </div>
       </div>
     </section>
@@ -506,7 +502,7 @@ const faqJsonLd = {
         <h2 class="section__title">Before you jump in</h2>
 
         <p>
-          A little setup before you start saves a lot of frustration during Free Fly week.
+          A little setup before you start saves a lot of frustration during Free Fly week, especially if you want a fair read on the game instead of just its busiest hours.
         </p>
 
         <div class="tableWrap" style="margin-top:12px;">
@@ -531,7 +527,7 @@ const faqJsonLd = {
                 <td>Less queueing, fewer overloaded hubs, smoother mission flow.</td>
               </tr>
               <tr>
-                <td>Start in a popular location only if you want the chaos.</td>
+                <td>Start in a busier location only if you actually want the chaos.</td>
                 <td>Busy hubs look cool — but they can also be the most unstable.</td>
               </tr>
             </tbody>
@@ -584,10 +580,10 @@ const faqJsonLd = {
     <!-- BUY -->
     <section id="buy" class="section">
       <div class="card pad">
-        <h2 class="section__title">Should you buy during Free Fly?</h2>
+        <h2 class="section__title">Should you buy after Free Fly?</h2>
 
         <p>
-          Buy only if you found a loop you genuinely enjoyed and you want to keep playing after the event. Wait if your sessions were dominated by queues, crashes, or confusion and you never reached a rhythm. The right standard is simple: buy after one clean, positive session, not after hype or event pressure.
+          Buy only if you found a loop you genuinely enjoyed and you want to keep playing after the event. Wait if your sessions were dominated by queues, crashes, or confusion and you never reached a rhythm. The right standard is simple: buy after one clean, positive session, not in the middle of Free Fly chaos.
         </p>
 
         <div class="decisionGrid" style="margin-top:14px;">
@@ -622,10 +618,10 @@ const faqJsonLd = {
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-            <li><a href="/free-fly-first-session/" data-scb-role="free-fly-next-first-session">Run an easy first Free Fly session</a></li>
-            <li><a href={SHOULD_YOU_BUY_PATH} data-scb-role="free-fly-next-buy-test">Use the quick buy guide</a></li>
-            <li><a href={STARTER_PACKS_PATH} data-scb-role="free-fly-next-starter-packs">Pick a starter pack</a></li>
-            <li><a href={PERFORMANCE_GUIDE_PATH} data-scb-role="free-fly-next-performance">Fix stutter and rough FPS</a></li>
+            <li><a href="/free-fly-first-session/" data-scb-role="free-fly-next-first-session">Run a clean first Free Fly session</a></li>
+            <li><a href="/free-fly-download-install-checklist/" data-scb-role="free-fly-next-install">Get Free Fly installed cleanly</a></li>
+            <li><a href="/best-time-to-play-free-fly/" data-scb-role="free-fly-next-best-time">Pick a better time for a fair test</a></li>
+            <li><a href={SHOULD_YOU_BUY_PATH} data-scb-role="free-fly-next-buy-test">Decide whether to buy or wait</a></li>
         </ul>
       </div>
     </section>
@@ -635,9 +631,9 @@ const faqJsonLd = {
         <h2 class="h2">Related answers</h2>
         <ul class="bullets">
             <li><a href="/free-fly-first-session/">What to do in your first Free Fly hour</a></li>
-            <li><a href="/free-fly-download-install-checklist/">Get Free Fly installed cleanly</a></li>
             <li><a href="/free-fly-what-do-i-keep/">See what carries over if you buy later</a></li>
-            <li><a href="/best-time-to-play-free-fly/">Pick a better time for a fair test</a></li>
+            <li><a href={PERFORMANCE_GUIDE_PATH} data-scb-role="free-fly-next-performance">Fix stutter and rough FPS</a></li>
+            <li><a href={STARTER_PACKS_PATH}>Pick a starter pack after Free Fly</a></li>
 </ul>
       </div>
     </section>
@@ -645,7 +641,7 @@ const faqJsonLd = {
 <section id="faq" class="section">
       <div class="card pad">
         <h2 class="section__title">Free Fly FAQ</h2>
-        <p class="miniLead">Fast answers to the questions new players search for before and during Free Fly week.</p>
+        <p class="miniLead">Fast answers to the questions new players usually have before and during Free Fly week.</p>
 
         <div class="faq" style="margin-top:12px;">
           {faqItems.map((item) => (

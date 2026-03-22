@@ -11,65 +11,63 @@ const referralLink = REFERRAL_LINK;
 const referralPage = REFERRAL_INFO_PATH;
 
 const homeFaqItems = [
-  { q: "Can I try Star Citizen without buying?", a: "Yes. Use Free Fly to test the game first and follow a simple first-session plan." },
-  { q: "What’s the smartest first thing to do in-game?", a: "Run one simple contract and repeat it once or twice. It teaches travel, menus, and mission flow without making your first session feel chaotic." },
-  { q: "Do I need a strong PC?", a: "You need a solid baseline and the right settings. If the game stutters, fix performance first with a targeted performance guide." },
-  { q: "What starter pack should I buy?", a: "Pick the cheapest game package that fits the way you want to start. One game package is enough to begin, and you can change direction later." },
-  { q: "Do I need a subscription to play?", a: "No. A subscription is optional. To play outside Free Fly, you just need one game package on your account." },
-  { q: "What happens right after I buy?", a: "Open My Hangar once to make sure your package is there, then download the launcher, install the game, and use a simple first-session plan." },
-  { q: "Is the referral code mandatory?", a: "No. It is optional and does not change your price. If you want the signup bonus, enter it during account creation." },
-  { q: "Where do I enter the referral code?", a: "On the RSI signup page during account creation. The referral guide shows the exact place." },
+  { q: "Can I try Star Citizen without buying?", a: "Yes. Use Free Fly if you want to test the game before you spend money." },
+  { q: "Do I need a strong PC?", a: "You need a reasonable baseline and the right settings. If the game feels rough, fix performance first." },
+  { q: "What should I buy first?", a: "One sensible starter pack is enough. Start with a beginner-friendly game package, not a bigger ship." },
+  { q: "Is the referral code mandatory?", a: "No. It is optional and does not change your price. Use it during account creation if you want the signup bonus." },
+  { q: "Where do I enter the referral code?", a: "Enter it on the RSI signup page during account creation. The referral guide shows the exact field." },
+  { q: "I’m overwhelmed. What is the easiest way to start?", a: "Pick one path from the main hub, then follow the first calm hour plan. You do not need to solve everything today." },
 ];
 
 const tiles = [
   {
     href: "/free-fly/",
     img: "/assets/img/home/tiles/star-citizen-free-fly-tile.webp",
-    title: "Test the game first",
-    desc: "Use Free Fly to see how Star Citizen feels before you spend money.",
-    pill: "Try first",
+    title: "Try Star Citizen before you buy",
+    desc: "Use Free Fly to test performance, controls, and general feel before you spend money.",
+    pill: "Try for free",
   },
   {
     href: "/should-you-buy-star-citizen/",
     img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
-    title: "Figure out if it is worth buying",
-    desc: "Use a calm buy-or-wait check before you think about packs or upgrades.",
-    pill: "Decide first",
+    title: "Should you buy Star Citizen?",
+    desc: "Use a calm buy-or-wait check if you are not sure whether the game fits you yet.",
+    pill: "Buy or wait",
   },
   {
     href: "/star-citizen-starter-packs/",
     img: "/assets/img/home/tiles/scb-tile-starter-pack.webp",
     title: "Choose one sensible starter pack",
-    desc: "Start with one package that fits your first hours and ignore bigger ships for now.",
+    desc: "Compare the beginner-safe game packages and ignore bigger ships for now.",
     pill: "Starter packs",
   },
   {
     href: "/star-citizen-performance-guide/",
     img: "/assets/img/home/tiles/scb-tile-performance-settings.webp",
-    title: "Fix stutter and bad first impressions",
-    desc: "Remove fake difficulty before you decide what the game actually feels like.",
-    pill: "Fix the game",
+    title: "Fix stutter, crashes, and low FPS",
+    desc: "Remove fake difficulty before you decide how the game really feels.",
+    pill: "Performance help",
   },
   {
     href: "/beginner-tips/",
     img: "/assets/img/home/tiles/scb-tile-beginner-tips.webp",
-    title: "Start your first sessions safely",
+    title: "What to do in your first sessions",
     desc: "Use one calm beginner routine so your first hours feel manageable instead of messy.",
     pill: "Start simple",
   },
   {
     href: "/make-money-fast/",
     img: "/assets/img/home/tiles/scb-tile-make-money-fast.webp",
-    title: "Build easy beginner credits later",
-    desc: "Start small and use forgiving money loops only after the basics feel stable.",
-    pill: "Earn later",
+    title: "How to earn easy beginner credits",
+    desc: "Start with forgiving money loops after the basics feel stable.",
+    pill: "Beginner money",
   },
 ];
 
 const specificHelp = [
   {
     href: "/first-session/",
-    title: "Use a simple first-session checklist",
+    title: "Use the first-session checklist",
     desc: "Open a short checklist if you want one calm, structured first hour.",
   },
   {
@@ -79,15 +77,15 @@ const specificHelp = [
   },
   {
     href: "/where-to-enter-referral-code/",
-    title: "See exactly where to enter the referral code",
+    title: "See where to enter the referral code",
     desc: "Use the quick visual guide if you do not want to miss the signup field.",
   },
 ];
 ---
 
 <BaseLayout
-  title="Star Citizen Beginner Guide – Start Simple and Enjoy Your First Sessions"
-  description="New to Star Citizen? Start here for clear beginner help: try Free Fly, choose one starter pack, fix performance issues, and make your first sessions much easier to enjoy."
+  title="Star Citizen Beginner Hub: Find Your Safest Next Step"
+  description="New to Star Citizen? Use this beginner hub to choose your safest next step: try Free Fly, decide whether to buy, choose a starter pack, fix performance, or start your first sessions."
   canonicalPath="/"
   stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={referralLink}
@@ -116,10 +114,10 @@ const specificHelp = [
         <div class="homeHero__content">
           <div>
             <h1 class="h1">Star Citizen Beginner Guide</h1>
-          <p class="lead">New to Star Citizen? You do not need to solve everything today. Start with one clear next step, let the rest wait, and make your first hours feel easier.</p>
+          <p class="lead">You do not need to solve everything today. Pick the one path that matches your situation, go to that page, and let the rest wait until you need it.</p>
 
             <div class="btnrow">
-              <a class="btn primary" href="#start-here" data-scb-role="hero-start-route">Choose your clearest starting path</a>
+              <a class="btn primary" href="#start-here" data-scb-role="hero-start-route">Find your safest next step</a>
             </div>
           </div>
         </div>
@@ -145,14 +143,14 @@ const specificHelp = [
       bonus="50,000 UEC"
       ctaHref={referralLink}
       howItWorksHref={`${referralPage}#how-to-use`}
-      sublineHtml="Optional, free, and easy to use during signup. It does not change your price — it just adds the signup bonus."
+      sublineHtml="Optional and easy to use during signup. It does not change your price. It simply adds the signup bonus."
       ariaLabel="Referral bonus callout"
     />
     <!-- ===================== START HERE ===================== -->
     <section id="start-here" class="section">
       <div class="card pad">
-        <h2 class="section__title">Choose your clearest starting path</h2>
-        <p style="max-width:980px;">Choose one main page that matches your situation. One path is enough to start.</p>
+        <h2 class="section__title">Choose the one page that matches your situation</h2>
+        <p style="max-width:980px;">These six pages are the main starting paths. Pick the one problem in front of you first.</p>
       </div>
 
       <div class="tiles" style="margin-top:14px;">
@@ -176,7 +174,7 @@ const specificHelp = [
         ))}
       </div>
 
-      <p class="muted" style="margin-top:12px;">Pick the box that solves the problem in front of you first. You do not need the rest yet.</p>
+      <p class="muted" style="margin-top:12px;">These are path choices, not a reading list. Pick one and let the rest wait.</p>
     </section>
 
     <!-- ===================== FIRST SESSION ROUTE ===================== -->
@@ -236,15 +234,15 @@ const specificHelp = [
           </div>
         </div>
 
-        <p class="muted" style="margin-top:12px;">One easy thing not to miss: if you are creating a new account, enter the referral code during signup so the bonus is already attached if you decide to buy later.</p>
+        <p class="muted" style="margin-top:12px;">One easy thing not to miss: if you are creating a new account, add the referral code during signup so you do not have to think about it later.</p>
       </div>
     </section>
 
     <!-- ===================== SPECIFIC HELP ===================== -->
     <section id="specific-help" class="section">
       <div class="card pad">
-        <h2 class="section__title">If one exact problem is still blocking you</h2>
-        <p style="max-width:980px;">Use one exact answer for the one thing that is still getting in your way.</p>
+        <h2 class="section__title">If one smaller blocker is still in the way</h2>
+        <p style="max-width:980px;">Use one smaller answer only after your main path is already clear.</p>
 
         <div class="decisionGrid" style="margin-top:14px;">
           {specificHelp.map((item) => (
@@ -263,53 +261,37 @@ const specificHelp = [
 <section id="faq" class="section">
       <div class="card pad">
         <h2 class="section__title">FAQ</h2>
-        <p class="muted" style="margin-top:8px; max-width:980px;">Use these quick answers if one basic question is still holding you up.</p>
+        <p class="muted" style="margin-top:8px; max-width:980px;">Use these quick answers if one basic beginner question is still in the way.</p>
         <div class="faq" style="margin-top:12px;">
           <details class="faq__item">
             <summary class="faq__q">Can I try Star Citizen without buying?</summary>
-            <div class="faq__a">Yes. Use <a href="/free-fly/" data-scb-role="internal-free-fly-guide">Free Fly →</a> to test the game first and follow a structured first session plan.</div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__q">What’s the smartest first thing to do in-game?</summary>
-            <div class="faq__a">Run one simple contract loop (delivery/courier) and repeat it 2–3 times. It teaches travel, UI, and pays you without heavy risk.</div>
+            <div class="faq__a">Yes. Use <a href="/free-fly/" data-scb-role="internal-free-fly-guide">Free Fly →</a> if you want to test the game before you spend money.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Do I need a strong PC?</summary>
-            <div class="faq__a">You need a solid baseline and the right settings. If the game stutters, fix performance first: <a href="/star-citizen-performance-guide/">Performance guide →</a></div>
+            <div class="faq__a">You need a reasonable baseline and the right settings. If the game feels rough, start with the <a href="/star-citizen-performance-guide/">Performance guide →</a>.</div>
           </details>
           <details class="faq__item">
-            <summary class="faq__q">What starter pack should I buy?</summary>
-            <div class="faq__a">Pick a pack that matches your first loop and buy the minimum. Use this: <a href="/star-citizen-starter-packs/">Starter packs guide →</a></div>
+            <summary class="faq__q">What should I buy first?</summary>
+            <div class="faq__a">One sensible starter pack is enough. Use the <a href="/star-citizen-starter-packs/">Starter packs page →</a> if you are ready to compare game packages.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Is the referral code mandatory?</summary>
-            <div class="faq__a">No. It’s optional and doesn’t change your price. If you want the free starting credits, enter it during signup: <a href="/star-citizen-referral-code/">how it works →</a></div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__q">Can I use these guides during Free Fly?</summary>
-            <div class="faq__a">Yes. The same first-session checklist and money tips still help — you are just trying the game before buying.</div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__q">How do I make money fast as a beginner?</summary>
-            <div class="faq__a">Start with simple delivery loops, then branch out into bounties or mining. Full guide here: <a href="/make-money-fast/">Make money fast →</a></div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__q">What should I avoid in my first hours?</summary>
-            <div class="faq__a">Avoid all-in trading, expensive gear runs, and changing 20 settings at once. Build one repeatable loop first.</div>
+            <div class="faq__a">No. It is optional and does not change your price. Use it during signup if you want the starting bonus: <a href="/star-citizen-referral-code/">Referral guide →</a></div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">I’m overwhelmed. What is the easiest way to start?</summary>
-            <div class="faq__a">Follow the <a href="#first-session">first calm hour plan</a> on this page and ignore the rest until you finish one clean loop.</div>
+            <div class="faq__a">Pick one path from the main hub, then follow the <a href="#first-session">first calm hour</a>. You do not need to solve everything today.</div>
           </details>
           <details class="faq__item">
             <summary class="faq__q">Where do I enter the referral code?</summary>
             <div class="faq__a">On the RSI signup page during account creation. If you want it handy right here, copy <button class="codePill js-copyCode" type="button" data-copy-referral={referralCode} aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button> and paste it into the field labeled <b>“Referral Code (optional)”</b>.</div>
           </details>
-        </div>
+        </div></div>
 
         <div class="btnrow" style="margin-top:14px; flex-wrap: wrap;">
           <a class="btn primary" href={referralLink} target="_blank" rel="nofollow noopener noreferrer" data-scb-role="referral-signup">Create account + claim bonus</a>
-          <a class="btn ghost" href="/star-citizen-referral-code/">See the referral guide →</a>
+          <a class="btn ghost" href="/star-citizen-referral-code/">See where the referral code goes →</a>
         </div>
       </div>
     </section>
