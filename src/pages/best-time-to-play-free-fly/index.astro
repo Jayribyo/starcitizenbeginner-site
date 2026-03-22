@@ -4,51 +4,49 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_UEC, FREE_FLY_HUB_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
 const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
 
 const tocItems = [
   { id: "quick-answer", label: "Quick answer" },
   { id: "do-this-now", label: "Do this now" },
-  { id: "common-mistakes", label: "Common mistakes" },
+  { id: "common-mistakes", label: "What goes wrong" },
   { id: "next-steps", label: "Next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  { q: "Do regions matter?", a: "Often yes. Try your closest region first, then the next closest if the session is unstable." },
-  { q: "Are queues always a PC problem?", a: "No. Queues are server-side; PC tuning won’t remove queues." },
-  { q: "How do I get a fair performance test?", a: "Retest the same short loop after each change." },
-  { q: "What’s the best first activity during Free Fly?", a: "A short courier loop is the cleanest signal." },
-  { q: "Should I avoid events?", a: "For your first session, avoid anything that forces crowded hubs or long waits." }
+  { q: "Do regions matter during Free Fly?", a: "Often yes. Start with the closest region, then retest with the next closest if the session is rough." },
+  { q: "Can I completely avoid queues and lag?", a: "No. You cannot control global event load. You can only improve your odds by choosing calmer conditions and restarting bad sessions early." },
+  { q: "What is the cleanest first activity for timing tests?", a: "A short courier or delivery loop is still the best timing test because it is easy to repeat after each change." },
+  { q: "Should I delay the whole trial if the event feels chaotic?", a: "Sometimes yes. One calmer session later tells you more than forcing the worst moment and deciding from that." },
+  { q: "What if every time feels rough?", a: "Then it stops being a timing-only problem and you should move to the server-lag page or the performance guide." }
 ];
 ---
 
 <BaseLayout
-  title="Best Time to Play Star Citizen Free Fly: Avoid Queues and Lag | Star Citizen Beginner"
-  description="Best time to play Star Citizen Free Fly: simple ways to avoid queues, crowded servers, and bad first impressions without relying on exact event dates."
+  title="Best Time to Play Free Fly: Avoid the Worst Chaos | Star Citizen Beginner"
+  description="Pick a better time to play Free Fly so your first Star Citizen test is less shaped by queues, crowded hubs, and bad event timing."
   canonicalPath="/best-time-to-play-free-fly/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Best Time to Play Star Citizen Free Fly"
-  stickyCtaLabel="Create account + claim bonus"
-  stickyCtaHref={referralLink}
-  stickyCtaExternal={true}
-  activeNav="guides"
+  ogImageAlt="Best time to play Free Fly"
+  stickyCtaLabel="Open full Free Fly guide"
+  stickyCtaHref={FREE_FLY_HUB_PATH}
+  activeNav="free-fly"
 >
   <main>
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: FREE_FLY_HUB_PATH }, { label: 'Best time to play Free Fly', href: '/best-time-to-play-free-fly/' }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: '/free-fly/' }, { label: 'Best time to play Free Fly', href: '/best-time-to-play-free-fly/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Best Time to Play Free Fly (Get a Fair First Impression)"
+        alt="Best time to play Free Fly"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -59,9 +57,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">Best Time to Play Star Citizen Free Fly</h1>
-          <p class="lead" style="max-width: 820px;">Want a fairer Free Fly first impression? This page helps you pick calmer sessions, avoid the busiest windows, and reduce event-related frustration.</p>
+          <div class="kicker"><span class="dot"></span> Timing</div>
+          <h1 class="h1">Best time to play Free Fly</h1>
+          <p class="lead" style="max-width: 820px;">This page only solves the timing question: how to avoid the worst Free Fly chaos so your first test feels fairer and less dominated by queues, crowded hubs, and overloaded sessions.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -74,10 +72,12 @@ const faqItems = [
 
     <ReferralBanner
       code={referralCode}
-      bonus="50,000"
-      ctaLabel="Claim your start bonus"
+      bonus={`${REFERRAL_BONUS_UEC} UEC`}
+      ctaLabel="Create account + claim bonus"
       ctaHref={referralLink}
       ctaExternal={true}
+      howItWorksHref="/star-citizen-referral-code/"
+      sublineHtml="Account setup is the easy part. The harder part is picking a Free Fly session that gives you a fair first impression."
     />
 
     <section id="quick-answer" class="section">
@@ -85,15 +85,15 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Quick take</div>
-          <p class="lead" style="margin-top:10px;">You can’t control global server load — but you can choose conditions that usually feel smoother.</p>
+          <div class="kicker"><span class="dot"></span> Better timing</div>
+          <p class="lead" style="margin-top:10px;">You cannot control global server load, but you can avoid giving the busiest possible moment the power to decide whether the game is for you.</p>
         </div>
 
         <ul class="bullets">
-          <li>One smoother session tells you more than forcing the busiest hour and leaving frustrated.</li>
-          <li>You can’t control global server load — but you <b>can</b> choose conditions that usually feel smoother.</li>
-<li>Best principle: do your first session when you can <b>take your time</b> and avoid the biggest crowds.</li>
-<li>If queues/lag dominate, treat it as a test variable: switch region, pick a calmer starting area, and try again.</li>
+          <li><b>One calmer session beats one chaotic peak-hour session.</b> Your goal is a fair read, not maximum event exposure.</li>
+          <li><b>Keep the first loop short and repeatable.</b> That makes it easier to compare regions, times, and session quality without getting trapped in a long bad run.</li>
+          <li><b>This page only solves timing.</b> If you are already in a rough session, the queues-and-lag page is the narrower answer.</li>
+          <li><b>If every session still feels rough,</b> stop treating it as a timing-only problem and check performance next.</li>
         </ul>
       </div>
     </section>
@@ -102,31 +102,31 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
-          <li><b>Pick a region closest to you</b> first, then try the next best region if the session feels unstable.</li>
-<li><b>Avoid the busiest hubs for your first loop</b> — start where you can reach the spaceport quickly and leave.</li>
-<li><b>Do one short contract</b> so you can restart if the session is bad (don’t commit to long multi-stop jobs).</li>
-<li><b>If the server feels rough</b>, hop: new server session, or new region, then repeat the same short loop.</li>
-<li><b>Only then</b> decide if the game “runs well enough” on your setup.</li>
+          <li><b>Start with the closest region</b> and keep your first loop short enough to repeat elsewhere if needed.</li>
+          <li><b>Avoid the busiest hubs for your first judgment call</b> and leave the city as quickly as you reasonably can.</li>
+          <li><b>Test when you can take your time</b> instead of forcing the game into one rushed, crowded peak moment.</li>
+          <li><b>If the session is bad, hop early</b> to a new session or region rather than wasting the whole trial proving the same point.</li>
+          <li><b>Only then decide whether the timing improved enough</b> to make the trial feel fair.</li>
         </ol>
       </div>
     </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">What usually goes wrong</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Testing only during peak chaos</b></td><td>You conclude the game is always like this.</td><td>Retry with a short loop on a different region/session.</td></tr>
-<tr><td><b>Staying in a bad session too long</b></td><td>You waste an hour and get nothing.</td><td>Abort early; repeat a 10–15 minute loop instead.</td></tr>
-<tr><td><b>Using performance as a “yes/no” without retest</b></td><td>You mix server issues with PC issues.</td><td>If stutter persists everywhere, run the performance checklist.</td></tr>
+              <tr><td><b>Using the worst event hour as the final verdict</b></td><td>You treat peak chaos like the normal state of the game.</td><td>Retest with one calmer session before you decide.</td></tr>
+              <tr><td><b>Staying too long in a bad session</b></td><td>You lose time and learn almost nothing new.</td><td>Abort early and repeat a short loop elsewhere.</td></tr>
+              <tr><td><b>Calling it a timing issue when it is rough everywhere</b></td><td>You miss the point where the problem might actually be setup or performance.</td><td>Move to the queues-and-lag page or the performance guide.</td></tr>
             </tbody>
           </table>
         </div>
@@ -135,11 +135,11 @@ const faqItems = [
 
     <section id="next-steps" class="section alt">
       <div class="container">
-        <h2 class="h2">Best next steps</h2>
+        <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/free-fly/">Open the full Free Fly guide</a></li>
-<li><a href="/free-fly-queues-and-server-lag-fix/">Already in a rough session? Here is what you can still control</a></li>
-<li><a href="/free-fly-first-session/">Once the server feels better, run this first-session plan</a></li>
+          <li><a href={FREE_FLY_HUB_PATH}>Open the full Free Fly guide</a> if you want the wider event path around this timing question.</li>
+          <li><a href="/free-fly-queues-and-server-lag-fix/">Already in a rough session? Use the session triage page</a> for the parts you can still control right now.</li>
+          <li><a href="/free-fly-first-session/">Run the first-session plan</a> once the timing feels fair enough to judge the game properly.</li>
         </ul>
       </div>
     </section>
@@ -155,7 +155,6 @@ const faqItems = [
             </details>
           ))}
         </div>
-        
       </div>
 
       <FaqSchema items={faqItems} />

@@ -4,51 +4,49 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_UEC, FREE_FLY_HUB_PATH, STARTER_PACKS_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
 const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
 
 const tocItems = [
   { id: "quick-answer", label: "Quick answer" },
   { id: "do-this-now", label: "Do this now" },
-  { id: "common-mistakes", label: "Common mistakes" },
+  { id: "common-mistakes", label: "What goes wrong" },
   { id: "next-steps", label: "Next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  { q: "Do I need a game package to play?", a: "Yes outside Free Fly. Free Fly is the exception that lets you play temporarily." },
-  { q: "Should I create an account during Free Fly?", a: "Yes — it keeps everything simple if you buy later." },
-  { q: "Can I use the same account if I buy later?", a: "Yes. That’s the point: trial first, then buy smart." },
-  { q: "Does Free Fly help me decide?", a: "Yes, especially if you try one clear first-session checklist instead of random chaos." },
-  { q: "Where do referral codes fit?", a: "They’re optional and only apply during signup — use them only if you’re creating a brand-new account." }
+  { q: "Do I need a game package to keep playing after Free Fly?", a: "Yes. Free Fly gives you temporary event access. To keep playing after the event, you still need a starter pack on the same RSI account." },
+  { q: "What is the most important thing I keep?", a: "The account itself is the main thing that matters. If the trial worked for you, you keep using that same account when you buy later." },
+  { q: "Does Free Fly permanently unlock the game?", a: "No. Event access ends with the event window unless you buy a starter pack afterward." },
+  { q: "Should I create the account during Free Fly?", a: "Yes. It keeps the path simple and lets you move cleanly from trial to purchase later on the same account." },
+  { q: "Where do referral codes fit?", a: `They only belong in account creation. If you want the ${REFERRAL_BONUS_UEC} UEC signup bonus, use the referral code during signup before the trial starts.` }
 ];
 ---
 
 <BaseLayout
-  title="What Do You Keep After Free Fly? | Star Citizen Beginner"
-  description="What do you keep after Free Fly? A clear answer about your account, what carries over if you buy later, and what Free Fly does not permanently unlock."
+  title="What Do You Keep After Free Fly? Account and Access | Star Citizen Beginner"
+  description="See what you actually keep after Free Fly ends: your RSI account, what temporary access does not unlock, and how the trial carries into buying later."
   canonicalPath="/free-fly-what-do-i-keep/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Free Fly: What Do You Keep? (Progress, Items, Accounts)"
-  stickyCtaLabel="Create account + claim bonus"
-  stickyCtaHref={referralLink}
-  stickyCtaExternal={true}
-  activeNav="guides"
+  ogImageAlt="What you keep after Free Fly"
+  stickyCtaLabel="Open full Free Fly guide"
+  stickyCtaHref={FREE_FLY_HUB_PATH}
+  activeNav="free-fly"
 >
   <main>
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: FREE_FLY_HUB_PATH }, { label: 'What carries over after Free Fly', href: '/free-fly-what-do-i-keep/' }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: '/free-fly/' }, { label: 'What carries over after Free Fly', href: '/free-fly-what-do-i-keep/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Free Fly: What Do You Keep? (Progress, Items, Accounts)"
+        alt="What you keep after Free Fly"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -59,9 +57,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <div class="kicker"><span class="dot"></span> After the event</div>
           <h1 class="h1">What do you keep after Free Fly?</h1>
-          <p class="lead" style="max-width: 820px;">This page answers one narrow Free Fly question: what you actually keep after the event ends, and what disappears with the trial access.</p>
+          <p class="lead" style="max-width: 820px;">This page answers one narrow Free Fly question: what actually carries over when the event ends, what disappears with temporary access, and what still matters if you buy later.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -74,10 +72,12 @@ const faqItems = [
 
     <ReferralBanner
       code={referralCode}
-      bonus="50,000"
-      ctaLabel="Claim your start bonus"
+      bonus={`${REFERRAL_BONUS_UEC} UEC`}
+      ctaLabel="Create account + claim bonus"
       ctaHref={referralLink}
       ctaExternal={true}
+      howItWorksHref="/star-citizen-referral-code/"
+      sublineHtml="Free Fly is the trial window. The account you create now is what matters later if you decide to buy."
     />
 
     <section id="quick-answer" class="section">
@@ -85,15 +85,15 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Answer</div>
-          <p class="lead" style="margin-top:10px;">Treat Free Fly progress as a test run, not as permanent account building. Keep the account and anything RSI explicitly grants, but expect temporary event access to end when the event ends.</p>
+          <div class="kicker"><span class="dot"></span> Clean expectation</div>
+          <p class="lead" style="margin-top:10px;">The most important thing you keep is the same RSI account. Free Fly access itself ends with the event, but the trial can still carry cleanly into a later starter-pack purchase on that account.</p>
         </div>
 
         <ul class="bullets">
-          <li>The most useful thing that carries forward is the same account and a clearer idea of whether you want to buy.</li>
-          <li>Free Fly lets you <b>play temporarily</b> without buying a package — it is the easiest way to test the game.</li>
-<li>Your account can still matter later: if you create it correctly, you can keep using it when you buy a starter pack.</li>
-<li>Use this page to set expectations before you decide whether buying the game makes sense for you.</li>
+          <li><b>Free Fly is temporary access.</b> It is the trial phase, not permanent ownership of the game.</li>
+          <li><b>Your account still matters.</b> If the test worked for you, keep using that same account instead of starting over later.</li>
+          <li><b>Use this page only for carry-over expectations.</b> It does not replace the full Free Fly guide or the buying guide.</li>
+          <li><b>Think in two steps:</b> trial first, then one sensible starter pack later if the game actually clicks.</li>
         </ul>
       </div>
     </section>
@@ -102,30 +102,30 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
-          <li><b>Create an account</b> (optional: apply referral code during signup to claim the bonus window).</li>
-<li><b>Play Free Fly</b> like a trial: run one clean loop, then test one extra activity you care about.</li>
-<li><b>Don’t over-optimize</b> during Free Fly — first confirm the game clicks for you.</li>
-<li><b>If you decide to buy</b>, start with the minimum starter package and upgrade later only if you keep playing.</li>
+          <li><b>Create the account correctly</b> and use the referral code during signup if you want the beginner bonus.</li>
+          <li><b>Use Free Fly like a trial</b> instead of trying to build a forever account during the event.</li>
+          <li><b>Keep the same account if you buy later</b> so your trial and purchase stay on one clean path.</li>
+          <li><b>Only move to buying after the test</b> if you actually want another session when the event is over.</li>
         </ol>
       </div>
     </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">What usually goes wrong</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Assuming Free Fly is the “full” experience</b></td><td>You expect polished stability and get frustrated.</td><td>Treat it as a trial and focus on one clean loop.</td></tr>
-<tr><td><b>Buying extra ships immediately</b></td><td>You spend money before you know your playstyle.</td><td>Start with minimum package; upgrade later.</td></tr>
-<tr><td><b>Judging based on one bad session</b></td><td>You confuse server conditions with your PC.</td><td>Retest and use the performance checklist if needed.</td></tr>
+              <tr><td><b>Treating Free Fly like permanent ownership</b></td><td>You misunderstand what the event is for and make the next decision harder than it needs to be.</td><td>Treat the event as a trial and the later starter pack as the real keep-or-skip choice.</td></tr>
+              <tr><td><b>Starting over on a new account later</b></td><td>You turn a simple path into unnecessary account confusion.</td><td>Keep using the same RSI account if the trial worked for you.</td></tr>
+              <tr><td><b>Buying too much immediately after the event</b></td><td>You spend money before you know how you actually want to play.</td><td>Start with one sensible starter pack and upgrade only later if you keep playing.</td></tr>
             </tbody>
           </table>
         </div>
@@ -136,9 +136,9 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/free-fly/">Open the full Free Fly guide</a></li>
-<li><a href="/star-citizen-starter-packs/">Buying after Free Fly? Start with one starter pack</a></li>
-<li><a href="/how-to-buy-star-citizen/">Need the clean buying path after your test? Start here</a></li>
+          <li><a href={FREE_FLY_HUB_PATH}>Open the full Free Fly guide</a> if you want the wider event context and what to test before you buy.</li>
+          <li><a href={STARTER_PACKS_PATH}>Compare one sensible starter pack</a> if Free Fly already gave you a real yes.</li>
+          <li><a href="/how-to-buy-star-citizen/">Use the clean buying path</a> if you are ready to move from trial to your first package.</li>
         </ul>
       </div>
     </section>
@@ -154,7 +154,6 @@ const faqItems = [
             </details>
           ))}
         </div>
-        
       </div>
 
       <FaqSchema items={faqItems} />

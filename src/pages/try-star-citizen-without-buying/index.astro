@@ -4,51 +4,49 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_UEC, FREE_FLY_HUB_PATH, SHOULD_YOU_BUY_PATH, PERFORMANCE_GUIDE_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
 const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Try without buying" },
-  { id: "do-this-now", label: "Free Fly test plan" },
-  { id: "common-mistakes", label: "Traps to avoid" },
+  { id: "quick-answer", label: "Quick answer" },
+  { id: "do-this-now", label: "Do this now" },
+  { id: "common-mistakes", label: "What goes wrong" },
   { id: "next-steps", label: "Next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  { q: "Do I need to buy anything to play Free Fly?", a: "No. Free Fly is designed for trying the game without buying." },
-  { q: "What should I do in my first Free Fly hour?", a: "One simple mission loop: spawn → claim ship → complete one contract → log out cleanly." },
-  { q: "What if the game runs badly?", a: "Fix performance first (SSD/RAM/settings). Otherwise you can’t judge the experience fairly." },
-  { q: "When should I buy a starter pack?", a: "Only after you’ve had at least a couple sessions you want to repeat." },
-  { q: "Where does the referral code fit in?", a: "If you want the signup bonus, enter it during account creation before you play Free Fly." }
+  { q: "Can I try Star Citizen without buying a package?", a: "Yes. The normal beginner-safe way is waiting for a Free Fly event, creating an RSI account, and using the event window as your trial run." },
+  { q: "Is this page different from the full Free Fly guide?", a: "Yes. This page only answers the narrow question of how to try the game without buying. The full Free Fly guide covers the wider event flow and what to test." },
+  { q: "What should I actually do in my first trial session?", a: "Keep it to one simple loop: get in, claim a ship, finish one easy contract, then decide whether you want another session." },
+  { q: "What if the game runs badly during the trial?", a: "Do not make your buy-or-skip decision from one rough session. Retest with a short loop and use the performance guide if the game feels rough everywhere." },
+  { q: "Where does the referral code fit?", a: `If you want the signup bonus of ${REFERRAL_BONUS_UEC} UEC, use the referral code during account creation before you start the trial.` }
 ];
 ---
 
 <BaseLayout
-  title="Try Star Citizen Without Buying | Star Citizen Beginner"
-  description="Try Star Citizen without buying: the fastest Free Fly test plan to get one good session and decide if the game is for you." 
+  title="Try Star Citizen Without Buying: Start with Free Fly | Star Citizen Beginner"
+  description="Try Star Citizen without buying by using Free Fly first. This page gives you the clean beginner path: create the account, run one fair test, then decide later."
   canonicalPath="/try-star-citizen-without-buying/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Try Star Citizen Without Buying (Free Fly Shortcut Guide) hero image"
-  stickyCtaLabel="Create account + claim bonus"
-  stickyCtaHref={referralLink}
-  stickyCtaExternal={true}
-  activeNav="guides"
+  ogImageAlt="Try Star Citizen without buying during Free Fly"
+  stickyCtaLabel="Open full Free Fly guide"
+  stickyCtaHref={FREE_FLY_HUB_PATH}
+  activeNav="free-fly"
 >
   <main>
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: FREE_FLY_HUB_PATH }, { label: 'Try without buying', href: '/try-star-citizen-without-buying/' }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: '/free-fly/' }, { label: 'Try without buying', href: '/try-star-citizen-without-buying/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Try Star Citizen Without Buying (Free Fly Shortcut Guide)"
+        alt="Try Star Citizen without buying during Free Fly"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -59,9 +57,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <div class="kicker"><span class="dot"></span> Before you buy</div>
           <h1 class="h1">Try Star Citizen without buying</h1>
-          <p class="lead" style="max-width: 820px;">Yes — usually through Free Fly. This page is the short path for people who want to test Star Citizen before spending money or choosing a starter pack.</p>
+          <p class="lead" style="max-width: 820px;">The clean beginner path is simple: wait for Free Fly, create the account correctly, run one fair test session, then decide later whether the game is worth your money.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -74,10 +72,12 @@ const faqItems = [
 
     <ReferralBanner
       code={referralCode}
-      bonus="50,000"
+      bonus={`${REFERRAL_BONUS_UEC} UEC`}
       ctaLabel="Create account + claim bonus"
       ctaHref={referralLink}
       ctaExternal={true}
+      howItWorksHref="/star-citizen-referral-code/"
+      sublineHtml="Use the code during <b>account creation</b>. Free Fly is the test phase, not the time to improvise your signup."
     />
 
     <section id="quick-answer" class="section">
@@ -85,21 +85,16 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Answer</div>
-          <p class="lead" style="margin-top:10px;">Use Free Fly as a trial run, not as your final long-term setup. Create the account correctly, test the game, then decide later whether you actually want to buy in.</p>
+          <div class="kicker"><span class="dot"></span> Short path</div>
+          <p class="lead" style="margin-top:10px;">Use Free Fly as your trial run. Get the account setup right, run one simple session, and only think about buying after the game gives you one fair yes.</p>
         </div>
 
         <ul class="bullets">
-          <li>Use Free Fly to judge the feel of the game, not to force every system into one weekend.</li>
-          <li><b>Free Fly is the easiest way to try Star Citizen without buying.</b> Your goal is not to do everything — it is to answer one simple question: “Do I enjoy this?”</li>
-<li>A good test session has 3 parts: <b>spawn → claim a ship → complete one simple contract</b>.</li>
-<li>If performance ruins the test, fix that first — otherwise your impression will not be fair.</li>
+          <li><b>Do not buy first just to test.</b> Free Fly already answers the core beginner question: do you actually want more of this?</li>
+          <li><b>Keep the trial narrow.</b> One clean loop tells you more than forcing ten systems into one chaotic evening.</li>
+          <li><b>Judge the game fairly.</b> If the session is rough because of queues, lag, or bad setup, retest before you turn that into a permanent no.</li>
+          <li><b>Use the full Free Fly guide for context.</b> This page only solves the narrow “try without buying” question.</li>
         </ul>
-
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
-          <a class="btn primary" href="/free-fly/">Open the full Free Fly guide</a>
-          <a class="btn ghost" href="/free-fly-first-session/">Need the first-hour plan instead? →</a>
-        </div>
       </div>
     </section>
 
@@ -107,30 +102,30 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
-          <li><b>Create an RSI account (optional bonus)</b> — Create your account first. If you want the signup bonus, enter the referral code during signup.</li>
-<li><b>Download + install on SSD</b> — Install on SSD/NVMe. Avoid HDD for a fair first impression.</li>
-<li><b>Run one simple loop</b> — Spawn → claim ship → take a basic delivery/entry mission → complete it once.</li>
-<li><b>Decide with clarity</b> — If you enjoyed the loop and will play again, a minimum starter pack makes sense.</li>
+          <li><b>Check whether Free Fly is active</b> and use that event window as your test instead of buying a package first.</li>
+          <li><b>Create the RSI account cleanly</b> and use the referral code during signup if you want the beginner bonus.</li>
+          <li><b>Run one short first session</b> so you can answer the real question: do you want another session after this one?</li>
+          <li><b>Only look at buying after the test</b> if the game felt good enough that you want to come back on purpose.</li>
         </ol>
       </div>
     </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">What usually goes wrong</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Trying to “see everything” in one session</b></td><td>You get overwhelmed and quit.</td><td>Do one simple loop first. Expand later.</td></tr>
-<tr><td><b>Judging the game from a laggy session</b></td><td>You mistake performance issues for gameplay.</td><td>Run the performance 10‑minute fix before deciding.</td></tr>
-<tr><td><b>Buying before you tested</b></td><td>You spend money before you know your tolerance for a sandbox.</td><td>Try Free Fly first if you’re unsure.</td></tr>
+              <tr><td><b>Treating the trial like a full hobby start</b></td><td>You overload yourself before you even know if the game clicks.</td><td>Use Free Fly only to get one fair first impression.</td></tr>
+              <tr><td><b>Judging the game from one ugly session</b></td><td>You mistake event chaos or setup issues for the whole game.</td><td>Retest with a short loop and use the performance guide if needed.</td></tr>
+              <tr><td><b>Buying before the test says yes</b></td><td>You spend money before the game has earned it.</td><td>Let Free Fly answer the trial question first, then move to buying later.</td></tr>
             </tbody>
           </table>
         </div>
@@ -141,11 +136,11 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/free-fly/">Open the full Free Fly guide</a> — best next step if you need the wider event context, signup path, and expectations.</li>
-<li><a href="/free-fly-first-session/">Use the first-hour plan</a> if you want the cleanest possible trial session.</li>
-<li><a href="/star-citizen-performance-guide/">Fix performance next</a> if lag or stutter is muddying the test.</li>
-<li><a href="/should-you-buy-star-citizen/">Use the reality check</a> if you finished the trial but still are not sure whether to spend money.</li>
-<li><a href="/how-to-buy-star-citizen/">Use the buying guide</a> only after the trial feels good and you want the minimum clean path into the game.</li>
+          <li><a href={FREE_FLY_HUB_PATH}>Open the full Free Fly guide</a> if you want the wider event path, expectations, and handoffs.</li>
+          <li><a href="/free-fly-first-session/">Run a clean first Free Fly session</a> if you want the shortest beginner-safe trial loop.</li>
+          <li><a href="/star-citizen-performance-guide/">Fix performance before you decide</a> if your trial felt rough everywhere.</li>
+          <li><a href="/should-you-buy-star-citizen/">Use the buy-or-wait reality check</a> once the test is done and you still are not sure.</li>
+          <li><a href="/how-to-buy-star-citizen/">Use the buying guide</a> only after the trial already gave you a yes.</li>
         </ul>
       </div>
     </section>
@@ -160,11 +155,6 @@ const faqItems = [
               <div class="faq__a">{item.a}</div>
             </details>
           ))}
-        </div>
-
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
-          <a class="btn primary" href="/free-fly/">Open the full Free Fly guide</a>
-          <a class="btn ghost" href="/how-to-buy-star-citizen/">Ready to buy after the trial? →</a>
         </div>
       </div>
 

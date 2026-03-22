@@ -4,51 +4,49 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_BONUS_UEC, FREE_FLY_HUB_PATH, PERFORMANCE_GUIDE_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
 const heroImg = "/assets/img/free-fly/star-citizen-free-fly-hero.webp";
 
 const tocItems = [
   { id: "quick-answer", label: "Quick answer" },
   { id: "do-this-now", label: "Do this now" },
-  { id: "common-mistakes", label: "Common mistakes" },
+  { id: "common-mistakes", label: "What goes wrong" },
   { id: "next-steps", label: "Next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  { q: "Can I fix queues with settings?", a: "No. Queues are server-side." },
-  { q: "Is lag always the server?", a: "Often, but not always. If it happens everywhere, check PC performance too." },
-  { q: "How do I know if it’s my PC?", a: "Retest the same scene after a performance change; server issues won’t respond to your settings." },
-  { q: "What’s the fastest way to get a fair test?", a: "Short loop + session/region hop if needed." },
-  { q: "Where should I go next?", a: "Use the Free Fly guide’s full checklist and the performance guide if stutter persists." }
+  { q: "Can I fix queues with graphics settings?", a: "No. Queues are server-side. Your graphics settings will not make the login line disappear." },
+  { q: "Is lag always the server?", a: "Not always. Free Fly often adds server strain, but if the game feels rough everywhere, your PC or setup can still be part of the problem." },
+  { q: "What is the fastest way to get a fairer test?", a: "Keep the loop short, leave bad sessions early, and retest after each change instead of grinding through one terrible run." },
+  { q: "When should I move to the performance guide?", a: "When the game still feels rough even after calmer sessions, region hops, and leaving the busiest areas." },
+  { q: "Should I stop Free Fly completely after one bad session?", a: "Usually no. One bad session proves that session was bad. It does not automatically prove the game is a no for you." }
 ];
 ---
 
 <BaseLayout
-  title="Free Fly Queues and Server Lag: What You Can Control | Star Citizen Beginner"
-  description="Free Fly queues and server lag: what you can control, what you cannot, and how to turn a rough session into a fair test without overthinking it."
+  title="Free Fly Queues and Lag: What You Can Still Control | Star Citizen Beginner"
+  description="Use this Free Fly lag and queue triage page to separate server chaos from real beginner problems and get one fairer Star Citizen test session."
   canonicalPath="/free-fly-queues-and-server-lag-fix/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Free Fly Queues & Server Lag (Beginner-Safe Fixes)"
-  stickyCtaLabel="Create account + claim bonus"
-  stickyCtaHref={referralLink}
-  stickyCtaExternal={true}
-  activeNav="guides"
+  ogImageAlt="Free Fly queues and lag triage"
+  stickyCtaLabel="Open full Free Fly guide"
+  stickyCtaHref={FREE_FLY_HUB_PATH}
+  activeNav="free-fly"
 >
   <main>
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: FREE_FLY_HUB_PATH }, { label: 'Queues and server lag', href: '/free-fly-queues-and-server-lag-fix/' }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Free Fly', href: '/free-fly/' }, { label: 'Queues and server lag', href: '/free-fly-queues-and-server-lag-fix/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Free Fly Queues & Server Lag (Beginner-Safe Fixes)"
+        alt="Free Fly queues and lag triage"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -59,9 +57,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">Free Fly queues and server lag fixes</h1>
-          <p class="lead" style="max-width: 820px;">Free Fly can feel rough even on a decent PC. This page shows the few things you can still control right now so you can get a fairer test session.</p>
+          <div class="kicker"><span class="dot"></span> Rough session</div>
+          <h1 class="h1">Free Fly queues and lag: what you can still control</h1>
+          <p class="lead" style="max-width: 820px;">This page is for the live rough-session moment. Queues and lag are often server-side during Free Fly, but you still have a few moves that can turn a useless session into a fairer test.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -74,10 +72,12 @@ const faqItems = [
 
     <ReferralBanner
       code={referralCode}
-      bonus="50,000"
-      ctaLabel="Claim your start bonus"
+      bonus={`${REFERRAL_BONUS_UEC} UEC`}
+      ctaLabel="Create account + claim bonus"
       ctaHref={referralLink}
       ctaExternal={true}
+      howItWorksHref="/star-citizen-referral-code/"
+      sublineHtml="The referral part is easy. The harder part is not letting one ugly Free Fly session decide the whole game for you."
     />
 
     <section id="quick-answer" class="section">
@@ -85,15 +85,15 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Quick take</div>
-          <p class="lead" style="margin-top:10px;">Queues and lag are mostly server-side. Your PC tuning won’t remove queues — but you can still get a fair test session.</p>
+          <div class="kicker"><span class="dot"></span> Session triage</div>
+          <p class="lead" style="margin-top:10px;">Queues and event lag are often not your fault. Your job here is not to “fix the servers” — it is to get one fairer test session with the few things you can still control.</p>
         </div>
 
         <ul class="bullets">
-          <li>Do not judge the whole game by one bad queue hour or one overloaded city.</li>
-          <li>Queues and lag are mostly <b>server-side</b>. Your PC tuning won’t remove queues — but you can still get a fair test session.</li>
-<li>Beginner rule: don’t waste an hour in a bad session. Run short loops and switch sessions/regions if needed.</li>
-<li>If performance feels bad everywhere, then it’s time for the PC checklist.</li>
+          <li><b>Do not waste the whole night proving the same bad session is still bad.</b> Leave early and retest instead.</li>
+          <li><b>Separate server chaos from setup problems.</b> If the game only feels rough during overloaded sessions, that tells a different story than roughness everywhere.</li>
+          <li><b>Keep the objective short.</b> A short repeatable loop is the only clean way to compare sessions and regions.</li>
+          <li><b>This page is not the performance guide.</b> Move there only when the game still feels rough outside the obvious event-chaos variables.</li>
         </ul>
       </div>
     </section>
@@ -102,31 +102,31 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
-          <li><b>Pick a short objective</b> (10–15 min): claim ship → fly → finish one short contract.</li>
-<li><b>If the session is rough</b>, switch to a new server session and repeat the same short objective.</li>
-<li><b>If it’s still rough</b>, try another region and repeat the same short objective.</li>
-<li><b>Avoid crowded hubs</b> for your first loop — leave the city quickly.</li>
-<li><b>If stutter persists</b> even in calmer scenes, run the performance baseline and retest.</li>
+          <li><b>Pick one short test loop</b> that you can repeat after each change instead of committing to a long mission.</li>
+          <li><b>If the session is awful, leave it early</b> and try a fresh session before you emotionally write off the game.</li>
+          <li><b>If that is still rough, change region</b> and repeat the same short loop so the comparison stays fair.</li>
+          <li><b>Get away from the busiest starting chaos</b> as fast as you reasonably can.</li>
+          <li><b>If the game still feels bad in calmer conditions,</b> move to the performance guide and stop guessing.</li>
         </ol>
       </div>
     </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">What usually goes wrong</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Waiting out a bad session</b></td><td>You lose time and learn nothing.</td><td>Abort early; repeat a short loop elsewhere.</td></tr>
-<tr><td><b>Mixing server lag with PC performance</b></td><td>You blame the wrong thing.</td><td>Retest: different session/region vs same scene after fixes.</td></tr>
-<tr><td><b>Starting in the busiest place every time</b></td><td>You get the worst-case experience.</td><td>Get airborne fast; test in a calmer area too.</td></tr>
+              <tr><td><b>Trying to survive one terrible session at all costs</b></td><td>You lose time, patience, and clarity without learning anything useful.</td><td>Abort early and repeat one short loop in a fresh session.</td></tr>
+              <tr><td><b>Blaming the wrong thing</b></td><td>You mix server strain, setup problems, and real game fit into one messy verdict.</td><td>Retest methodically: new session, new region, then performance checks if needed.</td></tr>
+              <tr><td><b>Starting in the most crowded place every time</b></td><td>You keep choosing the worst possible conditions for the trial.</td><td>Get airborne quickly and test at least one calmer location too.</td></tr>
             </tbody>
           </table>
         </div>
@@ -135,11 +135,11 @@ const faqItems = [
 
     <section id="next-steps" class="section alt">
       <div class="container">
-        <h2 class="h2">Best next steps</h2>
+        <h2 class="h2">Next steps</h2>
         <ul class="bullets">
-          <li><a href="/free-fly/">Open the full Free Fly guide</a></li>
-<li><a href="/best-time-to-play-free-fly/">Still trying to find a calmer session window? Use this next</a></li>
-<li><a href="/star-citizen-performance-guide/">If the game feels rough everywhere, check performance next</a></li>
+          <li><a href={FREE_FLY_HUB_PATH}>Open the full Free Fly guide</a> if you want the wider event context around this rough-session problem.</li>
+          <li><a href="/best-time-to-play-free-fly/">Pick a calmer session window</a> if the problem feels more like bad timing than a broken setup.</li>
+          <li><a href="/star-citizen-performance-guide/">Use the performance guide</a> if the game still feels rough everywhere, not just during event chaos.</li>
         </ul>
       </div>
     </section>
@@ -155,7 +155,6 @@ const faqItems = [
             </details>
           ))}
         </div>
-        
       </div>
 
       <FaqSchema items={faqItems} />
