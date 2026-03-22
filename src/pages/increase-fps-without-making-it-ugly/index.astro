@@ -12,10 +12,10 @@ const referralLink = REFERRAL_LINK;
 const heroImg = "/assets/img/star-citizen-performance-guide/star-citizen-best-settings-performance-optimization-hero.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Quick answer" },
-  { id: "do-this-now", label: "Do this now" },
-  { id: "common-mistakes", label: "Common mistakes" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "quick-answer", label: "What usually works" },
+  { id: "do-this-now", label: "What to lower first" },
+  { id: "common-mistakes", label: "Easy FPS mistakes" },
+  { id: "next-steps", label: "Best next steps" },
   { id: "faq", label: "FAQ" }
 ];
 
@@ -29,8 +29,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="How to Increase FPS in Star Citizen Without Making It Ugly | Star Citizen Beginner"
-  description="How to increase FPS in Star Citizen without making it look bad: the few settings that usually help most, plus what is rarely worth touching."
+  title="Increase FPS in Star Citizen Without Making It Ugly | Star Citizen Beginner"
+  description="Lower the few expensive settings that usually buy back FPS first, while keeping the game readable and attractive."
   canonicalPath="/increase-fps-without-making-it-ugly/"
   pageType="satellite"
   pageTier="satellite"
@@ -59,9 +59,9 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
+          <div class="kicker"><span class="dot"></span> Visuals still readable</div>
           <h1 class="h1">How to Increase FPS in Star Citizen Without Making It Ugly</h1>
-          <p class="lead" style="max-width: 820px;">Need more FPS without turning the game into mush? This page focuses on the settings that usually buy back performance first while keeping the image decent.</p>
+          <p class="lead" style="max-width: 820px;">Use this when the game is mostly stable, but you want better FPS without flattening the whole image. Start with the expensive effects first, not every slider on the page.</p>
 
           <div class="hero__cta">
             <a class="btn primary" href="#quick-answer">Start here</a>
@@ -85,8 +85,8 @@ const faqItems = [
         <h2 class="h2">Quick answer</h2>
 
         <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Quick take</div>
-          <p class="lead" style="margin-top:10px;">The trick is to cut expensive effects first, not overall detail everywhere.</p>
+          <div class="kicker"><span class="dot"></span>What usually works</div>
+          <p class="lead" style="margin-top:10px;">You usually get the cleanest FPS back from clouds, shadows, and upscaling. Leave smaller settings alone until those obvious levers are tested.</p>
         </div>
 
         <ul class="bullets">
@@ -100,7 +100,7 @@ const faqItems = [
 
     <section id="do-this-now" class="section alt">
       <div class="container">
-        <h2 class="h2">Do this now</h2>
+        <h2 class="h2">What to lower first</h2>
         <ol class="steps">
           <li><b>Lower volumetrics/clouds</b> before anything else.</li>
 <li><b>Reduce shadow distance/quality</b> (big cost, moderate visual hit).</li>
@@ -113,7 +113,7 @@ const faqItems = [
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">Easy FPS mistakes</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
@@ -137,7 +137,7 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Best next steps</h2>
         <ul class="bullets">
-          <li><a href="/star-citizen-performance-guide/">Open the full performance guide</a></li>
+          <li><a href="/star-citizen-performance-guide/">Open the full performance guide for the broader baseline</a></li>
 <li><a href="/best-settings-for-low-end-pc-star-citizen/">Weak system? Start with the low-end baseline instead</a></li>
 <li><a href="/fix-stuttering/">If the problem is hitching, use the stutter checklist</a></li>
         </ul>
