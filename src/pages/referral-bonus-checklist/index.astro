@@ -4,71 +4,37 @@ import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 
 const tocItems = [
   { id: "quick-answer", label: "One rule" },
   { id: "do-this-now", label: "Signup checklist" },
-  { id: "mistakes", label: "Avoid dead ends" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "mistakes", label: "What makes people miss it" },
+  { id: "next-steps", label: "Next step" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  {
-    "q": "When do I need the referral code?",
-    "a": "During account creation. Treat it as a one-time signup field."
-  },
-  {
-    "q": "Can I add it later?",
-    "a": "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but you should still treat signup as the real moment that matters."
-  },
-  {
-    "q": "Does it change my price?",
-    "a": "No. It’s optional and doesn’t change store pricing."
-  },
-  {
-    "q": "Do I need to buy immediately?",
-    "a": "No. Create the account with the code now and decide later (Free Fly helps)."
-  },
-  {
-    "q": "What if the field is missing?",
-    "a": "You’re likely not on the enlist/signup form. Use the official signup page."
-  },
-  {
-    "q": "Is it safe?",
-    "a": "Yes—use the official RSI signup page and don’t share passwords or payment info with anyone."
-  },
-  {
-    "q": "What’s the simplest path?",
-    "a": "Create account → verify login → follow a first session checklist → then decide on a starter pack."
-  },
-  {
-    "q": "How do I verify it worked?",
-    "a": "Using the referral link is the easiest way because it opens signup with the code already there. If you just created the account, the main referral guide explains the short backup window and where RSI says to check next."
-  },
-  {
-    "q": "What’s the biggest mistake?",
-    "a": "Creating the account first and then trying to fix it afterwards."
-  },
-  {
-    "q": "Where do I go next?",
-    "a": "Free Fly, Starter Packs, or Performance—depending on your goal."
-  }
+  { q: "When do I need the referral code?", a: "During account creation. Treat it as a one-time signup field." },
+  { q: "Can I add it later?", a: "RSI says brand-new accounts have a short 24-hour grace window after creation, but signup is still the clean path to plan around." },
+  { q: "Does it change the price?", a: "No. It is optional and it does not change starter-pack pricing." },
+  { q: "Do I need to buy immediately?", a: "No. You can create the account with the code now and buy later if the game feels worth keeping." },
+  { q: "What is the biggest mistake?", a: "Creating the account first and then trying to fix referral afterwards." }
 ];
 ---
 
 <BaseLayout
-  title="Star Citizen referral bonus checklist (don’t miss the window) | Star Citizen Beginner"
-  description="A simple signup checklist so you don’t miss the referral code window. Clear steps + the mistakes that cause dead ends."
+  title="Star Citizen Referral Signup Checklist | Star Citizen Beginner"
+  description="Use this short referral signup checklist so you do not miss the field. Clean steps, the exact spot, and the mistake that creates dead ends."
   canonicalPath="/referral-bonus-checklist/"
+  pageType="utility"
+  pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Star Citizen referral bonus checklist hero image"
+  ogImageAlt="Star Citizen referral bonus checklist for signup"
   activeNav="guides"
 >
   <main>
@@ -80,9 +46,9 @@ const faqItems = [
           { label: "Referral bonus checklist", href: "/referral-bonus-checklist/" }
         ]} />
         <div class="hero__inner">
-          <div class="kicker"><span class="dot"></span>Checklist</div>
-          <h1 class="h1">Referral bonus checklist</h1>
-          <p class="hero__lead">One job: capture the signup window so you don’t have to troubleshoot later.</p>
+          <div class="kicker"><span class="dot"></span> Signup checklist</div>
+          <h1 class="h1">Star Citizen referral signup checklist</h1>
+          <p class="hero__lead">Use this if you want the shortest clean path: get the code in during account creation, verify the account, then move on.</p>
           <div class="hero__cta">
             <a class="btn primary" href="#do-this-now">Use the checklist</a>
           </div>
@@ -92,50 +58,56 @@ const faqItems = [
       </div>
     </section>
 
-    <ReferralBanner />
+    <ReferralBanner
+      code={referralCode}
+      bonus="50,000"
+      ctaLabel="Create account + claim bonus"
+      ctaHref={referralLink}
+      ctaExternal={true}
+    />
 
     <section id="quick-answer" class="section">
       <div class="container">
         <h2 class="h2">Quick answer</h2>
 
-        <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Answer</div>
-          <p class="lead" style="margin-top:10px;">Enter a referral code <b>during account creation</b>—that’s the only moment that reliably matters.</p>
+        <div class="card pad" style="margin-bottom: 12px;">
+          <div class="kicker"><span class="dot"></span> One rule</div>
+          <p class="lead" style="margin-top: 10px;">Add the referral code during account creation. That is the one rule that keeps the rest of this simple.</p>
         </div>
 
         <ul class="bullets">
-          <li>Optional: it doesn’t change pricing. It’s just a signup bonus.</li>
-          <li>Do it once, then stop thinking about it.</li>
-          <li>Need the exact field, the short backup window, or the full FAQ? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
+          <li>Use the referral link if you want the code already filled in.</li>
+          <li>Do not wait until checkout or until you buy a starter pack.</li>
+          <li>Once the account exists, keep that same account for Free Fly or for the package you may buy later.</li>
         </ul>
       </div>
     </section>
 
     <section id="do-this-now" class="section">
       <div class="container">
-        <h2 class="h2">Do this now</h2>
+        <h2 class="h2">Signup checklist</h2>
 
         <div class="card pad">
           <div class="grid-2">
             <div>
-              <h3 class="h3">Signup checklist (5 steps)</h3>
+              <h3 class="h3">5 clean steps</h3>
               <ol class="steps">
-                <li>Open the official enlist/signup page.</li>
-                <li>Paste a referral code into the <b>Referral Code</b> field.</li>
-                <li>Create the account and verify you can log in.</li>
-                <li>Save your login details safely.</li>
-                <li>Next: choose your path (Free Fly or Starter pack).</li>
+                <li>Open the official RSI signup page.</li>
+                <li>Use the referral link or paste the code into <b>Referral Code (optional)</b>.</li>
+                <li>Create the account.</li>
+                <li>Verify your email and confirm you can log in.</li>
+                <li>Choose one next step: Free Fly, Should You Buy, or Starter Packs.</li>
               </ol>
-              <p class="muted" style="margin-top:10px;">Verify: account exists; you captured the window.</p>
+              <p class="muted" style="margin-top: 10px;">Goal: capture the signup step once so you do not have to troubleshoot later.</p>
             </div>
             <div>
               <h3 class="h3">Use this code</h3>
               <div class="codebox">{referralCode}</div>
-              <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;">
+              <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;">
                 <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
                 <a class="btn" href="/where-to-enter-referral-code/">Where to paste it</a>
               </div>
-              <p class="muted" style="margin-top:10px;">Not buying yet? Create the account now, then try <a class="link" href="/free-fly/">Free Fly</a>. Ready to spend? Use the <a class="link" href="/how-to-buy-star-citizen/">buying guide</a> next.</p>
+              <p class="muted" style="margin-top: 10px;">Not buying yet? Create the account now, then try <a class="link" href="/free-fly/">Free Fly</a>. Ready to decide? Use <a class="link" href="/should-you-buy-star-citizen/">Should You Buy?</a>.</p>
             </div>
           </div>
         </div>
@@ -144,18 +116,18 @@ const faqItems = [
 
     <section id="mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Avoid dead ends</h2>
+        <h2 class="h2">What makes people miss it</h2>
 
         <div class="table-wrap">
           <table class="table">
             <thead>
-              <tr><th>Mistake</th><th>What happens</th><th>Fix (exact)</th></tr>
+              <tr><th>Mistake</th><th>What happens</th><th>Do this instead</th></tr>
             </thead>
             <tbody>
-              <tr><td>Signing up without a code</td><td>You may lose the easy bonus window.</td><td>Enter it during account creation—don’t rely on later fixes.</td></tr>
-              <tr><td>Using the wrong page</td><td>No referral field appears.</td><td>Use the official enlist/signup page.</td></tr>
-              <tr><td>Expecting purchases to be affected</td><td>Unnecessary doubt.</td><td>Pricing doesn’t change; it’s a signup bonus only.</td></tr>
-              <tr><td>Waiting “until I buy”</td><td>You forget and miss the window.</td><td>Create the account now; buy later if you decide it’s worth it.</td></tr>
+              <tr><td>Signing up without the code</td><td>You turn a clean signup step into a recovery problem.</td><td>Enter it during account creation.</td></tr>
+              <tr><td>Using the wrong page</td><td>You do not see the referral field.</td><td>Use the official signup form or the referral link.</td></tr>
+              <tr><td>Waiting until you buy</td><td>You forget and miss the clean window.</td><td>Create the account first; buy later if the game feels worth it.</td></tr>
+              <tr><td>Expecting a discount</td><td>You think it failed when the price does not move.</td><td>Treat referral as a signup bonus only.</td></tr>
             </tbody>
           </table>
         </div>
@@ -164,22 +136,22 @@ const faqItems = [
 
     <section id="next-steps" class="section">
       <div class="container">
-        <h2 class="h2">Next steps</h2>
+        <h2 class="h2">Next step</h2>
         <div class="grid-3">
           <a class="card pad linkcard" href="/free-fly/">
-            <div class="kicker"><span class="dot"></span>Try first</div>
+            <div class="kicker"><span class="dot"></span> Try first</div>
             <h3 class="h3">Free Fly</h3>
-            <p class="muted">Try without buying, then decide with real playtime instead of guesswork.</p>
-          </a>
-          <a class="card pad linkcard" href="/star-citizen-starter-packs/">
-            <div class="kicker"><span class="dot"></span>Buy smart</div>
-            <h3 class="h3">Starter packs</h3>
-            <p class="muted">Spend the minimum and avoid beginner purchase traps.</p>
+            <p class="muted">Create the account now and test the game before you spend money.</p>
           </a>
           <a class="card pad linkcard" href="/should-you-buy-star-citizen/">
-            <div class="kicker"><span class="dot"></span>Decide</div>
+            <div class="kicker"><span class="dot"></span> Buy or wait</div>
             <h3 class="h3">Should you buy?</h3>
-            <p class="muted">A quick guide that matches your playstyle.</p>
+            <p class="muted">Use this if you still need the calm buy-or-wait decision.</p>
+          </a>
+          <a class="card pad linkcard" href="/star-citizen-starter-packs/">
+            <div class="kicker"><span class="dot"></span> Starter packs</div>
+            <h3 class="h3">Choose one sensible pack</h3>
+            <p class="muted">Move here once you know you want to keep playing.</p>
           </a>
         </div>
       </div>
@@ -197,7 +169,7 @@ const faqItems = [
           ))}
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn" href={REFERRAL_INFO_PATH}>Main referral guide</a>
         </div>

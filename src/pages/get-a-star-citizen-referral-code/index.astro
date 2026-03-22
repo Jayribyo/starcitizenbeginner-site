@@ -3,55 +3,51 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
-// Reuse an existing referral hero image (avoid new assets).
 const heroImg = "/assets/img/referral/star-citizen-referral-code-50000-uec-bonus-hero.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Fast answer" },
+  { id: "quick-answer", label: "Get the code" },
   { id: "do-this-now", label: "Copy + signup" },
-  { id: "common-mistakes", label: "Avoid losing the bonus" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "common-mistakes", label: "What usually goes wrong" },
+  { id: "next-steps", label: "Next step" },
   { id: "faq", label: "FAQ" }
 ];
 
-
 const faqItems = [
-  { q: "Where can I find a referral code?", a: "You can use any valid referral code during signup to claim the bonus. Use the code shown on this page so you don’t miss the signup window." },
-  { q: "Does it cost me anything?", a: "No. A referral code is optional and does not add fees. It only applies a signup bonus when entered during account creation." },
-  { q: "Can I enter it after I created my account?", a: "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but you should still treat account creation as the real referral step." },
-  { q: "Does it change what I can buy?", a: "No. It doesn’t change pricing or what’s in the store. It just affects the signup bonus." },
-  { q: "What should I do if I am not buying yet?", a: "Create the account now (with the code), then try Free Fly or watch guides before buying a starter pack." },
-  { q: "What if the code field is missing?", a: "You’re likely not on the account-creation form. Use the official enlist/signup page and look for the Referral Code field before finalizing your account." }
+  { q: "How do I get a Star Citizen referral code?", a: "Get a valid code before you open signup, then use it during account creation. This page gives you one directly so you do not have to keep hunting for it." },
+  { q: "Do I need a referral code to create an account?", a: "No. It is optional. Use one only if you want the signup bonus." },
+  { q: "Does the code cost anything?", a: "No. It does not add fees and it does not change the price." },
+  { q: "Can I add it later?", a: "RSI says brand-new accounts have a short 24-hour grace window after creation, but signup is still the normal path to plan around." },
+  { q: "What should I do after I create the account?", a: "Keep that same account for Free Fly or for the starter pack you may buy later." }
 ];
 ---
 
 <BaseLayout
-  title="Where to Get a Star Citizen Referral Code Before Signup | Star Citizen Beginner"
-  description={`Get Star Citizen referral code ${referralCode} before signup, use it during account creation, and start with the 50,000 UEC new-player bonus.`}
+  title="Where to Get a Star Citizen Referral Code | Star Citizen Beginner"
+  description="Get one valid Star Citizen referral code before signup, use it during account creation, and keep the rest simple."
   canonicalPath="/get-a-star-citizen-referral-code/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Where to get a Star Citizen referral code"
+  ogImageAlt="Get a Star Citizen referral code before signup"
   stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
   activeNav="guides"
 >
   <main>
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Referral code", href: REFERRAL_INFO_PATH }, { label: "Get a referral code", href: "/get-a-star-citizen-referral-code/" }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Referral code', href: REFERRAL_INFO_PATH }, { label: 'Get a referral code', href: '/get-a-star-citizen-referral-code/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Where to get a Star Citizen referral code before signup"
+        alt="Get a Star Citizen referral code before signup"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -62,12 +58,12 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">Where to get a Star Citizen referral code before signup</h1>
-          <p class="lead" style="max-width: 820px;">If you just need a valid referral code and the one signup moment when it matters, this is the short version. Take the code, use it during account creation, then move on.</p>
+          <div class="kicker"><span class="dot"></span> Before signup</div>
+          <h1 class="h1">Where to get a Star Citizen referral code</h1>
+          <p class="lead" style="max-width: 820px;">Need one valid code before signup? Use the code below during account creation, then move on.</p>
 
           <div class="hero__cta">
-            <a class="btn primary" href="#quick-answer">Start here</a>
+            <a class="btn primary" href="#quick-answer">Get the code</a>
           </div>
         </div>
 
@@ -87,20 +83,19 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Quick answer</h2>
 
-        <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Answer</div>
-          <p class="lead" style="margin-top:10px;">Use referral code {referralCode} during account creation if you want the signup bonus. You do not need a bigger referral explanation unless you are troubleshooting timing or the field itself.</p>
+        <div class="card pad" style="margin-bottom: 12px;">
+          <div class="kicker"><span class="dot"></span> Get the code</div>
+          <p class="lead" style="margin-top: 10px;">Use referral code {referralCode} during account creation if you want the signup bonus. This page only solves the code-source question.</p>
         </div>
 
         <ul class="bullets">
-          <li>Grab the code before you start signup so the whole account-creation flow stays simple.</li>
-          <li>Use a valid referral code during signup so you do not miss the bonus window.</li>
-          <li>Enter the code <b>during account creation</b> — that is the whole referral step.</li>
-          <li>Need the exact field, the short backup window, or the full FAQ? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
-          <li>It is optional and does not change your price — only your starting bonus.</li>
+          <li>Take the code before you start signup so you do not have to interrupt the flow later.</li>
+          <li>The referral link is the easiest option because it opens signup with the code already filled in.</li>
+          <li>The code is optional and it does not change your price.</li>
+          <li>Need the exact field or the 24-hour backup window? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
         </ul>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn ghost" href={REFERRAL_INFO_PATH}>Need the full referral guide? →</a>
         </div>
@@ -109,52 +104,64 @@ const faqItems = [
 
     <section id="do-this-now" class="section alt">
       <div class="container">
-        <h2 class="h2">Do this now</h2>
+        <h2 class="h2">Copy + signup</h2>
 
-<div class="card pad">
-  <div class="grid-2">
-    <div>
-      <h3 class="card__title">10‑minute setup</h3>
-      <ol class="steps">
-        <li>Open the official account creation page.</li>
-        <li>Paste a referral code into the <b>Referral Code</b> field.</li>
-        <li>Create your account (don’t skip this step “for later”).</li>
-        <li>Verify you’re logged in and your account exists.</li>
-      </ol>
-      <p class="muted" style="margin-top:10px;">Verify: you should have an active account and the referral field is no longer needed.</p>
-    </div>
-    <div>
-      <h3 class="card__title">Use this code</h3>
-      <div class="codePillRow">
-        <button class="codePill js-copyCode" type="button" aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;">
-        <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
-        <a class="btn" href="/where-to-enter-referral-code/">Where to paste it</a>
-      </div>
-      <p class="muted" style="margin-top:10px;">If you plan to try Free Fly first, you can still create the account now and buy later.</p>
-    </div>
-  </div>
-</div>
+        <div class="card pad">
+          <div class="grid-2">
+            <div>
+              <h3 class="card__title">Use this code</h3>
+              <div class="codePillRow">
+                <button class="codePill js-copyCode" type="button" aria-label={`Copy referral code ${referralCode} to clipboard`} title="Click to copy">{referralCode}</button>
+              </div>
+              <p class="muted" style="margin-top: 10px;">Use it during account creation, not later in checkout.</p>
+            </div>
+            <div>
+              <h3 class="card__title">Do this now</h3>
+              <ol class="steps">
+                <li>Open the official signup page.</li>
+                <li>Use the referral link or paste the code into “Referral Code (optional)”.</li>
+                <li>Create the account and verify your email.</li>
+                <li>Keep that same account for Free Fly or for the package you may buy later.</li>
+              </ol>
+            </div>
+          </div>
 
-</section>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;">
+            <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
+            <a class="btn" href="/where-to-enter-referral-code/">Where to paste it</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">What usually goes wrong</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Creating the account first</b></td><td>You miss the reliable signup window.</td><td>Enter the code <b>before</b> you submit the signup form.</td></tr>
-<tr><td><b>Typing the code with missing characters</b></td><td>The code won’t apply.</td><td>Copy/paste the code; avoid extra spaces.</td></tr>
-<tr><td><b>Expecting the bonus to change store pricing</b></td><td>It doesn’t change what you pay.</td><td>Think of it as a small starting credit boost, not a discount.</td></tr>
+              <tr>
+                <td><b>Starting signup first</b></td>
+                <td>You rush through the form and forget the referral step.</td>
+                <td>Get the code before you open signup.</td>
+              </tr>
+              <tr>
+                <td><b>Waiting until checkout</b></td>
+                <td>You look for a field that does not belong there.</td>
+                <td>Use the code during account creation.</td>
+              </tr>
+              <tr>
+                <td><b>Thinking the code changes the price</b></td>
+                <td>You hesitate for the wrong reason.</td>
+                <td>Treat it as a signup bonus only.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -163,14 +170,13 @@ const faqItems = [
 
     <section id="next-steps" class="section alt">
       <div class="container">
-        <h2 class="h2">Next steps</h2>
+        <h2 class="h2">Next step</h2>
 
         <ul class="bullets">
-          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full referral answer: where to paste it, what it changes, and what RSI currently says.</li>
           <li><a href="/where-to-enter-referral-code/">Where to enter the code</a> — use this if you only want the exact signup field.</li>
           <li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest clean signup path.</li>
-          <li><a href="/free-fly/">Free Fly</a> — create the account now and decide later with real playtime.</li>
-          <li><a href="/how-to-buy-star-citizen/">How to buy Star Citizen</a> — use this after signup when you are ready for the actual purchase flow.</li>
+          <li><a href="/free-fly/">Free Fly</a> — create the account now and test the game before you spend money.</li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full answer on timing, bonus, and the backup window.</li>
         </ul>
       </div>
     </section>
@@ -178,7 +184,7 @@ const faqItems = [
     <section id="faq" class="section">
       <div class="container">
         <h2 class="h2">FAQ</h2>
-        <div class="faq" style="margin-top:12px;">
+        <div class="faq" style="margin-top: 12px;">
           {faqItems.map((item) => (
             <details class="faq__item">
               <summary class="faq__q">{item.q}</summary>
@@ -187,7 +193,7 @@ const faqItems = [
           ))}
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn ghost" href={REFERRAL_INFO_PATH}>Need the full referral guide? →</a>
         </div>

@@ -3,8 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH } from "../../config/site";
 
 const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
@@ -12,43 +12,43 @@ const referralLink = REFERRAL_LINK;
 const heroImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Where to paste it" },
-  { id: "do-this-now", label: "Exact steps" },
-  { id: "common-mistakes", label: "Mistakes to avoid" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "quick-answer", label: "Exact field" },
+  { id: "do-this-now", label: "Steps" },
+  { id: "common-mistakes", label: "What usually goes wrong" },
+  { id: "next-steps", label: "Next step" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  { q: "Do I have to use a referral code?", a: "No. It’s optional. If you use one, do it during account creation so you don’t have to think about it again." },
-  { q: "Does it cost money?", a: "No. Entering a code is free." },
-  { q: "Does it change the price of a starter pack?", a: "No. It doesn’t affect store pricing." },
-  { q: "Can I use it during Free Fly?", a: "Yes — create the account first (with the code), then play Free Fly later." },
-  { q: "What if I already created my account?", a: "RSI’s current referral FAQ mentions a short 24-hour grace window for brand-new accounts, but it is still better to treat signup as the real moment and use the main referral guide if you need that backup path." }
+  { q: "Where do I enter a Star Citizen referral code?", a: "On the RSI signup form, in the \"Referral Code (optional)\" field, before you create the account." },
+  { q: "Can I use the referral link instead of typing the code?", a: "Yes. RSI says the referral link is the preferred method because it opens signup with the code already filled in." },
+  { q: "Does the code change the price?", a: "No. It is not a discount code. It only adds the signup bonus." },
+  { q: "What if I already created the account?", a: "RSI says brand-new accounts have a short 24-hour grace window after creation. Check your account summary right away instead of treating that as the normal path." },
+  { q: "Do I need to buy right away?", a: "No. You can create the account with the code now, then try Free Fly or buy later if the game feels worth keeping." }
 ];
 ---
 
 <BaseLayout
-  title="Where to Enter a Star Citizen Referral Code (Exact Signup Step) | Star Citizen Beginner"
-  description={`Use referral code ${referralCode} on the RSI account-creation page before you finish signup. This page shows exactly where to enter it.`}
+  title="Where to Enter a Star Citizen Referral Code | Star Citizen Beginner"
+  description={`Find the \"Referral Code (optional)\" field on the RSI signup form, paste referral code ${referralCode} before account creation, and keep the next step simple.`}
   canonicalPath="/where-to-enter-referral-code/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Where to Enter a Star Citizen Referral Code (Exact Signup Step) hero image"
+  ogImageAlt="Where to enter a Star Citizen referral code during signup"
   stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
   activeNav="guides"
 >
   <main>
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Referral code", href: REFERRAL_INFO_PATH }, { label: "Where to enter the code", href: "/where-to-enter-referral-code/" }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Referral code', href: REFERRAL_INFO_PATH }, { label: 'Where to enter the code', href: '/where-to-enter-referral-code/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Where to Enter a Star Citizen Referral Code (Exact Signup Step)"
+        alt="Where to enter a Star Citizen referral code during signup"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -59,12 +59,12 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">Where to Enter a Star Citizen Referral Code (Exact Signup Step)</h1>
-          <p class="lead" style="max-width: 820px;">If you only need the exact signup field, this is the short answer. Enter referral code {referralCode} before you submit the RSI account creation form, then move on.</p>
+          <div class="kicker"><span class="dot"></span> During signup</div>
+          <h1 class="h1">Where to enter a Star Citizen referral code</h1>
+          <p class="lead" style="max-width: 820px;">Need the exact field and nothing else? Use “Referral Code (optional)” on the RSI signup form before you create the account, then verify your email and move on.</p>
 
           <div class="hero__cta">
-            <a class="btn primary" href="#quick-answer">Start here</a>
+            <a class="btn primary" href="#quick-answer">Show me the field</a>
           </div>
         </div>
 
@@ -84,19 +84,19 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Quick answer</h2>
 
-        <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Answer</div>
-          <p class="lead" style="margin-top:10px;">Paste referral code {referralCode} into the signup form before you create the account. That is the only moment that really matters.</p>
+        <div class="card pad" style="margin-bottom: 12px;">
+          <div class="kicker"><span class="dot"></span> Exact field</div>
+          <p class="lead" style="margin-top: 10px;">Enter referral code {referralCode} in “Referral Code (optional)” before you submit the RSI signup form. That is the clean version to plan around.</p>
         </div>
 
         <ul class="bullets">
-          <li>The easiest path is the referral link because it opens signup with the code already there.</li>
-          <li><b>Enter the referral code during RSI account creation</b> — before you submit the form.</li>
-<li>It is a one-time signup step: do it once, then move on to Free Fly or your first pack later.</li>
-<li>Need the bigger picture? The <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a> covers the field, the backup window, and the common mistakes in one place.</li>
+          <li>The easiest path is the referral link because it opens signup with the code already filled in.</li>
+          <li>If you type it manually, use the field on the signup form before you create the account.</li>
+          <li>After signup, verify your email and keep the same account for Free Fly or for a starter pack later.</li>
+          <li>Need the wider referral answer? Use the <a class="link" href={REFERRAL_INFO_PATH}>main referral guide</a>.</li>
         </ul>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn ghost" href={REFERRAL_INFO_PATH}>Need the full referral guide? →</a>
         </div>
@@ -107,30 +107,42 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Do this now</h2>
         <ol class="steps">
-          <li><b>Open the RSI signup page</b> — Use the official account creation flow (new account).</li>
-<li><b>Find the referral code field</b> — It’s on the signup form — enter the code before you submit.</li>
-<li><b>Create the account</b> — Submit the signup form normally.</li>
-<li><b>Verify once</b> — Log into your RSI account and confirm the referral/signup bonus status if visible.</li>
+          <li><b>Open the RSI signup page</b> — the referral link is the easiest version because the code is already there.</li>
+          <li><b>Find “Referral Code (optional)”</b> — if you are entering it manually, paste the code into that field before you submit the form.</li>
+          <li><b>Create the account</b> — finish signup normally.</li>
+          <li><b>Verify your email</b> — then keep that same account for Free Fly or for the package you may buy later.</li>
         </ol>
       </div>
     </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">What usually goes wrong</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Creating the account first</b></td><td>You miss the reliable signup window.</td><td>Enter the code <b>before</b> you submit the signup form.</td></tr>
-<tr><td><b>Typing the code with missing characters</b></td><td>The code won’t apply.</td><td>Copy/paste the code; avoid extra spaces.</td></tr>
-<tr><td><b>Expecting the bonus to change store pricing</b></td><td>It doesn’t change what you pay.</td><td>Think of it as a small starting credit boost, not a discount.</td></tr>
+              <tr>
+                <td><b>Creating the account first</b></td>
+                <td>You miss the clean signup step and turn it into a recovery problem.</td>
+                <td>Enter the code before you submit the signup form.</td>
+              </tr>
+              <tr>
+                <td><b>Looking for a checkout field</b></td>
+                <td>You think the code failed because nothing shows up in the cart.</td>
+                <td>Use the signup form, not checkout. Referral is an account-creation step.</td>
+              </tr>
+              <tr>
+                <td><b>Typing the code from memory</b></td>
+                <td>A small typo can block it.</td>
+                <td>Copy and paste the code or use the referral link.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -139,13 +151,12 @@ const faqItems = [
 
     <section id="next-steps" class="section alt">
       <div class="container">
-        <h2 class="h2">Next steps</h2>
+        <h2 class="h2">Next step</h2>
         <ul class="bullets">
-          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full referral answer: exact field, bonus, backup window, and FAQ.</li>
-<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest no-mistakes path if you want to finish signup cleanly.</li>
-<li><a href="/does-referral-code-change-price/">Does a referral code change the price?</a> — quick answer if that is your last hesitation.</li>
-<li><a href="/free-fly/">Free Fly</a> — create the account now and try the game before you spend money.</li>
-<li><a href="/how-to-buy-star-citizen/">How to buy Star Citizen</a> — use this after signup when you are ready for the actual buying flow.</li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full answer on timing, bonus, and the 24-hour backup window.</li>
+          <li><a href="/can-you-add-referral-code-after-signup/">Can you add it after signup?</a> — use this if the account already exists.</li>
+          <li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest clean signup path.</li>
+          <li><a href="/free-fly/">Free Fly</a> — create the account now and decide later with real playtime.</li>
         </ul>
       </div>
     </section>
@@ -153,7 +164,7 @@ const faqItems = [
     <section id="faq" class="section">
       <div class="container">
         <h2 class="h2">FAQ</h2>
-        <div class="faq" style="margin-top:12px;">
+        <div class="faq" style="margin-top: 12px;">
           {faqItems.map((item) => (
             <details class="faq__item">
               <summary class="faq__q">{item.q}</summary>
@@ -162,7 +173,7 @@ const faqItems = [
           ))}
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn ghost" href={REFERRAL_INFO_PATH}>Need the full referral guide? →</a>
         </div>
