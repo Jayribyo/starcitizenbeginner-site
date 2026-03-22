@@ -3,52 +3,50 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReferralBanner from "../../components/ReferralBanner.astro";
 import OnThisPage from "../../components/OnThisPage.astro";
 import FaqSchema from "../../components/FaqSchema.astro";
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { REFERRAL_CODE, REFERRAL_LINK, REFERRAL_INFO_PATH, REFERRAL_BONUS_UEC, FLY_FREE_URL } from "../../config/site";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { REFERRAL_LINK, REFERRAL_INFO_PATH } from "../../config/site";
 
-const referralCode = REFERRAL_CODE;
 const referralLink = REFERRAL_LINK;
-
 const heroImg = "/assets/img/referral/star-citizen-referral-signup-field.webp";
 
 const tocItems = [
-  { id: "quick-answer", label: "Fast diagnosis" },
+  { id: "quick-answer", label: "3 things to check" },
   { id: "do-this-now", label: "Fix checklist" },
   { id: "common-mistakes", label: "Common causes" },
-  { id: "next-steps", label: "Next steps" },
+  { id: "next-steps", label: "Next step" },
   { id: "faq", label: "FAQ" }
 ];
 
 const faqItems = [
-  { q: "I entered the code but don’t see anything — what now?", a: "First verify timing and the exact code. Then check your RSI account status. If the account is brand-new, RSI’s current referral FAQ also mentions a short backup window in the account summary." },
-  { q: "Does the referral bonus reduce store prices?", a: "No." },
-  { q: "Can I fix it by buying a starter pack?", a: "Buying later doesn’t retroactively apply the signup bonus." },
-  { q: "Should I contact support?", a: "If you entered the code during signup and can show it didn’t apply, support may clarify. If you did not enter it during signup, support usually can’t retroactively add it." },
-  { q: "What should I do if I am still undecided?", a: "Play Free Fly (or follow the first-session checklist) and only buy the minimum starter pack if you keep coming back." }
+  { q: "My referral code is not working. What should I check first?", a: "Check timing first, then the exact code, then your RSI account summary. Most failures come from creating the account without the code or checking the wrong place." },
+  { q: "Can a starter-pack purchase fix it later?", a: "No. Buying later does not retroactively add the signup bonus." },
+  { q: "What if the account is brand-new?", a: "RSI says brand-new accounts have a short 24-hour grace window after creation. Check the referral entry box in your account summary right away." },
+  { q: "Should I contact support?", a: "Only after you confirm timing and the correct field. RSI says support cannot add a referral code after the account is created." },
+  { q: "Does a referral code change the price?", a: "No. It is not a discount code." }
 ];
 ---
 
 <BaseLayout
-  title="Referral Code Not Working? Quick Fix Checklist | Star Citizen Beginner"
-  description="Referral code not working? Check the signup step, code entry, and account status first. This page walks through the usual causes and fixes."
+  title="Star Citizen Referral Code Not Working? 3 Things to Check | Star Citizen Beginner"
+  description="Check timing, the signup field, and your account summary first. Most referral problems come from one of those three, not from a broken code."
   canonicalPath="/referral-code-not-working/"
   pageType="satellite"
   pageTier="satellite"
   ogImage={heroImg}
-  ogImageAlt="Referral Code Not Working? Quick Fix Checklist hero image"
+  ogImageAlt="Star Citizen referral code not working"
   stickyCtaLabel="Create account + claim bonus"
   stickyCtaHref={referralLink}
   stickyCtaExternal={true}
   activeNav="guides"
 >
   <main>
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Referral code", href: REFERRAL_INFO_PATH }, { label: "Referral code not working", href: "/referral-code-not-working/" }]} />
 
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Referral code', href: REFERRAL_INFO_PATH }, { label: 'Referral code not working', href: '/referral-code-not-working/' }]} />
     <section class="hero guideHero">
       <img
         class="hero__img"
         src={heroImg}
-        alt="Referral Code Not Working? Quick Fix Checklist"
+        alt="Star Citizen referral code not working"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -59,12 +57,12 @@ const faqItems = [
 
       <div class="hero__content">
         <div class="guideHero__content">
-          <div class="kicker"><span class="dot"></span> Starter Guide</div>
-          <h1 class="h1">Referral Code Not Working? Quick Fix Checklist</h1>
-          <p class="lead" style="max-width: 820px;">If your referral bonus did not apply, do not guess. This page gives you the short troubleshooting path so you can verify timing, field, and account status in a few minutes.</p>
+          <div class="kicker"><span class="dot"></span> Quick fix</div>
+          <h1 class="h1">Star Citizen referral code not working?</h1>
+          <p class="lead" style="max-width: 820px;">Most referral problems are not mysterious. They usually come down to timing, the wrong field, or expecting a checkout discount instead of a signup-side result.</p>
 
           <div class="hero__cta">
-            <a class="btn primary" href="#quick-answer">Start here</a>
+            <a class="btn primary" href="#quick-answer">Check the 3 things</a>
           </div>
         </div>
 
@@ -73,7 +71,6 @@ const faqItems = [
     </section>
 
     <ReferralBanner
-      code={referralCode}
       bonus="50,000"
       ctaLabel="Create account + claim bonus"
       ctaHref={referralLink}
@@ -84,19 +81,19 @@ const faqItems = [
       <div class="container">
         <h2 class="h2">Quick answer</h2>
 
-        <div class="card pad" style="margin-bottom:12px;">
-          <div class="kicker"><span class="dot"></span>Answer</div>
-          <p class="lead" style="margin-top:10px;">Most “not working” cases come down to three simple causes: wrong timing, wrong entry, or expecting an immediate in-game change instead of a signup-side result.</p>
+        <div class="card pad" style="margin-bottom: 12px;">
+          <div class="kicker"><span class="dot"></span> 3 things to check</div>
+          <p class="lead" style="margin-top: 10px;">Check these in order: when you entered the code, whether you used the signup field, and whether a brand-new account still shows the short recovery box in the RSI account summary.</p>
         </div>
 
         <ul class="bullets">
-          <li>Most “not working” cases come down to one of three things: <b>code entered after signup</b>, <b>typo/spacing</b>, or <b>expecting an instant in-game change</b>.</li>
-<li>If the account is brand-new, check the RSI account summary right away because the current referral FAQ mentions a short backup window there.</li>
-<li>Work in this order: <b>timing → exact code → account status</b>.</li>
-<li>If the field is already gone, stop troubleshooting loops and move on with the normal beginner path.</li>
+          <li>If you created the account without the code, that is the main problem to solve first.</li>
+          <li>If the account is brand-new, check the bottom of the account summary panel right away for the 24-hour recovery box RSI documents.</li>
+          <li>If you were expecting a cheaper cart or checkout change, the code is working against the wrong expectation. It is not a discount code.</li>
+          <li>If the recovery box is gone, stop looping and move on with the account you already have.</li>
         </ul>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn ghost" href={REFERRAL_INFO_PATH}>Need the full referral guide? →</a>
         </div>
@@ -105,32 +102,44 @@ const faqItems = [
 
     <section id="do-this-now" class="section alt">
       <div class="container">
-        <h2 class="h2">Do this now</h2>
+        <h2 class="h2">Fix checklist</h2>
         <ol class="steps">
-          <li><b>Confirm when you entered the code</b> — If it was not during account creation, the normal signup path was already missed.</li>
-<li><b>Confirm the exact code</b> — Copy/paste. No extra spaces. Correct characters.</li>
-<li><b>Check your RSI account summary</b> — If the account is still brand-new, look for the short referral entry option RSI mentions in the current FAQ.</li>
-<li><b>Manage expectations</b> — The bonus is a signup credit. It doesn’t affect store pricing or instantly change gameplay.</li>
+          <li><b>Confirm the timing</b> — did you enter the code during account creation, or are you already in recovery territory?</li>
+          <li><b>Confirm the field</b> — referral belongs on the signup form, not at checkout.</li>
+          <li><b>Confirm the exact code</b> — use copy and paste or the referral link instead of typing from memory.</li>
+          <li><b>Check the account summary</b> — if the account is brand-new, look for the short recovery box RSI mentions.</li>
         </ol>
       </div>
     </section>
 
     <section id="common-mistakes" class="section">
       <div class="container">
-        <h2 class="h2">Common mistakes (and exact fixes)</h2>
+        <h2 class="h2">Common causes</h2>
         <div class="tableWrap">
           <table class="table">
             <thead>
               <tr>
                 <th>Mistake</th>
                 <th>What happens</th>
-                <th>Fix (exact)</th>
+                <th>Do this instead</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><b>Mixing up store promo codes with referral codes</b></td><td>You look in the wrong place and assume it failed.</td><td>Referral codes are entered during <b>account creation</b>, not at checkout.</td></tr>
-<tr><td><b>Checking only in-game and not on RSI account</b></td><td>You miss the actual status signal.</td><td>Verify via RSI account first; then play normally.</td></tr>
-<tr><td><b>Creating multiple accounts to “fix it”</b></td><td>You create a messy ownership situation.</td><td>Keep one account. Use the correct step next time.</td></tr>
+              <tr>
+                <td><b>Using it like a promo code</b></td>
+                <td>You look for a cart discount that does not exist.</td>
+                <td>Use it during account creation. Referral is a signup bonus only.</td>
+              </tr>
+              <tr>
+                <td><b>Checking only in-game</b></td>
+                <td>You miss the place where the recovery option would show up.</td>
+                <td>Check the RSI account summary first.</td>
+              </tr>
+              <tr>
+                <td><b>Trying to fix it by buying</b></td>
+                <td>You spend money without solving the actual referral problem.</td>
+                <td>Separate referral timing from the buying decision.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -139,13 +148,12 @@ const faqItems = [
 
     <section id="next-steps" class="section alt">
       <div class="container">
-        <h2 class="h2">Next steps</h2>
+        <h2 class="h2">Next step</h2>
         <ul class="bullets">
-          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — exact steps, backup window, and the full FAQ.</li>
-<li><a href="/can-you-add-referral-code-after-signup/">Can you add it after signup?</a> — use this if the account already exists.</li>
-<li><a href="/referral-bonus-checklist/">Referral bonus checklist</a> — the shortest path for getting signup right next time.</li>
-<li><a href="/free-fly/">Free Fly</a> — move forward and test the game before you spend money.</li>
-<li><a href="/how-to-buy-star-citizen/">How to buy Star Citizen</a> — use this when you are ready to continue without getting stuck on the bonus.</li>
+          <li><a href="/can-you-add-referral-code-after-signup/">Can you add it after signup?</a> — use this if your real question is the 24-hour recovery box.</li>
+          <li><a href="/where-to-enter-referral-code/">Where to enter the code</a> — use this if you are still on the clean signup path.</li>
+          <li><a href="/does-referral-code-change-price/">Does the referral code change the price?</a> — use this if the real confusion is about discounts.</li>
+          <li><a href={REFERRAL_INFO_PATH}>Main referral guide</a> — the full answer on timing, bonus, and the safe next step.</li>
         </ul>
       </div>
     </section>
@@ -153,7 +161,7 @@ const faqItems = [
     <section id="faq" class="section">
       <div class="container">
         <h2 class="h2">FAQ</h2>
-        <div class="faq" style="margin-top:12px;">
+        <div class="faq" style="margin-top: 12px;">
           {faqItems.map((item) => (
             <details class="faq__item">
               <summary class="faq__q">{item.q}</summary>
@@ -162,7 +170,7 @@ const faqItems = [
           ))}
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;">
           <a class="btn primary" href={referralLink} rel="nofollow noopener" target="_blank">Create account + claim bonus</a>
           <a class="btn ghost" href={REFERRAL_INFO_PATH}>Need the full referral guide? →</a>
         </div>
